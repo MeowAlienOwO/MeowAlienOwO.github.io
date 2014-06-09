@@ -1,0 +1,121 @@
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		background-color: #CCCCFF;
+		text-align: center;
+/*		background-color: #6699CC;*/
+	}
+
+	#container{
+		font-family: Consolas, Verdana, serif;
+		text-align: left;
+		width:75%;
+		margin: 0 auto;
+	}
+
+
+	#banner{
+		text-align: center;
+	}
+
+	#banner img{
+		width: 100%;
+	}
+
+/*menu*/
+	.menu {
+		position: relative;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.menu ul{
+		padding:0;
+		margin:0;
+		list-style-type: none; 
+	}
+
+	.menu ul li {
+		float:left;
+		margin-right:0px; 
+		position:relative;
+		width: 12.5%;
+		height: 25px;
+	}
+
+	.menu ul li a:link, .menu ul li a:visited{
+		display: block;
+		text-decoration: none;
+		color: #FFFFFF;
+		width:100%; 
+		height:100%;
+		text-align:center;
+		background:#336699;
+		line-height:25px;
+		font-size:100%;
+		overflow:hidden;
+	}
+
+	.menu ul li a:hover{
+		color: #000000;
+		background-color: #99CCCC;
+		width: 100%
+	}
+	.menu ul li ul{
+		display: none;
+		width:800%;
+	}
+
+	.menu ul li:hover ul{
+		width: 100%;
+		display: block;
+		position: absolute;
+		top: 100%;
+		left: 0;
+
+	}
+	.menu ul li:hover ul li{
+		display: block;
+		width: 100%;
+
+	}
+	#content{
+		width: 100%;
+		background-color: #99CCFF;
+		color: #111111;
+		margin-top: 2px;
+		float:left;
+		font-family: Microsoft YaHei, STXihei, Consolas, Verdana, serif;
+		color: #111111;
+	}
+
+	#article {
+		width: 90%;
+		margin: auto;
+		padding: 0 5%;
+	}
+
+	#article h1 {
+		text-align: center;
+	}
+
+	#article p{
+		text-indent: 2em;
+		font-size: 125%;
+	}
+
+	#article ul{
+		text-indent: 2em;
+		font-size: 125%;
+		
+	}
+/*footer*/
+	#footer{
+		width: 100%;
+		text-align: center;
+		background-color: #99CCFF;
+	}
