@@ -99,8 +99,16 @@
 		padding: 0 5%;
 	}
 
-	#article h1 {
+	#article  h2, h3, h4, h5, h6{
+		padding-top: 3%;
+		padding-bottom: 3%;
+	}
+
+	#article h1{
+		padding-top: 3%;
+		padding-bottom: 3%;
 		text-align: center;
+		margin:auto;
 	}
 
 	#article p{
@@ -111,11 +119,16 @@
 	#article ul{
 		text-indent: 2em;
 		font-size: 125%;
+		list-style-type: none;
+		display: block;
+		border: 2px solid;
+		background-color: #99CCFF;
+		border-radius: 25px;
 
 	}
 /*footer*/
 	#footer{
 		width: 100%;
 		text-align: center;
-		background-color: #99CCFF;
+
 	}
