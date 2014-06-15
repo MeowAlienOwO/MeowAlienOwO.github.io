@@ -5,21 +5,56 @@
 	<meta name="viewport" content="wilih=device-wilih, initial-scale=1" />
 	<title>AboutMe</title>
 	<link rel="stylesheet" type="text/css" href="article.css" />
+	<script type="text/javascript">
 
+	/*	function DisplayMenu( filename){
+			var fso = new ActiveXObject("Scripting.FileSystemObject");
+			var f = fso.OpenTextFile(filename, ForReading);
+			while (!f.AtEndOfStream){
+				alert(f.ReadLine());
+			}
+
+			f.Close();
+		}*/
+		function readFile(filename){   
+		    var fso = new ActiveXObject("Scripting.FileSystemObject");   
+		    var f = fso.OpenTextFile(filename,1);   
+		    var s = "";   
+		    while (!f.AtEndOfStream)   
+		        s += f.ReadLine()+"/n";   
+		    f.Close();   
+		    return s;   
+	}   
+  
+	</script>
+
+	</style>
 </head>
 
 <body>
+
 	<div id="container">
+		
+		<script type="text/javascript">
+		/*document.write("<h1>This is a heading</h1>");
+		document.write("<p>This is a paragraph</p>");
+		*/	
+		alert(readFile("head.html"));
+
+
+		</script>
+
+	
 		<!-- header --> 
-		<div id="header">
+		<!-- <div id="header">
 			<div id="banner">
 				<img src="img\9516952.jpg">
-			</div>
+			</div> -->
 			<!-- end of header --> 
 
 
 			<!-- menu -->
-			<div class="menu">
+			<!-- <div class="menu">
 				<ul>
 					<li>
 						<a href="notes.html" id="enter" title="notes">Notes</a>
@@ -60,9 +95,9 @@
 				</ul>
 				<br />
 
-			</div>
+			</div> -->
 			<!-- end of menu -->
-		</div>
+		<!-- </div> -->
 
 		<!-- content -->
 		<div id="content">
@@ -91,7 +126,7 @@
 				<p>只要发布的相关作品同样拥有GPL许可证。</p>
 				<p>未附加许可证的项目代码，若未加说明，视同其他作品。</p>
 				<p>本人任何以非GPL许可证发布的作品，若未加说明，遵循CC协议之<a href="http://creativecommons.org/licenses/by-sa/4.0/">署名，并以相同方式共享</a>条款。
-				<p>本站所有文章、图片、视频等，若未在引用处给出相关引用信息，则统一在此给出。这些作品的所有权以及版权归属于其原作者。</p>
+				<p>本站所有文章、图片、视频等，若未在引用给出相关引用信息，则统一在此给出。这些作品的所有权以及版权归属于其原作者。</p>
 				<p>如果有任何版权相关事项，请邮件联系本人。</p>
 				<p>以下是相关引用信息：</p>
 				<ul>
