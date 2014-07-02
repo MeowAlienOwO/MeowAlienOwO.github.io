@@ -83,6 +83,8 @@
 		width: 100%;
 
 	}
+
+	
 	#content{
 		width: 100%;
 		background-color: #99CCFF;
@@ -92,6 +94,7 @@
 		font-family: Microsoft YaHei, STXihei, Consolas, Verdana, serif;
 		color: #111111;
 	}
+
 
 	#article {
 		width: 90%;

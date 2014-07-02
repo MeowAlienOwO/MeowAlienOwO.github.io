@@ -5,21 +5,40 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>MeowAlien's Home</title>
 	<link rel="stylesheet" type="text/css" href="enter.css" />
-	
+    <script src="myFunctions.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+
+    <script type="text/javascript">
+    function
+
+    $(document).ready(function(){
+        $("#enter").mouseover(function(){
+            $("img#transmission").fadeIn();
+
+
+        });
+    });
+
+    </script>
 </head>
     <body>
 
     	<div id="container">
     		<div id="header">
-    			<h1 class="center">MeowAlien's Home~(=^･ω･^)ﾉ</h1>
+    			<h1 class="center">MeowAlien's Home<br />~(=^･ω･^)ﾉ</h1>
     		</div>
+
+            <img src="img/22035708_m.jpg" id="transmission" style="display:none"/>
     		<div id="intro", class="center">
     			<p>这里是努力成为一个<a href="" title="hentai">绅士</a>的喵星人的小窝，由于正在学习中，可能出现一些bug,欢迎指出</p>
     			<p>ｍ(＿　＿)ｍ </p>
     		</div>
+            
             <div id="entrance">
                     <p>进入请戳：</p>
-                <dl>
+                    <div id="enter">ENTER</div>
+<!--                     <dl><dt><a href="javascript:void(0)" id="enter">Enter</a></dt></dl>
+ --><!--                 <dl>
                     <dt><a href="notes.html" id="enter">Notes</a></dt>
                     <dd>网上看到的好文章就会放进来，<br />当做一个小小的笔记本</dd>
                     <br />
@@ -42,7 +61,7 @@
                     <dd>一个理科宅的自白</dd>
                     <br />
 
-                </dl>
+                </dl> -->
             </div>
 	    	<div id="footer", class="center">
 	    		<p><a href="mailto:meowalien@gmail.com">Email: meowalienowo@gmail.com</a></p>
