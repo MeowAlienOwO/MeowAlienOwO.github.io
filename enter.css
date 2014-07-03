@@ -32,12 +32,22 @@
 		}
 		div#entrance{
 			color: #666666;
+			position: relative;
 			font-family: Microsoft YaHei, STXihei, Verdana, serif;
 
 		}
+		.pic {
+			width: 100%;
+		}
+		.pic img{
+			position: absolute;
+			width: 100%;
+			margin: auto;
+/*			display: none;
+*/		}
 
 
-	#enter{
+	#enter:link, #enter:visited{
 		display: block;
 		font-weight:bold;
 		font-size:100%;
@@ -50,24 +60,13 @@
 		width:140px;
 		text-decoration:none;
 	}
-/*	div#enter: {
-			display:block;
-			font-weight:bold;
-			font-size:100%;
-			font-family:Verdana, Arial, Helvetica, sans-serif;
-			color:#FFFFFF;
-			background-color:#98bf21;
-			width:140px;
-			height: 25px;
-			padding:4px;
-			text-decoration:none;
-			text-align: center;
-			margin: auto;
+	#enter:hover, #enter:active {
+		background-color:#7A991A;
 	}
 
 
 
-	#enter:hover{
+/*	#enter:hover{
 			background-color:#7A991A;
 	}*/
 		div#footer {
