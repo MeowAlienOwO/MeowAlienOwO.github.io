@@ -36,101 +36,77 @@
 
 	}
 
-	.hex{
+	.hexMenu{
 		margin: 0 auto;
 		list-style: none;
 	}
 
-
-
-
-    #testHexUp{ 
+    .HexUp{ 
 /*        content: " "; */
         width: 0; 
         height: 0; 
-        border-bottom: 30px solid #6C6; 
-        border-left: 52px solid transparent; 
-        border-right: 52px solid transparent; 
-  /*      top: -30px;*/
-/*        position: absolute;
-*/    } 
-     #Hex{
-/*     	display: block;
-*/     }
-    #testHex{ 
-/*        margin-top: 30px; 
-*/        width: 104px; 
-        height: 60px; 
+        border-bottom: 15px solid #6C6; 
+        border-left: 26px solid transparent; 
+        border-right: 26px solid transparent; 
+
+    } 
+
+    .Hex{ 
+    width: 52px; 
+        height: 30px; 
         background-color: #6C6; 
-/*        position:absolute;
-*/
-/*        position: relative;*/ 
+
     } 
      
-    #testHexDown{ 
+    .HexDown{ 
         width: 0; 
 /*        bottom: -30px;
       position:absolute;*/  
-       border-top: 30px solid #6C6; 
-        border-left: 52px solid transparent; 
-        border-right: 52px solid transparent; 
+       border-top: 15px solid #6C6; 
+        border-left: 26px solid transparent; 
+        border-right: 26px solid transparent; 
     }
 
 
-#wholeHex{
-	width:0;
-}
-	#wholeHex:hover div#testHexDown{
+/*	.wholeHex{
+		width:100%;
+	}
+	.wholeHex:hover .HexDown{
 		border-top-color: #6C6;
-/*		border-bottom-color:#6C6;
-		background-color: #6C6;*/
+		border-bottom-color:#6C6;
+		background-color: #6C6;
 
 	}
-	#wholeHex:hover div#testHex{
+	.wholeHex:hover .Hex{
 		background-color: #6C6
 
 	}
-	#wholeHex:hover div#testHexUp{
+	.wholeHex:hover .HexUp{
 		border-bottom-color: #6C6;
+	}*/
+	#menu1{
+
+		position:fixed;
+		left: 10px;
+		top: 10px;
 	}
 
 	</style>
 
 	<script type="text/javascript">
-	/*$(document).ready(function(){
-				$("#Hex").mouseover(function(){
-			$("#testHexUp").css("border-bottom","30px solid red");
-			$("#testHex").css("background-color", "red");
-			$("#testHexDown").css("border-top","30px solid red");
+	$(document).ready(function(){
+
+		$(".Hex").mouseover(function(){
+			$(".HexUp").css("border-bottom","15px solid red");
+			$(".Hex").css("background-color", "red");
+			$(".HexDown").css("border-top","15px solid red");
 		});
 
-		$("#Hex").mouseleave(function(){
-			$("#testHexUp").css("border-bottom","30px solid #6C6");
-			$("#testHex").css("background-color", "#6C6");
-			$("#testHexDown").css("border-top", "30px solid #6C6");
-		});*/
-	/*	$("#wholeHex").mouseover(function(){
-			$("#testHexUp").css("border-bottom","30px solid red");
-			$("#testHex").css("background-color", "red");
-			$("#testHexDown").css("border-top","30px solid red");
+		$(".Hex").mouseleave(function(){
+			$(".HexUp").css("border-bottom","15px solid #6C6");
+			$(".Hex").css("background-color", "#6C6");
+			$(".HexDown").css("border-top", "15px solid #6C6");
 		});
-
-		$("#wholeHex").mouseleave(function(){
-			$("#testHexUp").css("border-bottom","30px solid #6C6");
-			$("#testHex").css("background-color", "#6C6");
-			$("#testHexDown").css("border-top", "30px solid #6C6");
-		});**/
-/*		$("#testHex").mouseover(function(){
-			$("#testHexUp").css("border-bottom","30px solid red");
-			$("#testHex").css("background-color", "red");
-			$("#testHexDown").css("border-top","30px solid red");
-		});
-
-		$("#testHex").mouseleave(function(){
-			$("#testHexUp").css("border-bottom","30px solid #6C6");
-			$("#testHex").css("background-color", "#6C6");
-			$("#testHexDown").css("border-top", "30px solid #6C6");
-		});*/
 
 
 	});
@@ -144,10 +120,16 @@
 		<div id="header">
 
 			<div class="menu">
-				<div class="hex">
+				<div class="hexMenu">
 
 					<ul>					
-						<li><span id="wholeHex"><span id="Hex"><span id="testHexUp"></span><span id="testHex">自爆狂魔</span><span id="testHexDown"></span></span></span></li>
+						<li><div class="wholeHex" id="menu1">
+<!-- 								<div class="Hex"> -->
+								<div class="HexUp"></div>
+								<div class="Hex">自爆狂魔</div>
+								<div class="HexDown"></div>
+<!-- 								</div>
+ -->						</div></li>
 						<li>中二脑洞</li>
 						<li>绅士魂</li>
 						<li>花式作死</li>
@@ -161,6 +143,26 @@
 			<h1 title="hentai!">欢迎来到里世界</h1>
 			<br />
 			<p>绅士们大家好！</p>
+			I am the bone of my Loli<br />
+吾以萝莉为骨<br />
+MOE is my body<br />
+以萌为吾身<br />
+And GAL is my blood<br />
+以GAL为吾血<br />
+I have push thousands of Loli<br />
+吾曾推倒无数的萝莉<br />
+Never loss<br />
+从未失手<br />
+Nor never satisfied<br />
+亦从未满足<br />
+With stood pain to crowdsof Loli<br />
+吾独醉于萝莉之中<br />
+Yet those hands will neverhold anything<br />
+故此生已无任何意义<br />
+So as I pray 所以吾祈求<br />
+Unlimited Loli Works<br />
+无限萝莉制<br />
+
 		</div>
 
 
