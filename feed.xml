@@ -2,13 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meow&#39;s Home</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <description>三脚喵的小窝。欢迎来踩=w=
 </description>
     <link>http://MeowAlienOwO.github.com/</link>
     <atom:link href="http://MeowAlienOwO.github.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 27 Feb 2015 13:01:45 +0800</pubDate>
-    <lastBuildDate>Fri, 27 Feb 2015 13:01:45 +0800</lastBuildDate>
+    <pubDate>Fri, 27 Feb 2015 17:30:14 +0800</pubDate>
+    <lastBuildDate>Fri, 27 Feb 2015 17:30:14 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Hello World</title>
+        <description>&lt;p&gt;之前完全从零折腾过个人网站，但是后来因为拖延症以及各种各样的原因写完就
+没有搞过了（你们可以看看old-backup分支）。&lt;/p&gt;
+
+&lt;p&gt;然后MOBA项目主页用的是jekyll，感觉很不错。姑且这次个人主页尝试用jekyll
+试试，希望自己能坚持下去。&lt;/p&gt;
+
+&lt;p&gt;现在用的是自带的主题，然后希望做到如下几点：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;主题，尝试自己定制一下主题&lt;/li&gt;
+  &lt;li&gt;文章归档功能，不能所有的东西都挤在一起&lt;/li&gt;
+  &lt;li&gt;前后翻页&lt;/li&gt;
+  &lt;li&gt;评论功能&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;我有个坏习惯，搞东西的时候总想一口气搞出个高大全的，这样不行…
+总而言之，新的个人主页旅程从这里开始吧。
+是以为记。&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 Feb 2015 12:30:35 +0800</pubDate>
+        <link>http://MeowAlienOwO.github.com/2015/02/27/HelloWorld.html</link>
+        <guid isPermaLink="true">http://MeowAlienOwO.github.com/2015/02/27/HelloWorld.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
