@@ -6,9 +6,10 @@
 
 
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-family: Helvetica, Arial, sans-serif, Consolas;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
+$large-font-size: $base-font-size * 1.125;
 $base-line-height: 1.5;
 
 $spacing-unit:     30px;

@@ -1,0 +1,145 @@
+
+
+	body {
+        background-color: #111111;
+	}
+
+    #container{
+        width: 100%;
+
+        margin-top: 50px;
+    }
+
+	#article{
+	
+	    width: 75%;
+		margin: auto;
+		padding: 20px, 20px;
+		border: 2px solid;	
+		border-radius: 20px;
+		border-color: #FFFFFF;
+		background-color: #333333;
+        color: #FFFFFF;
+		margin: auto;
+		padding: 20px 20px;
+	}
+
+	.hexMenu{
+        cursor: pointer;
+		margin: 0 auto;
+		list-style: none;
+	}
+
+	.hexMenu ul {
+		list-style: none;
+	}
+    .hexMenu ul li{
+        font-size: 12px;
+        text-align: center;
+    }
+    .HexUp{ 
+        width: 0; 
+        height: 0; 
+        border-bottom: 15px solid #BBB; 
+        border-left: 26px solid transparent; 
+        border-right: 26px solid transparent; 
+
+    } 
+
+    .HexVertical{ 
+    	width: 52px; 
+        height: 30px; 
+        color: white;
+        background-color: #BBB; 
+
+    } 
+     
+    .HexDown{ 
+        width: 0;  
+        border-top: 15px solid #BBB; 
+        border-left: 26px solid transparent; 
+        border-right: 26px solid transparent; 
+    }
+
+    /*.HexRight{
+    	float: left;
+    	width:0;
+    	height:0;
+       	border-left: 15px solid #6C6;
+    	border-top: 26px solid transparent;
+    	border-bottom: 26px solid transparent;
+    }
+
+    .HexHorizontal{
+    	float: left;
+    	width:30px;
+    	height: 52px;
+    	background-color: #6c6;
+    }
+
+    .HexLeft{
+    	float: left;
+    	width: 0;
+    	height: 0;
+    	border-right: 15px solid #6C6;
+    	border-top: 26px solid transparent;
+    	border-bottom: 26px solid transparent;
+    }
+*/
+    /*    .HexRight{
+        float: left;
+        width:0;
+        height:0;
+        border-left: 15px solid #6C6;
+        border-top: 26px solid transparent;
+        border-bottom: 26px solid transparent;
+    }
+
+    .HexHorizontal{
+        float: left;
+        width:30px;
+        height: 52px;
+        background-color: #6c6;
+    }
+
+    .HexLeft{
+        float: left;
+        width: 0;
+        height: 0;
+        border-right: 15px solid #6C6;
+        border-top: 26px solid transparent;
+        border-bottom: 26px solid transparent;
+    }
+*/
+
+	.wholeHex{
+		position: fixed;
+	}
+	#menu1{
+		right: 36px;
+		top: 10px;
+	}
+
+	#menu2{
+		right: 91px;
+		top: 10px;
+	}
+
+	#menu3{
+		right: 10px;
+		top: 57px;
+	}
+
+	#menu4{
+		right: 36px;
+		top: 104px;
+	}
+
+	#menu5{
+		right: 64px;
+		top:57px;
+	}
+
+
+
+	
