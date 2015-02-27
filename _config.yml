@@ -15,7 +15,7 @@ github_username: MeowAlienOwO
 
 # Build settings
 markdown: kramdown
-
 exclude: [ '.hide.el', '*~' ]
-
 paginate: 5
+safe: false
+excerpt_separator: <!--excerpt-->
