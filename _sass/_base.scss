@@ -81,6 +81,7 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
+
 }
 
 
@@ -201,4 +202,20 @@ pre {
             fill: $grey-color;
         }
     }
+}
+
+
+/**
+ * category list
+ */
+
+.category-list {
+    /* border-width: 1px; */
+    /* border-color: $grey-color; */
+    margin: 2px;
+}
+
+.category-count{
+    font-size: $small-font-size;
+    font-color: $grey-color-light;
 }

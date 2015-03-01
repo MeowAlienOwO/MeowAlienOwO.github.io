@@ -18,9 +18,7 @@ layout: default
   <!--   {% endfor %} -->
   <!-- </ul> -->
 
-  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
-  <h1>Home</h1>
-  
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->  
   {% for category in site.categories %}
   <h2><li><a href="/categories/{{ category | first }}">
       {{ category | first }} : {{ category | last | size }}

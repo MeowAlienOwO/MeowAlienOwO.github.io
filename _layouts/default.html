@@ -5,7 +5,20 @@
 
   <body>
 
+
     {% include header.html %}
+    <div class="category-list">
+      <h4>Category</h4>
+      <ul>
+	{% for category in site.categories %}
+	<li><a href="/categories/{{ category | first }}/" title="view all posts">
+	    {{ category | first }} 
+	    <span class="category-count">({{ category | last | size }})</span></a>
+	</li>
+	{% endfor %}
+      </ul>
+    </div> 
+
 
     <div class="page-content">
       <div class="wrapper">
@@ -13,11 +26,7 @@
       </div>
     </div>
 
-    <!-- <div  class="previous-page"> -->
-    <!--   <> -->
-    <!-- </div>  -->
 
-      <!-- comments -->
 
     {% include footer.html %}
 

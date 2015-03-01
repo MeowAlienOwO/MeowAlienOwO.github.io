@@ -7,13 +7,10 @@
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col  footer-col-2">
-        <ul class="social-media-list">
+          <!-- <li>{{ site.title }}</li> -->
+          <li><a href="mailto:{{ site.email }}">
+	      {{ site.email }}
+	  </a></li>
           {% if site.github_username %}
           <li>
             <a href="https://github.com/{{ site.github_username }}">
@@ -23,7 +20,9 @@
                 </svg>
               </span>
 
-              <span class="username">{{ site.github_username }}</span>
+              <span class="username">
+		{{ site.github_username }}
+	      </span>
             </a>
           </li>
           {% endif %}
@@ -42,10 +41,16 @@
             </a>
           </li>
           {% endif %}
+
         </ul>
       </div>
 
-      <div class="footer-col  footer-col-3">
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-1">
         <p class="text">{{ site.description }}</p>
       </div>
     </div>
