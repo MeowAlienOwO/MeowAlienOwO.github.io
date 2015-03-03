@@ -4,9 +4,9 @@ title: "Hello World"
 date: "2015-02-27 12:30:35 +0800"
 categories: [hello, jekyll]
 image:
-  feature: 9516952.jpg
+  feature: 48993714_p0.jpg
   credit: pixiv
-  creditlink: "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=22035708"
+  creditlink: "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=48993714"
 
 ---
 之前完全从零折腾过个人网站，但是后来因为拖延症以及各种各样的原因写完就
