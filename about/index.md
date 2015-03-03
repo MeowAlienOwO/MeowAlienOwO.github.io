@@ -59,5 +59,5 @@ can be found on the right corner.
 
 头像：
 Avatar:
-<a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=45233821">pixiv id:45233821</a>
+<a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49071472">pixiv id:49071472</a>
 
