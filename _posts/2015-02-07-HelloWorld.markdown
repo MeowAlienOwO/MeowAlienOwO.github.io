@@ -2,17 +2,19 @@
 layout: post
 title: "Hello World"
 date: "2015-02-27 12:30:35 +0800"
-categories: hello
+categories: [hello, jekyll]
+image:
+  feature: 9516952.jpg
+  credit: pixiv
+  creditlink: "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=22035708"
+
 ---
-
-
-
 之前完全从零折腾过个人网站，但是后来因为拖延症以及各种各样的原因写完就
 没有搞过了（你们可以看看old-backup分支）。
 
 然后MOBA项目主页用的是jekyll，感觉很不错。姑且这次个人主页尝试用jekyll
 试试，希望自己能坚持下去。
-<!--excerpt-->
+
 现在用的是自带的主题，然后希望做到如下几点：
 
 1. 主题，尝试自己定制一下主题
