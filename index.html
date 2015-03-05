@@ -202,7 +202,7 @@
 <p>进程在它的生命周期中，会在不同的状态之间切换。
 一个常见的进程状态转换图如下：</p>
 
-<p><img src="http://MeowAlienOwO.github.io/images/process.jpg" alt="process.jpg" /></p>
+<p><img src="images/process.jpg" alt="process.jpg" /></p>
 
 <ul>
   <li>状态为<code>running</code> 的进程占用CPU</li>
@@ -212,6 +212,17 @@
   <li>状态为<code>terminated</code> 的进程已经结束，不过数据仍然有可能被暂时留在内存中</li>
   <li>状态为<code>suspended</code> 的进程被交换(swap)出去了</li>
 </ul>
+
+<p>状态转换包含如下：</p>
+
+<ol>
+  <li><code>new</code> -&gt; <code>ready</code>: 接纳新创建的进程</li>
+  <li><code>running</code> -&gt; <code>blocked</code>: 进程被阻塞，等待IO或者系统调用</li>
+  <li><code>ready</code> -&gt; <code>running</code>: 进程被排程器选中执行</li>
+  <li><code>block</code> -&gt; <code>ready</code>: 事件发生了，比如IO操作结束，进程回到等待状态等
+待被调用</li>
+  <li></li>
+</ol>
 
  -->
     
