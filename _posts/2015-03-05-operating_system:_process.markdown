@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "操作系统笔记一：进程"
 description:
 tags: [process, Computer Science, Operating System, note]
