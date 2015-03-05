@@ -1,4 +1,153 @@
-<p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>操作系统笔记一：进程 &#8211; Meow's Home</title>
+<meta name="description" content="三脚喵的小窝。欢迎来踩=w=">
+
+<meta name="keywords" content="process, Computer Science, Operating System, note">
+
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Open Graph -->
+<!-- <meta property="og:locale" content="en_US"> -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统笔记一：进程">
+<meta property="og:description" content="三脚喵的小窝。欢迎来踩=w=">
+<meta property="og:url" content="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/">
+<meta property="og:site_name" content="Meow's Home">
+
+
+
+
+
+<link rel="canonical" href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/">
+<link href="http://MeowAlienOwO.github.io//feed.xml" type="application/atom+xml" rel="alternate" title="Meow's Home Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io//assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://MeowAlienOwO.github.io//assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io//favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io//favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://MeowAlienOwO.github.io//">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://MeowAlienOwO.github.io//images/avatar.png" alt="MeowAlien photo" class="author-photo">
+					<h4>MeowAlien</h4>
+					<p>少做死，多做事；少说话，多poi。</p>
+
+				</li>
+				<li><a href="http://MeowAlienOwO.github.io//about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:meowalienowo@outlook.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				<li>
+					<a href="http://github.com/https://github.com/MeowAlienOwO"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://MeowAlienOwO.github.io//posts/">All Posts</a></li>
+				<li><a href="http://MeowAlienOwO.github.io//tags/">All Tags</a></li>
+				
+				<li>
+				  <a href="/categories/hello/">
+				    hello (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/jekyll/">
+				    jekyll (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/computer science/">
+				    computer science (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/operating system/">
+				    operating system (1)
+				  </a>
+				</li>
+				
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/" rel="bookmark" title="操作系统笔记一：进程">操作系统笔记一：进程</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-03-05T00:00:00+08:00">March 05, 2015</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
 统的重要内容。主要是小学期的内容，现在来总结一下。</p>
 
 <h1 id="section">计算机分时系统</h1>
@@ -45,3 +194,67 @@
 + <code>terminated</code> 状态的进程已经结束，不过数据仍然有可能被暂时留在内存中。
 + <code>suspended</code> 状态的进程被交换(swap)出去了</p>
 
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io//tags/#process" title="Pages tagged process" class="tag"><span class="term">process</span></a><a href="http://MeowAlienOwO.github.io//tags/#Computer Science" title="Pages tagged Computer Science" class="tag"><span class="term">Computer Science</span></a><a href="http://MeowAlienOwO.github.io//tags/#Operating System" title="Pages tagged Operating System" class="tag"><span class="term">Operating System</span></a><a href="http://MeowAlienOwO.github.io//tags/#note" title="Pages tagged note" class="tag"><span class="term">note</span></a></span>
+        
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://MeowAlienOwO.github.io//hello/jekyll/HelloWorld/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://MeowAlienOwO.github.io//hello/jekyll/HelloWorld/" title="Hello World">Hello World</a></h3>
+      <p>之前完全从零折腾过个人网站，但是后来因为拖延症以及各种各样的原因写完就没有搞过了（你们可以看看old-backup分支）。然后MOBA项目主页用的是jekyll，感觉很不错。姑且这次个人主页尝试用jekyll试试，希望自己能坚持下去。现在用的是自带的主题，然后希望做到如下几...&hellip; <a href="http://MeowAlienOwO.github.io//hello/jekyll/HelloWorld/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 MeowAlien. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://MeowAlienOwO.github.io//assets/js/scripts.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'meowalienowogithubio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>
