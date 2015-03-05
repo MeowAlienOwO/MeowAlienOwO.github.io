@@ -1,8 +1,6 @@
 ---
-layout: {{ layout }}
+layout: default
 title: {{ title }}
-modified:
-categories: {{ dir }}
 description:
 tags: [process, Computer Science, Operating System, note]
 categories: [ Computer Science, Operating System]
