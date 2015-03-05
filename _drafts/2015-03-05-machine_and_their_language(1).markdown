@@ -1,8 +1,7 @@
 ---
-layout: {{ layout }}
-title: {{ title }}
+layout: post
+title: "机器与语言"
 modified:
-categories: {{ dir }}
 description:
 tags: []
 categories: [ cs, language]
