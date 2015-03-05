@@ -187,7 +187,7 @@
 <p>进程在它的生命周期中，会在不同的状态之间切换。
 一个常见的进程状态转换图如下：</p>
 
-<p><img src="images/process.jpg" alt="process.jpg" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/process.jpg" alt="process.jpg" /></p>
 
 <ul>
   <li>状态为<code>running</code> 的进程占用CPU</li>
@@ -204,10 +204,80 @@
   <li><code>new</code> -&gt; <code>ready</code>: 接纳新创建的进程</li>
   <li><code>running</code> -&gt; <code>blocked</code>: 进程被阻塞，等待IO或者系统调用</li>
   <li><code>ready</code> -&gt; <code>running</code>: 进程被排程器选中执行</li>
-  <li><code>block</code> -&gt; <code>ready</code>: 事件发生了，比如IO操作结束，进程回到等待状态等
-待被调用</li>
-  <li></li>
+  <li><code>block</code> -&gt; <code>ready</code>: 事件发生了，比如IO操作结束，进程回到等待状态等待被调用</li>
+  <li><code>running</code> -&gt; <code>ready</code>: 进程被抢占</li>
+  <li><code>running</code> -&gt; <code>exit</code>: 进程结束</li>
 </ol>
+
+<p>进程的生命周期：</p>
+
+<p><img src="http://MeowAlienOwO.github.io/images/process2.jpg" alt="process2.jpg" /></p>
+
+<p>打扰(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。</p>
+
+<h2 id="section-2">进程的创建与终止</h2>
+
+<p>操作系统负责创建进程，如下的事件发生时可以创建进程：</p>
+
+<ul>
+  <li>系统初始化的时候创建后台与前台进程</li>
+  <li>用户请求</li>
+  <li>批处理任务(注：这是windows下的说法，linux下的是shell脚本?)</li>
+  <li>其他进程创建</li>
+</ul>
+
+<p>如下的系统调用命令可以用来创建子进程：</p>
+
+<ul>
+  <li>*NIX系统下<code>fork()</code>可以创建一个父进程的完整拷贝，然后使用<code>exec</code>来执行</li>
+  <li>windows系统下使用<code>NTCreateProcess()</code>API</li>
+  <li>Linux下使用<code>clone()</code></li>
+</ul>
+
+<p>同样的，操作系统也负责终止进程。如下的事件发生时终止进程：</p>
+
+<ul>
+  <li>进程正常退出</li>
+  <li>错误：<code>ERROR</code>,比如说空间不足</li>
+  <li>错误：<code>FATAL</code>,程序bug</li>
+  <li>被父进程或者其他被授权的进程杀死（<code>KILL</code>）</li>
+</ul>
+
+<p>在进程终止时，需要使用系统调用来通知操作系统进程终止，然后释放被分配的资源，冲刷掉
+输出，以及执行可能的系统操作指令。</p>
+
+<p>如下的系统调用命令可以终止进程：</p>
+
+<ul>
+  <li>*NIX, Linux:<code>exit()</code>,<code>kill()</code></li>
+  <li>Windows: <code>TerminateProcess()</code></li>
+</ul>
+
+<h2 id="section-3">进程的实现</h2>
+<p>操作系统通过<em>表</em>来维护资源的状态：</p>
+
+<ul>
+  <li>内存表：内存分配，内存保护以及虚拟内存等等</li>
+  <li>I/O表：可用性，状态，信息转换</li>
+  <li>文件表：位置，状态</li>
+  <li>进程表：进程控制块</li>
+</ul>
+
+<p>这些表可以被交叉引用。</p>
+
+<h2 id="pcb">PCB与进程表</h2>
+<p>PCB包含一些进程管理时必要的属性。通常而言，包含如下几个类别：</p>
+
+<ul>
+  <li>进程区分：PID，UID，父进程的PID等</li>
+  <li>进程状态：用户注册，程序计数，堆栈指针，程序状态,内存管理，文件等等</li>
+  <li>进程控制信息：进程状态，排程信息等等</li>
+</ul>
+
+<p>PCB必须被保护，否则可能带来一系列严重的问题。</p>
+
+<p>进程表负责管理所有进程的PCB,当进程被打扰/切换的时候，操作系统会更新进程表
+中的PCB信息。而在进程创建之前，进程表中会为之分配一个入口。</p>
 
 
       <footer class="entry-meta">
