@@ -1,0 +1,47 @@
+<p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
+统的重要内容。主要是小学期的内容，现在来总结一下。</p>
+
+<h1 id="section">计算机分时系统</h1>
+<p>现在的计算机系统大部分是多任务系统(multiprogramming),可以参考
+<a href="http://en.wikipedia.org/wiki/Multics">MULTICS</a>:</p>
+
+<ul>
+  <li>并发(Concurrency, 或者伪并行pseudo parallelism)是通过对单一CPU上执行
+的进程进行调配而实现的。(一个人吃三个馒头)</li>
+  <li>并行(Parallelism)是通过物理上的多CPU来实现的。(三个人吃三个馒头)</li>
+</ul>
+
+<p>多任务系统需要上下文切换(context switching)来调整进程的执行，然而这种
+方式会带来开销(overhead)。
+上下文切换：中止并保存当前进程，然后启动/重启另一个进程
+操作系统通过调用器(dispatcher)与排程器(scheduler)来进行进程管理：</p>
+
+<ul>
+  <li>分配/保护资源</li>
+  <li>插入进程</li>
+  <li>支持进程间通信</li>
+</ul>
+
+<h1 id="section-1">进程</h1>
+<p>每个进程都包括：</p>
+
+<ul>
+  <li>程序代码</li>
+  <li>数据，包括堆(stack)跟栈(heap)的数据</li>
+  <li>进程控制块(process control block, PCB)</li>
+</ul>
+
+<p>PCB保存所有有关于进程管理的信息，对于多任务系统中的上下文切换而言，PCB
+是必不可少的。</p>
+
+<h2 id="state">进程的状态(state)</h2>
+<p>进程在它的生命周期中，会在不同的状态之间切换。
+一个常见的进程状态转换图如下：
+<img src="/image/process.jpg" alt="process.jpg" />
++ <code>running</code> 状态的进程占用CPU
++ <code>block</code> 状态的进程无法继续执行，比如正在等待I/O
++ <code>ready</code> 状态的进程等待CPU变得可用
++ <code>new</code> 状态的进程刚刚被创建，等待被处理
++ <code>terminated</code> 状态的进程已经结束，不过数据仍然有可能被暂时留在内存中。
++ <code>suspended</code> 状态的进程被交换(swap)出去了</p>
+
