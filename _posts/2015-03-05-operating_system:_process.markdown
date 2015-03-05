@@ -44,7 +44,7 @@ PCB保存所有有关于进程管理的信息，对于多任务系统中的上�
 进程在它的生命周期中，会在不同的状态之间切换。
 一个常见的进程状态转换图如下：
 
-![process.jpg]({{ site.url }}images/process.jpg)
+![process.jpg](images/process.jpg)
 
 * 状态为`running` 的进程占用CPU
 * 状态为`block` 的进程无法继续执行，比如正在等待I/O
@@ -53,4 +53,12 @@ PCB保存所有有关于进程管理的信息，对于多任务系统中的上�
 * 状态为`terminated` 的进程已经结束，不过数据仍然有可能被暂时留在内存中
 * 状态为`suspended` 的进程被交换(swap)出去了
 
+状态转换包含如下：
+
+1. `new` -> `ready`: 接纳新创建的进程
+2. `running` -> `blocked`: 进程被阻塞，等待IO或者系统调用
+3. `ready` -> `running`: 进程被排程器选中执行
+4. `block` -> `ready`: 事件发生了，比如IO操作结束，进程回到等待状态等
+   待被调用
+5. 
 
