@@ -44,7 +44,7 @@ PCB保存所有有关于进程管理的信息，对于多任务系统中的上�
 进程在它的生命周期中，会在不同的状态之间切换。
 一个常见的进程状态转换图如下：
 
-![process.jpg]({{ site.url }}image/process.jpg)
+![process.jpg]({{ site.url }}images/process.jpg)
 
 * 状态为`running` 的进程占用CPU
 * 状态为`block` 的进程无法继续执行，比如正在等待I/O
