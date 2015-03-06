@@ -5,9 +5,9 @@ description:
 tags: [process, Computer Science, Operating System, note]
 categories: [ Computer Science, Operating System]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: 46882263_p0.jpg
+  credit: "私服 | dEi [pixiv]"
+  creditlink: "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=46882263"
 ---
 进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
 统的重要内容。主要是小学期的内容，现在来总结一下。
