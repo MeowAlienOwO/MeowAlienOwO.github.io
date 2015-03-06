@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+description: "渣技术，原本受高中班主任影响立志投身物理学，高考考砸后因为莫名其妙的执念与跟基友一起做游戏的想法入了IT坑。码农预备军，宅，绅士，偶尔打打拳。向着技术宅的道路上蜗行。傲……傲娇什么的最讨厌了！哼！"
 image:
   feature: 48880294_p0_master1200.jpg
   credit: pixiv
