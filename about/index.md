@@ -49,7 +49,6 @@ If there is any copyright issues, please e-mail me.
 
 ## Copyrights information
 
-主题：
 Theme:
 <a href="http://mmistakes.github.io/hpstr-jekyll-theme/">HPSTR Theme</a>
 
@@ -57,7 +56,7 @@ Theme:
 Thanks to the feature of HPSTR theme, the source url of title image
 can be found on the right corner.
 
-头像：
+
 Avatar:
 <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49071472">pixiv id:49071472</a>
 
