@@ -4,6 +4,13 @@
 
 {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
 
+<!-- mathjax -->
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+</script>
+
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 {% if site.owner.twitter %}<!-- Twitter Cards -->
