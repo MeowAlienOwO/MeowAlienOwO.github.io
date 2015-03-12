@@ -6,9 +6,9 @@ description:
 tags: []
 categories: [ cs, language]
 image:
-  feature: 
-  credit:
-  creditlink:
+  feature: 49196792_p0.jpg
+  credit: ミクの日だったので | WS [pixiv] 
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49196792
 ---
 
 Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。
