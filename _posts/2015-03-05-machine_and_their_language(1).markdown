@@ -145,19 +145,23 @@ $\delta^*(q, x)$用于表示FA在接受了输入字符串$x$的状态。
 ## 区分两个字符串
 
 我们有定义如下：如果$L$是一个在字母表$\Sigma$之上定义的语言，
-$x$, $y$是在字母表$\Sigma^\*$之上定义的字符串，那么如果存在一个字符串$z \in \Sigma^\*$,使得要么$xz \in L$且$yz \not \in L$, 要么$xz \not \in L$且$\yz \in L$,我们认为$x$与$y$*可被L区分(L-distinguishable)*。
+$x$, $y$是在字母表$\Sigma^\*$之上定义的字符串，那么如果存在一个字符串$z \in \Sigma^\*$,使得要么$xz \in L$且$yz \not \in L$, 要么$xz \not \in L$且$yz \in L$,我们认为$x$与$y$*可被L区分(L-distinguishable)*。
 
 等价的，我们有：当$L/x \not = L/y$,$L/x = \lbrace z \in \Sigma^* \| xz \in L \rbrace$,$x$与$y$可被L区分。
 
-> 定理：假设$M = (Q, \Sigma, q_0, A, \delta)$是一个接受$L \subset \Sigma^*$的FA，
->     - 如果$x$,$y$是两个可被L区分的字符串，那么$\delta^*(q_0, x) \not = \delta*(q_0, y)$
->     - 对于所有的$n \geq 2$,如果存在一个n对的可被L区分的字符串，那么Q至少会有n个状态。
+定理：假设$M = (Q, \Sigma, q_0, A, \delta)$是一个接受$L \subset \Sigma^*$的FA，
+
+- 如果$x$,$y$是两个可被L区分的字符串，那么$\delta^*(q_0, x) \not = \delta*(q_0, y)$
+- 对于所有的$n \geq 2$,如果存在一个n对的可被L区分的字符串，那么Q至少会有n个状态。
 
 ## 泵引理(Pumpling Lemma)
 如果$M = (Q, S, q_0, A, \delta)$是一个接受$L$的FA且状态数量为n，如果其接受一个字符串$x$使得$\|x\| \geq n$,那么当字符被读入时，M必然会不止一次进入同一个状态。
 
 这使得我们可以对如上FA创建任意多的字符串使得其被L所接受——只需要任意重复其重复的状态即可。于是，我们可以导出*泵引理(Pumping Lemma)*：
-如果$L$是定义在$\Sigma$上的语言，且$L$被FA$M = (Q, \Sigma, q_0, A, \delta)$所接受，存在一个整数$n$使得对于满足$\|x\| \geq n$的任意$x \in L$，存在三个字符串$u, v, w$使得$x = uvw$，且：
+如果$L$是定义在$\Sigma$上的语言，且$L$被FA$M = (Q, \Sigma, q_0, A,
+\delta)$所接受，存在一个整数$n$使得对于满足$\|x\| \geq n$的任意$x \in
+L$，存在三个字符串$u, v, w$使得$x = uvw$，且：
+
 - $\|uv\| \leq n$
 - $\|v\| > 0$
 - 对于任意的$i \geq 0$,$uv^iw$属于L
