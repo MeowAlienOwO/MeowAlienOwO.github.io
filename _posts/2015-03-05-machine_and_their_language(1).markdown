@@ -149,9 +149,9 @@ $x$, $y$是在字母表$\Sigma^\*$之上定义的字符串，那么如果存在�
 
 等价的，我们有：当$L/x \not = L/y$,$L/x = \lbrace z \in \Sigma^* \| xz \in L \rbrace$,$x$与$y$可被L区分。
 
-定理：假设$M = (Q, \Sigma, q_0, A, \delta)$是一个接受$L \subset \Sigma^*$的FA，
+定理：假设$M = (Q, \Sigma, q_0, A, \delta)$是一个接受$L \subset \Sigma^\*$的FA，
 
-- 如果$x$,$y$是两个可被L区分的字符串，那么$\delta^*(q_0, x) \not = \delta*(q_0, y)$
+- 如果$x$,$y$是两个可被L区分的字符串，那么$\delta^\*(q_0, x) \not = \delta^\*(q_0, y)$
 - 对于所有的$n \geq 2$,如果存在一个n对的可被L区分的字符串，那么Q至少会有n个状态。
 
 ## 泵引理(Pumpling Lemma)
