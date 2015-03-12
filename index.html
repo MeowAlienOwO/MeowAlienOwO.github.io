@@ -708,7 +708,30 @@
 
 <h2 id="section-1">区分两个字符串</h2>
 
+<p>我们有定义如下：如果$L$是一个在字母表$\Sigma$之上定义的语言，
+$x$, $y$是在字母表$\Sigma^*$之上定义的字符串，那么如果存在一个字符串$z \in \Sigma^*$,使得要么$xz \in L$且$yz \not \in L$, 要么$xz \not \in L$且$\yz \in L$,我们认为$x$与$y$<em>可被L区分(L-distinguishable)</em>。</p>
+
+<p>等价的，我们有：当$L/x \not = L/y$,$L/x = \lbrace z \in \Sigma^* | xz \in L \rbrace$,$x$与$y$可被L区分。</p>
+
+<blockquote>
+  <p>定理：假设$M = (Q, \Sigma, q_0, A, \delta)$是一个接受$L \subset \Sigma^<em>$的FA，
+    - 如果$x$,$y$是两个可被L区分的字符串，那么$\delta^</em>(q_0, x) \not = \delta*(q_0, y)$
+    - 对于所有的$n \geq 2$,如果存在一个n对的可被L区分的字符串，那么Q至少会有n个状态。</p>
+</blockquote>
+
 <h2 id="pumpling-lemma">泵引理(Pumpling Lemma)</h2>
+<p>如果$M = (Q, S, q_0, A, \delta)$是一个接受$L$的FA且状态数量为n，如果其接受一个字符串$x$使得$|x| \geq n$,那么当字符被读入时，M必然会不止一次进入同一个状态。</p>
+
+<p>这使得我们可以对如上FA创建任意多的字符串使得其被L所接受——只需要任意重复其重复的状态即可。于是，我们可以导出<em>泵引理(Pumping Lemma)</em>：
+如果$L$是定义在$\Sigma$上的语言，且$L$被FA$M = (Q, \Sigma, q_0, A, \delta)$所接受，存在一个整数$n$使得对于满足$|x| \geq n$的任意$x \in L$，存在三个字符串$u, v, w$使得$x = uvw$，且：
+- $|uv| \leq n$
+- $|v| &gt; 0$
+- 对于任意的$i \geq 0$,$uv^iw$属于L</p>
+
+<p>这里，整数n通常是FA的状态数目，但是我们一般不需要知道这些。</p>
+
+<p>泵引理最普遍的应用是通过反证法证明一个语言<strong>不能</strong>被一个FA所接受。我们首先假设这个语言可以被FA接受，然后我们取n作为在泵引理中使用的整数。之后，我们选取一个字符串，使得$|x| \geq n$,然后我们使用泵引理来得到冲突。
+例题详见课件。</p>
 
 <h2 id="myhill-nerode-">创建最简状态机 与 Myhill-Nerode 定理</h2>
 

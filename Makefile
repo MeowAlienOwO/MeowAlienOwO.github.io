@@ -1,7 +1,7 @@
 
 deploy:
 	git checkout source
-	-rm *_drafts/*~
+	-rm b_drafts/*~
 	jekyll build
 	git add -A
 	git commit -m "update source"
