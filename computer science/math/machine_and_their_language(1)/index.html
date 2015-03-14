@@ -436,18 +436,20 @@ L$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
 
 <p>我们可以用如下的算法来寻找满足关系$p \not \equiv q$的二元对$(p, q)$：
 （注：感觉理解还不是很到位，把ppt原文放上来）
-•An algorithm to identify the pairs (p, q) with p ≢ q :
-– List all unordered pairs (p, q) of distinct states.
-– Make a sequence of passes through these pairs:
-– On the first pass, mark each pair (p, q) so that exactly
-one of the two states is in A
-– On each subsequent pass, and each unmarked pair
-(r, s), if (r, ) = p and (s, ) = q for some   , and
-(p, q) is marked, then mark (r, s)
-– After a pass in which no pairs are marked, stop
-– The marked pairs are the pairs (p, q) for which p ≢ q</p>
+An algorithm to identify the pairs $(p, q)$ with $p ≢ q$ :</p>
 
 <ul>
+  <li>List all unordered pairs $(p, q)$ of distinct states.</li>
+  <li>Make a sequence of passes through these pairs:</li>
+  <li>On the first pass, mark each pair $(p, q)$ so that exactly
+one of the two states is in A</li>
+  <li>On each subsequent pass, and each unmarked pair
+$(r, s)$, if $\delta(r, \sigma) = p$ and $\delta(s, \sigma) = q$ for
+some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$</li>
+  <li>After a pass in which no pairs are marked, stop</li>
+  <li>
+    <p>The marked pairs are the pairs (p, q) for which p ≢ q</p>
+  </li>
   <li>列出所有的无序二元对$(p, q)$</li>
   <li>建立一系列的通道来连接这些二元对</li>
   <li>在第一通道，标记所有的二元对$(p, q)$使得有且只有一个在接受状态集$A$中</li>
