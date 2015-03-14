@@ -216,16 +216,17 @@ Myhill-Nerode同时也给了我们另一种方法来判断一个语言是否为�
 
 我们可以用如下的算法来寻找满足关系$p \not \equiv q$的二元对$(p, q)$：
 （注：感觉理解还不是很到位，把ppt原文放上来）
-•An algorithm to identify the pairs (p, q) with p ≢ q :
-– List all unordered pairs (p, q) of distinct states.
-– Make a sequence of passes through these pairs:
-– On the first pass, mark each pair (p, q) so that exactly
+An algorithm to identify the pairs $(p, q)$ with $p ≢ q$ :
+
+- List all unordered pairs $(p, q)$ of distinct states.
+- Make a sequence of passes through these pairs:
+- On the first pass, mark each pair $(p, q)$ so that exactly
 one of the two states is in A
-– On each subsequent pass, and each unmarked pair
-(r, s), if (r, ) = p and (s, ) = q for some   , and
-(p, q) is marked, then mark (r, s)
-– After a pass in which no pairs are marked, stop
-– The marked pairs are the pairs (p, q) for which p ≢ q
+- On each subsequent pass, and each unmarked pair
+$(r, s)$, if $\delta(r, \sigma) = p$ and $\delta(s, \sigma) = q$ for
+some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$
+- After a pass in which no pairs are marked, stop
+- The marked pairs are the pairs (p, q) for which p ≢ q
 
 
 - 列出所有的无序二元对$(p, q)$
