@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "机器与语言"
+title: "MAL-确定有限自动状态机"
 modified: 
 description: "Notes for Machines and their languagesp"
-tags: []
-categories: [ cs, language]
+tags: [ finite automata, computer science]
+categories: [ computer science, math]
 image:
   feature: 49196792_p0.jpg
   credit: ミクの日だったので | WS [pixiv] 
   creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49196792
 ---
 
-Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。
+Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动状态机展开。
 
 # Basic
 在深入其他内容之前，我们需要掌握一下语言的概念。
@@ -171,7 +171,68 @@ L$，存在三个字符串$u, v, w$使得$x = uvw$，且：
 泵引理最普遍的应用是通过反证法证明一个语言<strong>不能</strong>被一个FA所接受。我们首先假设这个语言可以被FA接受，然后我们取n作为在泵引理中使用的整数。之后，我们选取一个字符串，使得$\|x\| \geq n$,然后我们使用泵引理来得到冲突。
 例题详见课件。
 
+一些可被泵引理所解决的问题：
+
+- 给定一个$x$，判断是否$x \in L$
+- 给定一个有n状态的FA $M$, 判定语言$L(M)$是否为空
+- 给定一个有n个状态的FA $M$,$L(M)$是否无穷？
+
 ## 创建最简状态机 与 Myhill-Nerode 定理
 
+### 等价类
+
+> 定义：对于一个语言$L \subset \lbrace a, b \rbrace^\*$,我们定义一个在集合$\Sigma^\*$之上的关系$I_L$如下：对于任意的$x, y \in \Sigma^\*$,$x I_L y$当且仅当x，y可被L区分时成立。我们称这样的关系$I_L$为等价关系。对于$X \subset L$,在该集合内任意两个元素对满足等价关系$xI_Ly$,我们称这样的集合为等价集。
+
+假设一个接受字符串"aa"的语言，如果要创建一个符合该语言的自动机，我们需要至少三个状态。三个状态分别对应结尾不是a的字符串，结尾只有一个a的字符串，结尾为两个a的字符串。
+
+### Myhill-Nerode定理
+
+> 定理：对于一个语言$L \subset \Sigma^\*$，有对于等价关系$I_L$的等价类的集合$Q_L$,当且仅当集合$Q_L$是有限集时，该语言可以被一个FA所接受。
+
+如果集合$Q_L$是有限集，那么我们可以建立一个FA$M_L = Q_L, \Sigma, q_0, A, \delta$如下：
+
+- $q_0 = [\Lambda]$
+- $A = \lbrace q \in Q_L \| q \subset L \rbrace$
+- $\forall x \in \Sigma^\*, \forall \sigma \in \Sigma, \delta([x],\sigma) = [x\sigma]$
+
+那么$M_L$在能接受L的FA中有最少的状态数量。
+
+如果我们已经知道了一个FA可以接受L，那么我们可以通过如下方法来得到等价类：
+对于每一个状态$q$,我们可以定义$L_q = \lbrace x \in \Sigma^\* \| \delta^\*(q_0, x) = q$。每一个$L_q$都是一个关于关系$I_L$的等价类的一个子集。
+
+Myhill-Nerode同时也给了我们另一种方法来判断一个语言是否为正则语言（即存在对应该语言的FA）。而这种方法是一个比使用泵引理的更强的陈述。
+我们可以对一个语言创建其等价类的集合，如果该集合为无穷集合，那么就无法对该语言创建对应的FA，因而该语言也不是正则语言。
+
+### 创建最简状态机
+假设我们有$M = (Q, \Sigma, q_0, A, \delta)$接受语言$L \subset \Sigma^\*$,定义$L_q = \lbrace x \in \Sigma^\* \| \delta^\*(q_0, x) = q \rbrace$
+
+1. 移除所有的使得$L_q$为空的所有状态q，这些状态移除后对FA没有任何实质影响。
+2. 在状态集$Q$上定义运算$\equiv$:$p \equiv q$意即所有$L_p$中的字符串与在$L_q$中的所有字符串无法被区分，即$L_p$,$L_q$都是关于$I_L$的等价类的一个子集
+3. 对于所有的$p \not \equiv q$，在状态$\delta^\*(p, z), \delta^\*(q, z)$中，有且仅有唯一一个状态属于状态集$A$
+4. 定义无序二元状态对集合$S_M$，使得其中的所有二元状态对满足$p \not \equiv q$
+5. 我们可以用如下的方法来寻找$S_M$:
+    - 对于状态对$(p, q)$，如果仅$p$或者仅$q$属于接受状态集$A$,那么$(p, q) \in S_M$
+    - 对于状态对$(p, q)$，如果对于所有的符号$\sigma$，都有$(\delta(p, \sigma), \delta(q, \sigma)) \in S_M$，那么$(p, q) \in S_M$
+
+我们可以用如下的算法来寻找满足关系$p \not \equiv q$的二元对$(p, q)$：
+（注：感觉理解还不是很到位，把ppt原文放上来）
+•An algorithm to identify the pairs (p, q) with p ≢ q :
+– List all unordered pairs (p, q) of distinct states.
+– Make a sequence of passes through these pairs:
+– On the first pass, mark each pair (p, q) so that exactly
+one of the two states is in A
+– On each subsequent pass, and each unmarked pair
+(r, s), if (r, ) = p and (s, ) = q for some   , and
+(p, q) is marked, then mark (r, s)
+– After a pass in which no pairs are marked, stop
+– The marked pairs are the pairs (p, q) for which p ≢ q
 
 
+- 列出所有的无序二元对$(p, q)$
+- 建立一系列的通道来连接这些二元对
+- 在第一通道，标记所有的二元对$(p, q)$使得有且只有一个在接受状态集$A$中
+- 对于所有的子通道，以及所有的未标记的二元对$(r, s)$，如果对于某些$\sigma \in \Sigma$，如果$\delta(r, \sigma) = p$以及$\delta(s, \sigma) = q$，且$(p, q)$已经被标记，那么标记$(r, s)$
+- 如果在一条通道上没有被标记的二元对，则停止。
+- 所有的被标记的二元对有关系$p \not \equiv q$
+
+当该算法停止时，未被标记的二元对$(p, q)$表示两个可以被合成一个的状态。
