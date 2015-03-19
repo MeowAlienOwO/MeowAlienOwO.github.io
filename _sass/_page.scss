@@ -17,7 +17,9 @@ body {
 .entry-content {
 	@include font-size(18);
         font-family: Verdana, "Microsoft YaHei", STXihei, sans-serif;
-        
+        h1, h2, h3, h4, h5, h6{
+        font-family: "Comic Sans MS", KaiTi, STKaiti, cursive; 
+        }
 	// Dotted line underlines for links
 	p > a,
 	li > a {
