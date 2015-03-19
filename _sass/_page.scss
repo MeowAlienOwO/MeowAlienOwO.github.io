@@ -15,7 +15,9 @@ body {
 	}
 }
 .entry-content {
-	@include font-size(16);
+	@include font-size(18);
+        font-family: Verdana, "Microsoft YaHei", STXihei, sans-serif;
+        
 	// Dotted line underlines for links
 	p > a,
 	li > a {
