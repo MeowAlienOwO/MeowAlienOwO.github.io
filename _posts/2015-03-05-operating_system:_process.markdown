@@ -500,5 +500,21 @@ changed)的,例如将任务在不同的队列之间移动。
 
 传输的消息可以是定长的或是变长的。
 
-两个进程之间必须有交流链接
+两个进程之间必须有交流连接。
+
+- 有向连接是自动创立的：
+    - p1: `send(p2, message)`
+    - p2: `receive(p1, message)`
+- 无向连接通过一个公众的”信箱“建立，这个信箱属于一个操作系统进程。
+    - p1: `send(mailbox, message)`
+    - p2: `receive(mailbox, message)`
+
+无向连接的同步有两种方式：
+
+- 阻塞收发：向邮箱请求的进程会被阻塞，直到收到消息/邮箱空闲
+- 非阻塞收发：邮箱在发送后重置操作或者当没有消息可用时返回空(null)
+
+消息队列可以是无容量的(no-capacity)，有限容量(bounded capacity)或者是无界容量(unbounded capacity)。
+
+
 
