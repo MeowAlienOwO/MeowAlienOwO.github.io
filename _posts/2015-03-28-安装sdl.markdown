@@ -4,7 +4,7 @@ title: "安装SDL"
 date: "2015-03-28 18:21:11 +0800"
 description: "An introduction on how to install SDL, with some solutions to fix problems"
 categories: [C++]
-tags:[C++, SDL, Installation]
+tags: [C++, SDL, Installation]
 image: fa-u.png
   feature:
   credit:
