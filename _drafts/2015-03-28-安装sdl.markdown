@@ -1,0 +1,34 @@
+---
+layout: post
+title: "安装SDL"
+date: "2015-03-28 18:21:11 +0800"
+modified:
+description:"An introduction on how to install SDL, with some
+solutions to fix problems"
+categories: ["C++"]
+tags:["C++", "SDL", "Installation"]
+image: fa-u.png
+  feature:
+  credit:
+  creditlink:
+comments:
+---
+
+上课Eugene让我们装个SDL说Coursework要用。嗯，Eugene自己使用Mac的，然后周四的课上又告诉我们怎么在VisualStudio上面装SDL
+(虽然我是没搞定，不知道是因为那台电脑跟我冲怎么的)。
+
+……
+
+……
+
+……
+
+Linux呢！?用了Linux不带我玩咯？！
+
+
+![]({{ site.url }}/images/Wuying.jpg)
+
+
+
+
+
