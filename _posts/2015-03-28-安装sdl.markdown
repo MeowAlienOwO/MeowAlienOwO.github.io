@@ -6,9 +6,9 @@ description: "An introduction on how to install SDL, with some solutions to fix 
 categories: [C++]
 tags: [C++, SDL, Installation]
 image:
-  feature: fa-u.jpg
-  credit:
-  creditlink:
+  feature: van.jpg
+  credit: d.hatena.ne.jp
+  creditlink: http://d.hatena.ne.jp/d-murata/20140810
 comments:
 ---
 
@@ -26,9 +26,100 @@ Linux呢！?用了Linux不带我玩咯？！
 ![]({{ site.url }}images/Wuying.jpg)
 
 
-# Visual Studio
+# Visual Studio 2013
 
-# Ubuntu
+1. 下载安装包： [https://libsdl.org/download-2.0.php](https://libsdl.org/download-2.0.php)
+
+2. 然后解压，放到一个适当的地方，记下路径 %path%
+
+3. 打开Visual Studio，新建一个empty project
+
+4. 在整个project上右键之，找到调整property的地方（反正在倒数几排）
+
+5. 在Visual C/C++ properties的地方（反正是这么回事）,找到Includes那一
+   行加入%path%\includes，找到Libraries那里加入%path%\lib\x86(为了兼容性)
+6. 在底下input那里加上SDL2.lib, SDL2main.lib
+
+7. 在system那里设为console
+
+8. 将压缩包里的dll文件复制到你的项目directory底下
+
+9. fucking done...
+
+可能有记忆不清楚的地方，有空再改……
 
 
 
+# Ubuntu Linux
+
+听说包管理器可以搞定：
+
+```shell
+sudo apt-get install libsdl2-dev
+```
+
+听说编译安装可以搞定：
+
+到官网下载源码包，然后make&&make install
+
+{% highlight sh %}
+hg clone https://hg.libsdl.org/SDL SDL
+cd SDL
+mkdir build
+cd build
+../configure
+make
+sudo make install
+{% endhighlight%}
+
+没有hg的话自己装下……
+
+于是我自己手动编译了一遍，不放心又用apt-get装了一遍。
+
+然后挂了。g++可以编译，但是运行的时候返回"No available video device"。
+
+为什么啊！老子按照教程装的啊！
+
+于是开始各种google……有人说ubuntu自带没有x11的dev包……有人说改用i386
+的，有人说环境变量没配置好的……
+
+然后在
+[这里](https://forums.libsdl.org/viewtopic.php?t=7321&sid=1a10fc21944a39bba3e89eeae4e93b38)
+看到说:
+
+> Ubuntu does not ship with several important development headers and
+> libraries installed. This includes even the basic Xlib stuff, which
+> is why there is no video driver when you build SDL. You're going to
+> need to install all of those yourself. The Software Manager tool
+> should be convenient here.
+
+<strong>WHAT THE HELL?</strong>
+
+老子用了包管理器为何还是这个熊样？
+
+于是接着google……然后看到[官方wiki](http://wiki.libsdl.org/FAQLinux)的这个：
+
+> ...if all those didn't work, and you built SDL from source, make
+> sure that you have the X11 development libraries installed,
+> otherwise you'll get a version of SDL that doesn't include X11
+> display support.
+
+sudo apt-get remove && make clean...
+
+卸了重装，好了……
+
+目测因为我是先编译安装后用包管理器的，而ubuntu自己本身缺了dev包，
+那么我编译的版本也必然是没有dev包的。包管理器装上了x11，
+但是库里的东西还是原来的样子，调用的时候是没有x11dev的编译版本。
+
+……
+
+![]({{ site.url }}images/linus-fuck-you.png)
+
+![]({{ site.url }}images/8017236.jpg)
+
+
+
+# Mac OS
+
+哪个土豪送我一个啊啊啊啊啊
