@@ -25,10 +25,12 @@ comments:
 
 Linux呢！?用了Linux不带我玩咯？！
 
-
-
 ![]({{ site.url }}images/Wuying.jpg)
 
+
+# Visual Studio
+
+# Ubuntu
 
 
 
