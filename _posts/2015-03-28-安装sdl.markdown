@@ -6,9 +6,9 @@ description: "An introduction on how to install SDL, with some solutions to fix 
 categories: [C++]
 tags: [C++, SDL, Installation]
 image:
-  feature: van.jpg
-  credit: d.hatena.ne.jp
-  creditlink: http://d.hatena.ne.jp/d-murata/20140810
+  feature: 8017236.jpg
+  credit: カーステ：VAN様 | 島村うにくろ [pixiv]
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=8017236
 comments:
 ---
 
@@ -116,7 +116,7 @@ sudo apt-get remove && make clean...
 
 ![]({{ site.url }}images/linus-fuck-you.png)
 
-![]({{ site.url }}images/8017236.jpg)
+
 
 
 
