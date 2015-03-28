@@ -62,7 +62,7 @@ sudo apt-get install libsdl2-dev
 
 到官网下载源码包，然后make&&make install
 
-{% highlight sh %}
+{% highlight console %}
 hg clone https://hg.libsdl.org/SDL SDL
 cd SDL
 mkdir build
