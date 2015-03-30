@@ -1,0 +1,367 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>操作系统笔记二：内存管理 &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
+
+<meta name="keywords" content="Memory Management, Computer Science, Operating System, notes">
+
+<!-- mathjax -->
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+</script>
+
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Open Graph -->
+<!-- <meta property="og:locale" content="en_US"> -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统笔记二：内存管理">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/">
+<meta property="og:site_name" content="喵窝[0]号机">
+
+
+
+
+
+<link rel="canonical" href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/">
+<link href="http://MeowAlienOwO.github.io//feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io//assets/css/main.css">
+<!-- Webfonts -->
+<!-- <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css"> -->
+<link href="//fonts.useso.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://MeowAlienOwO.github.io//assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io//favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io//favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://MeowAlienOwO.github.io//">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://MeowAlienOwO.github.io//images/avatar.png" alt="死鱼眼的喵星人 photo" class="author-photo">
+					<h4>死鱼眼的喵星人</h4>
+					<p>烈風？いいえ、知らない子ですね。（もぐもぐ</p>
+
+				</li>
+				<li><a href="http://MeowAlienOwO.github.io//about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:meowalienowo@outlook.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				<li>
+					<a href="http://github.com/https://github.com/MeowAlienOwO"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://MeowAlienOwO.github.io//posts/">All Posts</a></li>
+				<li><a href="http://MeowAlienOwO.github.io//tags/">All Tags</a></li>
+				
+				<li>
+				  <a href="/categories/hello/">
+				    hello (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/jekyll/">
+				    jekyll (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/computer science/">
+				    computer science (3)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/operating system/">
+				    operating system (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/acg/">
+				    acg (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/空之境界/">
+				    空之境界 (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/c++/">
+				    c++ (1)
+				  </a>
+				</li>
+				
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+<div class="entry-header">
+  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=27167056">TYPE-MOON10YEARS!! | STAR影法師 [pixiv]</a></div><!-- /.image-credit -->
+  <div class="entry-image">
+    <img src="http://MeowAlienOwO.github.io//images/27167056.jpg" alt="操作系统笔记二：内存管理">
+  </div><!-- /.entry-image -->
+</div><!-- /.entry-header -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/" rel="bookmark" title="操作系统笔记二：内存管理">操作系统笔记二：内存管理</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-03-30T19:10:06+08:00">March 30, 2015</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。</p>
+
+<h1 id="section">基础知识</h1>
+<p>## 硬件存储器层级与操作系统</p>
+
+<p>现代的算机通常有如下几种存储层级，由速度快慢排列如下：</p>
+
+<ol>
+  <li>寄存器，1/2/3级缓存</li>
+  <li>主内存</li>
+  <li>硬盘</li>
+</ol>
+
+<p>更高级的存储器更快，但是代价更加昂贵以及更加容易被改变，低级的则相反。
+内存可以被认为是一个线性的字节/单词的数组，而操作系统负责提供内存的抽
+象。</p>
+
+<p>操作系统负责：</p>
+
+<ol>
+  <li>根据进程的请求分配/收回内存</li>
+  <li>追踪内存的使用情况</li>
+  <li>“透明地”(Transparently)在内存与硬盘之间移动信息</li>
+  <li>在进程之间分配内存，模拟”无限大”的内存空间</li>
+  <li>多任务的情况下，负责控制权限分配</li>
+</ol>
+
+<h2 id="section-1">内存管理模型</h2>
+
+<p>内存管理模型有两种：连续模型与非连续模型。</p>
+
+<p>连续模型将所有的内存看作单个内存块，而非连续模型将内存分为若干内存块，
+或者称之为段(segments)。这些段可以在物理内存中的任何位置，而不需要一定与彼此相邻。</p>
+
+<p>至于内存的分区方面，对于单任务系统而言，只需要一个分区即可。而对于多任务系统而言，分区有多种方案。多任务系统可以是动态分区的，也可以是固定分区的。对于固定分区而言，有相等分区与不等分区两种。</p>
+
+<h3 id="section-2">单任务系统</h3>
+
+<p>单任务系统每次只允许一个用户进程在内存中被执行。内存的一部分被操作系统使用，而另外一部分被用户系统所使用(“MS-DOS”方式)。被操作系统所使用的部分一般而言是固定大小的，通常可以直接使用物理内存。</p>
+
+<table border="1">
+<tr>
+<th>...</th>
+<th>用户进程</th>
+<th>...</th>
+<th>操作系统内核</th>
+</tr>
+</table>
+
+<p>这种方式没有保护用户进程的必要，因为同一时间只有一个程序在运行。由于一个进程通常使用了所有的内存空间，同一进程通常被分配在同样的内存地址。当然，程序员可以用覆盖的方法来使用更多的空间，但是这种方法看起来更容易造成麻烦。</p>
+
+<p>对于单任务系统而言，它的缺点是显而易见的：
+1. 由于用户进程可以直接使用物理内存，它有可能会对操作系统的内存进行读写。
+2. 如果我们将操作系统自身看作一个进程的话，实际上有两个进程同时运行(ppt原话翻译，我的理解是这可能是因为虽然是两个进程，但是由于单任务的特性，一次只能运行一个进程，这也意味着操作系统进程在用户进程被激活时是处于suspend状态，结合前面的直接读取权限，很可能用户进程对操作系统内存的读写是没有保护的。另一个问题可能也是进程排程的问题，操作系统进程无法跟用户进程协同。)
+3. 对硬件资源的利用率低(比如说IO)
+4. 无法适应需要多任务的场景</p>
+
+<p>尽管如此，单任务系统依然在一些基础的嵌入式系统与家电中广泛运用。</p>
+
+<h3 id="section-3">多任务系统</h3>
+
+<p>从另一个角度而言，我们可以通过上下文切换来在单任务系统上模拟多任务：当需要切换进程的时候，将进程信息保存至硬盘，然后将新的进程信息读入并执行。但是这必然带来昂贵的开销。于是，真正的多任务系统就必不可少了。</p>
+
+<p>我们首先做一个假设：进程会使用$p%$的时间来等待IO事务。那么，当内存中有$n$个进程的时候，所有的$n$个进程等待IO的概率为$p^n$，而CPU的利用率为$1 - p^n$。显而易见的，当同时运行的进程越多时，CPU的利用率越高，而当面向IO的进程变多时，CPU的利用率会相对有所降低。</p>
+
+<p>但是，这个假设是建立在所有进程都是相互独立的基础上的，而在现实中，这是不可能的。不过我们仍旧可以用其来进行粗略的估算。</p>
+
+<p>假设一个计算机有1M的内存，操作系统使用了200k，剩下的空间分配给4个200k的进程。那么CPU的利用率就将在60%以下。如果我们增加1M内存，将这些内存分配给5个200k的进程，那么我们的CPU利用率就有了87%。如果我们再增加1M的内存，我们就会得到大于96%的CPU利用率。由此看出，多线程可以很有效地提高资源利用率。</p>
+
+<h4 id="section-4">固定分区（同等大小）</h4>
+
+<p>固定分区方法将所有用于用户进程的内存分成固定大小的若干个段，这些段拥有固定大小以及固定的位置。</p>
+
+<p>优点：</p>
+
+<ul>
+  <li>任何进程都可以使用任何足够大的分区</li>
+  <li>开销较小，同时实现简单</li>
+  <li>操作系统只需要追踪被使用的区块与空闲的区块即可</li>
+</ul>
+
+<p>缺点：</p>
+
+<ul>
+  <li>内存利用率相对较低，内部碎片化程度(internal fragmentation)在分区过大的情况下会很高，分区可能会过大</li>
+  <li>如果程序太大，需要重写内存（折腾程序员）</li>
+  <li>分区过小，追踪、分配的开销会变得很大</li>
+</ul>
+
+<p>同时，固定分区还需要考虑如何将区块分配给任务，如何决定交换等。于是我们需要一些其他的策略来解决这些问题。</p>
+
+<h4 id="section-5">固定分区改（不同等大小）</h4>
+
+<p>不同等大小分区策略将分区分成大小不同的几个固定区块，这样做的好处是可以增加内存使用率，以及可以更加灵活地分配资源。内部碎片化的程度也因此可以得到控制。相对的，对于不同等大小分区而言，我们需要考虑的是如何将合适的分区分配给相对应的进程。</p>
+
+<p>一种策略是，对于每个分区，我们设置一个私有队列，每次分配进程时，将其安排在空间足够大，且最小的分区:<code>p.size &lt; m.size &amp;&amp; m.isMin</code>。这种策略，由于每次都能保证进程分配的分区足够且最小，内部碎片度会很有效地减少。但是相对的，内存使用率就会下降（总是将进程分配给最小的段），以及会导致饥饿的发生。</p>
+
+<p>另一种策略则将队列设为全局的，对于每一个进程，分配给当前可用的、装的下的最小队列:<code>p.size &lt; m.size &amp;&amp; m.isAvailable &amp;&amp; m.isMin</code>。
+这种策略没有那么容易饥饿(可以将小程序分给大分区)，然而相对的，内部碎片化程度也会相对提高。</p>
+
+<p>另一方面，我们需要注意的是，对内存需求的计算依赖于在程序开始时的估算，而程序的内存需求可能会随着运行而改变。同时，我们也无从预先得知程序运行时内存的分配情况。而进程更可能会被交换(swap)出去，然后被重新载入。那么，我们需要动态的去改变内存分配。</p>
+
+<p>(待续)</p>
+
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io//tags/#Memory Management" title="Pages tagged Memory Management" class="tag"><span class="term">Memory Management</span></a><a href="http://MeowAlienOwO.github.io//tags/#Computer Science" title="Pages tagged Computer Science" class="tag"><span class="term">Computer Science</span></a><a href="http://MeowAlienOwO.github.io//tags/#Operating System" title="Pages tagged Operating System" class="tag"><span class="term">Operating System</span></a><a href="http://MeowAlienOwO.github.io//tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a></span>
+        
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://MeowAlienOwO.github.io//c++/%E5%AE%89%E8%A3%85sdl/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://MeowAlienOwO.github.io//c++/%E5%AE%89%E8%A3%85sdl/" title="安装SDL">安装SDL</a></h3>
+      <p>An introduction on how to install SDL, with some solutions to fix problems <a href="http://MeowAlienOwO.github.io//c++/%E5%AE%89%E8%A3%85sdl/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io//acg/%E7%A9%BA%E4%B9%8B%E5%A2%83%E7%95%8C/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" title="俯瞰风景">俯瞰风景</a></h4>
+        <span>Published on March 06, 2015</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/" title="操作系统笔记一：进程">操作系统笔记一：进程</a></h4>
+        <span>Published on March 05, 2015</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://MeowAlienOwO.github.io//assets/js/scripts.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'meowalienowogithubio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	        
+
+</body>
+
+</html>
