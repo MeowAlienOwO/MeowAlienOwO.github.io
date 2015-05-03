@@ -23,9 +23,9 @@ src="http://share.acg.tv/flash.swf" flashvars="aid=382643&page=1"
 pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"
 />
 
-# 上下文无关文法(Context-Free Grammar)
+# 上下文无关语言
 
-## 定义
+## 上下文无关文法(Context-Free Grammar)
 
 上下文无关文法由一个四元组$G=(V, \Sigma, S, P)$来描述。其中：
 
@@ -36,5 +36,40 @@ pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Versio
   \alpha, A \in V, \alpha \in (V \cup \Sigma)$
 * $S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。
 
-我们使用如下的 语言来
+我们使用如下的符号来表示一些推导规则：
+
+* $\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法
+  规则的一步推导(derivation)
+* $\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*
+  \beta$ 表示0或者多步推导。
+* $\Rightarrow_G$ 表示根据语法$G$的推导。
+
+$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma
+\in (V \cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha
+= \alpha_1 A \alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$
+
+当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认
+为该规则是上下文无关的(context-free)
+
+## 上下文无关语言(Context-Free Language)
+
+假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言
+为：
+$ L(G) = \lbrace \chi \in \Sigma^* \| S \Rightarrow_G^* \chi \rbrace $
+
+当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。
+
+## 联合，连接与Kleene星号运算
+如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cup
+\L_2, L_1 L_2, L_1^*$都是上下文无关语言。
+
+令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,
+S_2$分别是起始变量。
+
+令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,
+G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：
+
+* 对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 \| S_2$
+* 对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$
+* 对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda \| S_k S_1$
 
