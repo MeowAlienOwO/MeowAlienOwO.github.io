@@ -3,7 +3,7 @@ layout: post
 title: "machine and their language(2)"
 date: "2015-05-03 14:49:02 +0800"
 modified: 
-description: 
+description: "notes on pushdown automata and context free language"
 categories: [computer science, math]
 tags: [context free language, pushdown automata computer science]
 image:
