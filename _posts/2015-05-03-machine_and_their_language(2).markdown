@@ -7,9 +7,9 @@ description: "notes on pushdown automata and context free language"
 categories: [computer science, math]
 tags: [context free language, pushdown automata computer science]
 image:
-  feature: 29807463.jpg
-  credit: 「「うぉーあいにー！」」 | ふらすこ@お仕事募集なう [pixiv]
-  creditlink:  http://www.pixiv.net/member_illust.php?mode=medium&illust_id=29807463
+  feature: 31958311.png
+  credit: ハイ　ハイ　チャイナ | hounori [pixiv]
+  creditlink:  http://www.pixiv.net/member_illust.php?mode=medium&illust_id=31958311
 comments: 
 ---
 
