@@ -18,7 +18,9 @@ MD还要躺着……戴了护裆都能中招真是……
 
 <embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
 
-# 
+# 上下文无关语言(Context-free Language)
+
+
 
 
 
