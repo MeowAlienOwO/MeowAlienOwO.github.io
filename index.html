@@ -123,7 +123,7 @@
 				
 				<li>
 				  <a href="/categories/computer science/">
-				    computer science (4)
+				    computer science (5)
 				  </a>
 				</li>
 				
@@ -157,6 +157,12 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/network/">
+				    network (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -181,6 +187,203 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" title="Foundation of Networking"><img src="http://MeowAlienOwO.github.io//images/46203097.jpg" alt="Foundation of Networking"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-13T16:59:52+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/">May 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" rel="bookmark" title="Foundation of Networking" itemprop="url">Foundation of Networking</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+
+<p>这个照旧是网络的笔记……John个大坑比……</p>
+
+<h1 id="section">网络基础</h1>
+
+<h2 id="network">何为网络(Network)</h2>
+
+<p>网络是在节点之间传输数据的一种结构。</p>
+
+<ul>
+  <li>节点是多种多样的</li>
+  <li>节点的数量必须多余两个</li>
+</ul>
+
+<p>网络由如下设备组成：</p>
+
+<ul>
+  <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
+  <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
+  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
+(switch)两种。</li>
+</ul>
+
+<p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
+
+<h2 id="protocals">互联网协议(protocals)</h2>
+
+<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
+<em>顺序</em>与对信息传输的<em>行动</em>。</p>
+
+<h2 id="host">主机(host)</h2>
+
+<p>主机以包(packets)的形式传输信息。算法如下：</p>
+
+<ol>
+  <li>取得需要传输的信息</li>
+  <li>将其截成定长为$L$的小段(chunks)，称之为包(packet)</li>
+  <li>将包以某个传输比率(transmission rate)$R$传输至网络</li>
+</ol>
+
+<p>传输比率又称连接容量(link capacity)，连接带宽(link bandwidth)，计算公式如下：</p>
+
+<p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
+
+<h2 id="physical-media">物理媒体(Physical Media)</h2>
+
+<p>比特(bit)：在发送者与接收者之间传输</p>
+
+<p>物理链接(physical link)：连接发送者与接收者的物理材料</p>
+
+<p>导向媒体(guided media)：传输信号的固体媒体，比如铜导线，光纤，同轴电缆</p>
+
+<p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
+
+<h2 id="network-core">网络核心(network core)</h2>
+
+<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
+路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
+
+<h2 id="section-1">网络结构</h2>
+
+<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
+这样才能做到路由器之间的通讯。</p>
+
+<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
+但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
+同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
+使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
+
+<p>网络的层级如下：</p>
+
+<ol>
+  <li>一级网络服务提供商(Tier 1 ISP)与内容提供网络(Content Provider Network)</li>
+  <li>广域网交换点(IXP)</li>
+  <li>区域ISP</li>
+  <li>入口ISP</li>
+</ol>
+
+<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
+
+<p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
+
+<p>分组通过最佳路径(取决于 路由算法)路由到目标。但并不是所有在相同两个主机之间传送的分组（即使是来自同一消息的那些分组）一定要沿着相同的路径传送。</p>
+
+<p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
+
+<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
+终端-终端延迟在理想状况下为$2L / R$。</p>
+
+<h3 id="section-2">队列与丢包</h3>
+
+<p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
+
+<ul>
+  <li>包被存储在队列中等待，或者</li>
+  <li>当队列存储容量满了以后，包会丢失(dropped)</li>
+</ul>
+
+<h3 id="section-3">两个关键的的网络核心功能</h3>
+
+<p>路由(routing):决定包的源地址路由器</p>
+
+<p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
+
+<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
+
+<p>根据
+<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
+双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
+信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
+
+<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
+
+<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
+不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
+现代的通信中应用相对较少</p>
+
+<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
+进行通信的技术。典型应用有GSM。</p>
+
+<h3 id="vs-">封包交换 vs 电路交换</h3>
+
+<p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
+
+<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
+但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
+
+<h3 id="section-4">丢包与延迟的来源</h3>
+
+<h4 id="section-5">丢包</h4>
+
+<p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
+
+<h4 id="section-6">延迟</h4>
+
+<p>对于单路由节点而言，延迟的来源有四个：</p>
+
+<ul>
+  <li>节点处理过程(nodal processing)：包含比特错误校验(check bit errors)，确定输出连接等，通常小于毫秒量级</li>
+  <li>队列延迟(queueing delay)：等待输出连接的传输时间，由当前连接的拥挤程度而决定</li>
+  <li>转换延迟(transmission delay)：将数据输入传输连接的时间，计算方式为$d_{trans} = L / R$,$L$表示包长度，$R$表示带宽</li>
+  <li>传输延迟(propagation delay):数据在连接媒体之间传输的时间，计算方式为$d_{prop} = d / s$，$d$表示物理连接的长度，$s$表示传输速度的中位数</li>
+</ul>
+
+<p>计算延迟的公式为：</p>
+
+<p>$d<em>{nodal} = d</em>{proc} + d<em>{queue} + d</em>{trans} + d_{prop}$</p>
+
+<h2 id="section-7">层级</h2>
+
+<h3 id="section-8">网络协议层级栈</h3>
+
+<ol>
+  <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
+  <li>传输层(transport)：进程-进程(process-process)之间的数据传输，TCP，UDP</li>
+  <li>网络层(network)：路由相关，如IP，路由协议</li>
+  <li>连接层(link)：在相邻网络元素之间的数据传输，如以太网(Ethernet),802.111协议，PPP等</li>
+  <li>物理层(physical)：二进制数据</li>
+</ol>
+
+<h3 id="isoosi">ISO/OSI七层模型</h3>
+
+<p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
+
+<ol>
+  <li>表示层(presentation)：允许应用解释数据的意义，比如加密，压缩，机器特定的约定，等</li>
+  <li>会话层(session)：同步，校验点(checkpoint)，从数据交换中恢复等等</li>
+</ol>
+
+<p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
+
+ -->
+    
+        <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -258,6 +461,44 @@ G_k$表示对应的语法，我们可以创造如下规则使前述定理成立�
   <li>对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$</li>
   <li>对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda | S_k S_1$</li>
 </ul>
+
+<h2 id="derivation-tree">派生树(Derivation Tree)与歧义</h2>
+
+<p>派生树用于表示CFG生成字符串的一般步骤。构建派生树的方法如下：</p>
+
+<ul>
+  <li>跟节点用于表示起始变量S</li>
+  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物
+该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
+  <li>任何叶结点表示一个符号或者空串</li>
+  <li>最终派生的字符串从左到右读入，排除任何的空串</li>
+  <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
+</ul>
+
+<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推
+导，我们永远对当前最左边的变量使用派生规则。</p>
+
+<p>我们有如下定理：
+如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
+
+<ul>
+  <li>$x$ 有多于一个的派生树</li>
+  <li>$x$ 有多于一个的左派生树</li>
+  <li>$x$ 有多于一个的右派生树</li>
+</ul>
+
+<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$
+有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
+
+<p>典型例子：</p>
+
+<blockquote>
+  <p>if (e1) if (e2) f(); else g();</p>
+</blockquote>
+
+<p>我们可以通过引入新变量来消除歧义。</p>
+
+<h2 id="simplified-formsnormal-forms">简式(Simplified Forms)与范式(Normal Forms)</h2>
 
 <h2 id="section-1">上下文无关语言的泵引理</h2>
 
@@ -767,634 +1008,6 @@ display support.</p>
     
         <p>我觉得空之境界是神作。我觉得空之境界是神作。因为很重要所以说了两遍。下面可能有若干剧透，
 不想被剧透的请手动跳转<a href="http://www.bilibili.com/video/av1005743/index_1.html#">B站空境合集</a>，弹幕质量请注意。。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/" title="操作系统笔记一：进程"><img src="http://MeowAlienOwO.github.io//images/46882263_p0.jpg" alt="操作系统笔记一：进程"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-05T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/">March 05, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/" rel="bookmark" title="操作系统笔记一：进程" itemprop="url">操作系统笔记一：进程</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
-统的重要内容。主要是小学期的内容，现在来总结一下。</p>
-
-<h1 id="section">计算机多任务系统</h1>
-<p>现在的计算机系统大部分是多任务系统(multiprogramming),可以参考
-<a href="http://en.wikipedia.org/wiki/Multics">MULTICS</a>:</p>
-
-<ul>
-  <li>并发(Concurrency, 或者伪并行pseudo parallelism)是通过对单一CPU上执行
-的进程进行调配而实现的。(一个人吃三个馒头)</li>
-  <li>并行(Parallelism)是通过物理上的多CPU来实现的。(三个人吃三个馒头)</li>
-</ul>
-
-<p>多任务系统需要上下文切换(context switching)来调整进程的执行，然而这种
-方式会带来开销(overhead)。
-上下文切换：中止并保存当前进程，然后启动/重启另一个进程
-操作系统通过调用器(dispatcher)与排程器(scheduler)来进行进程管理：</p>
-
-<ul>
-  <li>分配/保护资源</li>
-  <li>插入进程</li>
-  <li>支持进程间通信</li>
-</ul>
-
-<h1 id="section-1">进程</h1>
-
-<p>每个进程都包括：</p>
-
-<ul>
-  <li>程序代码</li>
-  <li>数据，包括堆(stack)跟栈(heap)的数据</li>
-  <li>进程控制块(process control block, PCB)</li>
-</ul>
-
-<p>PCB保存所有有关于进程管理的信息，对于多任务系统中的上下文切换而言，PCB是必不可少的。在后面我们会讨论一下PCB的内容。</p>
-
-<h2 id="state">进程的状态(state)</h2>
-<p>进程在它的生命周期中，会在不同的状态之间切换。
-一个常见的进程状态转换图如下：</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/process.jpg" alt="process.jpg" /></p>
-
-<ul>
-  <li>状态为<code>running</code> 的进程占用CPU</li>
-  <li>状态为<code>block</code> 的进程无法继续执行，比如正在等待I/O</li>
-  <li>状态为<code>ready</code> 的进程等待CPU变得可用</li>
-  <li>状态为<code>new</code> 的进程刚刚被创建，等待被处理</li>
-  <li>状态为<code>terminated</code> 的进程已经结束，不过数据仍然有可能被暂时留在内存中</li>
-  <li>状态为<code>suspended</code> 的进程被交换(swap)出去了</li>
-</ul>
-
-<p>状态转换包含如下：</p>
-
-<ol>
-  <li><code>new</code> -&gt; <code>ready</code>: 接纳新创建的进程</li>
-  <li><code>running</code> -&gt; <code>blocked</code>: 进程被阻塞，等待IO或者系统调用</li>
-  <li><code>ready</code> -&gt; <code>running</code>: 进程被排程器选中执行</li>
-  <li><code>block</code> -&gt; <code>ready</code>: 事件发生了，比如IO操作结束，进程回到等待状态等待被调用</li>
-  <li><code>running</code> -&gt; <code>ready</code>: 进程被抢占</li>
-  <li><code>running</code> -&gt; <code>exit</code>: 进程结束</li>
-</ol>
-
-<p>进程的生命周期：</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/process2.jpg" alt="process2.jpg" /></p>
-
-<p>中断(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。</p>
-
-<h2 id="section-2">进程的创建与终止</h2>
-
-<p>操作系统负责创建进程，如下的事件发生时可以创建进程：</p>
-
-<ul>
-  <li>系统初始化的时候创建后台与前台进程</li>
-  <li>用户请求</li>
-  <li>批处理任务(注：这是windows下的说法，linux下的是shell脚本?)</li>
-  <li>其他进程创建</li>
-</ul>
-
-<p>如下的系统调用命令可以用来创建子进程：</p>
-
-<ul>
-  <li>*NIX系统下<code>fork()</code>可以创建一个父进程的完整拷贝，然后使用<code>exec</code>来执行</li>
-  <li>windows系统下使用<code>NTCreateProcess()</code>API</li>
-  <li>Linux下使用<code>clone()</code></li>
-</ul>
-
-<p>同样的，操作系统也负责终止进程。如下的事件发生时终止进程：</p>
-
-<ul>
-  <li>进程正常退出</li>
-  <li>错误：<code>ERROR</code>,比如说空间不足</li>
-  <li>错误：<code>FATAL</code>,程序bug</li>
-  <li>被父进程或者其他被授权的进程杀死（<code>KILL</code>）</li>
-</ul>
-
-<p>在进程终止时，需要使用系统调用来通知操作系统进程终止，然后释放被分配的资源，冲刷掉输出，以及执行可能的系统操作指令。</p>
-
-<p>如下的系统调用命令可以终止进程：</p>
-
-<ul>
-  <li>*NIX, Linux:<code>exit()</code>,<code>kill()</code></li>
-  <li>Windows: <code>TerminateProcess()</code></li>
-</ul>
-
-<h2 id="section-3">进程的实现</h2>
-<p>操作系统通过<em>表</em>来维护资源的状态：</p>
-
-<ul>
-  <li>内存表：内存分配，内存保护以及虚拟内存等等</li>
-  <li>I/O表：可用性，状态，信息转换</li>
-  <li>文件表：位置，状态</li>
-  <li>进程表：进程控制块</li>
-</ul>
-
-<p>这些表可以被交叉引用。</p>
-
-<h2 id="pcb">PCB与进程表</h2>
-<p>PCB包含一些进程管理时必要的属性。通常而言，包含如下几个类别：</p>
-
-<ul>
-  <li>进程区分：PID，UID，父进程的PID等</li>
-  <li>进程状态：用户注册，程序计数，堆栈指针，程序状态,内存管理，文件等等</li>
-  <li>进程控制信息：进程状态，排程信息等等</li>
-</ul>
-
-<p>PCB必须被保护，否则可能带来一系列严重的问题。</p>
-
-<p>进程表负责管理所有进程的PCB,当进程被中断/切换的时候，操作系统会更新进程表中的PCB信息。而在进程创建之前，进程表中会为之分配一个入口。</p>
-
-<h2 id="section-4">上下文切换</h2>
-<p>上下文切换发生的时候，系统会将原来进程的状态与内容保存起来，然后读入新
-的进程所要执行的内容，这个读写操作会产生开销。
-如下的事件会触发上下文切换：</p>
-
-<ul>
-  <li>进程内中断(interrupt):计时器，I/O，page fault等</li>
-  <li>由于错误或者异常而导致的陷阱(traps)</li>
-  <li>系统调用，比如I/O请求</li>
-</ul>
-
-<h1 id="section-5">进程排程算法</h1>
-
-<p>操作系统负责管理进程的排程：</p>
-
-<ul>
-  <li>决定何时接受进程进入系统（<code>new</code> -&gt; <code>ready</code>）</li>
-  <li>决定哪一个进程接下来将被执行(<code>ready</code> -&gt; <code>run</code>)</li>
-  <li>决定哪一个，以及何时进程将被中断(<code>interrupt</code> -&gt; <code>ready</code>)</li>
-</ul>
-
-<p>以上操作需要排程器与执行器的支持，排程器运行的算法称之为排程算法(scheduling algorithm)，根据操作系统的不同而有所区别。</p>
-
-<p>根据优先权分类：</p>
-
-<ul>
-  <li>
-    <p>非抢占式算法(non-preemtive)：进程只会被自发地中断，比如说IO与”nice”的系统调用。
-实例： Windows3.1, DOS</p>
-  </li>
-  <li>
-    <p>抢占式算法(preemtive)：进程可以被强制或者自发地中断，这需要上下文切换的支持。
-这种算法的好处是可以避免进程独占cpu资源，坏处是上下文切换会带来开销。目前大多数主流操作系统都使用优先权算法。</p>
-  </li>
-</ul>
-
-<h2 id="section-6">评价标准</h2>
-
-<p>面向用户的评价标准：</p>
-
-<ul>
-  <li>响应时间(response time)：从创建任务到第一次执行之间的时间</li>
-  <li>运行时间(turnaround time): 从创建任务到完成之间的时间</li>
-  <li>可预测性(predictability): 运行时间的差异性（可以用方差来表示？）</li>
-</ul>
-
-<p>面向系统的评价标准：</p>
-
-<ul>
-  <li>吞吐量(throughput): 每小时处理任务的数量</li>
-  <li>公平性(fairness): 处理能力/等待时间是否平均分布？是否存在等待时间过长的进程？</li>
-</ul>
-
-<p>在下面我们主要使用平均响应时间与平均运行时间来衡量排程算法。</p>
-
-<h2 id="first-in-first-serve">先进先执行(First in first serve)</h2>
-<p>先进先执行是一个非抢先式算法，使用严格队列机制(strict queueing mechanism)，即其按照任务加入任务队列的顺序执行任务。</p>
-
-<ul>
-  <li>优势：在位置上是公平的，且易于实现</li>
-  <li>劣势：容易造成长队列，以及造成系统资源之间的竞争</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/first-in-first-serve.jpg" alt="" /></p>
-
-<h2 id="shotest-job-first">最短任务优先(Shotest job first)</h2>
-<p>最短任务优先算法同样也是一个非抢先式算法，将所有任务以所需时间排序，将耗时最小的任务首先执行。</p>
-
-<ul>
-  <li>优势：总是会有最好的运行时间</li>
-  <li>劣势：
-  可能会导致饥饿(starvation)的发生:紧急的任务得不到优先执行；
-  需要牺牲公平性与可预测性；
-  必须预先得知进程执行时间。</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/shortest-first.jpg" alt="" /></p>
-
-<h2 id="round-robin">循环算法(Round-Robin)</h2>
-
-<p>循环算法是先进先执行算法的一个抢占式版本。它依然按照进程创建的顺序执行进程，但是在经过了一段时间间隔后，操作系统会强制切换到下一个进程。</p>
-
-<ul>
-  <li>优势：缩短了响应时间，而且在当前主流的分时操作系统下效率良好</li>
-  <li>劣势：
-　　　　增加了上下文切换的开销；
-　　　　比起同IO绑定的进程(运行时间短)更加偏向同CPU绑定的线程(运行时间长)；
-　　　　最差情况下会变成先进先执行算法。</li>
-</ul>
-
-<p>使用循环算法时，切换的时间间隔需要小心设计。</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/round-robin.jpg" alt="" /></p>
-
-<h2 id="priority-queues">优先级队列(Priority Queues)</h2>
-
-<p>优先级队列也是一个抢先式算法，它将所有的任务按照优先级排列。优先级通常存储在进程的PCB里，而且可以动态改变。</p>
-
-<ul>
-  <li>优势：可以优先执行同IO绑定的任务</li>
-  <li>劣势：对于静态的优先级而言，低优先级的任务可能会被放置过久。</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/priority-queue.jpg" alt="" /></p>
-
-<h1 id="threadprocess">线程(thread)与进程(process)</h1>
-
-<p>进程包含两个基础单元：</p>
-
-<ul>
-  <li>资源(resource)：包括包含进程镜像的（虚拟的）地址空间（比如程序，数据，堆，栈等等）</li>
-  <li>文件(file)，IO设备，IO通道等等</li>
-</ul>
-
-<p>一个进程可以在多个执行追踪之间共享资源，比如多线程在同一资源环境下的共享。</p>
-
-<p>每个线程都有自己的执行上下文(execution contest)，比如说程序容器，寄存器等等。所有的线程都有权使用进程的共享资源。</p>
-
-<p>线程通常是合作完成同一目标。</p>
-
-<p>有的CPU对多线程有着硬件层面的支持。</p>
-
-<h2 id="section-7">进程与线程的区别</h2>
-
-<p>同进程类似的，线程同样有：</p>
-
-<ul>
-  <li>状态以及转换函数(new, running, blocked, ready, terminated)</li>
-  <li>线程控制块(thread control block)</li>
-</ul>
-
-<p>相比较而言，线程在创建/终止/切换的开销比进程小(地址空间在同一进程中是一样的)。</p>
-
-<p>线程间通信通常比进程间通信来的快(通过内存共享实现，而进程常常需要消息机制)，不存在保护边界（因为线程是合作的，属于同一用户并且实现同一目标）。因此，我们在设计多线程程序的时候需要仔细考虑同步性。</p>
-
-<table summary="进程与线程共享资源的区别">
-  <tr>
-    <th>进程</th>
-    <th>线程</th>
-  </tr>
-  <tr>
-    <td>地址空间</td>
-    <td>程序计数器(指令地址寄存器)</td>
-  </tr>
-  <tr>
-    <td>全局变量</td>
-    <td>寄存器</td>
-  </tr>
-  <tr>
-    <td>打开的文件</td>
-    <td>栈</td>
-  </tr>
-  <tr>
-    <td>子进程</td>
-    <td>状态</td>
-  </tr>
-  <tr>
-    <td>挂起警报</td>
-    <td>本地变量</td>
-  </tr>
-  <tr>
-    <td>信号与信号处理器</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>计数信息</td>
-    <td></td>
-  </tr>
-</table>
-
-<p>多线程主要用于如下场景：
-- 一系列的相关操作需要一些同样的资源，而这些资源需要被分享
-- 进程中会有很多阻塞任务，比如IO操作或者内存操作</p>
-
-<p>进程的一些替代：</p>
-
-<ul>
-  <li>顺序执行追踪(sequential execution trace)</li>
-  <li>多进程</li>
-  <li>非阻塞系统调用</li>
-</ul>
-
-<p>操作系统的线程实现通常分为用户线程，核心线程与混合线程。</p>
-
-<h2 id="section-8">用户线程</h2>
-<p>线程管理是在用户库的协助下，在用户空间中发生的。线程管理包括：创建，摧
-毁，排程，线程控制块维护。</p>
-
-<p>进程通过运行时系统来管理线程表。同进程表类似，线程表用于管理线程切换并且跟踪同线程相关的信息。</p>
-
-<p>在用户线程下，操作系统核心不保存任何关于线程的信息。所以，这种实现方法常被用在那些实际上不支持多线程的操作系统中。</p>
-
-<p>优势：</p>
-
-<ul>
-  <li>进程在用户空间，不需要模式切换</li>
-  <li>完全被线程排程器控制</li>
-  <li>操作系统无关</li>
-  <li>运行时系统可以在用户空间里切换本地被阻塞的线程</li>
-</ul>
-
-<p>劣势：</p>
-
-<ul>
-  <li>阻塞系统调用可以将整个进程终止</li>
-  <li>页面错误(page faults)会阻塞整个进程</li>
-  <li>不是真正的并行机制</li>
-  <li>时钟中断不存在?(clock interrupts are non-existent)</li>
-</ul>
-
-<h2 id="section-9">核心线程</h2>
-<p>操作系统管理线程，用户应用通过API与系统调用来控制线程。
-线程表保存在操作系统核心中，包括线程控制块(是进程控制块的一个子集)。
-线程阻塞时，操作系统会选择该进程中另外一个线程运行。</p>
-
-<p>优势：</p>
-
-<ul>
-  <li>实现真的并行机制</li>
-  <li>不需要非阻塞系统调用</li>
-  <li>不需要运行时系统</li>
-</ul>
-
-<p>劣势：</p>
-
-<ul>
-  <li>需要不断进行模式切换，会导致运行效率下降。</li>
-</ul>
-
-<h2 id="section-10">混合线程</h2>
-
-<p>混合线程是以上两者的混合，系统线程由系统控制(数量有限),而用户应用控制用户线程</p>
-
-<h1 id="section-11">线程的排程</h1>
-
-<h2 id="section-12">反馈队列算法</h2>
-
-<p>进程可以按照占用资源大致被分成两类：</p>
-
-<ul>
-  <li>IO绑定进程(IO bound)：将绝大多数时间放在处理IO事务上，占用很少的CPU资源</li>
-  <li>CPU绑定进程(CPU bound)：将绝大多数时间放在CPU计算上</li>
-</ul>
-
-<p>操作系统需要良好地将以上两种进程混合在一起。因此，我们使用反馈队列算法。</p>
-
-<p>反馈队列(feedback queue)：优先级是<strong>动态更改</strong>(dynamically
-changed)的,例如将任务在不同的队列之间移动。</p>
-
-<ul>
-  <li>应用中，我们往往多个拥有不同优先级的队列，比如前台进程与后台进程</li>
-  <li>高优先级的进程总是最先执行</li>
-  <li>
-    <p>每个队列可以有自己的排程算法</p>
-  </li>
-  <li>我们可以将任务移至低优先级队列来将避免过多使用CPU时间，使得IO与交互进程有更高优先级</li>
-  <li>将进程移至高优先级来避免饥饿</li>
-</ul>
-
-<p>我们定义一个反馈队列的性质如下：</p>
-
-<ul>
-  <li>队列的数量</li>
-  <li>每个队列的排程算法</li>
-  <li>队列间移动算法</li>
-  <li>初始执行的队列</li>
-</ul>
-
-<p>反馈队列拥有高度灵活以及可定制行强的特性。</p>
-
-<p>由于物理限制的存在，并行被认为是提高计算能力的一个非常重要的手段。</p>
-
-<h2 id="section-13">排程的决定</h2>
-<p>单处理器机器需要决定哪一个线程是接下来被执行的(一维)；</p>
-
-<p>相对的，多处理器机器需要决定：哪一个线程被_哪个_处理器执行，以及_何时_被执行。</p>
-
-<p>对于多用户而言，线程可以是相关的或者是非相关的。相关的线程：同一进程创建的线程，他们之间可以交互。非相关线程：属于不同的进程，很可能是被不同的用户所创建，运行不同的程序。</p>
-
-<h2 id="section-14">共享队列</h2>
-
-<p>一个队列或者多个队列可能被所有的CPU所共享。</p>
-
-<ul>
-  <li>好处：自动平衡了负载</li>
-  <li>坏处：会引发对队列的争夺，需要加锁；对非相关进程/线程更加有用；所有的CPU都有相同的机会，但是有些时候会有更高的优先权，而且对进程不够友善：移动到别的CPU时缓存不可用；Translation look aside buffers become invalid(?)</li>
-</ul>
-
-<h2 id="section-15">私有队列</h2>
-<p>每个进程/线程被单个CPU所私有</p>
-
-<ul>
-  <li>好处：对CPU友善; 争夺队列的情况最小化</li>
-  <li>坏处：负载不够均衡</li>
-</ul>
-
-<h2 id="section-16">线程协作</h2>
-<p>属于同一进程的线程被视为合作线程。他们可以互相传递消息或者共享信息。线程排程的目的是使得线程在多个CPU间同时运行。</p>
-
-<p>我们有如下方法：</p>
-
-<ul>
-  <li>空间共享</li>
-  <li>群排程(Gang scheduling)</li>
-</ul>
-
-<h3 id="section-17">空间分配</h3>
-
-<p>方法：</p>
-
-<ul>
-  <li>N个线程被分配在N个专用的CPU上</li>
-  <li>N个进程保持等待状态直到有N个CPU可用</li>
-  <li>保持非抢占性</li>
-  <li>使用排程算法来做决定</li>
-  <li>阻塞不会使CPU空转</li>
-</ul>
-
-<p>我们可以通过调整数字N来匹配不同的处理容量。</p>
-
-<h3 id="section-18">群排程</h3>
-
-<p>我们做如下假定：</p>
-
-<ul>
-  <li>进程A有线程A1,A2且A1,A2协作；</li>
-  <li>进程B有线程B1,B2且B1,B2写作</li>
-</ul>
-
-<p>排程器选择A1,B1开始运行，然后切换到A2,B2,然后A1,A2，B1,B2，分别在不同的CPU上运行。
-他们将尝试向已经在Ready状态的线程发送信息。</p>
-
-<p>特性：</p>
-
-<ul>
-  <li>时间段同步</li>
-  <li>排程器将一些线程放在一起</li>
-  <li>所有的线程（尽可能多的）同时运行</li>
-  <li>抢占式算法</li>
-  <li>阻塞会使CPU空转</li>
-</ul>
-
-<p>关于反馈队列的一些讨论，<a href="http://baike.baidu.com/view/4230337.htm">百度百科</a>写的比较详细（虽然度娘的节操如浮云）</p>
-
-<h1 id="section-19">中断</h1>
-
-<p>中断被用来临时暂停进程的正常操作</p>
-
-<p>我们有如下几种中断方式：</p>
-
-<ul>
-  <li>软件中断，比如错误有或者抛出异常</li>
-  <li>CPU时钟所导致的时间中断</li>
-  <li>IO完成或者错误时的IO中断</li>
-</ul>
-
-<h2 id="io">无中断情况下的IO操作</h2>
-
-<ul>
-  <li>准备好IO设备</li>
-  <li>执行IO操作</li>
-  <li>通知IO进程，比如设定正确的flag或者进程错误</li>
-</ul>
-
-<p>问题：</p>
-
-<ul>
-  <li>程序需要繁忙等待吗？</li>
-  <li>CPU这个时候可不可以进行其他的作业？（相对而言IO操作远慢于CPU）</li>
-</ul>
-
-<h2 id="io-1">中断下的IO操作</h2>
-<p>中断使得CPU可以当IO操作发生时，空出来执行其他操作。</p>
-
-<ul>
-  <li>设定并且运行IO设备</li>
-  <li>并发地进行IO与CPU计算</li>
-  <li>进程中断：停止当前进程，执行中断处理程序</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/interrupt.jpg" alt="process.jpg" /></p>
-
-<p>具体的操作流程如下：</p>
-
-<ol>
-  <li>设备产生中断</li>
-  <li>CPU完成当前指令</li>
-  <li>CPU检测是否有中断
-    <ul>
-      <li>发现中断的产生</li>
-    </ul>
-  </li>
-  <li>将中断转换成服务例程
-    <ul>
-      <li>存储当前进程状态</li>
-      <li>将程序计数器转换至中断服务例程</li>
-    </ul>
-  </li>
-  <li>存储寄存器等其他状态信息</li>
-  <li>执行中断服务例程</li>
-  <li>重置之前的进程</li>
-  <li>重置程序计数器等</li>
-</ol>
-
-<h2 id="section-20">进程间通信</h2>
-
-<p>进程可以是独立的，也可以是协作的，协作进程有交换信息的需求。我们有两种方法用于进程间协作：</p>
-
-<ul>
-  <li>共享内存
-    <ul>
-      <li>两个进程读写同一块共享的内存</li>
-      <li>通常而言是最快的方法，系统调用只需要建立共享区块</li>
-    </ul>
-  </li>
-  <li>协作进程间传递信息
-    <ul>
-      <li>使用系统调用传递信息</li>
-      <li>早期的分布式系统使用这种方式</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="section-21">共享内存</h3>
-<p>这种方法需要进程能够获得另一个进程的私有地址空间，通常而言我们可以通过重写保护边界来实现。同时，交流必须被同步，否则会出现问题。</p>
-
-<p>一旦共享空间设定，系统不需要过多干涉。但是同样有可能产生
-<a href="http://www.searchstorage.com.cn/whatis/word_3948.htm">竞态条件</a>。</p>
-
-<p>缓冲区可以是有界的或者是无界的。</p>
-
-<h3 id="section-22">竞态条件</h3>
-
-<p>假设我们有一个操作系统连接着一个打印机。</p>
-
-<p>当一个进程想打印文件时，他会将该文件插入一个数字标记的“插槽”并加入一个特殊的打印路径。打印机守护进程间歇地检测是否有文件需要打印。操作系统维护两个变量：<code>IN</code>表示空闲的“插槽”数目，<code>OUT</code>表示需要被打印的文件数目。</p>
-
-<p>当两个进程同时将同一个文件提交至打印任务时：
-<img src="http://MeowAlienOwO.github.io/images/race-condition.jpg" alt="Race condition" /></p>
-
-<h3 id="section-23">消息传输</h3>
-
-<p>通过消息传输器交流，进程之间没有共享的地址空间。这种方式在分布式环境中更加有用。</p>
-
-<p>传输的消息可以是定长的或是变长的。</p>
-
-<p>两个进程之间必须有交流连接。</p>
-
-<ul>
-  <li>有向连接是自动创立的：
-    <ul>
-      <li>p1: <code>send(p2, message)</code></li>
-      <li>p2: <code>receive(p1, message)</code></li>
-    </ul>
-  </li>
-  <li>无向连接通过一个公众的”信箱“建立，这个信箱属于一个操作系统进程。
-    <ul>
-      <li>p1: <code>send(mailbox, message)</code></li>
-      <li>p2: <code>receive(mailbox, message)</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p>无向连接的同步有两种方式：</p>
-
-<ul>
-  <li>阻塞收发：向邮箱请求的进程会被阻塞，直到收到消息/邮箱空闲</li>
-  <li>非阻塞收发：邮箱在发送后重置操作或者当没有消息可用时返回空(null)</li>
-</ul>
-
-<p>消息队列可以是无容量的(no-capacity)，有限容量(bounded capacity)或者是无界容量(unbounded capacity)。</p>
-
- -->
-    
-        <p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
-统的重要内容。主要是小学期的内容，现在来总结一下。</p>
 
 
     
