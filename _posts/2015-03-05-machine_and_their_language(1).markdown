@@ -11,7 +11,7 @@ image:
   creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49196792
 ---
 
-Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动状态机展开。
+Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动机展开。
 
 # Basic
 在深入其他内容之前，我们需要掌握一下语言的概念。
@@ -46,7 +46,7 @@ Machines and Languages感觉难度比较大，这里记一下笔记来让自己�
 
 $n_a(X)$表示$a$在字符串$X$中的出现次数。
 
-我们用$\Sigma^*$来表示所有在字母表$\Sigma$之上的字符串。而一个*语言(language)*则是$\Sigma^*$的一个子集。
+我们用$\Sigma^\*$来表示所有在字母表$\Sigma$之上的字符串。而一个*语言(language)*则是$\Sigma^\*$的一个子集。
 
 我们用$xy$来表示字符串$x$与$y$的*连接(concatenation)*，这也是对字符串最基本的操作。它有着如下的特性：
 你
@@ -237,3 +237,34 @@ some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$
 - 所有的被标记的二元对有关系$p \not \equiv q$
 
 当该算法停止时，未被标记的二元对$(p, q)$表示两个可以被合成一个的状态。
+
+
+# Nondeterministic Finite Automata
+
+非确定有限状态机(Nondeterministic Finite Automata)的定义是将原来的确定有限状态机的单个转换函数扩展成一个
+转换函数集，每次运行时，使用平行(parallel)的思路运行不同的转换函数，只
+要有一个返回接受，那么该状态机就接受。
+
+
+我们定义$\delta(q, \sigma)$为在状态$q$的NFA对于输入$\sigma$可以移动到的状态集合
+对于NFA而言，$\delta^\*$的定义略有不同。由于$\delta\*(q, x)$是一个集合，
+对于任意的前一集合中的$p$，$U \lbrace \delta(p, \sigma) | p \int \delta^\*(q,
+x) \rbrace$是$\delta\*$的第一步（不理解……）
+
+## $\Lambda$闭包
+
+我们同样需要考虑$\Lambda$转换，它可以发生在任何状态。假设$M = (Q,
+\Sigma, q_0, A, \delta)$是一个NFA,$S \subset Q$是一个状态的集合。
+那么，$S$的$\Lambda$闭包是一个集合$\Lambda(S)$，这个集合可以被递归地定
+义如下：
+
+- $S \subset \Lambda(S)$
+- 对于所有的$q \in \Lambda(S), \sigma(q, \Lambda) \subset \Lambda(S)$
+
+构建$\Lambda$闭包的方式也很简单，根据定义，令$T = S$，对于任意的$q \in
+T$，向$T$中加入所有的$\delta(q, \Lambda)$直到$T$不再发生改变。最终的结
+果$T$就是$\Lambda(S)$。
+
+## 消除NFA的不确定性
+
+ 
