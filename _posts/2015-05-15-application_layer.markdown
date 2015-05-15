@@ -197,7 +197,7 @@ P2P架构下，服务器需要上传至少一个副本，客户端下载时间�
 
 总时间为：
 
-$ D_{p2p} \geq max \lbrace F / u_s, F / d_{min}, NF / (u_s + \Sigma u_i) \rbrace $
+$ D\_{p2p} \geq max \lbrace F / u\_s, F / d\_{min}, NF / (u\_s + \Sigma u_i) \rbrace $
 
 N的线性增长在某种程度上被$\Sigma u_i$所抵消。
 
