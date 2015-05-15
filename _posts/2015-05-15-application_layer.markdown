@@ -188,7 +188,7 @@ DNS（Domain Name System，域名系统），因特网上作为域名和IP地址
 
 我们可以得到总时间为：
 
-$D_{c-s} \geq max{NF / u_s, F/d_{min}}$
+$D_{c-s} \geq max \lbrace NF / u_s, F / d_{min} \rbrace$
 
 其中N是线性增长的。
 
@@ -197,7 +197,7 @@ P2P架构下，服务器需要上传至少一个副本，客户端下载时间�
 
 总时间为：
 
-$D_{P2P} \geq max{F/u_s, F/d_{min}, NF/(u_s + \Sigma u_i) }$
+$D_{P2P} \geq max \lbrace F/u_s, F/d_{min}, NF/(u_s + \Sigma u_i) \rbrace$
 
 N的线性增长在某种程度上被$\Sigma u_i$所抵消。
 
