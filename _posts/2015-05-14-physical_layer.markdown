@@ -146,7 +146,7 @@ $D = 2B\log_2 K$
 这个定理针对的是有噪声介质。
 
 信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
-信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_10 S/N$。
+信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。
 
 对于有噪声介质的最大数据率为:
 
