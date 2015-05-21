@@ -3,8 +3,8 @@ layout: post
 title: "MAL-确定有限自动状态机"
 modified: 
 description: "Notes for Machines and their language"
-tags: [ finite automata, computer science]
-categories: [ computer science, math]
+tags: [ finite automata, cs, notes]
+categories: [ Computer Science, Math]
 image:
   feature: 49196792_p0.jpg
   credit: ミクの日だったので | WS [pixiv] 

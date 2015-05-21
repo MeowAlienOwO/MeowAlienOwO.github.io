@@ -5,7 +5,7 @@ date: "2015-05-14 20:15:47 +0800"
 modified: 
 description: "notes on physical layer"
 categories: [Computer Science, Network]
-tags: [cs, network]
+tags: [cs, network, notes]
 image:
   feature: 49604772.jpg
   credit: 加賀x赤城 | YAMAno [pixiv]

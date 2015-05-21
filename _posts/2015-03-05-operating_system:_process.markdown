@@ -2,7 +2,7 @@
 layout: post
 title: "操作系统笔记一：进程"
 description:
-tags: [process, Computer Science, Operating System, notes]
+tags: [process, cs, os, notes]
 categories: [ Computer Science, Operating System]
 image:
   feature: 46882263_p0.jpg

@@ -5,7 +5,7 @@ date: "2015-03-30 19:10:06 +0800"
 modified: 
 description: 
 categories: [Computer Science, Operating System]
-tags: [Memory Management, Computer Science, Operating System, notes]
+tags: [cs, os, notes]
 image:
   feature: 27167056.jpg
   credit: TYPE-MOON10YEARS!! | STAR影法師 [pixiv]

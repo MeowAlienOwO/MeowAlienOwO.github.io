@@ -4,8 +4,8 @@ title: "MAL-下推自动机与上下文无关语言"
 date: "2015-05-03 14:49:02 +0800"
 modified: 
 description: "notes on pushdown automata and context free language"
-categories: [computer science, math]
-tags: [context free language, pushdown automata computer science]
+categories: [Computer Science, Math]
+tags: [context free language, pushdown automata,cs, notes]
 image:
   feature: 31958311.png
   credit: ハイ　ハイ　チャイナ | hounori [pixiv]

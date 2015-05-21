@@ -5,7 +5,7 @@ date: "2015-05-15 21:00:24 +0800"
 modified: 
 description: "notes for transport layer"
 categories: [Computer Science, Network]
-tags: [transport layer]
+tags: [transport layer, cs, notes]
 image:
   feature: 2473257.jpg
   credit: ※このあとナギ様が美味しくいただきました。 | 群青ピズ [pixiv]

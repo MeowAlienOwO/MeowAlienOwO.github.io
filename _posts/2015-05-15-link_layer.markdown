@@ -5,7 +5,7 @@ date: "2015-05-15 01:44:58 +0800"
 modified: 
 description: "Notes for link layer"
 categories: [Computer Science, Network]
-tags: [link layer]
+tags: [link layer, cs, notes]
 image:
   feature: 50285937.jpg
   credit: 雲龍型三姉妹 | れっれれ＠お仕事募集中 [pixiv] 
