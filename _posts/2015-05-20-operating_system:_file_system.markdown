@@ -372,14 +372,12 @@ http://blog.csdn.net/?aspxerrorpath=/blog/KingEasternSun/42848773
 甚至同一操作系统也有可能使用不同的文件系统。要对这些文件系统进行管理，我们使用虚拟文件系统(virtual file system)。
 虚拟文件系统可以看作是OO的多态性(polymorphism)原则的体现。
 
-例如我们使用如下代码处理文件：
-
-```Java
+~~~Java
     DataReader dr = new CSVDataReader();
     dr.readData();
     DataReader dr = new XMLDataReader();
     dr.readData();
-```
+~~~
 
 Unix/Linux将不同的文件系统统一起来，使用单层胶合层来对用户隐藏/抽象相关的细节。
 虚拟文件系统包含POXIS系统调用，对于不同的文件系统而言，其如果要实现虚拟文件系统的需求，那么就需要实现这些系统调用。
