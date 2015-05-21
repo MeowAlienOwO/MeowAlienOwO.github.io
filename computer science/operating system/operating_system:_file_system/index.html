@@ -1,0 +1,587 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Operating System: File System &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
+
+<meta name="keywords" content="cs, file system, os, notes">
+
+<!-- mathjax -->
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+</script>
+
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Open Graph -->
+<!-- <meta property="og:locale" content="en_US"> -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System: File System">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_file_system/">
+<meta property="og:site_name" content="喵窝[0]号机">
+
+
+
+
+
+<link rel="canonical" href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_file_system/">
+<link href="http://MeowAlienOwO.github.io//feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io//assets/css/main.css">
+<!-- Webfonts -->
+<!-- <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css"> -->
+<link href="//fonts.useso.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://MeowAlienOwO.github.io//assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io//favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io//favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://MeowAlienOwO.github.io//images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://MeowAlienOwO.github.io//">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://MeowAlienOwO.github.io//images/avatar.png" alt="死鱼眼的喵星人 photo" class="author-photo">
+					<h4>死鱼眼的喵星人</h4>
+					<p>烈風？いいえ、知らない子ですね。（もぐもぐ</p>
+
+				</li>
+				<li><a href="http://MeowAlienOwO.github.io//about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:meowalienowo@outlook.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				<li>
+					<a href="http://github.com/https://github.com/MeowAlienOwO"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://MeowAlienOwO.github.io//posts/">All Posts</a></li>
+				<li><a href="http://MeowAlienOwO.github.io//tags/">All Tags</a></li>
+				
+				<li>
+				  <a href="/categories/hello/">
+				    hello (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/jekyll/">
+				    jekyll (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/computer science/">
+				    computer science (12)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/operating system/">
+				    operating system (3)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/acg/">
+				    acg (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/空之境界/">
+				    空之境界 (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/c++/">
+				    c++ (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/network/">
+				    network (7)
+				  </a>
+				</li>
+				
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_file_system/" rel="bookmark" title="Operating System: File System">Operating System: File System</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-05-20T15:07:11+08:00">May 20, 2015</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>文件系统的笔记，封港养资源中……</p>
+
+<h1 id="section">硬盘结构</h1>
+
+<h2 id="section-1">物理结构</h2>
+
+<p>硬盘由铝或者玻璃制的圆片组成，圆片上覆盖磁性材料，这些磁性材料组成磁道(tracks)。读写头(read/write heads)在盘片表面上
+(0.2-0.07nm)，与一个磁盘臂(disk arm)相连接，磁盘臂由执行臂所控制,数据在两面存储。
+通常磁盘的直径在1.8-3.5英尺之间。硬盘以匀角速度旋转，通常速率慢于外部存储器，例如CD-ROM。
+硬盘控制器处于CPU与硬盘之间(逻辑上的？)。</p>
+
+<p>硬盘的读写速度大约比主内存慢4倍左右。</p>
+
+<p>中心轴：spindle</p>
+
+<h2 id="section-2">数据存储结构</h2>
+
+<p>硬盘由如下结构组织起来：</p>
+
+<ul>
+  <li>圆筒(cylinder)：一组拥有相对于中心轴相同位置的轨道</li>
+  <li>磁道(track)：单个磁盘片上的同心圆</li>
+  <li>扇面(sector)：一段轨道，通常为512b或者4k大小</li>
+</ul>
+
+<p>扇面通常拥有同样的字节数，含有前导(preamble)，数据(data)与错误校正码(error correcting code)三个部分。</p>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>preamble</td>
+        <td>data</td>
+        <td>ECC</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>硬盘通常会有一定的柱面偏移(cylinder skew)，从扇面0开始，每次寻找的时候增加一个偏移量。(存疑，不太理解)
+(Disks usually have a cylinder skew:i.e., an offset is added to sector 0 in adjecent tracks to account for the seek time. Consecutive disks sectors may be interleaved to account for transfer time)</p>
+
+<h2 id="section-3">存储时间</h2>
+
+<p>存储时间(access time) = 寻找时间(seek time ) + 旋转延迟(rotational delay) + 转换时间(transfer time)</p>
+
+<ul>
+  <li>寻找时间 = 将执行臂移到柱面的时间</li>
+  <li>旋转延迟 = 在目标扇面出现在读写头前的旋转时间(平均而言是旋转时间的一半)</li>
+  <li>转换时间 = 数据转移的时间</li>
+</ul>
+
+<p>如果我们考虑读写操作的顺序的话，在寻找时间上具有一定的优化空间。
+注意存储时间在有多个并发请求在队列中等待的情况下需要加入排队时间。</p>
+
+<p>最优的存储时间(将执行臂从一个轨道移动到下一个)可以用如下公式近似：</p>
+
+<p>$T_s = m * n + s$</p>
+
+<p>$T_s$表示最佳寻找时间，$n$表示穿过的轨道数量，$m$表示穿过时间，$s$表示额外的初始延迟。</p>
+
+<p>例子：</p>
+
+<p>我们假设一个以3600转速的硬盘，一转大约需要16.7ms的时间，平均的旋转延迟约为8.3ms。
+令b表示已经转换的字节数量，N表示每个轨道的字节数量，rpm表示每秒转速，T表示转换时间，我们可以得出：</p>
+
+<ul>
+  <li>N字节需要1个旋转，$T = \frac{ms\ per\ minute}{rpm}$</li>
+  <li>b个连续字节需要$b/N$个旋转，$T = \frac{b}{N} \times \frac{ms\ per\ minute}{rpm}$</li>
+</ul>
+
+<p>读入一个文件，大小为256个扇面。令寻找时间为20ms，每个轨道分成32个扇面。</p>
+
+<p>假设文件存储是连续的，即按顺序存储于8个轨道，每个轨道32个扇面上。</p>
+
+<p>第一个磁道要$20+8.3+16.7=45ms$(寻找+延迟+转换时间)
+剩下的磁道不需要寻找时间，所以每个磁道我们只需要$8.3+16.7=25ms$。
+总时间为$45+7*25=220ms$</p>
+
+<p>假设存储位置是随机的，对于每个扇面而言，我们有：</p>
+
+<p>$T = 20 + 8.3 + 16.7 / 32 = 28.8ms$</p>
+
+<p>总共时间为$T * 256 = 7.37s$</p>
+
+<h2 id="section-4">硬盘排程</h2>
+
+<p>操作系统需要有效地使用硬件：</p>
+
+<ul>
+  <li>文件系统可以分区/将文件用一定的策略组织起来。</li>
+  <li>经常被载入的硬盘队列需要允许将执行臂的移动最小化</li>
+</ul>
+
+<p>当硬盘空闲的时候，队列请求将被执行；如果没有，请求存入队列等待执行。</p>
+
+<p>注意所有的IO操作需要使用系统调用(system call)，允许操作系统拦截请求并且对其进行重排序。</p>
+
+<p>在一个动态的场景下，一些IO请求会随着时间而创建，这些请求会被存储在一个每柱面已请求的扇面表中。</p>
+
+<h3 id="first-come-first-served">先进先出(First-Come, First-Served)</h3>
+
+<p>按照到达的顺序处理请求。</p>
+
+<p>考虑如下的磁盘请求序列(柱面位置)：</p>
+
+<blockquote>
+  <p>11 1 36 16 34 9 12</p>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>总移动长度为</td>
+      <td>11 -1</td>
+      <td>+</td>
+      <td>1 - 36</td>
+      <td>+ .. = 111</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="shortest-seek-time-first">最短的寻找时间优先(Shortest seek time first)</h3>
+
+<p>最短寻找时间优先算法将距目前的读写头位置最近的位置的请求优先执行。对于如上的请求序列，最终的长度为61。
+但是最短寻找时间容易导致饥饿的发生：读写头一直在磁盘的中间位置，中间的负荷很大但是内外很少被使用。
+而且最短寻找时间优先算法也不是一个最优化算法。</p>
+
+<h3 id="scanlift-algorithm">扫描/电梯算法(scan/lift algorithm)</h3>
+
+<p>一直向一个方向移动直到结束。这个算法会向一个方向移动，处理这个方向上的所有未处理的请求。
+当它完成最后一个处理请求后(当前方向)，调换方向处理未处理请求。</p>
+
+<p>对于每一个请求，等待时间上限是2*柱面总数(请求在一头，移动方向相反)，不会导致饥饿的发生。
+当硬盘被重度使用时，中间的柱面会更加经常地使用。</p>
+
+<p>总移动长度为60。</p>
+
+<h4 id="c-scan">C-SCAN</h4>
+
+<p>为了改进等待时间的上限的情况，我们使用C-SCAN算法。</p>
+
+<ul>
+  <li>执行臂向一个方向移动，处理请求</li>
+  <li>当到达磁盘末尾时，方向调换，但是不处理任何请求。</li>
+  <li>回到磁盘的另一头，开始处理请求。</li>
+</ul>
+
+<p>这个算法更加具有公平性，每个请求的响应时间也更加平均。</p>
+
+<p>更小变量(smaller variance)在移动执行臂向一个方向的时候被保持。总是返回路上最小的数字。</p>
+
+<h4 id="section-5">其他算法</h4>
+
+<p>LOOK-SCAN将位置移到第一个/最后一个请求处，一个一个柱面寻找。执行臂有可能”卡”(stick)在某个柱面上，
+那么：</p>
+
+<ul>
+  <li>N-step-SCAN：将请求队列分成每个N段，每段使用SCAN算法进行处理。</li>
+  <li>F-SCAN：使用两个队列，当一个被SCAN处理的时候，另一个被装满。处理完后，两个队列交换。</li>
+</ul>
+
+<p>LOOK算法与SSTF是比较合理的算法。算法的性能取决于请求与磁盘的负载。
+当任何时候都只有一个请求时，所有的算法性能相同。最优算法是很难实现的。</p>
+
+<p>文件系统的布局与操作系统的文件分配方法对寻找移动有着很深的影响。</p>
+
+<h2 id="section-6">硬盘缓存</h2>
+
+<p>对于目前的硬盘而言，寻找一个新的柱面的开销大于旋转时间，于是发展了硬盘缓存技术。
+硬盘缓存指将多个扇面的信息预先读入缓存，请求进入的时候可以先检查缓存，以省去寻找时间。
+硬盘缓存可以通过在旋转延迟的时候读入多个页面而实现。</p>
+
+<h1 id="section-7">文件系统</h1>
+
+<h2 id="file-system">文件(file system)</h2>
+
+<p>文件是相关信息的逻辑单元(logical unit)，存储在一个或者多个块(block)中。
+文件是一种抽象机制，将信息的存储方法向用户隐藏。文件由操作系统的文件系统(file system)管理。
+文件须是连续的，必须能够存储不同种类的信息。</p>
+
+<ul>
+  <li>可执行程序/机器码</li>
+  <li>数据</li>
+</ul>
+
+<p>对于文件系统而言，我们需要首先考虑如下的一些内容：</p>
+
+<ul>
+  <li>正规文件(regular file)保存用户信息：ASCII/二进制(binary file)</li>
+  <li>目录(directory)</li>
+</ul>
+
+<p>一些其他的文件：</p>
+
+<ul>
+  <li>特殊字符文件(character spetial files)，用于模拟IO设备</li>
+  <li>块系列文件(files model)用于模拟硬盘</li>
+</ul>
+
+<h3 id="section-8">底层结构</h3>
+
+<ul>
+  <li>
+    <p>文件被表示成一系列的字节。应用程序负责解析文件及其结构。
+操作系统只将文件看做一系列的字节。这种做法被Windows与Unix所用。</p>
+  </li>
+  <li>
+    <p>文件被认为是一系列定长的记录。每个记录都有相似的大小/结构</p>
+  </li>
+</ul>
+
+<p>索引入口(index access)：索引是被首先搜索，保存一个指针指向文件的位置。
+每一个索引中的元素都表示文件中的一个元素及</p>
+
+<h3 id="section-9">操作系统调用</h3>
+
+<p><code>Open</code>系统调用：</p>
+
+<ul>
+  <li>搜索文件目录来寻找文件位置</li>
+  <li>复制目录入口来打开文件表(考虑权限)</li>
+  <li>增加打开计数器</li>
+</ul>
+
+<p>系统与每个进程都保留一份文件打开表(file open table)。系统范围的文件打开表包含进程信息，
+比如文件在磁盘上位置，文件大小，打开计数器。</p>
+
+<p>每个进程的文件打开表都包含进程独立的信息，比如读写指针，系统文件表的引用等等。</p>
+
+<p>在打开文件后，使用<code>write/read</code>系统调用来进行文件读写。</p>
+
+<ul>
+  <li><code>write</code>：向一个文件写信息，开始地点为write指针所指的地方，而后更新write指针。</li>
+  <li><code>read</code>：从read指针所在的地方读取文件，将信息存入进程内存空间。</li>
+</ul>
+
+<p>系统调用优先：</p>
+
+<ul>
+  <li><code>create</code>：空间被分配，在目录下创建入口，属性被操作系统初始化</li>
+  <li><code>delete</code>：寻找文件，移除文件空间，将目录入口移除。</li>
+</ul>
+
+<h3 id="access-type">接入类型(access type)</h3>
+
+<ul>
+  <li>按序接入(Sequential access)：文件指针按时间增加，新信息附加在末尾</li>
+  <li>随机/直接接入(random/direct access)：比如硬盘。对于每个读写操作，特别设定一个位置参数。
+文件指针可以在文件内使用<code>seek</code>进行重定位。这种方法利用了逻辑/物理存储有固定大小的事实，
+需要将相对文件开始的块编号转换成物理块位置。</li>
+</ul>
+
+<h3 id="locking">锁(locking)</h3>
+
+<p>锁的种类：
+- 共享锁(shared lock)：多个进程可以得到文件权限
+- 互斥锁(exclusive lock)：每次只有一个进程可以得到权限</p>
+
+<p>锁的强制(enforcement)：
+- 强制锁(mandatory locking)：其他进程无法获得文件权限直到锁被释放-&gt;可能导致死锁
+- 报告锁(advisory locking)：其他进程也可以获得文件权限，程序负责处理锁。</p>
+
+<h2 id="directory">目录(directory)</h2>
+
+<p>目录用于组织文件。目录由操作系统调用管理，被标记为特殊的文件。</p>
+
+<p>目录用于存储文件相关的属性，比如名字，硬盘地址等。或者，目录包含一个指针指向存储文件相关位置的数据结构。</p>
+
+<p>目录的结构有如下：</p>
+
+<ul>
+  <li>单层：所有的文件都在一个目录下。</li>
+  <li>两层或者多层目录：树结构。参考无链接的UNIX目录系统</li>
+  <li>有向无环图(directed acyclic graph)：允许文件被不同的目录共享</li>
+</ul>
+
+<p>系统调用:
+- <code>create/delete</code>
+- <code>opendir/closedir</code>
+- <code>readdir</code></p>
+
+<h1 id="hard-drives">硬盘分区(hard drives)</h1>
+
+<p>硬盘总是被分成多个分区。每个分区可能都有一个独立的文件系统。
+管理者是引导(boot)记录，被分配在整个硬盘的开始位置。包含分区表，
+一个分区被操作系统默认标记为活动。</p>
+
+<p>分区包括一个被看作是体积(volumn)的文件系统。一个体积可以包括一个设备的部分，一整个设备，或者多个设备。</p>
+
+<h2 id="unix">Unix分区</h2>
+
+<ul>
+  <li>引导块分区(partition boot block)：包含操作系统的引导代码。每个分区都有一个引导块，尽管它没有包含操作系统</li>
+  <li>超块(supet block)：包含分区的细节，比如大小，块的数量，i-node表数量</li>
+  <li>自由空间管理(free space management):包含点阵图或者链表管理空闲块</li>
+  <li>i-node(文件管理块,file control blocks)：文件信息，主要被i-nodes管理</li>
+  <li>根目录(root directory)</li>
+  <li>数据：文件与目录</li>
+</ul>
+
+<h1 id="section-10">文件系统实现</h1>
+
+<h2 id="contiguous">连续(contiguous)</h2>
+
+<p>连续的文件系统同动态分区相似。所有的文件是存储在一组相邻的块之间，使用第一匹配，最佳匹配，下一匹配之类的算法分配空闲空间。</p>
+
+<p>优势：实现简单，最优化读写性能。</p>
+
+<p>劣势：文件的确切大小并无法被事先知道，使用分配算法来分配空间，删除文件会导致外部碎片。</p>
+
+<p>连续分配空间依然在诸如CD-ROM/DVD之类的存储容器使用。</p>
+
+<h2 id="section-11">链表</h2>
+<p>文件被保存在不同的块(block)中，这些块一个一个相互链接。每个块保存一个数据指针，指向下一个块。</p>
+
+<p>优势：维护简单，只需要处理第一个块，文件大小可以动态改变(文件末尾加入新的块)。同内存页面相似，每个可能的块/扇面都可以被使用。
+序列介入是非常直接的，虽然需要更多的寻找与硬盘操作。</p>
+
+<p>劣势：随机存取比较慢，必须从开头遍历之前所有的块。存在内部碎片，平均有一般的块没有使用。可能会导致随机磁盘介入，速度很慢。空间会因为指针的存在而丢失：区块大小不再是2的指数。万一中间出现文件损坏，会影响之后的文件。</p>
+
+<h2 id="fat">FAT分区表</h2>
+
+<p>将链表的指针存储在一个独特的索引表，叫做文件分配表(file allocation table)。</p>
+
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io//tags/#cs" title="Pages tagged cs" class="tag"><span class="term">cs</span></a><a href="http://MeowAlienOwO.github.io//tags/#file system" title="Pages tagged file system" class="tag"><span class="term">file system</span></a><a href="http://MeowAlienOwO.github.io//tags/#os" title="Pages tagged os" class="tag"><span class="term">os</span></a><a href="http://MeowAlienOwO.github.io//tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a></span>
+        
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://MeowAlienOwO.github.io//computer%20science/network/application_layer/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://MeowAlienOwO.github.io//computer%20science/network/application_layer/" title="Application Layer">Application Layer</a></h3>
+      <p>notes for communication layer <a href="http://MeowAlienOwO.github.io//computer%20science/network/application_layer/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" title="Transport Layer">Transport Layer</a></h4>
+        <span>Published on May 15, 2015</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" title="Network Layer">Network Layer</a></h4>
+        <span>Published on May 15, 2015</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://MeowAlienOwO.github.io//assets/js/scripts.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'meowalienowogithubio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	        
+
+</body>
+
+</html>
