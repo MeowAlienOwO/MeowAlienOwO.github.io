@@ -374,13 +374,11 @@ http://blog.csdn.net/?aspxerrorpath=/blog/KingEasternSun/42848773
 
 例如我们使用如下代码处理文件：
 
-```Java
-
+```
 DataReader dr = new CSVDataReader();
 dr.readData();
 DataReader dr = new XMLDataReader();
 dr.readData();
-
 ```
 
 Unix/Linux将不同的文件系统统一起来，使用单层胶合层来对用户隐藏/抽象相关的细节。
