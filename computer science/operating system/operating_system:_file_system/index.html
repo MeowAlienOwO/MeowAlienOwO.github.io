@@ -603,14 +603,14 @@ i-node仅当文件被打开的时候才会读入内存，如果每个i-node拥�
 甚至同一操作系统也有可能使用不同的文件系统。要对这些文件系统进行管理，我们使用虚拟文件系统(virtual file system)。
 虚拟文件系统可以看作是OO的多态性(polymorphism)原则的体现。</p>
 
-<p>例如我们使用如下代码处理文件：</p>
-
-<p><code>Java
-    DataReader dr = new CSVDataReader();
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>    DataReader dr = <span class="keyword">new</span> CSVDataReader();
     dr.readData();
-    DataReader dr = new XMLDataReader();
+    DataReader dr = <span class="keyword">new</span> XMLDataReader();
     dr.readData();
-</code></p>
+</pre></div>
+</div>
+</div>
 
 <p>Unix/Linux将不同的文件系统统一起来，使用单层胶合层来对用户隐藏/抽象相关的细节。
 虚拟文件系统包含POXIS系统调用，对于不同的文件系统而言，其如果要实现虚拟文件系统的需求，那么就需要实现这些系统调用。
