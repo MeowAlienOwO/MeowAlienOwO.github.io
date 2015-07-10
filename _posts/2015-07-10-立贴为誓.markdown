@@ -7,9 +7,9 @@ description: "关于对未来的想法"
 categories: [自言自语]
 tags: []
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature: 46298136_p0.jpg
+  credit: 開幕 | Sky [pixiv] 
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=46298136
 comments: 
 ---
 
