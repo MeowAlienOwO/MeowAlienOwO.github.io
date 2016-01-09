@@ -5,16 +5,18 @@ date: "2016-01-09 21:47:01 +0800"
 categories: [自言自语]
 tags: []
 image: 
-  feature: 
-  credit: 
-  creditlink:
+  feature: 54571093_p0.png
+  credit: 紅美鈴さん その１ | クロごま [pixiv] 
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=54571093
 comments:
 ---
 新年快乐……嘛……总之是换完系统以后回来咯……
 
-（顺祝自己搭建毕业……小天使三天日常开发爆了大和 401 还有至少5门46wwwww要么婚了吧）
+（顺祝自己大建毕业……小天使三天日常开发爆了大和 401 还有至少5门46wwwww要么婚了吧）
 
 # 姑且算个标题
+
+<div class="social-share"></div>
 
 首先……回忆一下这段时间干了个啥……
 
@@ -23,7 +25,7 @@ comments:
 从六月份一直在学长的公司打酱油到这礼拜……玩了玩android跟php……以及随
 便跟了个项目……（讲真除了改了改discuz写了下android UI以外啥都没干）
 
-游戏做了一半（？）然后拖延症……
+游戏做了一半（？）然后拖延症……到现在基本系统都没做完……
 
 在公司无聊没事刷了下leetcode的简单题……
 
@@ -31,20 +33,51 @@ comments:
 
 画了下萌妹子……
 
-偶尔看两眼日语……
+侠客风云传……
+
+虚空之遗……
+
+文明5……
+
+兴趣来了偶尔看两眼日语……
 
 于是还有半个月就要去11区实习了我日语还是个鸡的水平……
 
-遭重了啊！！！！！
+……
+
+……
+
+……
+
+(╯‵□′)╯︵┻━┻遭重了啊！！！！！
 
 冷静下这个时候要去找一下时光机……
 
+![银魂-时光机](/images/gintm_timemachine.jpg)
+
+好了好了我知道找时光机木有用……接下来还有半个月我会往死里啃日语的……
+
+![智障也有春天](/images/soon-yi-phone-has-spring.jpg)
+
+相信自己……QAQ
+
+哦艹明天还要去考个绿带……
+
+卒。
 
 
 <iframe src="http://musicbox.coding.io/m163player/852426"
 frameborder="0" scrolling="0" width="430" height="200"
 allowtransparency></iframe>
 
-<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=2948749&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+↑ 上海红茶馆
+
+<embed height="415" width="544" quality="high" allowfullscreen="true"
+type="application/x-shockwave-flash"
+src="http://static.hdslb.com/miniloader.swf"
+flashvars="aid=2948749&page=1"
+pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+↑ 燃烧吧！红美铃（b站）
 
 
