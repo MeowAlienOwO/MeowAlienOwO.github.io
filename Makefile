@@ -1,4 +1,3 @@
-
 deploy:
 	git checkout source
 	-rm _drafts/*~
