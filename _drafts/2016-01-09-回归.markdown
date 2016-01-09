@@ -1,0 +1,50 @@
+---
+layout: post
+title: "回归"
+date: "2016-01-09 21:47:01 +0800"
+categories: [自言自语]
+tags: []
+image: 
+  feature: 
+  credit: 
+  creditlink:
+comments:
+---
+新年快乐……嘛……总之是换完系统以后回来咯……
+
+（顺祝自己搭建毕业……小天使三天日常开发爆了大和 401 还有至少5门46wwwww要么婚了吧）
+
+# 姑且算个标题
+
+首先……回忆一下这段时间干了个啥……
+
+暑假集了个训打个酱油……
+
+从六月份一直在学长的公司打酱油到这礼拜……玩了玩android跟php……以及随
+便跟了个项目……（讲真除了改了改discuz写了下android UI以外啥都没干）
+
+游戏做了一半（？）然后拖延症……
+
+在公司无聊没事刷了下leetcode的简单题……
+
+练练字……
+
+画了下萌妹子……
+
+偶尔看两眼日语……
+
+于是还有半个月就要去11区实习了我日语还是个鸡的水平……
+
+遭重了啊！！！！！
+
+冷静下这个时候要去找一下时光机……
+
+
+
+<iframe src="http://musicbox.coding.io/m163player/852426"
+frameborder="0" scrolling="0" width="430" height="200"
+allowtransparency></iframe>
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=2948749&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+
