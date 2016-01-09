@@ -10,6 +10,7 @@
 
 <meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
 
+<!-- other plugins config -->
 <!-- mathjax -->
 <script type="text/javascript"
 	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -17,6 +18,17 @@
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
 </script>
 
+<!-- Share.js -->
+<script src="http://MeowAlienOwO.github.io//assets/js/share.min.js">
+  var $config = {
+  sites:['qzone', 'qq', 'weibo', 'wechat', 'douban', 'google',
+  'facebook', 'twitter'],
+  disabled:[],
+  };
+  $('.social-share').share($config);
+</script>
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io//assets/css/share.min.css"/>
+<!-- end of plugins -->
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
@@ -27,7 +39,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Entry">
 <meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
-<meta property="og:url" content="http://MeowAlienOwO.github.io//page3/index.html">
+<meta property="og:url" content="http://MeowAlienOwO.github.io//page3/">
 <meta property="og:site_name" content="喵窝[0]号机">
 
 
@@ -51,6 +63,7 @@
 
 <!-- Load Modernizr -->
 <script src="http://MeowAlienOwO.github.io//assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -122,26 +135,20 @@
 				</li>
 				
 				<li>
-				  <a href="/categories/computer science/">
-				    computer science (12)
+				  <a href="/categories/Computer Science/">
+				    Computer Science (12)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/math/">
-				    math (2)
+				  <a href="/categories/Math/">
+				    Math (2)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/operating system/">
-				    operating system (3)
-				  </a>
-				</li>
-				
-				<li>
-				  <a href="/categories/acg/">
-				    acg (1)
+				  <a href="/categories/ACG/">
+				    ACG (1)
 				  </a>
 				</li>
 				
@@ -152,20 +159,26 @@
 				</li>
 				
 				<li>
-				  <a href="/categories/c++/">
-				    c++ (1)
+				  <a href="/categories/C++/">
+				    C++ (1)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/network/">
-				    network (7)
+				  <a href="/categories/Operating System/">
+				    Operating System (3)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Network/">
+				    Network (7)
 				  </a>
 				</li>
 				
 				<li>
 				  <a href="/categories/自言自语/">
-				    自言自语 (1)
+				    自言自语 (2)
 				  </a>
 				</li>
 				
@@ -197,57 +210,402 @@
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/" title="操作系统笔记二：内存管理"><img src="http://MeowAlienOwO.github.io//images/27167056.jpg" alt="操作系统笔记二：内存管理"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" title="Foundation of Networking"><img src="http://MeowAlienOwO.github.io//images/46203097.jpg" alt="Foundation of Networking"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-30T19:10:06+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/">March 30, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-13T16:59:52+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/">May 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/" rel="bookmark" title="操作系统笔记二：内存管理" itemprop="url">操作系统笔记二：内存管理</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" rel="bookmark" title="Foundation of Networking" itemprop="url">Foundation of Networking</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。</p>
+    <!-- <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
 
-<h1 id="section">基础知识</h1>
-<p>## 硬件存储器层级与操作系统</p>
+<p>这个照旧是网络的笔记……John个大坑比……</p>
 
-<p>现代的算机通常有如下几种存储层级，由速度快慢排列如下：</p>
+<h1 id="section">网络基础</h1>
+
+<h2 id="network">何为网络(Network)</h2>
+
+<p>网络是在节点之间传输数据的一种结构。</p>
+
+<ul>
+  <li>节点是多种多样的</li>
+  <li>节点的数量必须多余两个</li>
+</ul>
+
+<p>网络由如下设备组成：</p>
+
+<ul>
+  <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
+  <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
+  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
+(switch)两种。</li>
+</ul>
+
+<p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
+
+<h2 id="protocals">互联网协议(protocals)</h2>
+
+<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
+<em>顺序</em>与对信息传输的<em>行动</em>。</p>
+
+<h2 id="host">主机(host)</h2>
+
+<p>主机以包(packets)的形式传输信息。算法如下：</p>
 
 <ol>
-  <li>寄存器，1/2/3级缓存</li>
-  <li>主内存</li>
-  <li>硬盘</li>
+  <li>取得需要传输的信息</li>
+  <li>将其截成定长为$L$的小段(chunks)，称之为包(packet)</li>
+  <li>将包以某个传输比率(transmission rate)$R$传输至网络</li>
 </ol>
 
-<p>更高级的存储器更快，但是代价更加昂贵以及更加容易被改变，低级的则相反。
+<p>传输比率又称连接容量(link capacity)，连接带宽(link bandwidth)，计算公式如下：</p>
+
+<p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
+
+<h2 id="physical-media">物理媒体(Physical Media)</h2>
+
+<p>比特(bit)：在发送者与接收者之间传输</p>
+
+<p>物理链接(physical link)：连接发送者与接收者的物理材料</p>
+
+<p>导向媒体(guided media)：传输信号的固体媒体，比如铜导线，光纤，同轴电缆</p>
+
+<p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
+
+<h2 id="network-core">网络核心(network core)</h2>
+
+<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
+路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
+
+<h2 id="section-1">网络结构</h2>
+
+<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
+这样才能做到路由器之间的通讯。</p>
+
+<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
+但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
+同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
+使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
+
+<p>网络的层级如下：</p>
+
+<ol>
+  <li>一级网络服务提供商(Tier 1 ISP)与内容提供网络(Content Provider Network)</li>
+  <li>广域网交换点(IXP)</li>
+  <li>区域ISP</li>
+  <li>入口ISP</li>
+</ol>
+
+<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
+
+<p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
+
+<p>分组通过最佳路径(取决于 路由算法)路由到目标。但并不是所有在相同两个主机之间传送的分组（即使是来自同一消息的那些分组）一定要沿着相同的路径传送。</p>
+
+<p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
+
+<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
+终端-终端延迟在理想状况下为$2L / R$。</p>
+
+<h3 id="section-2">队列与丢包</h3>
+
+<p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
+
+<ul>
+  <li>包被存储在队列中等待，或者</li>
+  <li>当队列存储容量满了以后，包会丢失(dropped)</li>
+</ul>
+
+<h3 id="section-3">两个关键的的网络核心功能</h3>
+
+<p>路由(routing):决定包的源地址路由器</p>
+
+<p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
+
+<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
+
+<p>根据
+<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
+双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
+信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
+
+<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
+
+<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
+不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
+现代的通信中应用相对较少</p>
+
+<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
+进行通信的技术。典型应用有GSM。</p>
+
+<h3 id="vs-">封包交换 vs 电路交换</h3>
+
+<p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
+
+<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
+但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
+
+<h3 id="section-4">丢包与延迟的来源</h3>
+
+<h4 id="section-5">丢包</h4>
+
+<p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
+
+<h4 id="section-6">延迟</h4>
+
+<p>对于单路由节点而言，延迟的来源有四个：</p>
+
+<ul>
+  <li>节点处理过程(nodal processing)：包含比特错误校验(check bit errors)，确定输出连接等，通常小于毫秒量级</li>
+  <li>队列延迟(queueing delay)：等待输出连接的传输时间，由当前连接的拥挤程度而决定</li>
+  <li>转换延迟(transmission delay)：将数据输入传输连接的时间，计算方式为$d_{trans} = L / R$,$L$表示包长度，$R$表示带宽</li>
+  <li>传输延迟(propagation delay):数据在连接媒体之间传输的时间，计算方式为$d_{prop} = d / s$，$d$表示物理连接的长度，$s$表示传输速度的中位数</li>
+</ul>
+
+<p>计算延迟的公式为：</p>
+
+<p>$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$</p>
+
+<h2 id="section-7">层级</h2>
+
+<h3 id="section-8">网络协议层级栈</h3>
+
+<ol>
+  <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
+  <li>传输层(transport)：进程-进程(process-process)之间的数据传输，TCP，UDP</li>
+  <li>网络层(network)：路由相关，如IP，路由协议</li>
+  <li>连接层(link)：在相邻网络元素之间的数据传输，如以太网(Ethernet),802.111协议，PPP等</li>
+  <li>物理层(physical)：二进制数据</li>
+</ol>
+
+<h3 id="isoosi">ISO/OSI七层模型</h3>
+
+<p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
+
+<ol>
+  <li>表示层(presentation)：允许应用解释数据的意义，比如加密，压缩，机器特定的约定，等</li>
+  <li>会话层(session)：同步，校验点(checkpoint)，从数据交换中恢复等等</li>
+</ol>
+
+<p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
+
+ -->
+    
+        <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" title="MAL-下推自动机与上下文无关语言"><img src="http://MeowAlienOwO.github.io//images/31958311.png" alt="MAL-下推自动机与上下文无关语言"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-03T14:49:02+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/">May 03, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" rel="bookmark" title="MAL-下推自动机与上下文无关语言" itemprop="url">MAL-下推自动机与上下文无关语言</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
+
+<p>MD还要躺着……戴了护裆都能中招真是……</p>
+
+<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />
+
+<h1 id="section">上下文无关语言</h1>
+
+<h2 id="context-free-grammar">上下文无关文法(Context-Free Grammar)</h2>
+
+<p>上下文无关文法由一个四元组$G=(V, \Sigma, S, P)$来描述。其中：</p>
+
+<ul>
+  <li>$V$ 是变量集合，或者说非停止符号集</li>
+  <li>$\Sigma$ 是停止符号集</li>
+  <li>$S$ 是起始变量</li>
+  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to
+\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
+  <li>$S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。</li>
+</ul>
+
+<p>我们使用如下的符号来表示一些推导规则：</p>
+
+<ul>
+  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法
+规则的一步推导(derivation)</li>
+  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*
+\beta$ 表示0或者多步推导。</li>
+  <li>$\Rightarrow_G$ 表示根据语法$G$的推导。</li>
+</ul>
+
+<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V
+\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A
+\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
+
+<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是
+上下文无关的(context-free)</p>
+
+<h2 id="context-free-language">上下文无关语言(Context-Free Language)</h2>
+
+<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言
+为：
+$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
+
+<p>当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。</p>
+
+<h2 id="kleene">联合，连接与Kleene星号运算</h2>
+<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cup
+L_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
+
+<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,
+S_2$分别是起始变量。</p>
+
+<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,
+G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
+
+<ul>
+  <li>对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 | S_2$</li>
+  <li>对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$</li>
+  <li>对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda | S_k S_1$</li>
+</ul>
+
+<h2 id="derivation-tree">派生树(Derivation Tree)与歧义</h2>
+
+<p>派生树用于表示CFG生成字符串的一般步骤。构建派生树的方法如下：</p>
+
+<ul>
+  <li>跟节点用于表示起始变量S</li>
+  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物
+该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
+  <li>任何叶结点表示一个符号或者空串</li>
+  <li>最终派生的字符串从左到右读入，排除任何的空串</li>
+  <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
+</ul>
+
+<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推
+导，我们永远对当前最左边的变量使用派生规则。</p>
+
+<p>我们有如下定理：
+如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
+
+<ul>
+  <li>$x$ 有多于一个的派生树</li>
+  <li>$x$ 有多于一个的左派生树</li>
+  <li>$x$ 有多于一个的右派生树</li>
+</ul>
+
+<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$
+有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
+
+<p>典型例子：</p>
+
+<blockquote>
+  <p>if (e1) if (e2) f(); else g();</p>
+</blockquote>
+
+<p>我们可以通过引入新变量来消除歧义。</p>
+
+<h2 id="simplified-formsnormal-forms">简式(Simplified Forms)与范式(Normal Forms)</h2>
+
+<h2 id="section-1">上下文无关语言的泵引理</h2>
+
+<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u
+\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
+
+<ul>
+  <li>$| wy | &gt; 0$</li>
+  <li>$| wxy | \leq n$</li>
+  <li>$\forall m \geq 0, vw^mxy^mz \in L$</li>
+</ul>
+
+<p>（证明待补充）</p>
+
+<h2 id="section-2">泵引理的应用</h2>
+
+<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语
+言非上下文无关中的应用。</p>
+
+<p>令$u$是一个形如$a^nb^nc^n$的字符串且$| u | \geq n$</p>
+
+<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|
+wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中
+的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，
+但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性
+矛盾。</p>
+
+ -->
+    
+        <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/" title="操作系统笔记二：内存管理"><img src="http://MeowAlienOwO.github.io//images/27167056.jpg" alt="操作系统笔记二：内存管理"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-03-30T19:10:06+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/">March 30, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/" rel="bookmark" title="操作系统笔记二：内存管理" itemprop="url">操作系统笔记二：内存管理</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- 操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。
+
+
+# 基础知识
+## 硬件存储器层级与操作系统
+
+现代的算机通常有如下几种存储层级，由速度快慢排列如下：
+
+1. 寄存器，1/2/3级缓存
+2. 主内存
+3. 硬盘
+
+更高级的存储器更快，但是代价更加昂贵以及更加容易被改变，低级的则相反。
 内存可以被认为是一个线性的字节/单词的数组，而操作系统负责提供内存的抽
-象。</p>
+象。
 
-<p>操作系统负责：</p>
+操作系统负责：
 
-<ol>
-  <li>根据进程的请求分配/收回内存</li>
-  <li>追踪内存的使用情况</li>
-  <li>“透明地”(Transparently)在内存与硬盘之间移动信息</li>
-  <li>在进程之间分配内存，模拟”无限大”的内存空间</li>
-  <li>多任务的情况下，负责控制权限分配</li>
-</ol>
+1. 根据进程的请求分配/收回内存
+2. 追踪内存的使用情况
+3. “透明地”(Transparently)在内存与硬盘之间移动信息
+4. 在进程之间分配内存，模拟"无限大"的内存空间
+5. 多任务的情况下，负责控制权限分配
 
-<h2 id="section-1">内存管理模型</h2>
+## 内存管理模型
 
-<p>内存管理模型有两种：连续模型与非连续模型。</p>
+内存管理模型有两种：连续模型与非连续模型。
 
-<p>连续模型将所有的内存看作单个内存块，而非连续模型将内存分为若干内存块，
-或者称之为段(segments)。这些段可以在物理内存中的任何位置，而不需要一定与彼此相邻。</p>
+连续模型将所有的内存看作单个内存块，而非连续模型将内存分为若干内存块，
+或者称之为段(segments)。这些段可以在物理内存中的任何位置，而不需要一定与彼此相邻。
 
-<p>至于内存的分区方面，对于单任务系统而言，只需要一个分区即可。而对于多任务系统而言，分区有多种方案。多任务系统可以是动态分区的，也可以是固定分区的。对于固定分区而言，有相等分区与不等分区两种。</p>
+至于内存的分区方面，对于单任务系统而言，只需要一个分区即可。而对于多任务系统而言，分区有多种方案。多任务系统可以是动态分区的，也可以是固定分区的。对于固定分区而言，有相等分区与不等分区两种。
 
-<h3 id="section-2">单任务系统</h3>
+### 单任务系统
 
-<p>单任务系统每次只允许一个用户进程在内存中被执行。内存的一部分被操作系统使用，而另外一部分被用户系统所使用(“MS-DOS”方式)。被操作系统所使用的部分一般而言是固定大小的，通常可以直接使用物理内存。</p>
+单任务系统每次只允许一个用户进程在内存中被执行。内存的一部分被操作系统使用，而另外一部分被用户系统所使用("MS-DOS"方式)。被操作系统所使用的部分一般而言是固定大小的，通常可以直接使用物理内存。
 
 <table border="1">
 <tr>
@@ -258,121 +616,108 @@
 </tr>
 </table>
 
-<p>这种方式没有保护用户进程的必要，因为同一时间只有一个程序在运行。由于一个进程通常使用了所有的内存空间，同一进程通常被分配在同样的内存地址。当然，程序员可以用覆盖的方法来使用更多的空间，但是这种方法看起来更容易造成麻烦。</p>
 
-<p>对于单任务系统而言，它的缺点是显而易见的：
+这种方式没有保护用户进程的必要，因为同一时间只有一个程序在运行。由于一个进程通常使用了所有的内存空间，同一进程通常被分配在同样的内存地址。当然，程序员可以用覆盖的方法来使用更多的空间，但是这种方法看起来更容易造成麻烦。
+
+对于单任务系统而言，它的缺点是显而易见的：
 1. 由于用户进程可以直接使用物理内存，它有可能会对操作系统的内存进行读写。
 2. 如果我们将操作系统自身看作一个进程的话，实际上有两个进程同时运行(ppt原话翻译，我的理解是这可能是因为虽然是两个进程，但是由于单任务的特性，一次只能运行一个进程，这也意味着操作系统进程在用户进程被激活时是处于suspend状态，结合前面的直接读取权限，很可能用户进程对操作系统内存的读写是没有保护的。另一个问题可能也是进程排程的问题，操作系统进程无法跟用户进程协同。)
 3. 对硬件资源的利用率低(比如说IO)
-4. 无法适应需要多任务的场景</p>
+4. 无法适应需要多任务的场景
 
-<p>尽管如此，单任务系统依然在一些基础的嵌入式系统与家电中广泛运用。</p>
+尽管如此，单任务系统依然在一些基础的嵌入式系统与家电中广泛运用。
 
-<h3 id="section-3">多任务系统</h3>
 
-<p>从另一个角度而言，我们可以通过上下文切换来在单任务系统上模拟多任务：当需要切换进程的时候，将进程信息保存至硬盘，然后将新的进程信息读入并执行。但是这必然带来昂贵的开销。于是，真正的多任务系统就必不可少了。</p>
+### 多任务系统
 
-<p>我们首先做一个假设：进程会使用$p%$的时间来等待IO事务。那么，当内存中有$n$个进程的时候，所有的$n$个进程等待IO的概率为$p^n$，而CPU的利用率为$1 - p^n$。显而易见的，当同时运行的进程越多时，CPU的利用率越高，而当面向IO的进程变多时，CPU的利用率会相对有所降低。</p>
+从另一个角度而言，我们可以通过上下文切换来在单任务系统上模拟多任务：当需要切换进程的时候，将进程信息保存至硬盘，然后将新的进程信息读入并执行。但是这必然带来昂贵的开销。于是，真正的多任务系统就必不可少了。
 
-<p>但是，这个假设是建立在所有进程都是相互独立的基础上的，而在现实中，这是不可能的。不过我们仍旧可以用其来进行粗略的估算。</p>
+我们首先做一个假设：进程会使用$p%$的时间来等待IO事务。那么，当内存中有$n$个进程的时候，所有的$n$个进程等待IO的概率为$p^n$，而CPU的利用率为$1 - p^n$。显而易见的，当同时运行的进程越多时，CPU的利用率越高，而当面向IO的进程变多时，CPU的利用率会相对有所降低。
 
-<p>假设一个计算机有1M的内存，操作系统使用了200k，剩下的空间分配给4个200k的进程。那么CPU的利用率就将在60%以下。如果我们增加1M内存，将这些内存分配给5个200k的进程，那么我们的CPU利用率就有了87%。如果我们再增加1M的内存，我们就会得到大于96%的CPU利用率。由此看出，多线程可以很有效地提高资源利用率。</p>
+但是，这个假设是建立在所有进程都是相互独立的基础上的，而在现实中，这是不可能的。不过我们仍旧可以用其来进行粗略的估算。
 
-<h4 id="section-4">固定分区（同等大小）</h4>
+假设一个计算机有1M的内存，操作系统使用了200k，剩下的空间分配给4个200k的进程。那么CPU的利用率就将在60%以下。如果我们增加1M内存，将这些内存分配给5个200k的进程，那么我们的CPU利用率就有了87%。如果我们再增加1M的内存，我们就会得到大于96%的CPU利用率。由此看出，多线程可以很有效地提高资源利用率。
 
-<p>固定分区方法将所有用于用户进程的内存分成固定大小的若干个段，这些段拥有固定大小以及固定的位置。</p>
+#### 固定分区（同等大小）
 
-<p>优点：</p>
+固定分区方法将所有用于用户进程的内存分成固定大小的若干个段，这些段拥有固定大小以及固定的位置。
 
-<ul>
-  <li>任何进程都可以使用任何足够大的分区</li>
-  <li>开销较小，同时实现简单</li>
-  <li>操作系统只需要追踪被使用的区块与空闲的区块即可</li>
-</ul>
+优点：
 
-<p>缺点：</p>
+* 任何进程都可以使用任何足够大的分区
+* 开销较小，同时实现简单
+* 操作系统只需要追踪被使用的区块与空闲的区块即可
 
-<ul>
-  <li>内存利用率相对较低，内部碎片化程度(internal fragmentation)在分区过大的情况下会很高，分区可能会过大</li>
-  <li>如果程序太大，需要重写内存（折腾程序员）</li>
-  <li>分区过小，追踪、分配的开销会变得很大</li>
-</ul>
+缺点：
 
-<p>同时，固定分区还需要考虑如何将区块分配给任务，如何决定交换等。于是我们需要一些其他的策略来解决这些问题。</p>
+* 内存利用率相对较低，内部碎片化程度(internal fragmentation)在分区过大的情况下会很高，分区可能会过大
+* 如果程序太大，需要重写内存（折腾程序员）
+* 分区过小，追踪、分配的开销会变得很大
 
-<h4 id="section-5">固定分区改（不同等大小）</h4>
+同时，固定分区还需要考虑如何将区块分配给任务，如何决定交换等。于是我们需要一些其他的策略来解决这些问题。
 
-<p>不同等大小分区策略将分区分成大小不同的几个固定区块，这样做的好处是可以增加内存使用率，以及可以更加灵活地分配资源。内部碎片化的程度也因此可以得到控制。相对的，对于不同等大小分区而言，我们需要考虑的是如何将合适的分区分配给相对应的进程。</p>
+#### 固定分区改（不同等大小）
 
-<p>一种策略是，对于每个分区，我们设置一个私有队列，每次分配进程时，将其安排在空间足够大，且最小的分区:<code>p.size &lt; m.size &amp;&amp; m.isMin</code>。这种策略，由于每次都能保证进程分配的分区足够且最小，内部碎片度会很有效地减少。但是相对的，内存使用率就会下降（总是将进程分配给最小的段），以及会导致饥饿的发生。</p>
+不同等大小分区策略将分区分成大小不同的几个固定区块，这样做的好处是可以增加内存使用率，以及可以更加灵活地分配资源。内部碎片化的程度也因此可以得到控制。相对的，对于不同等大小分区而言，我们需要考虑的是如何将合适的分区分配给相对应的进程。
 
-<p>另一种策略则将队列设为全局的，对于每一个进程，分配给当前可用的、装的下的最小队列:<code>p.size &lt; m.size &amp;&amp; m.isAvailable &amp;&amp; m.isMin</code>。
-这种策略没有那么容易饥饿(可以将小程序分给大分区)，然而相对的，内部碎片化程度也会相对提高。</p>
+一种策略是，对于每个分区，我们设置一个私有队列，每次分配进程时，将其安排在空间足够大，且最小的分区:`p.size < m.size && m.isMin`。这种策略，由于每次都能保证进程分配的分区足够且最小，内部碎片度会很有效地减少。但是相对的，内存使用率就会下降（总是将进程分配给最小的段），以及会导致饥饿的发生。
 
-<p>另一方面，我们需要注意的是，对内存需求的计算依赖于在程序开始时的估算，而程序的内存需求可能会随着运行而改变。同时，我们也无从预先得知程序运行时内存的分配情况。而进程更可能会被交换(swap)出去，然后被重新载入。那么，我们需要动态的去改变内存分配。</p>
+另一种策略则将队列设为全局的，对于每一个进程，分配给当前可用的、装的下的最小队列:`p.size < m.size && m.isAvailable && m.isMin`。
+这种策略没有那么容易饥饿(可以将小程序分给大分区)，然而相对的，内部碎片化程度也会相对提高。
 
-<h1 id="section-6">地址管理</h1>
+另一方面，我们需要注意的是，对内存需求的计算依赖于在程序开始时的估算，而程序的内存需求可能会随着运行而改变。同时，我们也无从预先得知程序运行时内存的分配情况。而进程更可能会被交换(swap)出去，然后被重新载入。那么，我们需要动态的去改变内存分配。
 
-<h2 id="section-7">基础知识</h2>
+# 地址管理
 
-<ul>
-  <li>
-    <p>相对分配(relocation)：操作系统无法在程序运行之前预先知道这个程序的分区与地址。这就意味着操作系统不能简单地静态地分配绝对地址，而相对的，地址必须根据运行时的情况进行相对分配。</p>
-  </li>
-  <li>
-    <p>保护：当有复数的程序在内存中运行时，必须进行保护。</p>
-  </li>
-  <li>
-    <p>逻辑地址(logical address)是进程所知道的内存形式。其独立于当前的物理内存，比如同程序的开始地址相对。</p>
-  </li>
-  <li>
-    <p>物理地址(physical address)表示在主内存中的实际地址。逻辑地址空间必须以某种方式映射到物理地址空间上。</p>
-  </li>
-</ul>
 
-<h2 id="section-8">管理方法</h2>
+## 基础知识
 
-<ul>
-  <li>编译时静态相对分配内存：一个进程每次都会被放在相同的地址</li>
-  <li>在载入时动态相对分配内存：逻辑地址是相对的，每次载入的时候通过计算偏移量来分配内存块。这会使载入变慢。</li>
-  <li>运行时动态分配内存</li>
-</ul>
++ 相对分配(relocation)：操作系统无法在程序运行之前预先知道这个程序的分区与地址。这就意味着操作系统不能简单地静态地分配绝对地址，而相对的，地址必须根据运行时的情况进行相对分配。
 
-<p>在CPU中，有两个特殊的寄存器用来存储基准地址(base address)与极限(limit)。基准寄存器用于储存分区的开始地址(start address)，极限寄存器用来存储分区的极限</p>
++ 保护：当有复数的程序在内存中运行时，必须进行保护。
 
-<p>运行时，基准寄存器的地址加上逻辑地址就可以得出物理地址，得出的结果会同极限寄存器中储存的值进行比较来判断是否有效。这种方式需要硬件支持。</p>
++ 逻辑地址(logical address)是进程所知道的内存形式。其独立于当前的物理内存，比如同程序的开始地址相对。
 
-<p>固定分区会导致内部碎片(internal fragmentation)：与进程需求完全一致的分区可能不存在，那么空间就有可能没有被完全使用。于此相反，动态分区可以动态地改变内存的开始地址与极限地址。同时，一个进程通常会被分配一块与其内存需求完全相符的连续地址，这就很有效的减少了内存的碎片化程度。</p>
++ 物理地址(physical address)表示在主内存中的实际地址。逻辑地址空间必须以某种方式映射到物理地址空间上。
 
-<h2 id="swapping">交换(swapping)</h2>
+## 管理方法
 
-<p>交换可以将进程的一部分信息保存在硬盘里，然后在主内存跟硬盘之间交换信息。</p>
+- 编译时静态相对分配内存：一个进程每次都会被放在相同的地址
+- 在载入时动态相对分配内存：逻辑地址是相对的，每次载入的时候通过计算偏移量来分配内存块。这会使载入变慢。
+- 运行时动态分配内存
 
-<p>我们需要使用交换的理由如下：</p>
+在CPU中，有两个特殊的寄存器用来存储基准地址(base address)与极限(limit)。基准寄存器用于储存分区的开始地址(start address)，极限寄存器用来存储分区的极限
 
-<ul>
-  <li>我们可能有多余分区数的进程数量（假设我们使用固定分区方法）</li>
-  <li>总内存的需求大于空余内存需求</li>
-  <li>一些进程只是偶尔运行</li>
-  <li>进程的内存需求可能会改变</li>
-</ul>
+运行时，基准寄存器的地址加上逻辑地址就可以得出物理地址，得出的结果会同极限寄存器中储存的值进行比较来判断是否有效。这种方式需要硬件支持。
 
-<p>外部碎片：
-进程的交换也可能会导致内存的碎片化。将一个进程交换出去时，内存中会留下来一个“洞”，当另外的程序使用这个”洞”时，可能并没有使用整个空间，这样一来就会导致一些小小的，没有使用过的内存碎片。同时，一个新进程可能对于这个空间而言过大，那么就有可能导致这个空间自身成为一个碎片。另一方面，对于内存压缩来说，寻找这些碎片的代价也是非常高昂的，同时也需要动态的相对内存分配。</p>
+固定分区会导致内部碎片(internal fragmentation)：与进程需求完全一致的分区可能不存在，那么空间就有可能没有被完全使用。于此相反，动态分区可以动态地改变内存的开始地址与极限地址。同时，一个进程通常会被分配一块与其内存需求完全相符的连续地址，这就很有效的减少了内存的碎片化程度。
 
-<p>现在，内存管理的问题是：</p>
+## 交换(swapping)
 
-<ul>
-  <li>如何快速地将可用的内存分配给进程</li>
-  <li>如何追踪内存的使用-&gt;链表/表</li>
-</ul>
+交换可以将进程的一部分信息保存在硬盘里，然后在主内存跟硬盘之间交换信息。
 
-<h2 id="section-9">动态分区</h2>
+我们需要使用交换的理由如下：
 
-<p>我们需要一个更加复杂的内存分配数据结构来处理可变的使用与空闲的分区数量。</p>
++ 我们可能有多余分区数的进程数量（假设我们使用固定分区方法）
++ 总内存的需求大于空余内存需求
++ 一些进程只是偶尔运行
++ 进程的内存需求可能会改变
 
-<h3 id="section-10">链表</h3>
-<p>链表是一个可以实现如此的数据结构。示意图如下：</p>
+
+外部碎片：
+进程的交换也可能会导致内存的碎片化。将一个进程交换出去时，内存中会留下来一个“洞”，当另外的程序使用这个"洞"时，可能并没有使用整个空间，这样一来就会导致一些小小的，没有使用过的内存碎片。同时，一个新进程可能对于这个空间而言过大，那么就有可能导致这个空间自身成为一个碎片。另一方面，对于内存压缩来说，寻找这些碎片的代价也是非常高昂的，同时也需要动态的相对内存分配。
+
+现在，内存管理的问题是：
+
+- 如何快速地将可用的内存分配给进程
+- 如何追踪内存的使用->链表/表
+
+## 动态分区
+
+我们需要一个更加复杂的内存分配数据结构来处理可变的使用与空闲的分区数量。
+
+### 链表
+链表是一个可以实现如此的数据结构。示意图如下：
 
 <table border="1">
 <tr><th>入口指针</th></tr>
@@ -399,332 +744,298 @@
 </tr>
 </table>
 
-<h4 id="first-fit-algorithm">第一匹配算法(first fit algorithm)</h4>
 
-<p>在初始化的时候，整个内存被认为是一整块，标记为空闲(free)。</p>
 
-<p>当请求内存时，遍历整个链表，直到找到一个足够大的空闲空间。如果这个空间恰好需求相等时，将这块空间标记为使用(used)。如果这块空间比需求的空间大，将接下来的空间切分成另一块链表的节点，标记为空闲。当一块内存被释放时，该内存被设定为空闲。</p>
+#### 第一匹配算法(first fit algorithm)
 
-<h4 id="second-fit-algorithm">匹配算法改-第二匹配算法(second fit algorithm)</h4>
+在初始化的时候，整个内存被认为是一整块，标记为空闲(free)。
 
-<p>第一匹配算法的近代化改修型。</p>
+当请求内存时，遍历整个链表，直到找到一个足够大的空闲空间。如果这个空间恰好需求相等时，将这块空间标记为使用(used)。如果这块空间比需求的空间大，将接下来的空间切分成另一块链表的节点，标记为空闲。当一块内存被释放时，该内存被设定为空闲。
 
-<p>第一匹配算法在第一次请求内存时开始进行扫描，而第二匹配算法保存一个当前搜索位置的指针。第二次搜索时，从上一次扫描的结尾开始。这种算法可以保证所有的内存块都被扫描。但是第二匹配算法在实验中表现出来的效率比第一匹配差。</p>
+#### 匹配算法改-第二匹配算法(second fit algorithm)
 
-<h4 id="best-fit-algorithm">匹配算法改二-最佳匹配算法(best fit algorithm)</h4>
+第一匹配算法的近代化改修型。
 
-<p>第一匹配只匹配第一个<strong>足够大</strong>的空间，假设在之后的链表中存在一个恰好符合的空间，那么就会导致内存碎片的出现。</p>
+第一匹配算法在第一次请求内存时开始进行扫描，而第二匹配算法保存一个当前搜索位置的指针。第二次搜索时，从上一次扫描的结尾开始。这种算法可以保证所有的内存块都被扫描。但是第二匹配算法在实验中表现出来的效率比第一匹配差。
 
-<p>最佳匹配算法总是选择一个大小最适合的区块进行分配。然而，由于搜索的存在，必然会导致整个算法的速度降低。同时，令人惊讶的是，这种算法也会导致更高的内存浪费——每个“最合适”的区块万一不是恰好，就会被分割出一块最小的空间。</p>
+#### 匹配算法改二-最佳匹配算法(best fit algorithm)
 
-<h4 id="worst-fit-algorithm">配算法改三-最差匹配算法(worst fit algorithm)</h4>
+第一匹配只匹配第一个<strong>足够大</strong>的空间，假设在之后的链表中存在一个恰好符合的空间，那么就会导致内存碎片的出现。
 
-<p>为了防止最佳匹配算法所导致的大量碎片内存，最差匹配算法每次都会选择一块最大的内存，这样子切分下来的内存就通常会有更高的可用性。</p>
+最佳匹配算法总是选择一个大小最适合的区块进行分配。然而，由于搜索的存在，必然会导致整个算法的速度降低。同时，令人惊讶的是，这种算法也会导致更高的内存浪费——每个“最合适”的区块万一不是恰好，就会被分割出一块最小的空间。
 
-<p>然而在实际应用中似乎并没有什么卵用。</p>
+#### 配算法改三-最差匹配算法(worst fit algorithm)
 
-<h4 id="section-11">快速匹配与其他算法</h4>
+为了防止最佳匹配算法所导致的大量碎片内存，最差匹配算法每次都会选择一块最大的内存，这样子切分下来的内存就通常会有更高的可用性。
 
-<p>快速匹配大致是保存一份链表，里面分别保存固定大小的内存块，
+然而在实际应用中似乎并没有什么卵用。
+
+#### 快速匹配与其他算法
+
+快速匹配大致是保存一份链表，里面分别保存固定大小的内存块，
 比如4byte,8byte……对于一个内存请求而言，寻找最接近的一块内存分配/
-如果是奇数大小的内存，或者寻找最近，或者在一个独立的表中处理内存。</p>
+如果是奇数大小的内存，或者寻找最近，或者在一个独立的表中处理内存。
 
-<h3 id="bitmap">点阵(bitmap)</h3>
+### 点阵(bitmap)
 
-<p>作为链表的一种补充，点阵也是一种有效的数据结构。</p>
+作为链表的一种补充，点阵也是一种有效的数据结构。
 
-<p>这些内存方法同样还有一些其它问题，比如进程运行时会请求更多内存等，
-我们需要动态的内存分配方法。</p>
+这些内存方法同样还有一些其它问题，比如进程运行时会请求更多内存等，
+我们需要动态的内存分配方法。
 
-<h1 id="paging">分页(Paging)</h1>
 
-<p>分页是基于固定分区(fixed partitioning)与代码重分配(code re-location)来的非连续内存管理方案。</p>
 
-<ul>
-  <li>内存被分成很小的块(4kb左右)，每个进程被分配不止一个块</li>
-  <li>内存块不必物理上连续，但是进程仍然认为他们是连续的</li>
-</ul>
+# 分页(Paging)
 
-<p>同如上介绍的连续内存管理方案相比，分页方法有如下好处：</p>
+分页是基于固定分区(fixed partitioning)与代码重分配(code re-location)来的非连续内存管理方案。
 
-<ul>
-  <li>内部碎片只会发生在最后的内存块</li>
-  <li>没有外部碎片，物理上所有的内存块都以栈的形式一个连着一个存储</li>
-</ul>
+- 内存被分成很小的块(4kb左右)，每个进程被分配不止一个块
+- 内存块不必物理上连续，但是进程仍然认为他们是连续的
 
-<h2 id="section-12">定义</h2>
+同如上介绍的连续内存管理方案相比，分页方法有如下好处：
 
-<p>一个页(page)是一个在逻辑地址空间(logical address space)上的连续小内存块。</p>
+- 内部碎片只会发生在最后的内存块
+- 没有外部碎片，物理上所有的内存块都以栈的形式一个连着一个存储
 
-<p>相对的，一个帧(frame)是一个在物理内存(physical memory)上连续小内存块。</p>
+## 定义
 
-<p>通常页与帧具有相同的大小，为2的指数，大致在512byte与1Gb之间。</p>
+一个页(page)是一个在逻辑地址空间(logical address space)上的连续小内存块。
 
-<h2 id="relocation">重分配(relocation)</h2>
+相对的，一个帧(frame)是一个在物理内存(physical memory)上连续小内存块。
 
-<p>逻辑地址需要被转换成物理地址，对于每一个页，我们需要一个基寄存器(base register)
+通常页与帧具有相同的大小，为2的指数，大致在512byte与1Gb之间。
+
+## 重分配(relocation)
+
+逻辑地址需要被转换成物理地址，对于每一个页，我们需要一个基寄存器(base register)
 来存储相对的帧所在的地址位置。显而易见的我们需要复数的基寄存器，这些寄存器被存储在分页表(page table)中。
-分页被视为一个将页编号与帧编号一一对应的函数映射，我们有：</p>
+分页被视为一个将页编号与帧编号一一对应的函数映射，我们有：
 
-<p>$frameNum = f(pageNum)$</p>
+$frameNum = f(pageNum)$
 
-<p>页面数字被用作分页表的索引(index)，存储其相对应的帧在内存中的顺序。</p>
+页面数字被用作分页表的索引(index)，存储其相对应的帧在内存中的顺序。
 
-<p>每一个进程都有他们自己的分页表，存储他们自己的基寄存器。</p>
+每一个进程都有他们自己的分页表，存储他们自己的基寄存器。
 
-<p>操作系统维护一个空闲帧的列表。</p>
+操作系统维护一个空闲帧的列表。
 
-<h2 id="section-13">地址转换的实现</h2>
+## 地址转换的实现
 
-<p>一个逻辑地址是想对于程序的开始而言的，其包含两个部分：</p>
+一个逻辑地址是想对于程序的开始而言的，其包含两个部分：
 
-<ul>
-  <li>左边n个比特位存储页的序数</li>
-  <li>右边m个比特位存储在页中的偏移量(offset)</li>
-</ul>
+- 左边n个比特位存储页的序数
+- 右边m个比特位存储在页中的偏移量(offset)
 
-<p>物理地址拥有与逻辑地址相同的格式，他们之间的转换由分页表实现。</p>
+物理地址拥有与逻辑地址相同的格式，他们之间的转换由分页表实现。
 
-<p>地址转换的步骤：</p>
+地址转换的步骤：
 
-<ol>
-  <li>将页序数从逻辑表中取出</li>
-  <li>使用页序数在分页表中寻找帧序数</li>
-  <li>将偏移量加到帧的基寄存器上</li>
-</ol>
+1. 将页序数从逻辑表中取出
+2. 使用页序数在分页表中寻找帧序数
+3. 将偏移量加到帧的基寄存器上
 
-<p>地址转换的硬件实现：</p>
+地址转换的硬件实现：
 
-<ol>
-  <li>CPU的内存管理单元(memory management unit)用于拦截(intercept)(?)逻辑地址</li>
-  <li>使用分页表进行地址转换</li>
-  <li>得出的物理地址被放入内存总线(memory bus)</li>
-</ol>
+1. CPU的内存管理单元(memory management unit)用于拦截(intercept)(?)逻辑地址
+2. 使用分页表进行地址转换
+3. 得出的物理地址被放入内存总线(memory bus)
 
-<h1 id="virtual-memory">虚拟内存(virtual memory)</h1>
+# 虚拟内存(virtual memory)
 
-<p>分页依然存在一些问题：</p>
+分页依然存在一些问题：
 
-<ul>
-  <li>代码的执行与数据结构被分解成很小的子集</li>
-  <li>在同一时刻，不是所有的页面都需要被读入内存，只有在需求时才读入</li>
-</ul>
+- 代码的执行与数据结构被分解成很小的子集
+- 在同一时刻，不是所有的页面都需要被读入内存，只有在需求时才读入
 
-<p>所以我们引入虚拟内存方法。虚拟内存指只有在需要的时候将对应的程序信息读入内存，
-但是对于程序而言，它所”看”到的仍然是一整块可用的内存。</p>
+所以我们引入虚拟内存方法。虚拟内存指只有在需要的时候将对应的程序信息读入内存，
+但是对于程序而言，它所"看"到的仍然是一整块可用的内存。
 
-<p>虚拟内存允许逻辑地址空间大于物理内存空间。理论上，64位机器可以支持$2^64$个逻辑地址。
-这意味着机器有更大的空间容纳更多的进程，而更多的进程可以提高CPU使用率。</p>
+虚拟内存允许逻辑地址空间大于物理内存空间。理论上，64位机器可以支持$2^64$个逻辑地址。
+这意味着机器有更大的空间容纳更多的进程，而更多的进程可以提高CPU使用率。
 
-<h2 id="page-fault">页面错误(page fault)</h2>
+## 页面错误(page fault)
 
-<p>页面错误是指在运行过程中，发现所需要的地址并不在内存中而引发的一个异常，通常作为虚拟内存的交换机制的触发器。
+页面错误是指在运行过程中，发现所需要的地址并不在内存中而引发的一个异常，通常作为虚拟内存的交换机制的触发器。
 页面错误会导致一个中断(interrupt)，进程进入阻塞状态(blocked state)。操作系统触发一个IO操作，
 将不存在的页面读入内存，这里可能会发生上下文切换。IO操作处理完了以后，发出一个中断信号表明IO操作完成，
-进程进入准备状态。常驻集(resident set)用于表示被读入主内存的页面。</p>
+进程进入准备状态。常驻集(resident set)用于表示被读入主内存的页面。
 
-<p>处理页面错误的流程：</p>
 
-<ol>
-  <li>操作系统陷阱(trap operating system)
-    <ul>
-      <li>储存当前的寄存器与进程状态</li>
-      <li>分析中断，例如页面错误</li>
-      <li>合法化页面引用，确定页位置</li>
-      <li>处理IO事务：队列，寻找，延迟，转换</li>
-    </ul>
-  </li>
-  <li>(可能的)上下文切换</li>
-  <li>中端等待IO完成
-    <ul>
-      <li>存储进程状态/寄存器</li>
-      <li>分析磁盘终端</li>
-      <li>更新分页表与在内存中的页面</li>
-      <li>等待原先的进程被排入时间表</li>
-    </ul>
-  </li>
-  <li>上下文切换至原先的进程</li>
-</ol>
+处理页面错误的流程：
 
-<h2 id="section-14">分页表的内容</h2>
+1. 操作系统陷阱(trap operating system)
+   - 储存当前的寄存器与进程状态
+   - 分析中断，例如页面错误
+   - 合法化页面引用，确定页位置
+   - 处理IO事务：队列，寻找，延迟，转换
+2. (可能的)上下文切换
+3. 中端等待IO完成
+   - 存储进程状态/寄存器
+   - 分析磁盘终端
+   - 更新分页表与在内存中的页面
+   - 等待原先的进程被排入时间表
+4. 上下文切换至原先的进程
+     
+## 分页表的内容
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>other</td>
-        <td>caching</td>
-        <td>referenced</td>
-        <td>modified</td>
-        <td>protection</td>
-        <td>present/absent</td>
-        <td>frame num</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+> | other | caching | referenced | modified | protection | present/absent | frame num |
 
-<ul>
-  <li>”出席/缺席“位(present/absent bit)用于指示是否在内存中</li>
-  <li>“更改”位(modified bit)用于表示页面是否经过更改</li>
-  <li>“引用”位(referenced bit)用于表明页面是否在使用</li>
-  <li>“保护”域(protection bits)用于表明页面的读写执行权限</li>
-  <li>“缓存”位(caching bit)用于表明页面是否写入设备寄存器</li>
-</ul>
+- ”出席/缺席“位(present/absent bit)用于指示是否在内存中
+- “更改”位(modified bit)用于表示页面是否经过更改
+- “引用”位(referenced bit)用于表明页面是否在使用
+- “保护”域(protection bits)用于表明页面的读写执行权限
+- “缓存”位(caching bit)用于表明页面是否写入设备寄存器
 
-<h2 id="section-15">处理大型分页表</h2>
+## 处理大型分页表
 
-<p>在16bit机器上，地址空间为2^16，假设一个页面为2^10bit,剩下6bit用于标记页面序数，总共可以维护64个页面表。
+在16bit机器上，地址空间为2^16，假设一个页面为2^10bit,剩下6bit用于标记页面序数，总共可以维护64个页面表。
 32bit机器上，一个页面为4kb(2^12)，有20位可以标记页面，总共维护的数量大约为100000。64bit机器拥有更加大量的页面数量。
-如何处理更大的页面数量，是一个问题。</p>
+如何处理更大的页面数量，是一个问题。
 
-<p>首先，对如此大的分页表，将其存储在寄存器不是一个好选择。我们选择将其放在主内存中(虚拟内存)。</p>
+首先，对如此大的分页表，将其存储在寄存器不是一个好选择。我们选择将其放在主内存中(虚拟内存)。
 
-<ul>
-  <li>多级分页表(multi-level page table)</li>
-  <li>逆分页表(inverted page table)</li>
-</ul>
+- 多级分页表(multi-level page table)
+- 逆分页表(inverted page table)
 
-<p>另一个需要考虑的是处理时间，由于每次分页都需要进行转换，速度必须足够快。</p>
+另一个需要考虑的是处理时间，由于每次分页都需要进行转换，速度必须足够快。
 
-<h3 id="section-16">多级分页表</h3>
+### 多级分页表
 
-<p>这是一个简单的实现方式。考虑一个32位机器，对于每一个地址，我们使用10bit的PT1域，10bit PT2域，12bit的偏移量。令页面大小4k，总共2^20个页面。</p>
+这是一个简单的实现方式。考虑一个32位机器，对于每一个地址，我们使用10bit的PT1域，10bit PT2域，12bit的偏移量。令页面大小4k，总共2^20个页面。
 
-<p>多级分页表不将所有的页面全部放在内存中，在如上例子中，我们将分页表分为两个层级，每个分页表都有2^10项，第一层分页表只有一个，对应1024个子分页表，在地址上我们使用PT1域。第二层分页表有1024个，每个对应1024个页面，使用PT2域。得到目标地址的方法：</p>
+多级分页表不将所有的页面全部放在内存中，在如上例子中，我们将分页表分为两个层级，每个分页表都有2^10项，第一层分页表只有一个，对应1024个子分页表，在地址上我们使用PT1域。第二层分页表有1024个，每个对应1024个页面，使用PT2域。得到目标地址的方法：
 
-<ol>
-  <li>PT1+顶层表指针得到第二层表指针</li>
-  <li>第二层表指针+PT2得到帧序号</li>
-  <li>帧序号+偏移量得到目标物理地址</li>
-</ol>
+1. PT1+顶层表指针得到第二层表指针
+2. 第二层表指针+PT2得到帧序号
+3. 帧序号+偏移量得到目标物理地址
 
-<p>对于任意一个地址，我们只需要保存第一层与相对的第二层表即可。
+对于任意一个地址，我们只需要保存第一层与相对的第二层表即可。
 处理时间：
-$L * T + C$,</p>
+$L * T + C$,
 
-<p>L 表示层级数， T表示处理每个表的时间，C表示剩余的常数项。</p>
+L 表示层级数， T表示处理每个表的时间，C表示剩余的常数项。
 
-<p>当表已经在内存中时，寻找时间会变成原来的3倍(加上处理两个表)</p>
+当表已经在内存中时，寻找时间会变成原来的3倍(加上处理两个表)
 
-<h3 id="tlb">TLB</h3>
 
-<p>我们使用传输后备缓冲器TLB(Translation Look aside Buffer)来对一些经常使用的页面与表的入口进行缓存。
+### TLB
+
+我们使用传输后备缓冲器TLB(Translation Look aside Buffer)来对一些经常使用的页面与表的入口进行缓存。
 页面表的搜索与TLB中的搜索是平行的。
-TLB同其他的缓存没有什么不同。</p>
+TLB同其他的缓存没有什么不同。
 
-<p>搜索算法：</p>
+搜索算法：
 
-<ol>
-  <li>同时搜索TLB与分页表</li>
-  <li>如果TLB中搜索到，直接得出帧序号+偏移量(TLB Hit)</li>
-  <li>如果不在TLB中，搜索分页表得到帧序号(TLB Miss)</li>
-</ol>
+1. 同时搜索TLB与分页表
+2. 如果TLB中搜索到，直接得出帧序号+偏移量(TLB Hit)
+3. 如果不在TLB中，搜索分页表得到帧序号(TLB Miss)
 
-<p>假设我们需要20ns在TLB中寻找，内存处理时间100ns</p>
 
-<p>对于单层表而言,TLB Hit时间为20 + 100ns(TLB搜索时间+内存)
-TLB Miss时间为20 + 100 + 100ns(TLB搜索时间+分页表搜索时间+内存)</p>
+假设我们需要20ns在TLB中寻找，内存处理时间100ns
 
-<h3 id="section-17">逆分页表</h3>
+对于单层表而言,TLB Hit时间为20 + 100ns(TLB搜索时间+内存)
+TLB Miss时间为20 + 100 + 100ns(TLB搜索时间+分页表搜索时间+内存)
 
-<p>一个“正”分页表的大小同虚拟空间大小对应，而一个“逆”分页表同主内存的大小对应。
-逆分页表通过哈希函数来得到页面数字，而且使用帧序号作为索引。</p>
+### 逆分页表
 
-<h3 id="thrashing">击打(Thrashing)</h3>
+一个“正”分页表的大小同虚拟空间大小对应，而一个“逆”分页表同主内存的大小对应。
+逆分页表通过哈希函数来得到页面数字，而且使用帧序号作为索引。
 
-<p>假设所有的可以使用的表都在被活跃地使用，读入一个新的内存表时，这个表需要马上被交换出来，然后很快被读回去。</p>
+### 击打(Thrashing)
 
-<p>击打发生在某块内存被交换出去，然后马上被读入的时候，使得CPU使用率下降
-CPU使用率下降会导致多任务程度上升，而多任务程度上升会进一步增加IO事务，减低CPU使用率。</p>
+假设所有的可以使用的表都在被活跃地使用，读入一个新的内存表时，这个表需要马上被交换出来，然后很快被读回去。
 
-<p>击打的原因包括：</p>
+击打发生在某块内存被交换出去，然后马上被读入的时候，使得CPU使用率下降
+CPU使用率下降会导致多任务程度上升，而多任务程度上升会进一步增加IO事务，减低CPU使用率。
 
-<ul>
-  <li>过高的多任务程度</li>
-  <li>单个进程被分配的页面太少</li>
-</ul>
+击打的原因包括：
 
-<p>我们可以使用减低多任务率以及使用一个更好的页面替换策略来防止击打的发生。</p>
+- 过高的多任务程度
+- 单个进程被分配的页面太少
 
-<h1 id="page-replacing-algorithms">页面替换算法(Page-replacing Algorithms)</h1>
+我们可以使用减低多任务率以及使用一个更好的页面替换策略来防止击打的发生。
 
-<h2 id="demand-paging">页面请求(demand paging)</h2>
 
-<p>令ma, p, pft表示内存处理时间(memory access time)，页面错误率(page fault rate)，页面错误处理时间(page fault time)，
-总处理时间(access time)为:</p>
+# 页面替换算法(Page-replacing Algorithms)
 
-<p>$(1 - p) * ma + pft * p$</p>
 
-<p>一般而言处理时间与页面错误率成正比。</p>
 
-<p>虚拟内存依赖于共用页面组的位置。进程从一个位置移向另一个，如果所有需求的页面都在内存中，就不会出现页面错误。</p>
+## 页面请求(demand paging)
 
-<p>页面请求从内存中没有页面开始，第一个指令会马上导致页面错误。之后，页面错误数量会增加，但是最终会维持在一个稳定的水平。</p>
+令ma, p, pft表示内存处理时间(memory access time)，页面错误率(page fault rate)，页面错误处理时间(page fault time)，
+总处理时间(access time)为:
 
-<h2 id="pre-paging">页面预载入(Pre-paging)</h2>
+$(1 - p) * ma + pft * p$
 
-<p>当进程开始后，所有被预计所要使用的页面(工作集，working set)会一次性被读入内存。这将减少页面错误数量，而且减少转换所需时间。</p>
+一般而言处理时间与页面错误率成正比。
 
-<p>预载入在页面错误产生之前发生，经常被用在进程被交换的时候。</p>
+虚拟内存依赖于共用页面组的位置。进程从一个位置移向另一个，如果所有需求的页面都在内存中，就不会出现页面错误。
 
-<h2 id="section-18">页面替换算法</h2>
+页面请求从内存中没有页面开始，第一个指令会马上导致页面错误。之后，页面错误数量会增加，但是最终会维持在一个稳定的水平。
 
-<p>当一个新的页面载入时，操作系统需要选择一个页面来移除。这个选择是由页面替换算法所决定的。
-这个算法需要考虑时间成本以及防止击打。</p>
+## 页面预载入(Pre-paging)
 
-<h3 id="optimal-pae-replacement">最优页面替换(optimal pae replacement)</h3>
+当进程开始后，所有被预计所要使用的页面(工作集，working set)会一次性被读入内存。这将减少页面错误数量，而且减少转换所需时间。
 
-<p>每一个页面都有一个接下来需要执行的操作/接下来再被调用所需要的时间长度的列表，将最长时间不用的页面交换出去。
-这个算法在实现上是不可能的。但是这可以被提前执行分析所应用，也可以提供一个页面错误数量的下界。</p>
+预载入在页面错误产生之前发生，经常被用在进程被交换的时候。
 
-<h3 id="not-recently-used-nru">最近未使用(not recently used, NRU)</h3>
 
-<p>NRU使用引用比特位与更改比特位来寻找下一个页面。在开始的时候，所有的引用比特位都设置未0，并且周期性地重置为0。
-当页面错误发生时，操作系统检查分页表，根据这两个比特位的取值，分成四种页面类型(page class):</p>
+## 页面替换算法
 
-<ol>
-  <li>无引用，无更改</li>
-  <li>无引用，有更改</li>
-  <li>有引用，无更改</li>
-  <li>有引用，有更改</li>
-</ol>
+当一个新的页面载入时，操作系统需要选择一个页面来移除。这个选择是由页面替换算法所决定的。
+这个算法需要考虑时间成本以及防止击打。
 
-<p>NRU算法从编号低的类型开始，选取第一个非空类型中的一个任意页面移除。</p>
+### 最优页面替换(optimal pae replacement)
 
-<p>NRU的性能尚可，对于理解与实现而言也相对简单。</p>
+每一个页面都有一个接下来需要执行的操作/接下来再被调用所需要的时间长度的列表，将最长时间不用的页面交换出去。
+这个算法在实现上是不可能的。但是这可以被提前执行分析所应用，也可以提供一个页面错误数量的下界。
 
-<h3 id="section-19">先进先出</h3>
+### 最近未使用(not recently used, NRU)
 
-<p>先进先出维护一个链表，新的页面会加入链表的末端。
-每次交换的时候交换链表头的元素。这是一个简单的实现，但是会有比较糟糕的性能：它不知道哪些页面被经常使用。</p>
+NRU使用引用比特位与更改比特位来寻找下一个页面。在开始的时候，所有的引用比特位都设置未0，并且周期性地重置为0。
+当页面错误发生时，操作系统检查分页表，根据这两个比特位的取值，分成四种页面类型(page class):
 
-<p>有改进型第二选择FIFO(second chance FIFO)</p>
+1. 无引用，无更改
+2. 无引用，有更改
+3. 有引用，无更改
+4. 有引用，有更改
 
-<p>如果一个页面在链表的前面且引用位为0，则将其交换；如果引用位非0，将这个页面放在链表的最后，重置其引用位。</p>
+NRU算法从编号低的类型开始，选取第一个非空类型中的一个任意页面移除。
 
-<p>这个算法依然比较简单，但是开销非常大。同时，当所有的页面被引用时，它会退化为平凡的FIFO算法</p>
+NRU的性能尚可，对于理解与实现而言也相对简单。
 
-<h3 id="clock-replacement-algorithm">时钟替换算法(clock replacement algorithm)</h3>
+### 先进先出
 
-<p>将第二选择FIFO的链表首尾相连就成为时钟替换算法。我们保存一个指针指向最老的页面。这个算法中，指针只能想一个方向移动。</p>
+先进先出维护一个链表，新的页面会加入链表的末端。
+每次交换的时候交换链表头的元素。这是一个简单的实现，但是会有比较糟糕的性能：它不知道哪些页面被经常使用。
 
-<p>这个算法效率更高，但是当链表很长的时候表现依然糟糕。</p>
+有改进型第二选择FIFO(second chance FIFO)
 
-<h3 id="least-recently-used-lru">最近少使用(least recently used, LRU)</h3>
+如果一个页面在链表的前面且引用位为0，则将其交换；如果引用位非0，将这个页面放在链表的最后，重置其引用位。
 
-<p>最近少使用算法移除一个距今最长时间不用的页面。操作系统必须追踪页面上一次被使用距今的时间，每个分页表入口有一块区域来存储计数器。
-这个实现的开销也不小，因为我们需要维护一个根据时间排序的页面列表(或者搜索)。</p>
+这个算法依然比较简单，但是开销非常大。同时，当所有的页面被引用时，它会退化为平凡的FIFO算法
 
-<p>这个算法可以在硬件层面加入一个计时器实现。</p>
+### 时钟替换算法(clock replacement algorithm)
 
-<h2 id="paging-daemons">页面守护进程(Paging daemons)</h2>
+将第二选择FIFO的链表首尾相连就成为时钟替换算法。我们保存一个指针指向最老的页面。这个算法中，指针只能想一个方向移动。
 
-<p>实际上，保存一些空闲的页面来应对未来可能发生的页面错误更加经济有效。许多系统现在有一个后台的页面守护进程，这些进程周期性地运行。
-当空闲的页面太少时，会使用页面交换算法选取若干页面交换出去。</p>
+这个算法效率更高，但是当链表很长的时候表现依然糟糕。
+
+
+### 最近少使用(least recently used, LRU)
+
+最近少使用算法移除一个距今最长时间不用的页面。操作系统必须追踪页面上一次被使用距今的时间，每个分页表入口有一块区域来存储计数器。
+这个实现的开销也不小，因为我们需要维护一个根据时间排序的页面列表(或者搜索)。
+
+这个算法可以在硬件层面加入一个计时器实现。
+
+## 页面守护进程(Paging daemons)
+
+实际上，保存一些空闲的页面来应对未来可能发生的页面错误更加经济有效。许多系统现在有一个后台的页面守护进程，这些进程周期性地运行。
+当空闲的页面太少时，会使用页面交换算法选取若干页面交换出去。
  -->
     
-        <p>操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。</p>
+        操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。
 
 
     
@@ -803,13 +1114,13 @@ sudo apt-get install libsdl2-dev
 
 <p>到官网下载源码包，然后make&amp;&amp;make install</p>
 
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">hg clone https://hg.libsdl.org/SDL SDL</span>
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">hg clone https://hg.libsdl.org/SDL SDL</span>
 <span class="go">cd SDL</span>
 <span class="go">mkdir build</span>
 <span class="go">cd build</span>
 <span class="go">../configure</span>
 <span class="go">make</span>
-<span class="go">sudo make install</span></code></pre></div>
+<span class="go">sudo make install</span></code></pre></figure>
 
 <p>没有hg的话自己装下……</p>
 
@@ -955,969 +1266,6 @@ display support.</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/" title="操作系统笔记一：进程"><img src="http://MeowAlienOwO.github.io//images/46882263_p0.jpg" alt="操作系统笔记一：进程"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-05T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/">March 05, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/" rel="bookmark" title="操作系统笔记一：进程" itemprop="url">操作系统笔记一：进程</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
-统的重要内容。主要是小学期的内容，现在来总结一下。</p>
-
-<h1 id="section">计算机多任务系统</h1>
-<p>现在的计算机系统大部分是多任务系统(multiprogramming),可以参考
-<a href="http://en.wikipedia.org/wiki/Multics">MULTICS</a>:</p>
-
-<ul>
-  <li>并发(Concurrency, 或者伪并行pseudo parallelism)是通过对单一CPU上执行
-的进程进行调配而实现的。(一个人吃三个馒头)</li>
-  <li>并行(Parallelism)是通过物理上的多CPU来实现的。(三个人吃三个馒头)</li>
-</ul>
-
-<p>多任务系统需要上下文切换(context switching)来调整进程的执行，然而这种
-方式会带来开销(overhead)。
-上下文切换：中止并保存当前进程，然后启动/重启另一个进程
-操作系统通过调用器(dispatcher)与排程器(scheduler)来进行进程管理：</p>
-
-<ul>
-  <li>分配/保护资源</li>
-  <li>插入进程</li>
-  <li>支持进程间通信</li>
-</ul>
-
-<h1 id="section-1">进程</h1>
-
-<p>每个进程都包括：</p>
-
-<ul>
-  <li>程序代码</li>
-  <li>数据，包括堆(stack)跟栈(heap)的数据</li>
-  <li>进程控制块(process control block, PCB)</li>
-</ul>
-
-<p>PCB保存所有有关于进程管理的信息，对于多任务系统中的上下文切换而言，PCB是必不可少的。在后面我们会讨论一下PCB的内容。</p>
-
-<h2 id="state">进程的状态(state)</h2>
-<p>进程在它的生命周期中，会在不同的状态之间切换。
-一个常见的进程状态转换图如下：</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/process.jpg" alt="process.jpg" /></p>
-
-<ul>
-  <li>状态为<code>running</code> 的进程占用CPU</li>
-  <li>状态为<code>block</code> 的进程无法继续执行，比如正在等待I/O</li>
-  <li>状态为<code>ready</code> 的进程等待CPU变得可用</li>
-  <li>状态为<code>new</code> 的进程刚刚被创建，等待被处理</li>
-  <li>状态为<code>terminated</code> 的进程已经结束，不过数据仍然有可能被暂时留在内存中</li>
-  <li>状态为<code>suspended</code> 的进程被交换(swap)出去了</li>
-</ul>
-
-<p>状态转换包含如下：</p>
-
-<ol>
-  <li><code>new</code> -&gt; <code>ready</code>: 接纳新创建的进程</li>
-  <li><code>running</code> -&gt; <code>blocked</code>: 进程被阻塞，等待IO或者系统调用</li>
-  <li><code>ready</code> -&gt; <code>running</code>: 进程被排程器选中执行</li>
-  <li><code>block</code> -&gt; <code>ready</code>: 事件发生了，比如IO操作结束，进程回到等待状态等待被调用</li>
-  <li><code>running</code> -&gt; <code>ready</code>: 进程被抢占</li>
-  <li><code>running</code> -&gt; <code>exit</code>: 进程结束</li>
-</ol>
-
-<p>进程的生命周期：</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/process2.jpg" alt="process2.jpg" /></p>
-
-<p>中断(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。</p>
-
-<h2 id="section-2">进程的创建与终止</h2>
-
-<p>操作系统负责创建进程，如下的事件发生时可以创建进程：</p>
-
-<ul>
-  <li>系统初始化的时候创建后台与前台进程</li>
-  <li>用户请求</li>
-  <li>批处理任务(注：这是windows下的说法，linux下的是shell脚本?)</li>
-  <li>其他进程创建</li>
-</ul>
-
-<p>如下的系统调用命令可以用来创建子进程：</p>
-
-<ul>
-  <li>*NIX系统下<code>fork()</code>可以创建一个父进程的完整拷贝，然后使用<code>exec</code>来执行</li>
-  <li>windows系统下使用<code>NTCreateProcess()</code>API</li>
-  <li>Linux下使用<code>clone()</code></li>
-</ul>
-
-<p>同样的，操作系统也负责终止进程。如下的事件发生时终止进程：</p>
-
-<ul>
-  <li>进程正常退出</li>
-  <li>错误：<code>ERROR</code>,比如说空间不足</li>
-  <li>错误：<code>FATAL</code>,程序bug</li>
-  <li>被父进程或者其他被授权的进程杀死（<code>KILL</code>）</li>
-</ul>
-
-<p>在进程终止时，需要使用系统调用来通知操作系统进程终止，然后释放被分配的资源，冲刷掉输出，以及执行可能的系统操作指令。</p>
-
-<p>如下的系统调用命令可以终止进程：</p>
-
-<ul>
-  <li>*NIX, Linux:<code>exit()</code>,<code>kill()</code></li>
-  <li>Windows: <code>TerminateProcess()</code></li>
-</ul>
-
-<h2 id="section-3">进程的实现</h2>
-<p>操作系统通过<em>表</em>来维护资源的状态：</p>
-
-<ul>
-  <li>内存表：内存分配，内存保护以及虚拟内存等等</li>
-  <li>I/O表：可用性，状态，信息转换</li>
-  <li>文件表：位置，状态</li>
-  <li>进程表：进程控制块</li>
-</ul>
-
-<p>这些表可以被交叉引用。</p>
-
-<h2 id="pcb">PCB与进程表</h2>
-<p>PCB包含一些进程管理时必要的属性。通常而言，包含如下几个类别：</p>
-
-<ul>
-  <li>进程区分：PID，UID，父进程的PID等</li>
-  <li>进程状态：用户注册，程序计数，堆栈指针，程序状态,内存管理，文件等等</li>
-  <li>进程控制信息：进程状态，排程信息等等</li>
-</ul>
-
-<p>PCB必须被保护，否则可能带来一系列严重的问题。</p>
-
-<p>进程表负责管理所有进程的PCB,当进程被中断/切换的时候，操作系统会更新进程表中的PCB信息。而在进程创建之前，进程表中会为之分配一个入口。</p>
-
-<h2 id="section-4">上下文切换</h2>
-<p>上下文切换发生的时候，系统会将原来进程的状态与内容保存起来，然后读入新
-的进程所要执行的内容，这个读写操作会产生开销。
-如下的事件会触发上下文切换：</p>
-
-<ul>
-  <li>进程内中断(interrupt):计时器，I/O，page fault等</li>
-  <li>由于错误或者异常而导致的陷阱(traps)</li>
-  <li>系统调用，比如I/O请求</li>
-</ul>
-
-<h1 id="section-5">进程排程算法</h1>
-
-<p>操作系统负责管理进程的排程：</p>
-
-<ul>
-  <li>决定何时接受进程进入系统（<code>new</code> -&gt; <code>ready</code>）</li>
-  <li>决定哪一个进程接下来将被执行(<code>ready</code> -&gt; <code>run</code>)</li>
-  <li>决定哪一个，以及何时进程将被中断(<code>interrupt</code> -&gt; <code>ready</code>)</li>
-</ul>
-
-<p>以上操作需要排程器与执行器的支持，排程器运行的算法称之为排程算法(scheduling algorithm)，根据操作系统的不同而有所区别。</p>
-
-<p>根据优先权分类：</p>
-
-<ul>
-  <li>
-    <p>非抢占式算法(non-preemtive)：进程只会被自发地中断，比如说IO与”nice”的系统调用。
-实例： Windows3.1, DOS</p>
-  </li>
-  <li>
-    <p>抢占式算法(preemtive)：进程可以被强制或者自发地中断，这需要上下文切换的支持。
-这种算法的好处是可以避免进程独占cpu资源，坏处是上下文切换会带来开销。目前大多数主流操作系统都使用优先权算法。</p>
-  </li>
-</ul>
-
-<h2 id="section-6">评价标准</h2>
-
-<p>面向用户的评价标准：</p>
-
-<ul>
-  <li>响应时间(response time)：从创建任务到第一次执行之间的时间</li>
-  <li>运行时间(turnaround time): 从创建任务到完成之间的时间</li>
-  <li>可预测性(predictability): 运行时间的差异性（可以用方差来表示？）</li>
-</ul>
-
-<p>面向系统的评价标准：</p>
-
-<ul>
-  <li>吞吐量(throughput): 每小时处理任务的数量</li>
-  <li>公平性(fairness): 处理能力/等待时间是否平均分布？是否存在等待时间过长的进程？</li>
-</ul>
-
-<p>在下面我们主要使用平均响应时间与平均运行时间来衡量排程算法。</p>
-
-<h2 id="first-in-first-serve">先进先执行(First in first serve)</h2>
-<p>先进先执行是一个非抢先式算法，使用严格队列机制(strict queueing mechanism)，即其按照任务加入任务队列的顺序执行任务。</p>
-
-<ul>
-  <li>优势：在位置上是公平的，且易于实现</li>
-  <li>劣势：容易造成长队列，以及造成系统资源之间的竞争</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/first-in-first-serve.jpg" alt="" /></p>
-
-<h2 id="shotest-job-first">最短任务优先(Shotest job first)</h2>
-<p>最短任务优先算法同样也是一个非抢先式算法，将所有任务以所需时间排序，将耗时最小的任务首先执行。</p>
-
-<ul>
-  <li>优势：总是会有最好的运行时间</li>
-  <li>劣势：
-  可能会导致饥饿(starvation)的发生:紧急的任务得不到优先执行；
-  需要牺牲公平性与可预测性；
-  必须预先得知进程执行时间。</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/shortest-first.jpg" alt="" /></p>
-
-<h2 id="round-robin">循环算法(Round-Robin)</h2>
-
-<p>循环算法是先进先执行算法的一个抢占式版本。它依然按照进程创建的顺序执行进程，但是在经过了一段时间间隔后，操作系统会强制切换到下一个进程。</p>
-
-<ul>
-  <li>优势：缩短了响应时间，而且在当前主流的分时操作系统下效率良好</li>
-  <li>劣势：
-　　　　增加了上下文切换的开销；
-　　　　比起同IO绑定的进程(运行时间短)更加偏向同CPU绑定的线程(运行时间长)；
-　　　　最差情况下会变成先进先执行算法。</li>
-</ul>
-
-<p>使用循环算法时，切换的时间间隔需要小心设计。</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/round-robin.jpg" alt="" /></p>
-
-<h2 id="priority-queues">优先级队列(Priority Queues)</h2>
-
-<p>优先级队列也是一个抢先式算法，它将所有的任务按照优先级排列。优先级通常存储在进程的PCB里，而且可以动态改变。</p>
-
-<ul>
-  <li>优势：可以优先执行同IO绑定的任务</li>
-  <li>劣势：对于静态的优先级而言，低优先级的任务可能会被放置过久。</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/priority-queue.jpg" alt="" /></p>
-
-<h1 id="threadprocess">线程(thread)与进程(process)</h1>
-
-<p>进程包含两个基础单元：</p>
-
-<ul>
-  <li>资源(resource)：包括包含进程镜像的（虚拟的）地址空间（比如程序，数据，堆，栈等等）</li>
-  <li>文件(file)，IO设备，IO通道等等</li>
-</ul>
-
-<p>一个进程可以在多个执行追踪之间共享资源，比如多线程在同一资源环境下的共享。</p>
-
-<p>每个线程都有自己的执行上下文(execution contest)，比如说程序容器，寄存器等等。所有的线程都有权使用进程的共享资源。</p>
-
-<p>线程通常是合作完成同一目标。</p>
-
-<p>有的CPU对多线程有着硬件层面的支持。</p>
-
-<h2 id="section-7">进程与线程的区别</h2>
-
-<p>同进程类似的，线程同样有：</p>
-
-<ul>
-  <li>状态以及转换函数(new, running, blocked, ready, terminated)</li>
-  <li>线程控制块(thread control block)</li>
-</ul>
-
-<p>相比较而言，线程在创建/终止/切换的开销比进程小(地址空间在同一进程中是一样的)。</p>
-
-<p>线程间通信通常比进程间通信来的快(通过内存共享实现，而进程常常需要消息机制)，不存在保护边界（因为线程是合作的，属于同一用户并且实现同一目标）。因此，我们在设计多线程程序的时候需要仔细考虑同步性。</p>
-
-<table summary="进程与线程共享资源的区别">
-  <tr>
-    <th>进程</th>
-    <th>线程</th>
-  </tr>
-  <tr>
-    <td>地址空间</td>
-    <td>程序计数器(指令地址寄存器)</td>
-  </tr>
-  <tr>
-    <td>全局变量</td>
-    <td>寄存器</td>
-  </tr>
-  <tr>
-    <td>打开的文件</td>
-    <td>栈</td>
-  </tr>
-  <tr>
-    <td>子进程</td>
-    <td>状态</td>
-  </tr>
-  <tr>
-    <td>挂起警报</td>
-    <td>本地变量</td>
-  </tr>
-  <tr>
-    <td>信号与信号处理器</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>计数信息</td>
-    <td></td>
-  </tr>
-</table>
-
-<p>多线程主要用于如下场景：
-- 一系列的相关操作需要一些同样的资源，而这些资源需要被分享
-- 进程中会有很多阻塞任务，比如IO操作或者内存操作</p>
-
-<p>进程的一些替代：</p>
-
-<ul>
-  <li>顺序执行追踪(sequential execution trace)</li>
-  <li>多进程</li>
-  <li>非阻塞系统调用</li>
-</ul>
-
-<p>操作系统的线程实现通常分为用户线程，核心线程与混合线程。</p>
-
-<h2 id="section-8">用户线程</h2>
-<p>线程管理是在用户库的协助下，在用户空间中发生的。线程管理包括：创建，摧
-毁，排程，线程控制块维护。</p>
-
-<p>进程通过运行时系统来管理线程表。同进程表类似，线程表用于管理线程切换并且跟踪同线程相关的信息。</p>
-
-<p>在用户线程下，操作系统核心不保存任何关于线程的信息。所以，这种实现方法常被用在那些实际上不支持多线程的操作系统中。</p>
-
-<p>优势：</p>
-
-<ul>
-  <li>进程在用户空间，不需要模式切换</li>
-  <li>完全被线程排程器控制</li>
-  <li>操作系统无关</li>
-  <li>运行时系统可以在用户空间里切换本地被阻塞的线程</li>
-</ul>
-
-<p>劣势：</p>
-
-<ul>
-  <li>阻塞系统调用可以将整个进程终止</li>
-  <li>页面错误(page faults)会阻塞整个进程</li>
-  <li>不是真正的并行机制</li>
-  <li>时钟中断不存在?(clock interrupts are non-existent)</li>
-</ul>
-
-<h2 id="section-9">核心线程</h2>
-<p>操作系统管理线程，用户应用通过API与系统调用来控制线程。
-线程表保存在操作系统核心中，包括线程控制块(是进程控制块的一个子集)。
-线程阻塞时，操作系统会选择该进程中另外一个线程运行。</p>
-
-<p>优势：</p>
-
-<ul>
-  <li>实现真的并行机制</li>
-  <li>不需要非阻塞系统调用</li>
-  <li>不需要运行时系统</li>
-</ul>
-
-<p>劣势：</p>
-
-<ul>
-  <li>需要不断进行模式切换，会导致运行效率下降。</li>
-</ul>
-
-<h2 id="section-10">混合线程</h2>
-
-<p>混合线程是以上两者的混合，系统线程由系统控制(数量有限),而用户应用控制用户线程</p>
-
-<h1 id="section-11">线程的排程</h1>
-
-<h2 id="section-12">反馈队列算法</h2>
-
-<p>进程可以按照占用资源大致被分成两类：</p>
-
-<ul>
-  <li>IO绑定进程(IO bound)：将绝大多数时间放在处理IO事务上，占用很少的CPU资源</li>
-  <li>CPU绑定进程(CPU bound)：将绝大多数时间放在CPU计算上</li>
-</ul>
-
-<p>操作系统需要良好地将以上两种进程混合在一起。因此，我们使用反馈队列算法。</p>
-
-<p>反馈队列(feedback queue)：优先级是<strong>动态更改</strong>(dynamically
-changed)的,例如将任务在不同的队列之间移动。</p>
-
-<ul>
-  <li>应用中，我们往往多个拥有不同优先级的队列，比如前台进程与后台进程</li>
-  <li>高优先级的进程总是最先执行</li>
-  <li>
-    <p>每个队列可以有自己的排程算法</p>
-  </li>
-  <li>我们可以将任务移至低优先级队列来将避免过多使用CPU时间，使得IO与交互进程有更高优先级</li>
-  <li>将进程移至高优先级来避免饥饿</li>
-</ul>
-
-<p>我们定义一个反馈队列的性质如下：</p>
-
-<ul>
-  <li>队列的数量</li>
-  <li>每个队列的排程算法</li>
-  <li>队列间移动算法</li>
-  <li>初始执行的队列</li>
-</ul>
-
-<p>反馈队列拥有高度灵活以及可定制行强的特性。</p>
-
-<p>由于物理限制的存在，并行被认为是提高计算能力的一个非常重要的手段。</p>
-
-<h2 id="section-13">排程的决定</h2>
-<p>单处理器机器需要决定哪一个线程是接下来被执行的(一维)；</p>
-
-<p>相对的，多处理器机器需要决定：哪一个线程被_哪个_处理器执行，以及_何时_被执行。</p>
-
-<p>对于多用户而言，线程可以是相关的或者是非相关的。相关的线程：同一进程创建的线程，他们之间可以交互。非相关线程：属于不同的进程，很可能是被不同的用户所创建，运行不同的程序。</p>
-
-<h2 id="section-14">共享队列</h2>
-
-<p>一个队列或者多个队列可能被所有的CPU所共享。</p>
-
-<ul>
-  <li>好处：自动平衡了负载</li>
-  <li>坏处：会引发对队列的争夺，需要加锁；对非相关进程/线程更加有用；所有的CPU都有相同的机会，但是有些时候会有更高的优先权，而且对进程不够友善：移动到别的CPU时缓存不可用；Translation look aside buffers become invalid(?)</li>
-</ul>
-
-<h2 id="section-15">私有队列</h2>
-<p>每个进程/线程被单个CPU所私有</p>
-
-<ul>
-  <li>好处：对CPU友善; 争夺队列的情况最小化</li>
-  <li>坏处：负载不够均衡</li>
-</ul>
-
-<h2 id="section-16">线程协作</h2>
-<p>属于同一进程的线程被视为合作线程。他们可以互相传递消息或者共享信息。线程排程的目的是使得线程在多个CPU间同时运行。</p>
-
-<p>我们有如下方法：</p>
-
-<ul>
-  <li>空间共享</li>
-  <li>群排程(Gang scheduling)</li>
-</ul>
-
-<h3 id="section-17">空间分配</h3>
-
-<p>方法：</p>
-
-<ul>
-  <li>N个线程被分配在N个专用的CPU上</li>
-  <li>N个进程保持等待状态直到有N个CPU可用</li>
-  <li>保持非抢占性</li>
-  <li>使用排程算法来做决定</li>
-  <li>阻塞不会使CPU空转</li>
-</ul>
-
-<p>我们可以通过调整数字N来匹配不同的处理容量。</p>
-
-<h3 id="section-18">群排程</h3>
-
-<p>我们做如下假定：</p>
-
-<ul>
-  <li>进程A有线程A1,A2且A1,A2协作；</li>
-  <li>进程B有线程B1,B2且B1,B2写作</li>
-</ul>
-
-<p>排程器选择A1,B1开始运行，然后切换到A2,B2,然后A1,A2，B1,B2，分别在不同的CPU上运行。
-他们将尝试向已经在Ready状态的线程发送信息。</p>
-
-<p>特性：</p>
-
-<ul>
-  <li>时间段同步</li>
-  <li>排程器将一些线程放在一起</li>
-  <li>所有的线程（尽可能多的）同时运行</li>
-  <li>抢占式算法</li>
-  <li>阻塞会使CPU空转</li>
-</ul>
-
-<p>关于反馈队列的一些讨论，<a href="http://baike.baidu.com/view/4230337.htm">百度百科</a>写的比较详细（虽然度娘的节操如浮云）</p>
-
-<h1 id="section-19">中断</h1>
-
-<p>中断被用来临时暂停进程的正常操作</p>
-
-<p>我们有如下几种中断方式：</p>
-
-<ul>
-  <li>软件中断，比如错误有或者抛出异常</li>
-  <li>CPU时钟所导致的时间中断</li>
-  <li>IO完成或者错误时的IO中断</li>
-</ul>
-
-<h2 id="io">无中断情况下的IO操作</h2>
-
-<ul>
-  <li>准备好IO设备</li>
-  <li>执行IO操作</li>
-  <li>通知IO进程，比如设定正确的flag或者进程错误</li>
-</ul>
-
-<p>问题：</p>
-
-<ul>
-  <li>程序需要繁忙等待吗？</li>
-  <li>CPU这个时候可不可以进行其他的作业？（相对而言IO操作远慢于CPU）</li>
-</ul>
-
-<h2 id="io-1">中断下的IO操作</h2>
-<p>中断使得CPU可以当IO操作发生时，空出来执行其他操作。</p>
-
-<ul>
-  <li>设定并且运行IO设备</li>
-  <li>并发地进行IO与CPU计算</li>
-  <li>进程中断：停止当前进程，执行中断处理程序</li>
-</ul>
-
-<p><img src="http://MeowAlienOwO.github.io/images/interrupt.jpg" alt="process.jpg" /></p>
-
-<p>具体的操作流程如下：</p>
-
-<ol>
-  <li>设备产生中断</li>
-  <li>CPU完成当前指令</li>
-  <li>CPU检测是否有中断
-    <ul>
-      <li>发现中断的产生</li>
-    </ul>
-  </li>
-  <li>将中断转换成服务例程
-    <ul>
-      <li>存储当前进程状态</li>
-      <li>将程序计数器转换至中断服务例程</li>
-    </ul>
-  </li>
-  <li>存储寄存器等其他状态信息</li>
-  <li>执行中断服务例程</li>
-  <li>重置之前的进程</li>
-  <li>重置程序计数器等</li>
-</ol>
-
-<h2 id="section-20">进程间通信</h2>
-
-<p>进程可以是独立的，也可以是协作的，协作进程有交换信息的需求。我们有两种方法用于进程间协作：</p>
-
-<ul>
-  <li>共享内存
-    <ul>
-      <li>两个进程读写同一块共享的内存</li>
-      <li>通常而言是最快的方法，系统调用只需要建立共享区块</li>
-    </ul>
-  </li>
-  <li>协作进程间传递信息
-    <ul>
-      <li>使用系统调用传递信息</li>
-      <li>早期的分布式系统使用这种方式</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="section-21">共享内存</h3>
-<p>这种方法需要进程能够获得另一个进程的私有地址空间，通常而言我们可以通过重写保护边界来实现。同时，交流必须被同步，否则会出现问题。</p>
-
-<p>一旦共享空间设定，系统不需要过多干涉。但是同样有可能产生
-<a href="http://www.searchstorage.com.cn/whatis/word_3948.htm">竞态条件</a>。</p>
-
-<p>缓冲区可以是有界的或者是无界的。</p>
-
-<h3 id="section-22">竞态条件</h3>
-
-<p>假设我们有一个操作系统连接着一个打印机。</p>
-
-<p>当一个进程想打印文件时，他会将该文件插入一个数字标记的“插槽”并加入一个特殊的打印路径。打印机守护进程间歇地检测是否有文件需要打印。操作系统维护两个变量：<code>IN</code>表示空闲的“插槽”数目，<code>OUT</code>表示需要被打印的文件数目。</p>
-
-<p>当两个进程同时将同一个文件提交至打印任务时：
-<img src="http://MeowAlienOwO.github.io/images/race-condition.jpg" alt="Race condition" /></p>
-
-<h3 id="section-23">消息传输</h3>
-
-<p>通过消息传输器交流，进程之间没有共享的地址空间。这种方式在分布式环境中更加有用。</p>
-
-<p>传输的消息可以是定长的或是变长的。</p>
-
-<p>两个进程之间必须有交流连接。</p>
-
-<ul>
-  <li>有向连接是自动创立的：
-    <ul>
-      <li>p1: <code>send(p2, message)</code></li>
-      <li>p2: <code>receive(p1, message)</code></li>
-    </ul>
-  </li>
-  <li>无向连接通过一个公众的”信箱“建立，这个信箱属于一个操作系统进程。
-    <ul>
-      <li>p1: <code>send(mailbox, message)</code></li>
-      <li>p2: <code>receive(mailbox, message)</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p>无向连接的同步有两种方式：</p>
-
-<ul>
-  <li>阻塞收发：向邮箱请求的进程会被阻塞，直到收到消息/邮箱空闲</li>
-  <li>非阻塞收发：邮箱在发送后重置操作或者当没有消息可用时返回空(null)</li>
-</ul>
-
-<p>消息队列可以是无容量的(no-capacity)，有限容量(bounded capacity)或者是无界容量(unbounded capacity)。</p>
-
- -->
-    
-        <p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
-统的重要内容。主要是小学期的内容，现在来总结一下。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(1)/" title="MAL-确定有限自动状态机"><img src="http://MeowAlienOwO.github.io//images/49196792_p0.jpg" alt="MAL-确定有限自动状态机"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-05T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(1)/">March 05, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(1)/" rel="bookmark" title="MAL-确定有限自动状态机" itemprop="url">MAL-确定有限自动状态机</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动机展开。</p>
-
-<h1 id="basic">Basic</h1>
-<p>在深入其他内容之前，我们需要掌握一下语言的概念。</p>
-
-<p>关系：对于集合$A$与集合$B$, <em>从A到B的关系(A relation from A to B)</em>是$A$与$B$的一个笛卡尔积$A \times B$的子集。一个在集合$A$上的关系是从$A$到$A$的关系，或者说是$A \times A$的一个子集。</p>
-
-<p>我们可以将关系表述为：
-定义$R$表示一个在某集合上的关系，我们可以将”A与B相关”写作：</p>
-
-<blockquote>
-  <p>$aRb$</p>
-</blockquote>
-
-<p>或者</p>
-
-<blockquote>
-  <p>$(a, b) \in R$</p>
-</blockquote>
-
-<p>一个在集合$A$上的关系$R$如果满足如下条件，我们称之为<em>等价关系(equivalence relation)</em>：</p>
-
-<ol>
-  <li>$R$具有<em>自反性(reflexive)</em>：对于所有的$x \in A, xRx$.</li>
-  <li>$R$具有<em>对称性(symmetric)</em>: 对于所有的$x, y \in A$, 如果$xRy$，那么$yRx$.</li>
-  <li>$R$具有<em>传递性(transtive)</em>: 对于所有的$x, y, z \in A$, 如果$xRy, yRz$，那么$xRz$.</li>
-</ol>
-
-<p>对于一个在集合$A$上的等价关系$R$，以及一个元素$x \in A$，包含$x$的<em>等价类(equivalence class)</em>定义为：</p>
-
-<blockquote>
-  <p>$[x]_R = \lbrace y \in A | yRx \rbrace $</p>
-</blockquote>
-
-<p>对于等价类与等价关系，我们有如下定理：</p>
-
-<blockquote>
-  <p>如果$R$是一个A上的等价关系，关于R的等价类将A分割成若干子集。A内的两个元素当且仅当他们属于同一等价类时，他们有等价关系。</p>
-</blockquote>
-
-<p><em>字母表(Alphabet)</em>是若干符号的一个有限集，比如<code>{a, b}</code>,<code>{0, 1}</code>.我们使用希腊字母$\Sigma$来表示一个字母表。一个在字母表$\Sigma$之上的<em>字符串(String)</em>定义为$\Sigma$内符号的一个有限序列。对于一个字符串$x$,$|x|$表示字符串的长度。另外，我们有空字符串$\Lambda$是在任意的字母表$\Sigma$之上，且$|\Lambda| = 0$</p>
-
-<p>$n_a(X)$表示$a$在字符串$X$中的出现次数。</p>
-
-<p>我们用$\Sigma^*$来表示所有在字母表$\Sigma$之上的字符串。而一个<em>语言(language)</em>则是$\Sigma^*$的一个子集。</p>
-
-<p>我们用$xy$来表示字符串$x$与$y$的<em>连接(concatenation)</em>，这也是对字符串最基本的操作。它有着如下的特性：
-你
-- 对于任意的$x$,$x \Lambda = \Lambda x = x$
-- $|xy| = |x| + |y|$</p>
-
-<p>对于在$\Sigma$之上定义的语言$L_1, L_2$, $L_1 \cup L_2, L_1 \cap L_2, L_1 - L_2$都是在$\Sigma$之上定义的语言。</p>
-
-<p>如果$L$是在$\Sigma$上定义的语言，那么$\L^<em>$表示将$L$中任意数目的任意字符串连接起来的语言。我们把这种操作称为</em>Kleene星号(Kleene Star)*操作。</p>
-
-<blockquote>
-  <p>$L^* = \cup  \lbrace L^k | k \in \mathbb{N} \rbrace$</p>
-</blockquote>
-
-<h1 id="finite-automata">Finite Automata</h1>
-
-<h2 id="section">定义与性质</h2>
-<p>在讨论有限状态自动机前，我们先来讨论一下<em>语言接收机(language accepter)</em>: 任何输出被限制为”yes”或者”no”的计算机可以被认为是一个语言接收机。
-计算机所接受的语言是将语言输入该计算机后输出且只输出”yes”的语言，而除此之外的语言将输出”no”。另外，在没有任何输入时，我们可以认为其接受%\Lambda%作为输入，而且此时有输出。</p>
-
-<p>在这里，为了讨论的方便，我们约定：</p>
-
-<ul>
-  <li>输出被限制为由一系列单个符号所组成的字符串，我们可以将其看作一个由单个符号所组成的序列</li>
-  <li>计算机对任何的当前的字符串输入都有一个相对应的输出</li>
-</ul>
-
-<p><em>有限状态自动机(finite automaton/finite state machine， FA)</em>是一种具有如下性质的简单机器：</p>
-
-<ul>
-  <li>输出被限制为”yes”与”no”</li>
-  <li>它只具有非常简单原始的内存容量</li>
-</ul>
-
-<p>有限状态自动机一直处于一个特定的<em>状态(state)</em>。对于每一步输入，它将”移动“到下一个状态（也包括当前的状态）。它的”移动“只决定于当前的状态以及输入的内容。所有的状态被分为两类：</p>
-
-<ul>
-  <li>接受(accepting)，返回”yes”</li>
-  <li>不接受(nonaccepting)，返回”no”</li>
-</ul>
-
-<p>一个有限状态自动机拥有一个初始状态，当且仅当输入为空字符串$\Lambda$时，自动机处于这个初始状态。</p>
-
-<p>有限状态自动机可以被如下的参数所描述：</p>
-
-<ul>
-  <li>有限的<em>状态集</em>: $Q$</li>
-  <li>有限的<em>输入字母表</em>: $\Sigma$</li>
-  <li><em>初始状态</em>: $q_0 \in Q$</li>
-  <li><em>接受状态集</em> $A \subseteq Q$</li>
-  <li><em>状态转换函数</em> $\delta: Q \times \Sigma \rightarrow Q$</li>
-</ul>
-
-<p>我们将有限状态自动机用如下的五元组所表示：</p>
-
-<p>$M: (Q, \Sigma, q_0, A, \delta )$</p>
-
-<p>对于处于状态$q$的FA与输入字符$\sigma$，$\delta(q, \sigma)$用于表示转换后的状态。</p>
-
-<p>$\delta^*(q, x)$用于表示FA在接受了输入字符串$x$的状态。</p>
-
-<p>对于函数$\delta^*(q, x)$,我们有：</p>
-
-<ul>
-  <li>
-    <p>$\forall q \in Q, \delta^*(q, \Lambda) = q$</p>
-  </li>
-  <li>
-    <p>$\forall q \in Q, \forall y \in \Sigma^*, \forall \sigma \in \Sigma^*, \delta^*(q, y\sigma) = \delta(delta^*(q,y),\sigma)$</p>
-  </li>
-</ul>
-
-<p>如上是一个使用数学归纳法的递归定义。</p>
-
-<p>如果我们有一个定义为$M = (Q, \Sigma, q_0, A, \delta)$的FA, 令$x \in \Sigma^*$，定义$x$<em>被$M$接受</em>为：</p>
-
-<blockquote>
-  <p>$\delta^*(q_0, x) \in A$</p>
-</blockquote>
-
-<p>同样的，定义<em>不被$M$接受</em>为：</p>
-
-<blockquote>
-  <p>$\delta^*(q_0, x)\not \in A$</p>
-</blockquote>
-
-<p>定义<em>被$M$接受的语言</em>为：</p>
-
-<blockquote>
-  <p>$L(M)=\lbrace x \in \Sigma^* | x\ is\  accepted\  by\ M\rbrace$</p>
-</blockquote>
-
-<h2 id="fa">语言的交，并，差集以及FA</h2>
-
-<p>创建接受两个语言的交并差集的FA的一个基本思路是创造一个同时能处理两个语言的FA。</p>
-
-<p>假设我们有两个FA:$M_1 = (Q_1, \Sigma_1, q_1, A_1, \delta_1)$, $M_2 = (Q_2, \Sigma_2, q_2, A_2, \delta_2)$，分别接受语言$L_1$，$L_2$，定义$M = (Q, \Sigma, q_0, A, \delta)$为：</p>
-
-<ul>
-  <li>$Q = Q_1 \times Q_2$</li>
-  <li>$q_0 = (q_1, q_2)$</li>
-  <li>$\delta((p,q), \sigma) = (\sigma_1(p,\sigma), \sigma_2(q, \sigma))$</li>
-</ul>
-
-<p>那么，我们有：</p>
-
-<ul>
-  <li>$A = \lbrace(p, q) | p \in A_1 or\ q \in A_2 \rbrace, M\ accepts\ L_1 \cup L_2$</li>
-  <li>$A = \lbrace(p, q) | p \in A_1 and\ q \in A_2 \rbrace, M\ accepts\ L_1 \cap L_2$</li>
-  <li>$A = \lbrace(p, q) | p \in A_1 and\ q \not \in A_2 \rbrace, M\ accepts\ L_1 - L_2$</li>
-</ul>
-
-<p>构建一个如上的$M$的过程为：</p>
-
-<ol>
-  <li>创建$Q_1 \times Q_2$，列出所有的笛卡尔积</li>
-  <li>根据原来两个FA的转换函数，画出所有转换函数</li>
-  <li>将$(q_1, q_2)$作为初始状态，根据条件寻找接受状态，组成一个新的状态机</li>
-  <li>化简这个状态机</li>
-</ol>
-
-<h2 id="section-1">区分两个字符串</h2>
-
-<p>我们有定义如下：如果$L$是一个在字母表$\Sigma$之上定义的语言，
-$x$, $y$是在字母表$\Sigma^*$之上定义的字符串，那么如果存在一个字符串$z \in \Sigma^*$,使得要么$xz \in L$且$yz \not \in L$, 要么$xz \not \in L$且$yz \in L$,我们认为$x$与$y$<em>可被L区分(L-distinguishable)</em>。</p>
-
-<p>等价的，我们有：当$L/x \not = L/y$,$L/x = \lbrace z \in \Sigma^* | xz \in L \rbrace$,$x$与$y$可被L区分。</p>
-
-<p>定理：假设$M = (Q, \Sigma, q_0, A, \delta)$是一个接受$L \subset \Sigma^*$的FA，</p>
-
-<ul>
-  <li>如果$x$,$y$是两个可被L区分的字符串，那么$\delta^*(q_0, x) \not = \delta^*(q_0, y)$</li>
-  <li>对于所有的$n \geq 2$,如果存在一个n对的可被L区分的字符串，那么Q至少会有n个状态。</li>
-</ul>
-
-<h2 id="pumpling-lemma">泵引理(Pumpling Lemma)</h2>
-<p>如果$M = (Q, S, q_0, A, \delta)$是一个接受$L$的FA且状态数量为n，如果其接受一个字符串$x$使得$|x| \geq n$,那么当字符被读入时，M必然会不止一次进入同一个状态。</p>
-
-<p>这使得我们可以对如上FA创建任意多的字符串使得其被L所接受——只需要任意重复其重复的状态即可。于是，我们可以导出<em>泵引理(Pumping Lemma)</em>：
-如果$L$是定义在$\Sigma$上的语言，且$L$被FA$M = (Q, \Sigma, q_0, A,
-\delta)$所接受，存在一个整数$n$使得对于满足$|x| \geq n$的任意$x \in
-L$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
-
-<ul>
-  <li>$|uv| \leq n$</li>
-  <li>$|v| &gt; 0$</li>
-  <li>对于任意的$i \geq 0$,$uv^iw$属于L</li>
-</ul>
-
-<p>这里，整数n通常是FA的状态数目，但是我们一般不需要知道这些。</p>
-
-<p>泵引理最普遍的应用是通过反证法证明一个语言<strong>不能</strong>被一个FA所接受。我们首先假设这个语言可以被FA接受，然后我们取n作为在泵引理中使用的整数。之后，我们选取一个字符串，使得$|x| \geq n$,然后我们使用泵引理来得到冲突。
-例题详见课件。</p>
-
-<p>一些可被泵引理所解决的问题：</p>
-
-<ul>
-  <li>给定一个$x$，判断是否$x \in L$</li>
-  <li>给定一个有n状态的FA $M$, 判定语言$L(M)$是否为空</li>
-  <li>给定一个有n个状态的FA $M$,$L(M)$是否无穷？</li>
-</ul>
-
-<h2 id="myhill-nerode-">创建最简状态机 与 Myhill-Nerode 定理</h2>
-
-<h3 id="section-2">等价类</h3>
-
-<blockquote>
-  <p>定义：对于一个语言$L \subset \lbrace a, b \rbrace^*$,我们定义一个在集合$\Sigma^*$之上的关系$I_L$如下：对于任意的$x, y \in \Sigma^*$,$x I_L y$当且仅当x，y可被L区分时成立。我们称这样的关系$I_L$为等价关系。对于$X \subset L$,在该集合内任意两个元素对满足等价关系$xI_Ly$,我们称这样的集合为等价集。</p>
-</blockquote>
-
-<p>假设一个接受字符串”aa”的语言，如果要创建一个符合该语言的自动机，我们需要至少三个状态。三个状态分别对应结尾不是a的字符串，结尾只有一个a的字符串，结尾为两个a的字符串。</p>
-
-<h3 id="myhill-nerode">Myhill-Nerode定理</h3>
-
-<blockquote>
-  <p>定理：对于一个语言$L \subset \Sigma^*$，有对于等价关系$I_L$的等价类的集合$Q_L$,当且仅当集合$Q_L$是有限集时，该语言可以被一个FA所接受。</p>
-</blockquote>
-
-<p>如果集合$Q_L$是有限集，那么我们可以建立一个FA$M_L = Q_L, \Sigma, q_0, A, \delta$如下：</p>
-
-<ul>
-  <li>$q_0 = [\Lambda]$</li>
-  <li>$A = \lbrace q \in Q_L | q \subset L \rbrace$</li>
-  <li>$\forall x \in \Sigma^*, \forall \sigma \in \Sigma, \delta([x],\sigma) = [x\sigma]$</li>
-</ul>
-
-<p>那么$M_L$在能接受L的FA中有最少的状态数量。</p>
-
-<p>如果我们已经知道了一个FA可以接受L，那么我们可以通过如下方法来得到等价类：
-对于每一个状态$q$,我们可以定义$L_q = \lbrace x \in \Sigma^* | \delta^*(q_0, x) = q$。每一个$L_q$都是一个关于关系$I_L$的等价类的一个子集。</p>
-
-<p>Myhill-Nerode同时也给了我们另一种方法来判断一个语言是否为正则语言（即存在对应该语言的FA）。而这种方法是一个比使用泵引理的更强的陈述。
-我们可以对一个语言创建其等价类的集合，如果该集合为无穷集合，那么就无法对该语言创建对应的FA，因而该语言也不是正则语言。</p>
-
-<h3 id="section-3">创建最简状态机</h3>
-<p>假设我们有$M = (Q, \Sigma, q_0, A, \delta)$接受语言$L \subset \Sigma^*$,定义$L_q = \lbrace x \in \Sigma^* | \delta^*(q_0, x) = q \rbrace$</p>
-
-<ol>
-  <li>移除所有的使得$L_q$为空的所有状态q，这些状态移除后对FA没有任何实质影响。</li>
-  <li>在状态集$Q$上定义运算$\equiv$:$p \equiv q$意即所有$L_p$中的字符串与在$L_q$中的所有字符串无法被区分，即$L_p$,$L_q$都是关于$I_L$的等价类的一个子集</li>
-  <li>对于所有的$p \not \equiv q$，在状态$\delta^*(p, z), \delta^*(q, z)$中，有且仅有唯一一个状态属于状态集$A$</li>
-  <li>定义无序二元状态对集合$S_M$，使得其中的所有二元状态对满足$p \not \equiv q$</li>
-  <li>我们可以用如下的方法来寻找$S_M$:
-    <ul>
-      <li>对于状态对$(p, q)$，如果仅$p$或者仅$q$属于接受状态集$A$,那么$(p, q) \in S_M$</li>
-      <li>对于状态对$(p, q)$，如果对于所有的符号$\sigma$，都有$(\delta(p, \sigma), \delta(q, \sigma)) \in S_M$，那么$(p, q) \in S_M$</li>
-    </ul>
-  </li>
-</ol>
-
-<p>我们可以用如下的算法来寻找满足关系$p \not \equiv q$的二元对$(p, q)$：
-（注：感觉理解还不是很到位，把ppt原文放上来）
-An algorithm to identify the pairs $(p, q)$ with $p ≢ q$ :</p>
-
-<ul>
-  <li>List all unordered pairs $(p, q)$ of distinct states.</li>
-  <li>Make a sequence of passes through these pairs:</li>
-  <li>On the first pass, mark each pair $(p, q)$ so that exactly
-one of the two states is in A</li>
-  <li>On each subsequent pass, and each unmarked pair
-$(r, s)$, if $\delta(r, \sigma) = p$ and $\delta(s, \sigma) = q$ for
-some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$</li>
-  <li>After a pass in which no pairs are marked, stop</li>
-  <li>
-    <p>The marked pairs are the pairs (p, q) for which p ≢ q</p>
-  </li>
-  <li>列出所有的无序二元对$(p, q)$</li>
-  <li>建立一系列的通道来连接这些二元对</li>
-  <li>在第一通道，标记所有的二元对$(p, q)$使得有且只有一个在接受状态集$A$中</li>
-  <li>对于所有的子通道，以及所有的未标记的二元对$(r, s)$，如果对于某些$\sigma \in \Sigma$，如果$\delta(r, \sigma) = p$以及$\delta(s, \sigma) = q$，且$(p, q)$已经被标记，那么标记$(r, s)$</li>
-  <li>如果在一条通道上没有被标记的二元对，则停止。</li>
-  <li>所有的被标记的二元对有关系$p \not \equiv q$</li>
-</ul>
-
-<p>当该算法停止时，未被标记的二元对$(p, q)$表示两个可以被合成一个的状态。</p>
-
-<h1 id="nondeterministic-finite-automata">Nondeterministic Finite Automata</h1>
-
-<p>非确定有限状态机(Nondeterministic Finite Automata)的定义是将原来的确定有限状态机的单个转换函数扩展成一个
-转换函数集，每次运行时，使用平行(parallel)的思路运行不同的转换函数，只
-要有一个返回接受，那么该状态机就接受。</p>
-
-<p>我们定义$\delta(q, \sigma)$为在状态$q$的NFA对于输入$\sigma$可以移动到的状态集合
-对于NFA而言，$\delta^*$的定义略有不同。由于$\delta*(q, x)$是一个集合，
-对于任意的前一集合中的$p$，$U \lbrace \delta(p, \sigma) | p \int \delta^*(q,
-x) \rbrace$是$\delta*$的第一步（不理解……）</p>
-
-<h2 id="lambda">$\Lambda$闭包</h2>
-
-<p>我们同样需要考虑$\Lambda$转换，它可以发生在任何状态。假设$M = (Q,
-\Sigma, q_0, A, \delta)$是一个NFA,$S \subset Q$是一个状态的集合。
-那么，$S$的$\Lambda$闭包是一个集合$\Lambda(S)$，这个集合可以被递归地定
-义如下：</p>
-
-<ul>
-  <li>$S \subset \Lambda(S)$</li>
-  <li>对于所有的$q \in \Lambda(S), \sigma(q, \Lambda) \subset \Lambda(S)$</li>
-</ul>
-
-<p>构建$\Lambda$闭包的方式也很简单，根据定义，令$T = S$，对于任意的$q \in
-T$，向$T$中加入所有的$\delta(q, \Lambda)$直到$T$不再发生改变。最终的结
-果$T$就是$\Lambda(S)$。</p>
-
-<h2 id="nfa">消除NFA的不确定性</h2>
-
- -->
-    
-        <p>Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动机展开。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -1960,7 +1308,7 @@ T$，向$T$中加入所有的$\delta(q, \Lambda)$直到$T$不再发生改变。�
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2015 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2016 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

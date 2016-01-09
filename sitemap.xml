@@ -1,173 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E7%AB%8B%E8%B4%B4%E4%B8%BA%E8%AA%93/</loc>
-    <lastmod>2015-07-10T13:16:02+08:00</lastmod>
-    <priority>0.8</priority>
+    <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-05-operating_system/</loc>
+    <lastmod>2016-01-10T01:01:23+08:00</lastmod>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_file_system/</loc>
+    <loc>http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E5%9B%9E%E5%BD%92/</loc>
+    <lastmod>2016-01-09T21:47:01+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E7%AB%8B%E8%B4%B4%E4%B8%BA%E8%AA%93/</loc>
+    <lastmod>2015-07-10T13:16:02+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-05-20-operating_system/</loc>
     <lastmod>2015-05-20T15:07:11+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/application_layer/</loc>
     <lastmod>2015-05-15T22:06:18+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/</loc>
     <lastmod>2015-05-15T21:00:24+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/network_layer/</loc>
     <lastmod>2015-05-15T16:41:05+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/link_layer/</loc>
     <lastmod>2015-05-15T01:44:58+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/</loc>
     <lastmod>2015-05-14T23:23:43+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/</loc>
     <lastmod>2015-05-14T20:15:47+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/</loc>
     <lastmod>2015-05-13T16:59:52+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/</loc>
     <lastmod>2015-05-03T14:49:02+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_memory_management/</loc>
+    <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/</loc>
     <lastmod>2015-03-30T19:10:06+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//c++/%E5%AE%89%E8%A3%85sdl/</loc>
     <lastmod>2015-03-28T18:21:11+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//acg/%E7%A9%BA%E4%B9%8B%E5%A2%83%E7%95%8C/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/</loc>
     <lastmod>2015-03-06T22:18:16+08:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system:_process/</loc>
-    <lastmod>2015-03-05T00:00:00+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(1)/</loc>
     <lastmod>2015-03-05T00:00:00+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//hello/jekyll/HelloWorld/</loc>
     <lastmod>2015-02-27T12:30:35+08:00</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//404.html</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>http://MeowAlienOwO.github.io//</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>http://MeowAlienOwO.github.io//404/</loc>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//posts/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//tags/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://MeowAlienOwO.github.io//</loc>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//about/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//categories/hello/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//categories/jekyll/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//categories/computer%20science/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>http://MeowAlienOwO.github.io//categories/Computer%20Science/</loc>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//categories/math/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>http://MeowAlienOwO.github.io//categories/Math/</loc>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//categories/operating%20system/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>http://MeowAlienOwO.github.io//categories/acg/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>http://MeowAlienOwO.github.io//categories/ACG/</loc>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//categories/%E7%A9%BA%E4%B9%8B%E5%A2%83%E7%95%8C/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//categories/c++/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>http://MeowAlienOwO.github.io//categories/C++/</loc>
   </url>
   <url>
-    <loc>http://MeowAlienOwO.github.io//categories/network/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>http://MeowAlienOwO.github.io//categories/Operating%20System/</loc>
+  </url>
+  <url>
+    <loc>http://MeowAlienOwO.github.io//categories/Network/</loc>
   </url>
   <url>
     <loc>http://MeowAlienOwO.github.io//categories/%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/</loc>
-    <lastmod>2015-07-10T15:12:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//hello/jekyll/HelloWorld/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(1)/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//acg/%E7%A9%BA%E4%B9%8B%E5%A2%83%E7%95%8C/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//c++/%E5%AE%89%E8%A3%85sdl/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/link_layer/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/network_layer/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/network/application_layer/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-05-20-operating_system/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E7%AB%8B%E8%B4%B4%E4%B8%BA%E8%AA%93/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E5%9B%9E%E5%BD%92/</loc>
+    </url>
+    <url>
+      <loc>http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-05-operating_system/</loc>
+    </url>
 </urlset>
