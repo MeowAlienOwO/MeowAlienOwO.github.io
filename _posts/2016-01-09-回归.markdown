@@ -16,7 +16,7 @@ comments:
 
 # 姑且算个标题
 
-<div class="social-share"></div>
+<div class="social-share share-component"></div>
 
 首先……回忆一下这段时间干了个啥……
 
@@ -76,7 +76,8 @@ allowtransparency></iframe>
 type="application/x-shockwave-flash"
 src="http://static.hdslb.com/miniloader.swf"
 flashvars="aid=2948749&page=1"
-pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"
+/>
 
 ↑ 燃烧吧！红美铃（b站）
 
