@@ -16,7 +16,7 @@ comments:
 
 # 姑且算个标题
 
-<div class="social-share share-component"></div>
+<div class="social-share share-component">test share.js</div>
 
 首先……回忆一下这段时间干了个啥……
 
