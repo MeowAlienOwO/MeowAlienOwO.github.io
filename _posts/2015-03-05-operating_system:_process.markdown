@@ -2,6 +2,7 @@
 layout: post
 title: "操作系统笔记一：进程"
 description:
+date: "2015-03-05 19:10:06 +0800"
 tags: [process, cs, os, notes]
 categories: [ Computer Science, Operating System]
 image:
