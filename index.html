@@ -9,8 +9,8 @@ image:
   credit: ZERO | STAR影法師 [pixiv]
   creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=22958285
 ---
-
-{% for post in paginator.posts %}
+{% assign sorted_posts = paginator.posts | sort: 'date'%}
+{% for post in sorted_posts %}
 <article class="hentry">
   <header>
     {% if post.image.feature %}
