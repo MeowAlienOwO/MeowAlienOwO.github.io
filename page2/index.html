@@ -199,153 +199,172 @@
 
 <div id="main" role="main">
   
+
 <article class="hentry">
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" title="Transport Layer"><img src="http://MeowAlienOwO.github.io//images/2473257.jpg" alt="Transport Layer"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/" title="Physical Layer"><img src="http://MeowAlienOwO.github.io//images/49604772.jpg" alt="Physical Layer"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-15T21:00:24+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-14T20:15:47+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" rel="bookmark" title="Transport Layer" itemprop="url">Transport Layer</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/" rel="bookmark" title="Physical Layer" itemprop="url">Physical Layer</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+    <!-- <p>第二篇……不要怂就是干…… おかわり！</p>
 
 <h1 id="section">简介</h1>
+<p>物理层定义了电子，时间以及其接口的二进制数据通过信道以信号形式传输的方法。
+物理层是网络的基础，其属性，比如流量，延迟与错误率决定了网络的性能。
+由于物理极限的存在，网络传输数据的量是有极限的。</p>
 
-<p>传输层协议主要提供了不同主机上的应用程序之间的交流能力。在终端主机上运
-行。</p>
+<p>两个重要概念：</p>
 
-<p>发送者:将应用信息分段，传给网络层
-接收者：将段重新汇编为信息，传给应用层</p>
+<ul>
+  <li>数字模块化(digital modulation)：模拟信号(analog signals)与数字信号(digital bits)之间是如何
+转化的</li>
+  <li>多路传输方案(multiplexing schemes)：探索如何将多个会话同时在一个传输中介中传输，同时不互相影响。</li>
+</ul>
 
-<p>在因特网上，主要是TCP与UDP两种。</p>
-
-<h1 id="tcpudp">TCP与UDP</h1>
-
-<h2 id="user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
-
-<p>IP上的很薄的一层。加入了校验和与包长度，用于防止包损坏；加入了源端口与
-目标端口，用于可能的特殊应用。</p>
-
-<p>UDP是不可靠的。</p>
-
-<p>组成：
-16比特源端口，16比特目标端口，16比特长度，16比特校验和。</p>
-
-<h2 id="transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
-
-<p>传输控制协议提供远比UDP可靠的通信手段。</p>
-
-<p>连接使用三次握手方式创建，数据被操作系统分成包并且标号，接收包的时候要
-返回已接收信息。连接必须被明确地关闭。</p>
-
-<h3 id="section-1">七个主要特性</h3>
+<h2 id="section-1">数据传输的一般过程</h2>
 
 <ol>
-  <li>面向连接</li>
-  <li>点对点</li>
-  <li>完全可信，接收的数据就是发送的数据</li>
-  <li>完全双向通信</li>
-  <li>流接口</li>
-  <li>可靠的连接建立过程</li>
-  <li>优雅的(……)关闭过程</li>
+  <li>数据分割，封装成数据包</li>
+  <li>数据包转化成二进制流</li>
+  <li>二进制流转换成数字信号</li>
+  <li>数字信号通过相关元件转化成模拟信号</li>
+  <li>模拟信号进入网络传输</li>
 </ol>
 
-<h3 id="section-2">建立链接</h3>
+<h1 id="section-2">传输介质</h1>
 
-<p>使用特殊的同步(SYN)与结束(FIN)信息来打开/关闭连接，同时确认两边都接受
-了所有的数据。</p>
+<ul>
+  <li>非屏蔽双绞线(Unshielded twisted pair)：最便宜普遍的传输介质，有不同的规格，最多在100米的距离上起作用。
+两条铜导线以一定规格相互缠绕，双方的电磁辐射会互相抵消。</li>
+  <li>同轴电缆(coaxial cable)：从内到外由铜芯(copper core)，绝缘材料(insulating material)，编织外导电体(braided outer conductor),保护塑料层(protective plastic covering)组成。</li>
+  <li>光纤(fiber optics)：应用全反射传输信息的方法。内部由两层玻璃构成，外层是塑料包裹。</li>
+</ul>
 
-<p>A      —SYN(SeqNo=x)—&gt;        B</p>
+<h2 id="section-3">传输模型</h2>
 
-<p>&lt;—SYN(SeqNo=y, AckNo=x+1)—</p>
+<ul>
+  <li>单向传输(simplex transmission)：数据只能向一个方向传输</li>
+  <li>半双向传输(half-duplex transmission)：数据在一个确定的时间点上只能向某一方传输，不过可以实现双向的信息传输。</li>
+  <li>双向传输(duplex transmission)：数据可以同时双向传输</li>
+</ul>
 
-<p>—(SeqNo=x+1, AckNo=y+1)—&gt;</p>
+<h2 id="section-4">长距离传输</h2>
+<p>导线电阻导致信号丢失，从而不能进行长距离传输。
+持续的振荡信号往往比其他信号传输的更远。</p>
 
-<p>（看
-<a href="http://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">维基</a>吧ppt实在太坑了……）</p>
+<h1 id="section-5">调制</h1>
 
-<h3 id="section-3">传输信息</h3>
+<p>调制技术是将数字信号编码为模拟信号的方法。主要有调幅(amplitude modulation,AM)，调频(frequency modulation)，调相(phase modulation)三种方法。
+所有这三种方法都需要载波信号(carrier signal)，载波信号使用一个频率来传输数据。</p>
 
-<p>维基的例子：</p>
+<p>调幅指改变模拟信号的振幅，调频指改变模拟信号的频率，调相(?)指改变模拟信号的相位从而传输信息。</p>
 
-<ol>
-  <li>发送方首先发送第一个包含序列号为1（可变化）和1460字节数据的TCP报文段给接收方。接收方以一个没有数据的TCP报文段来回复（只含报头），用确认号1461来表示已完全收到并请求下一个报文段。</li>
-  <li>发送方然后发送第二个包含序列号为1461和1460字节数据的TCP报文段给接收方。正常情况下，接收方以一个没有数据的TCP报文段来回复，用确认号2921（1461+1460）来表示已完全收到并请求下一个报文段。发送接收这样继续
-下去。</li>
-  <li>然而当这些数据包都是相连的情况下，接收方没有必要每一次都回应。比如，他收到第1到5条TCP报文段，只需回应第五条就行了。在例子中第3条TCP报文段被丢失了，所以尽管他收到了第4和5条，然而他只能回应第2条。</li>
-  <li>发送方在发送了第三条以后，没能收到回应，因此当时钟（timer）过时（expire）时，他重发第三条。（每次发送者发送一条TCP报文段后，都会再次启动一次时钟：RTT）。</li>
-  <li>这次第三条被成功接收，接收方可以直接确认第5条，因为4，5两条已收到。</li>
-</ol>
+<h2 id="modem">猫(MODEM)</h2>
 
-<h3 id="section-4">关闭连接</h3>
+<p>猫，或曰调制解调器，用于调制数字信号为模拟信号，或者将模拟信号解调制为数字信号。双向传输需要两边都有猫。</p>
 
-<p>连接终止使用了四路握手过程（four-way handshake），在这个过程中每个终端的连接都能独立地被终止。因此，一个典型的拆接过程需要每个终端都提供一对FIN和ACK。</p>
+<h1 id="line-code">线路码(line code)</h1>
+<p>线路码（英语：Line code），有时也称传输码。为了便于数字信号传输，将原始的数据码进行一定的修改就得到了线路码。举例来说，当原始数据中存在长时间连续的1或0时，接收方便很难得知每一位信号的时长，也可能误以为信号传输终结而中断通信。线路码还可增加纠错功能，适应信道的特性。常见的线路码包括AMI码、HDB3码等。</p>
 
-<p>A  —FIN—&gt;  B</p>
+<h2 id="section-6">时钟恢复与不归零编码</h2>
 
-<p>&lt;—ACK—</p>
+<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)
+以下是介绍：</p>
 
-<p>&lt;—FIN—</p>
+<h3 id="nrz">NRZ</h3>
+<p>在电信学中，不归零编码 (non-return-to-zero line code, NRZ) 指的是一种二进制的讯号代码，在这种传输方式中，1 和 0 都分别由不同的电子显著状态来表现，除此之外，没有中性状态、亦没有其他种状态。这种脉冲的能量比归零代码要来得密集，但它传输时是不停歇的，这代表同步信号必须在此代码之外独自传输。</p>
 
-<p>—ACK—&gt;</p>
+<p>在给定一个信号频率的情况下（比如说位元率），NRZ 代码只需要曼彻斯特代码 (Manchester code) 的一半带宽。</p>
 
-<h1 id="tcp">TCP的可靠性机制</h1>
+<p>当用于异步传输时，由于缺少中性状态，必须依靠其他种机制，来达成在同步传输中使用时钟侦测错误的资料回复工作。</p>
 
-<h2 id="section-5">顺序</h2>
+<p>NRZ-Level 本身并非一种同步系统，而更是一种编码方式，因为它可用于同步环境、或异步环境中，也就是不管有没有明确的时钟讯号，都可以运作。所以，讨论 NRZ-Level 编码是否在时钟“跳动 (clock-edge)”或“跳动之间 (between clock-edge)”并非必要的，因为每一个讯号一定都是以给定的时脉来传输的，这就暗示了讯号内在的时脉。真正的问题是，能否在接收端以当初取样时的同样频率重绘该讯号。</p>
 
-<p>动态路由可能会导致包并非顺序到达，TCP通过给予每个包一个序号来确保它们可以按顺序排列。这个序列号也可以用来侦测包的重复与缺失。</p>
+<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
+RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
 
-<h2 id="section-6">重新传输</h2>
+<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)
+### NRZI
+一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
 
-<p>发送方发送某个包后开始计时，如果超过一段时间没有得到响应则重发包。有一
-定的尝试次数。接收方处理重复包。有的时候，在上一个会话的包会延迟抵达，
-而此时下一个会话如果有相同的顺序号，就会出现重复问题，解决方案是同时标
-记会话号。</p>
+<p>零改变：“0”为物理电平上的改变。“1”为没有改变。</p>
 
-<h2 id="section-7">流控制</h2>
+<p>改变发生在当下位元的时钟脉冲前缘。</p>
 
-<p>数据超出往往在发送方传输速度大于接收方接受速度时发生。一个简单的方法是
-在发送下一个之前对每个包进行接收通知(ack)，但是这个会带来带宽浪费。</p>
+<p>但是，NRZI 会有长串的 0或1 位元出现，导致时脉回复有困难，可以使用一些编码技巧（例如游长限制）来解决。曼彻斯特代码永远有时脉信号，但传输效率比 NRZI 低。</p>
 
-<p>TCP使用窗口机制。发送方与接收方约定一个窗口大小(包的数量)，在初始，一
-整个窗口被发送，之后每个包被通知，然后另外一个才可以发送。接收方发送可
-以接受的窗口大小。窗口大小为0则说明发送方需要在进一步的通知之前停止发
-送。</p>
+<p>NRZI 编码被用于磁带的录音、CD的刻录和标准 USB 的传讯。</p>
 
-<p>TCP协议在工作时，如果发送端的TCP协议软件每传输一个数据分组后，必须等待接收端的确认才能够发送下一个分组，由于网络传输的时延，将有大量时间被用于等待确认，导致传输效率低下。为此TCP在进行数据传输时使用了滑动窗口机制。</p>
+<p>常见的NRZI编码: 0101 -&gt; H HLLH （高电平为基准，第一个为0表示电平不改变，第二个为1表示改变电平为低，第三个0表示电平不变仍为低，第四个1表示电平改变为高，计算方式为之前电平与当前的XOR）</p>
 
-<p>TCP滑动窗口用来暂存两台计算机间要传送的数据分组。每台运行TCP协议的计算机有两个滑动窗口：一个用于数据发送，另一个用于数据接收。发送端待发数据分组在缓冲区排队等待送出。被滑动窗口框入的分组，是可以在未收到接收确认的情况下多送出的部分。滑动窗口左端标志X的分组，是已经被接收端确认收到的分组。随着新的确认到来，窗口不断向右滑动。</p>
+<h3 id="clock-recovery">时钟恢复(clock recovery)</h3>
+<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。
+简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
 
-<p>TCP协议软件依靠滑动窗口机制解决传输效率和流量控制问题。它可以在收到确认信息之前发送多个数据分组。这种机制使得网络通信处于忙碌状态，提高了整个网络的吞吐率，它还解决了端到端的通信流量控制问题，允许接收端在拥有容纳足够数据的缓冲之前对传输进行限制。在实际运行中，TCP滑动窗口的大小是可以随时调整的。收发端TCP协议软件在进行分组确认通信时，还交换滑动窗口控制信息，使得双方滑动窗口大小可以根据需要动态变化，达到在提高数据传输效率的同时，防止拥塞的发生。　称窗口左边沿向右边沿靠近为窗口合拢，这种现象发生在数据被发送和确认时。</p>
+<h2 id="manchest-encoding">曼彻斯特编码(Manchest Encoding)</h2>
 
-<p>当窗口右边沿向右移动时将允许发送更多的数据，称之为窗口张开。这种现象发生在另一端的接收进程读取已经确认的数据并释放了TCP的接收缓存时。</p>
+<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。
+好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
 
-<p>当右边沿向左移动时，称为窗口收缩。Host Requirements RFC强烈建议不要使用这种方式。但TCP必须能够在某一端产生这种情况时进行处理。
-如果左边沿到达右边沿，则称其为一个零窗口。</p>
+<p>计算曼彻斯特编码时，要使用时钟比特位与编码比特位异或。</p>
 
-<ol>
-  <li>发送方不必发送一个全窗口大小的数据。</li>
-  <li>来自接收方的一个报文段确认数据并把窗口向右边滑动，这是因为窗口的大小是相对于确认序号的。</li>
-  <li>窗口的大小可以减小，但是窗口的右边沿却不能够向左移动。</li>
-  <li>接收方在发送一个ACK前不必等待窗口被填满。</li>
-</ol>
+<p>曼彻斯特编码的例子：</p>
 
-<p>– 百度百科</p>
+<p>0101 -&gt; H LH HL LH HL</p>
 
-<h2 id="section-8">防止拥堵</h2>
+<p>以太网使用曼彻斯特编码。</p>
 
-<p>转换器信号与丢包都可以认为是网络拥堵的标志。TCP通过丢包来监控网络拥堵。对于第一个丢包，TCP将发送一个小信息。如果这个信息没有丢失，数据大小加倍，以此类推，直到窗口大小的一半，停止倍增。</p>
+<h2 id="baud-rate">波特率(Baud Rate)</h2>
+
+<p>在电子通信领域，波特率（Baud）即调制速率，指的是有效数据信号调制载波的速率，即单位时间内载波调制状态变化的次数。它是对符号传输速率的一种度量，1波特即指每秒传输1个符号，而通过不同的调制方式，可以在一个码元符号上负载多个bit位信息。–<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E7%89%B9%E7%8E%87">维基百科</a></p>
+
+<h2 id="framing-error">帧错误(framing error)</h2>
+
+<p>当收发双方以不同的波特率进行通信时，容易出现帧错误的现象。</p>
+
+<h1 id="section-7">数据传输极限</h1>
+
+<h2 id="nyquist-sampling-theroem">Nyquist Sampling Theroem</h2>
+
+<p>一个无噪声的(noiseless/error-free)的介质的最大传输速率：</p>
+
+<ul>
+  <li>$D$：数据比率(bit)每秒，bps</li>
+  <li>$B$：带宽(hz)</li>
+</ul>
+
+<p>对于使用二进制信号的方案而言，</p>
+
+<p>$Data\ Rate = D = 2B$</p>
+
+<p>对于使用K阶信号的方案而言，</p>
+
+<p>$D = 2B\log_2 K$</p>
+
+<h2 id="shannons-theorem">Shannon’s Theorem</h2>
+
+<p>这个定理针对的是有噪声介质。</p>
+
+<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
+信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
+
+<p>对于有噪声介质的最大数据率为:</p>
+
+<p>$D = B \log_2(1 + S / N)$</p>
+
  -->
     
-        <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+        <p>第二篇……不要怂就是干…… おかわり！</p>
 
 
     
@@ -356,243 +375,110 @@
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" title="Network Layer"><img src="http://MeowAlienOwO.github.io//images/50136576.jpg" alt="Network Layer"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" title="Introduction to Information Theory"><img src="http://MeowAlienOwO.github.io//images/49154861.jpg" alt="Introduction to Information Theory"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-15T16:41:05+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-14T23:23:43+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" rel="bookmark" title="Network Layer" itemprop="url">Network Layer</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory" itemprop="url">Introduction to Information Theory</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>关于网络层的复习资料，T劣也要单纵干……听说放图能出船？总之捞到了云龙……</p>
+    <!-- <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
 
-<h1 id="internet-protocal">因特网协议(Internet Protocal)</h1>
+<h1 id="section">简介</h1>
 
-<p>数据流被分成包，包含一个头部储存需要的信息；包在网络传输中是被单独传输的，因此，传输的方向性往往由头部决定。
-网络节点有可能暂时储存包，当然包也有可能会丢失，损坏，乱序。在目标处，信息被重新构建。</p>
+<p>The fundamental problem of communication is that reproducing at one
+point either exactly or approximately a message selected at another
+point.</p>
 
-<p>同时，分包有如下好处：</p>
+<h1 id="section-1">信息熵与信息</h1>
 
-<ul>
-  <li>数据传输是间歇性的</li>
-  <li>不会浪费带宽</li>
-  <li>容易多元化，不同的数据可以在同一个连接中传输</li>
-  <li>包可以被几乎所有的载体输送</li>
-</ul>
+<h2 id="section-2">信息冗余</h2>
 
-<p>当然，分包也带来了头部信息冗余的负担。</p>
+<blockquote>
+  <p>The quick brown fox jumps over the lazy dog</p>
+</blockquote>
 
-<p>对于IP服务而言，它不需要提供一些额外的服务。</p>
+<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，
+比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，
+但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
 
-<ul>
-  <li>不需要错误检查/校正，这是其他层级的功能</li>
-  <li>同一来源/同一数据源的包不一定遵循同一路径，只要包可以被顺利接受即可</li>
-  <li>数据可以乱序输送，接收方负责将其重新排序</li>
-  <li>包可以被丢失或者任意地延迟，接收方可以要求重新发包。</li>
-  <li>没有对网络拥挤的控制，发送方可以减慢发送频率，延迟，或者丢包。</li>
-</ul>
+<h2 id="section-3">熵</h2>
 
-<h2 id="section">头部的格式</h2>
+<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
 
-<p>在包中每32个比特作为一个单词(word)，包括头部跟数据。头部包含如下内容：</p>
+<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，
+或者被认为是度量信息内容的量。</p>
 
-<ul>
-  <li>Version(4)，现在是4</li>
-  <li>Hlen(4)，头部中32字节长度单词的数量</li>
-  <li>TOS(8)，服务种类，不常用</li>
-  <li>Length(16)，数据段(报文，datagram)中的字节数量</li>
-  <li>Ident(16)，被分割所使用</li>
-  <li>Flags/Offset(16)，同样是分割所用</li>
-  <li>TTL(8)，生存时间</li>
-  <li>Protocal(8)，协议种类，比如说TCP = 6,UDP = 17</li>
-  <li>Checksum(16)，头部的校验和</li>
-  <li>DestinationAddr &amp; SourceAddr(32)，源地址与目标地址</li>
-</ul>
+<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，
+但是在实际的应用中，这往往无法实现。</p>
 
-<p>括号内表示比特位数</p>
+<p>计算公式：</p>
 
-<h1 id="ip">IP地址</h1>
+<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
 
-<h2 id="ipv4">IPv4</h2>
-<p>每32比特地址被分成两个部分，分别是前缀与后缀。</p>
+<h2 id="bias">偏离(bias)</h2>
 
-<ul>
-  <li>前缀(prefix):表示主机的物理网络</li>
-  <li>后缀(suffix):指定的物理网络的主机</li>
-</ul>
+<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，
+它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。
+熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
 
-<p>前缀同全球有关，而后缀同本地有关。</p>
+<h2 id="section-4">霍夫曼编码</h2>
 
-<p>前/后缀的大小决定了网络的数量与某个特定网络的主机数量。同样，不同的前后缀长度也决定了不同的网络层级数量。
-前四位的比特为决定了地址的层级。</p>
+<h3 id="prefix-codes">前缀码(prefix codes)</h3>
 
-<p>我们通常使用点表达法来表示IP地址。
-比如：
-10000001 00110100 00000110 00000000 为 129.52.6.0</p>
+<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
 
-<h3 id="section-1">五种层级</h3>
+<p>霍夫曼编码是前缀码的一种。</p>
 
-<ul>
-  <li>A: 0+7位前缀+24位后缀</li>
-  <li>B: 10+14位前缀+16位后缀</li>
-  <li>C: 110+21位前缀+8位后缀</li>
-  <li>D: 1110+多点传播地址</li>
-  <li>E: 1111+储存供未来使用</li>
-</ul>
+<h3 id="section-5">创建霍夫曼编码</h3>
 
-<h3 id="classless-inter-domain-routing-cidr">无类别域间路由(Classless Inter-Domain Routing, CIDR)</h3>
+<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
 
-<p>CIDR（无类别域间路由，Classless Inter-Domain Routing）是一个在Internet上创建附加地址的方法，这些地址提供给服务提供商（ISP），再由ISP分配给客户。CIDR将路由集中起来，使一个IP地址代表主要骨干提供商服务的几千个IP地址，从而减轻Internet路由器的负担。</p>
+<blockquote>
+  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
+</blockquote>
 
-<p>获取前缀的方法，通常是将IP地址与子网掩码按位AND。</p>
+<p>将所有的未编码符号按照出现频率升序排列：</p>
 
-<p>通过子网掩码，我们可以把一些路由字段给分配到同一个空间下，比如说100.100.1.1,100.100.2.1，使用子网掩码255.255.0.0，我们可以将其看作一个路由地址100.100.0.0，从而达到了扩展路由空间，减轻路由器负载的效果。</p>
+<blockquote>
+  <p>e a d s</p>
+</blockquote>
 
-<h2 id="section-2">32位地址的限制</h2>
+<p>从小到大将两个频率之和相加直到和为1</p>
 
-<p>32位地址本身有着极大的限制，$2^32$只有大约4亿的数量，而某些地址又被使用在特殊范围,在当前不同移动设备乃至物联网入网的情况下，IP地址的数量远远不够。</p>
+<blockquote>
+  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
+</blockquote>
 
-<p>短期解决方案：</p>
+<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
 
-<ul>
-  <li>Network Address Translation (NAT)</li>
-  <li>Dynamically-assigned addresses(DHCP)</li>
-</ul>
+<blockquote>
+  <pre><code>         1 
+         |
+      s  +  0.64
+              |
+           d  +  0.34
+                   |
+                a  +  e
+</code></pre>
+</blockquote>
 
-<p>长期解决方案：</p>
+<p>从上到下，左边取0, 右边取1，最终编码为：</p>
 
-<p>使用IPv6标准扩展地址空间</p>
-
-<h2 id="ipv6">IPv6</h2>
-
-<p>IPv6同IPv4一样是无连接的，拥有128位地址大小。但是IPv6的地址模式有所不同，有单播(unicast)，复播(multicast)，从(cluster)等。</p>
-
-<p>IPv6的头部是扩展的，并且拥有额外的安全性。</p>
-
-<h2 id="fragmentation">分割(fragmentation)</h2>
-
-<p>每一个网络都有一些最大传输单位(Maximum Transmission Unit, MTU)。 Ethernet：1500 FDDI：4500</p>
-
-<p>当路由接受到一个大小大于最大传输单位的报文时，需要进行分割处理。
-段(fragment)在接收主机进行重编译(reassembly)，而所有的段在Ident部分有着相同的区分标记。
-段是自包含(self-contained)的数据包。同样的,IP也不检测丢失的段。</p>
-
-<p>通过调整头部的偏移量(offset)以及记录开始的比特位来确定段的分割。</p>
-
-<h2 id="dynamic-host-configuation-protocal-dhcp">动态主机配置协议(Dynamic Host Configuation Protocal, DHCP)</h2>
-
-<p>特殊的DHCP服务器为主机分配IP地址</p>
-
-<p>新登录的机器广播一个DHCP发现(DISCOVER)包，然后DHCP服务器返回一个IP地址。</p>
-
-<h3 id="section-3">步骤：</h3>
-
-<ol>
-  <li>用户打开有DHCP客户端的机器，客户端机器广播一个DHCP DISCOVER包来寻找DHCP服务器，路由器将这个包传输到对应的DHCP服务器</li>
-  <li>服务器接收到发现包，确定一个合适的地址，临时分配该地址给客户端。确定地之后，返回一个包含地址信息的OFFER包</li>
-  <li>客户端发送REQUEST包，令服务器知道它要使用该地址</li>
-  <li>服务器发送ACKNOWLEDGE包，确认该客户端可以在服务器所确定的时间内使用该地址</li>
-</ol>
-
-<h1 id="section-4">路由</h1>
-
-<h2 id="forwarding-vs--routing">发送(Forwarding) vs 路由 (Routing)</h2>
-
-<p>发送：</p>
-
-<ul>
-  <li>基于目标地址与路由表选择一个输出端口</li>
-  <li>发送表的一行包含一个从网络数字(networking number)到输出接口的映射，同时也有一些MAC信息</li>
-</ul>
-
-<p>路由：</p>
-
-<ul>
-  <li>路由表是根据路由算法所构建的，作为发送表的准备</li>
-  <li>一般来说包含从网络数字到下一个跳转的映射</li>
-</ul>
-
-<h3 id="section-5">计算路由表</h3>
-
-<p>路由器需要知道如下两个东西：</p>
-
-<ul>
-  <li>哪个路由器来达到目标前缀</li>
-  <li>哪个接口连接该路由器</li>
-</ul>
-
-<p>转换器解包到连接层，而路由器解压到网络层</p>
-
-<p>路由算法往往是图的寻找任意两个节点之间的最短链接算法。
-令c(x, y)为从节点x到y的成本，当他们不是邻居时，为无穷大</p>
-
-<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本
-```python</p>
-
-<p>Initialization:
-  S = {u}
-  for all nodes v
-    if (v is adjacent to u)
-      D(v) = c(u,v)
-    else
-      D(v) = infinity</p>
-
-<p>Loop:Do
-  find w not in s with the smallest D(w)
-  add w to S
-  update D(v) for all v adjacent to w and not in S:
-    D(v) = min{D(v), D(w) + c(w,v)}
-until all nodes in S</p>
-
-<p>```</p>
-
-<h2 id="link-state-routing">连接状态路由(link state routing)</h2>
-
-<p>每个路由追踪它的对应的路由，包括路由是上/下，以及连接的成本；广播当前的连接状态；运行Dijkstra算法来计算最短路径并且创建发送表。</p>
-
-<h3 id="bellman-ford">Bellman-Ford算法</h3>
-
-<ol>
-  <li>初始化：将除源点外的所有顶点的最短距离估计值 d[v] ←+∞, d[s] ←0;</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>迭代求解：反复对边集E中的每条边进行松弛操作，使得顶点集V中的每个顶点v的最短距离估计值逐步逼近其最短距离；（运行</td>
-          <td>v</td>
-          <td>-1次）</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>检验负权回路：判断边集E中的每一条边的两个端点是否收敛。如果存在未收敛的顶点，则算法返回false，表明问题无解；否则算法返回true，并且从源点可达的顶点v的最短距离保存在 d[v]中。 –百度百科</li>
-</ol>
-
-<p>松弛操作：</p>
-
-<p>单源最短路径算法中使用了松弛（relaxation）操作。对于每个顶点v∈V，都设置一个属性d[v]，用来描述从源点s到v的最短路径上权值的上界，称为最短路径估计（shortest-path estimate）。</p>
-
-<h2 id="distance-vector-routing">距离矢量路由(distance vector routing)</h2>
-
-<p>每一个节点x维护如下状态：</p>
-
-<p>c(x, v) = 从x到邻居v的直接连接成本
-对于所有的节点y, 距离矢量Dx(y)（从x到y的最少成本）
-对于所有的邻居节点，Dv(y)</p>
-
-<p>节点x周期性的发送距离矢量Dx到邻居y，y据此更新他自己的距离矢量。</p>
-
-<p>$Dv(y) = minx{c(v,x) + Dx(y)}}, for\ each\ node\ y \in N$</p>
-
-<p>当要去节点m时，当前节点询问自己的邻居是否能达到m，当任意一节点收到询问请求时，检查自己的路由表，如果不能到达，同样询问邻居。
-当有多个邻居返回时，取最小值。当自己的路由表根据以上信息更新时，通知自己的邻居。</p>
+<blockquote>
+  <p>s 0
+d 10
+a 110
+e 111</p>
+</blockquote>
  -->
     
-        <p>关于网络层的复习资料，T劣也要单纵干……听说放图能出船？总之捞到了云龙……</p>
+        <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
 
 
     
@@ -1005,110 +891,243 @@ u v w                                    x y z</p>
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" title="Introduction to Information Theory"><img src="http://MeowAlienOwO.github.io//images/49154861.jpg" alt="Introduction to Information Theory"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" title="Network Layer"><img src="http://MeowAlienOwO.github.io//images/50136576.jpg" alt="Network Layer"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-14T23:23:43+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-15T16:41:05+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory" itemprop="url">Introduction to Information Theory</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" rel="bookmark" title="Network Layer" itemprop="url">Network Layer</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+    <!-- <p>关于网络层的复习资料，T劣也要单纵干……听说放图能出船？总之捞到了云龙……</p>
 
-<h1 id="section">简介</h1>
+<h1 id="internet-protocal">因特网协议(Internet Protocal)</h1>
 
-<p>The fundamental problem of communication is that reproducing at one
-point either exactly or approximately a message selected at another
-point.</p>
+<p>数据流被分成包，包含一个头部储存需要的信息；包在网络传输中是被单独传输的，因此，传输的方向性往往由头部决定。
+网络节点有可能暂时储存包，当然包也有可能会丢失，损坏，乱序。在目标处，信息被重新构建。</p>
 
-<h1 id="section-1">信息熵与信息</h1>
+<p>同时，分包有如下好处：</p>
 
-<h2 id="section-2">信息冗余</h2>
+<ul>
+  <li>数据传输是间歇性的</li>
+  <li>不会浪费带宽</li>
+  <li>容易多元化，不同的数据可以在同一个连接中传输</li>
+  <li>包可以被几乎所有的载体输送</li>
+</ul>
 
-<blockquote>
-  <p>The quick brown fox jumps over the lazy dog</p>
-</blockquote>
+<p>当然，分包也带来了头部信息冗余的负担。</p>
 
-<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，
-比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，
-但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
+<p>对于IP服务而言，它不需要提供一些额外的服务。</p>
 
-<h2 id="section-3">熵</h2>
+<ul>
+  <li>不需要错误检查/校正，这是其他层级的功能</li>
+  <li>同一来源/同一数据源的包不一定遵循同一路径，只要包可以被顺利接受即可</li>
+  <li>数据可以乱序输送，接收方负责将其重新排序</li>
+  <li>包可以被丢失或者任意地延迟，接收方可以要求重新发包。</li>
+  <li>没有对网络拥挤的控制，发送方可以减慢发送频率，延迟，或者丢包。</li>
+</ul>
 
-<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
+<h2 id="section">头部的格式</h2>
 
-<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，
-或者被认为是度量信息内容的量。</p>
+<p>在包中每32个比特作为一个单词(word)，包括头部跟数据。头部包含如下内容：</p>
 
-<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，
-但是在实际的应用中，这往往无法实现。</p>
+<ul>
+  <li>Version(4)，现在是4</li>
+  <li>Hlen(4)，头部中32字节长度单词的数量</li>
+  <li>TOS(8)，服务种类，不常用</li>
+  <li>Length(16)，数据段(报文，datagram)中的字节数量</li>
+  <li>Ident(16)，被分割所使用</li>
+  <li>Flags/Offset(16)，同样是分割所用</li>
+  <li>TTL(8)，生存时间</li>
+  <li>Protocal(8)，协议种类，比如说TCP = 6,UDP = 17</li>
+  <li>Checksum(16)，头部的校验和</li>
+  <li>DestinationAddr &amp; SourceAddr(32)，源地址与目标地址</li>
+</ul>
 
-<p>计算公式：</p>
+<p>括号内表示比特位数</p>
 
-<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
+<h1 id="ip">IP地址</h1>
 
-<h2 id="bias">偏离(bias)</h2>
+<h2 id="ipv4">IPv4</h2>
+<p>每32比特地址被分成两个部分，分别是前缀与后缀。</p>
 
-<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，
-它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。
-熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
+<ul>
+  <li>前缀(prefix):表示主机的物理网络</li>
+  <li>后缀(suffix):指定的物理网络的主机</li>
+</ul>
 
-<h2 id="section-4">霍夫曼编码</h2>
+<p>前缀同全球有关，而后缀同本地有关。</p>
 
-<h3 id="prefix-codes">前缀码(prefix codes)</h3>
+<p>前/后缀的大小决定了网络的数量与某个特定网络的主机数量。同样，不同的前后缀长度也决定了不同的网络层级数量。
+前四位的比特为决定了地址的层级。</p>
 
-<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
+<p>我们通常使用点表达法来表示IP地址。
+比如：
+10000001 00110100 00000110 00000000 为 129.52.6.0</p>
 
-<p>霍夫曼编码是前缀码的一种。</p>
+<h3 id="section-1">五种层级</h3>
 
-<h3 id="section-5">创建霍夫曼编码</h3>
+<ul>
+  <li>A: 0+7位前缀+24位后缀</li>
+  <li>B: 10+14位前缀+16位后缀</li>
+  <li>C: 110+21位前缀+8位后缀</li>
+  <li>D: 1110+多点传播地址</li>
+  <li>E: 1111+储存供未来使用</li>
+</ul>
 
-<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
+<h3 id="classless-inter-domain-routing-cidr">无类别域间路由(Classless Inter-Domain Routing, CIDR)</h3>
 
-<blockquote>
-  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
-</blockquote>
+<p>CIDR（无类别域间路由，Classless Inter-Domain Routing）是一个在Internet上创建附加地址的方法，这些地址提供给服务提供商（ISP），再由ISP分配给客户。CIDR将路由集中起来，使一个IP地址代表主要骨干提供商服务的几千个IP地址，从而减轻Internet路由器的负担。</p>
 
-<p>将所有的未编码符号按照出现频率升序排列：</p>
+<p>获取前缀的方法，通常是将IP地址与子网掩码按位AND。</p>
 
-<blockquote>
-  <p>e a d s</p>
-</blockquote>
+<p>通过子网掩码，我们可以把一些路由字段给分配到同一个空间下，比如说100.100.1.1,100.100.2.1，使用子网掩码255.255.0.0，我们可以将其看作一个路由地址100.100.0.0，从而达到了扩展路由空间，减轻路由器负载的效果。</p>
 
-<p>从小到大将两个频率之和相加直到和为1</p>
+<h2 id="section-2">32位地址的限制</h2>
 
-<blockquote>
-  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
-</blockquote>
+<p>32位地址本身有着极大的限制，$2^32$只有大约4亿的数量，而某些地址又被使用在特殊范围,在当前不同移动设备乃至物联网入网的情况下，IP地址的数量远远不够。</p>
 
-<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
+<p>短期解决方案：</p>
 
-<blockquote>
-  <pre><code>         1 
-         |
-      s  +  0.64
-              |
-           d  +  0.34
-                   |
-                a  +  e
-</code></pre>
-</blockquote>
+<ul>
+  <li>Network Address Translation (NAT)</li>
+  <li>Dynamically-assigned addresses(DHCP)</li>
+</ul>
 
-<p>从上到下，左边取0, 右边取1，最终编码为：</p>
+<p>长期解决方案：</p>
 
-<blockquote>
-  <p>s 0
-d 10
-a 110
-e 111</p>
-</blockquote>
+<p>使用IPv6标准扩展地址空间</p>
+
+<h2 id="ipv6">IPv6</h2>
+
+<p>IPv6同IPv4一样是无连接的，拥有128位地址大小。但是IPv6的地址模式有所不同，有单播(unicast)，复播(multicast)，从(cluster)等。</p>
+
+<p>IPv6的头部是扩展的，并且拥有额外的安全性。</p>
+
+<h2 id="fragmentation">分割(fragmentation)</h2>
+
+<p>每一个网络都有一些最大传输单位(Maximum Transmission Unit, MTU)。 Ethernet：1500 FDDI：4500</p>
+
+<p>当路由接受到一个大小大于最大传输单位的报文时，需要进行分割处理。
+段(fragment)在接收主机进行重编译(reassembly)，而所有的段在Ident部分有着相同的区分标记。
+段是自包含(self-contained)的数据包。同样的,IP也不检测丢失的段。</p>
+
+<p>通过调整头部的偏移量(offset)以及记录开始的比特位来确定段的分割。</p>
+
+<h2 id="dynamic-host-configuation-protocal-dhcp">动态主机配置协议(Dynamic Host Configuation Protocal, DHCP)</h2>
+
+<p>特殊的DHCP服务器为主机分配IP地址</p>
+
+<p>新登录的机器广播一个DHCP发现(DISCOVER)包，然后DHCP服务器返回一个IP地址。</p>
+
+<h3 id="section-3">步骤：</h3>
+
+<ol>
+  <li>用户打开有DHCP客户端的机器，客户端机器广播一个DHCP DISCOVER包来寻找DHCP服务器，路由器将这个包传输到对应的DHCP服务器</li>
+  <li>服务器接收到发现包，确定一个合适的地址，临时分配该地址给客户端。确定地之后，返回一个包含地址信息的OFFER包</li>
+  <li>客户端发送REQUEST包，令服务器知道它要使用该地址</li>
+  <li>服务器发送ACKNOWLEDGE包，确认该客户端可以在服务器所确定的时间内使用该地址</li>
+</ol>
+
+<h1 id="section-4">路由</h1>
+
+<h2 id="forwarding-vs--routing">发送(Forwarding) vs 路由 (Routing)</h2>
+
+<p>发送：</p>
+
+<ul>
+  <li>基于目标地址与路由表选择一个输出端口</li>
+  <li>发送表的一行包含一个从网络数字(networking number)到输出接口的映射，同时也有一些MAC信息</li>
+</ul>
+
+<p>路由：</p>
+
+<ul>
+  <li>路由表是根据路由算法所构建的，作为发送表的准备</li>
+  <li>一般来说包含从网络数字到下一个跳转的映射</li>
+</ul>
+
+<h3 id="section-5">计算路由表</h3>
+
+<p>路由器需要知道如下两个东西：</p>
+
+<ul>
+  <li>哪个路由器来达到目标前缀</li>
+  <li>哪个接口连接该路由器</li>
+</ul>
+
+<p>转换器解包到连接层，而路由器解压到网络层</p>
+
+<p>路由算法往往是图的寻找任意两个节点之间的最短链接算法。
+令c(x, y)为从节点x到y的成本，当他们不是邻居时，为无穷大</p>
+
+<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本
+```python</p>
+
+<p>Initialization:
+  S = {u}
+  for all nodes v
+    if (v is adjacent to u)
+      D(v) = c(u,v)
+    else
+      D(v) = infinity</p>
+
+<p>Loop:Do
+  find w not in s with the smallest D(w)
+  add w to S
+  update D(v) for all v adjacent to w and not in S:
+    D(v) = min{D(v), D(w) + c(w,v)}
+until all nodes in S</p>
+
+<p>```</p>
+
+<h2 id="link-state-routing">连接状态路由(link state routing)</h2>
+
+<p>每个路由追踪它的对应的路由，包括路由是上/下，以及连接的成本；广播当前的连接状态；运行Dijkstra算法来计算最短路径并且创建发送表。</p>
+
+<h3 id="bellman-ford">Bellman-Ford算法</h3>
+
+<ol>
+  <li>初始化：将除源点外的所有顶点的最短距离估计值 d[v] ←+∞, d[s] ←0;</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>迭代求解：反复对边集E中的每条边进行松弛操作，使得顶点集V中的每个顶点v的最短距离估计值逐步逼近其最短距离；（运行</td>
+          <td>v</td>
+          <td>-1次）</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>检验负权回路：判断边集E中的每一条边的两个端点是否收敛。如果存在未收敛的顶点，则算法返回false，表明问题无解；否则算法返回true，并且从源点可达的顶点v的最短距离保存在 d[v]中。 –百度百科</li>
+</ol>
+
+<p>松弛操作：</p>
+
+<p>单源最短路径算法中使用了松弛（relaxation）操作。对于每个顶点v∈V，都设置一个属性d[v]，用来描述从源点s到v的最短路径上权值的上界，称为最短路径估计（shortest-path estimate）。</p>
+
+<h2 id="distance-vector-routing">距离矢量路由(distance vector routing)</h2>
+
+<p>每一个节点x维护如下状态：</p>
+
+<p>c(x, v) = 从x到邻居v的直接连接成本
+对于所有的节点y, 距离矢量Dx(y)（从x到y的最少成本）
+对于所有的邻居节点，Dv(y)</p>
+
+<p>节点x周期性的发送距离矢量Dx到邻居y，y据此更新他自己的距离矢量。</p>
+
+<p>$Dv(y) = minx{c(v,x) + Dx(y)}}, for\ each\ node\ y \in N$</p>
+
+<p>当要去节点m时，当前节点询问自己的邻居是否能达到m，当任意一节点收到询问请求时，检查自己的路由表，如果不能到达，同样询问邻居。
+当有多个邻居返回时，取最小值。当自己的路由表根据以上信息更新时，通知自己的邻居。</p>
  -->
     
-        <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+        <p>关于网络层的复习资料，T劣也要单纵干……听说放图能出船？总之捞到了云龙……</p>
 
 
     
@@ -1119,167 +1138,149 @@ e 111</p>
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/" title="Physical Layer"><img src="http://MeowAlienOwO.github.io//images/49604772.jpg" alt="Physical Layer"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" title="Transport Layer"><img src="http://MeowAlienOwO.github.io//images/2473257.jpg" alt="Transport Layer"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-14T20:15:47+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-15T21:00:24+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/" rel="bookmark" title="Physical Layer" itemprop="url">Physical Layer</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" rel="bookmark" title="Transport Layer" itemprop="url">Transport Layer</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>第二篇……不要怂就是干…… おかわり！</p>
+    <!-- <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
 
 <h1 id="section">简介</h1>
-<p>物理层定义了电子，时间以及其接口的二进制数据通过信道以信号形式传输的方法。
-物理层是网络的基础，其属性，比如流量，延迟与错误率决定了网络的性能。
-由于物理极限的存在，网络传输数据的量是有极限的。</p>
 
-<p>两个重要概念：</p>
+<p>传输层协议主要提供了不同主机上的应用程序之间的交流能力。在终端主机上运
+行。</p>
 
-<ul>
-  <li>数字模块化(digital modulation)：模拟信号(analog signals)与数字信号(digital bits)之间是如何
-转化的</li>
-  <li>多路传输方案(multiplexing schemes)：探索如何将多个会话同时在一个传输中介中传输，同时不互相影响。</li>
-</ul>
+<p>发送者:将应用信息分段，传给网络层
+接收者：将段重新汇编为信息，传给应用层</p>
 
-<h2 id="section-1">数据传输的一般过程</h2>
+<p>在因特网上，主要是TCP与UDP两种。</p>
+
+<h1 id="tcpudp">TCP与UDP</h1>
+
+<h2 id="user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
+
+<p>IP上的很薄的一层。加入了校验和与包长度，用于防止包损坏；加入了源端口与
+目标端口，用于可能的特殊应用。</p>
+
+<p>UDP是不可靠的。</p>
+
+<p>组成：
+16比特源端口，16比特目标端口，16比特长度，16比特校验和。</p>
+
+<h2 id="transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
+
+<p>传输控制协议提供远比UDP可靠的通信手段。</p>
+
+<p>连接使用三次握手方式创建，数据被操作系统分成包并且标号，接收包的时候要
+返回已接收信息。连接必须被明确地关闭。</p>
+
+<h3 id="section-1">七个主要特性</h3>
 
 <ol>
-  <li>数据分割，封装成数据包</li>
-  <li>数据包转化成二进制流</li>
-  <li>二进制流转换成数字信号</li>
-  <li>数字信号通过相关元件转化成模拟信号</li>
-  <li>模拟信号进入网络传输</li>
+  <li>面向连接</li>
+  <li>点对点</li>
+  <li>完全可信，接收的数据就是发送的数据</li>
+  <li>完全双向通信</li>
+  <li>流接口</li>
+  <li>可靠的连接建立过程</li>
+  <li>优雅的(……)关闭过程</li>
 </ol>
 
-<h1 id="section-2">传输介质</h1>
+<h3 id="section-2">建立链接</h3>
 
-<ul>
-  <li>非屏蔽双绞线(Unshielded twisted pair)：最便宜普遍的传输介质，有不同的规格，最多在100米的距离上起作用。
-两条铜导线以一定规格相互缠绕，双方的电磁辐射会互相抵消。</li>
-  <li>同轴电缆(coaxial cable)：从内到外由铜芯(copper core)，绝缘材料(insulating material)，编织外导电体(braided outer conductor),保护塑料层(protective plastic covering)组成。</li>
-  <li>光纤(fiber optics)：应用全反射传输信息的方法。内部由两层玻璃构成，外层是塑料包裹。</li>
-</ul>
+<p>使用特殊的同步(SYN)与结束(FIN)信息来打开/关闭连接，同时确认两边都接受
+了所有的数据。</p>
 
-<h2 id="section-3">传输模型</h2>
+<p>A      —SYN(SeqNo=x)—&gt;        B</p>
 
-<ul>
-  <li>单向传输(simplex transmission)：数据只能向一个方向传输</li>
-  <li>半双向传输(half-duplex transmission)：数据在一个确定的时间点上只能向某一方传输，不过可以实现双向的信息传输。</li>
-  <li>双向传输(duplex transmission)：数据可以同时双向传输</li>
-</ul>
+<p>&lt;—SYN(SeqNo=y, AckNo=x+1)—</p>
 
-<h2 id="section-4">长距离传输</h2>
-<p>导线电阻导致信号丢失，从而不能进行长距离传输。
-持续的振荡信号往往比其他信号传输的更远。</p>
+<p>—(SeqNo=x+1, AckNo=y+1)—&gt;</p>
 
-<h1 id="section-5">调制</h1>
+<p>（看
+<a href="http://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">维基</a>吧ppt实在太坑了……）</p>
 
-<p>调制技术是将数字信号编码为模拟信号的方法。主要有调幅(amplitude modulation,AM)，调频(frequency modulation)，调相(phase modulation)三种方法。
-所有这三种方法都需要载波信号(carrier signal)，载波信号使用一个频率来传输数据。</p>
+<h3 id="section-3">传输信息</h3>
 
-<p>调幅指改变模拟信号的振幅，调频指改变模拟信号的频率，调相(?)指改变模拟信号的相位从而传输信息。</p>
+<p>维基的例子：</p>
 
-<h2 id="modem">猫(MODEM)</h2>
+<ol>
+  <li>发送方首先发送第一个包含序列号为1（可变化）和1460字节数据的TCP报文段给接收方。接收方以一个没有数据的TCP报文段来回复（只含报头），用确认号1461来表示已完全收到并请求下一个报文段。</li>
+  <li>发送方然后发送第二个包含序列号为1461和1460字节数据的TCP报文段给接收方。正常情况下，接收方以一个没有数据的TCP报文段来回复，用确认号2921（1461+1460）来表示已完全收到并请求下一个报文段。发送接收这样继续
+下去。</li>
+  <li>然而当这些数据包都是相连的情况下，接收方没有必要每一次都回应。比如，他收到第1到5条TCP报文段，只需回应第五条就行了。在例子中第3条TCP报文段被丢失了，所以尽管他收到了第4和5条，然而他只能回应第2条。</li>
+  <li>发送方在发送了第三条以后，没能收到回应，因此当时钟（timer）过时（expire）时，他重发第三条。（每次发送者发送一条TCP报文段后，都会再次启动一次时钟：RTT）。</li>
+  <li>这次第三条被成功接收，接收方可以直接确认第5条，因为4，5两条已收到。</li>
+</ol>
 
-<p>猫，或曰调制解调器，用于调制数字信号为模拟信号，或者将模拟信号解调制为数字信号。双向传输需要两边都有猫。</p>
+<h3 id="section-4">关闭连接</h3>
 
-<h1 id="line-code">线路码(line code)</h1>
-<p>线路码（英语：Line code），有时也称传输码。为了便于数字信号传输，将原始的数据码进行一定的修改就得到了线路码。举例来说，当原始数据中存在长时间连续的1或0时，接收方便很难得知每一位信号的时长，也可能误以为信号传输终结而中断通信。线路码还可增加纠错功能，适应信道的特性。常见的线路码包括AMI码、HDB3码等。</p>
+<p>连接终止使用了四路握手过程（four-way handshake），在这个过程中每个终端的连接都能独立地被终止。因此，一个典型的拆接过程需要每个终端都提供一对FIN和ACK。</p>
 
-<h2 id="section-6">时钟恢复与不归零编码</h2>
+<p>A  —FIN—&gt;  B</p>
 
-<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)
-以下是介绍：</p>
+<p>&lt;—ACK—</p>
 
-<h3 id="nrz">NRZ</h3>
-<p>在电信学中，不归零编码 (non-return-to-zero line code, NRZ) 指的是一种二进制的讯号代码，在这种传输方式中，1 和 0 都分别由不同的电子显著状态来表现，除此之外，没有中性状态、亦没有其他种状态。这种脉冲的能量比归零代码要来得密集，但它传输时是不停歇的，这代表同步信号必须在此代码之外独自传输。</p>
+<p>&lt;—FIN—</p>
 
-<p>在给定一个信号频率的情况下（比如说位元率），NRZ 代码只需要曼彻斯特代码 (Manchester code) 的一半带宽。</p>
+<p>—ACK—&gt;</p>
 
-<p>当用于异步传输时，由于缺少中性状态，必须依靠其他种机制，来达成在同步传输中使用时钟侦测错误的资料回复工作。</p>
+<h1 id="tcp">TCP的可靠性机制</h1>
 
-<p>NRZ-Level 本身并非一种同步系统，而更是一种编码方式，因为它可用于同步环境、或异步环境中，也就是不管有没有明确的时钟讯号，都可以运作。所以，讨论 NRZ-Level 编码是否在时钟“跳动 (clock-edge)”或“跳动之间 (between clock-edge)”并非必要的，因为每一个讯号一定都是以给定的时脉来传输的，这就暗示了讯号内在的时脉。真正的问题是，能否在接收端以当初取样时的同样频率重绘该讯号。</p>
+<h2 id="section-5">顺序</h2>
 
-<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
-RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
+<p>动态路由可能会导致包并非顺序到达，TCP通过给予每个包一个序号来确保它们可以按顺序排列。这个序列号也可以用来侦测包的重复与缺失。</p>
 
-<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)
-### NRZI
-一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
+<h2 id="section-6">重新传输</h2>
 
-<p>零改变：“0”为物理电平上的改变。“1”为没有改变。</p>
+<p>发送方发送某个包后开始计时，如果超过一段时间没有得到响应则重发包。有一
+定的尝试次数。接收方处理重复包。有的时候，在上一个会话的包会延迟抵达，
+而此时下一个会话如果有相同的顺序号，就会出现重复问题，解决方案是同时标
+记会话号。</p>
 
-<p>改变发生在当下位元的时钟脉冲前缘。</p>
+<h2 id="section-7">流控制</h2>
 
-<p>但是，NRZI 会有长串的 0或1 位元出现，导致时脉回复有困难，可以使用一些编码技巧（例如游长限制）来解决。曼彻斯特代码永远有时脉信号，但传输效率比 NRZI 低。</p>
+<p>数据超出往往在发送方传输速度大于接收方接受速度时发生。一个简单的方法是
+在发送下一个之前对每个包进行接收通知(ack)，但是这个会带来带宽浪费。</p>
 
-<p>NRZI 编码被用于磁带的录音、CD的刻录和标准 USB 的传讯。</p>
+<p>TCP使用窗口机制。发送方与接收方约定一个窗口大小(包的数量)，在初始，一
+整个窗口被发送，之后每个包被通知，然后另外一个才可以发送。接收方发送可
+以接受的窗口大小。窗口大小为0则说明发送方需要在进一步的通知之前停止发
+送。</p>
 
-<p>常见的NRZI编码: 0101 -&gt; H HLLH （高电平为基准，第一个为0表示电平不改变，第二个为1表示改变电平为低，第三个0表示电平不变仍为低，第四个1表示电平改变为高，计算方式为之前电平与当前的XOR）</p>
+<p>TCP协议在工作时，如果发送端的TCP协议软件每传输一个数据分组后，必须等待接收端的确认才能够发送下一个分组，由于网络传输的时延，将有大量时间被用于等待确认，导致传输效率低下。为此TCP在进行数据传输时使用了滑动窗口机制。</p>
 
-<h3 id="clock-recovery">时钟恢复(clock recovery)</h3>
-<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。
-简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
+<p>TCP滑动窗口用来暂存两台计算机间要传送的数据分组。每台运行TCP协议的计算机有两个滑动窗口：一个用于数据发送，另一个用于数据接收。发送端待发数据分组在缓冲区排队等待送出。被滑动窗口框入的分组，是可以在未收到接收确认的情况下多送出的部分。滑动窗口左端标志X的分组，是已经被接收端确认收到的分组。随着新的确认到来，窗口不断向右滑动。</p>
 
-<h2 id="manchest-encoding">曼彻斯特编码(Manchest Encoding)</h2>
+<p>TCP协议软件依靠滑动窗口机制解决传输效率和流量控制问题。它可以在收到确认信息之前发送多个数据分组。这种机制使得网络通信处于忙碌状态，提高了整个网络的吞吐率，它还解决了端到端的通信流量控制问题，允许接收端在拥有容纳足够数据的缓冲之前对传输进行限制。在实际运行中，TCP滑动窗口的大小是可以随时调整的。收发端TCP协议软件在进行分组确认通信时，还交换滑动窗口控制信息，使得双方滑动窗口大小可以根据需要动态变化，达到在提高数据传输效率的同时，防止拥塞的发生。　称窗口左边沿向右边沿靠近为窗口合拢，这种现象发生在数据被发送和确认时。</p>
 
-<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。
-好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
+<p>当窗口右边沿向右移动时将允许发送更多的数据，称之为窗口张开。这种现象发生在另一端的接收进程读取已经确认的数据并释放了TCP的接收缓存时。</p>
 
-<p>计算曼彻斯特编码时，要使用时钟比特位与编码比特位异或。</p>
+<p>当右边沿向左移动时，称为窗口收缩。Host Requirements RFC强烈建议不要使用这种方式。但TCP必须能够在某一端产生这种情况时进行处理。
+如果左边沿到达右边沿，则称其为一个零窗口。</p>
 
-<p>曼彻斯特编码的例子：</p>
+<ol>
+  <li>发送方不必发送一个全窗口大小的数据。</li>
+  <li>来自接收方的一个报文段确认数据并把窗口向右边滑动，这是因为窗口的大小是相对于确认序号的。</li>
+  <li>窗口的大小可以减小，但是窗口的右边沿却不能够向左移动。</li>
+  <li>接收方在发送一个ACK前不必等待窗口被填满。</li>
+</ol>
 
-<p>0101 -&gt; H LH HL LH HL</p>
+<p>– 百度百科</p>
 
-<p>以太网使用曼彻斯特编码。</p>
+<h2 id="section-8">防止拥堵</h2>
 
-<h2 id="baud-rate">波特率(Baud Rate)</h2>
-
-<p>在电子通信领域，波特率（Baud）即调制速率，指的是有效数据信号调制载波的速率，即单位时间内载波调制状态变化的次数。它是对符号传输速率的一种度量，1波特即指每秒传输1个符号，而通过不同的调制方式，可以在一个码元符号上负载多个bit位信息。–<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E7%89%B9%E7%8E%87">维基百科</a></p>
-
-<h2 id="framing-error">帧错误(framing error)</h2>
-
-<p>当收发双方以不同的波特率进行通信时，容易出现帧错误的现象。</p>
-
-<h1 id="section-7">数据传输极限</h1>
-
-<h2 id="nyquist-sampling-theroem">Nyquist Sampling Theroem</h2>
-
-<p>一个无噪声的(noiseless/error-free)的介质的最大传输速率：</p>
-
-<ul>
-  <li>$D$：数据比率(bit)每秒，bps</li>
-  <li>$B$：带宽(hz)</li>
-</ul>
-
-<p>对于使用二进制信号的方案而言，</p>
-
-<p>$Data\ Rate = D = 2B$</p>
-
-<p>对于使用K阶信号的方案而言，</p>
-
-<p>$D = 2B\log_2 K$</p>
-
-<h2 id="shannons-theorem">Shannon’s Theorem</h2>
-
-<p>这个定理针对的是有噪声介质。</p>
-
-<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
-信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
-
-<p>对于有噪声介质的最大数据率为:</p>
-
-<p>$D = B \log_2(1 + S / N)$</p>
-
+<p>转换器信号与丢包都可以认为是网络拥堵的标志。TCP通过丢包来监控网络拥堵。对于第一个丢包，TCP将发送一个小信息。如果这个信息没有丢失，数据大小加倍，以此类推，直到窗口大小的一半，停止倍增。</p>
  -->
     
-        <p>第二篇……不要怂就是干…… おかわり！</p>
+        <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
 
 
     
