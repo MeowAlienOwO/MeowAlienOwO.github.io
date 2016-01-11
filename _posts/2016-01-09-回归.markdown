@@ -16,11 +16,7 @@ comments:
 
 # 姑且算个标题
 
-share.js div starts
-
 <div class="social-share share-component"></div>
-
-share.js div ends
 
 首先……回忆一下这段时间干了个啥……
 
