@@ -19,8 +19,8 @@
 </script>
 
 <!-- Share.js -->
-<script src="http://MeowAlienOwO.github.io//assets/js/share.min.js"></script>
-<link rel="stylesheet" href="http://MeowAlienOwO.github.io//assets/css/share.min.css"/>
+<link href="/assets/css/share.min.css" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/vendor/share.min.js"></script>
 <!-- end of plugins -->
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -129,7 +129,7 @@
 				
 				<li>
 				  <a href="/categories/Computer Science/">
-				    Computer Science (12)
+				    Computer Science (11)
 				  </a>
 				</li>
 				
@@ -165,7 +165,7 @@
 				
 				<li>
 				  <a href="/categories/Network/">
-				    Network (7)
+				    Network (6)
 				  </a>
 				</li>
 				
@@ -1137,193 +1137,147 @@ RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" title="Foundation of Networking"><img src="http://MeowAlienOwO.github.io//images/46203097.jpg" alt="Foundation of Networking"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" title="MAL-下推自动机与上下文无关语言"><img src="http://MeowAlienOwO.github.io//images/31958311.png" alt="MAL-下推自动机与上下文无关语言"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-13T16:59:52+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/">May 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-03T14:49:02+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/">May 03, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" rel="bookmark" title="Foundation of Networking" itemprop="url">Foundation of Networking</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" rel="bookmark" title="MAL-下推自动机与上下文无关语言" itemprop="url">MAL-下推自动机与上下文无关语言</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+    <!-- <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
 
-<p>这个照旧是网络的笔记……John个大坑比……</p>
+<p>MD还要躺着……戴了护裆都能中招真是……</p>
 
-<h1 id="section">网络基础</h1>
+<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />
 
-<h2 id="network">何为网络(Network)</h2>
+<h1 id="section">上下文无关语言</h1>
 
-<p>网络是在节点之间传输数据的一种结构。</p>
+<h2 id="context-free-grammar">上下文无关文法(Context-Free Grammar)</h2>
 
-<ul>
-  <li>节点是多种多样的</li>
-  <li>节点的数量必须多余两个</li>
-</ul>
-
-<p>网络由如下设备组成：</p>
+<p>上下文无关文法由一个四元组$G=(V, \Sigma, S, P)$来描述。其中：</p>
 
 <ul>
-  <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
-  <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
-  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
-(switch)两种。</li>
+  <li>$V$ 是变量集合，或者说非停止符号集</li>
+  <li>$\Sigma$ 是停止符号集</li>
+  <li>$S$ 是起始变量</li>
+  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to
+\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
+  <li>$S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。</li>
 </ul>
 
-<p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
-
-<h2 id="protocals">互联网协议(protocals)</h2>
-
-<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
-<em>顺序</em>与对信息传输的<em>行动</em>。</p>
-
-<h2 id="host">主机(host)</h2>
-
-<p>主机以包(packets)的形式传输信息。算法如下：</p>
-
-<ol>
-  <li>取得需要传输的信息</li>
-  <li>将其截成定长为$L$的小段(chunks)，称之为包(packet)</li>
-  <li>将包以某个传输比率(transmission rate)$R$传输至网络</li>
-</ol>
-
-<p>传输比率又称连接容量(link capacity)，连接带宽(link bandwidth)，计算公式如下：</p>
-
-<p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
-
-<h2 id="physical-media">物理媒体(Physical Media)</h2>
-
-<p>比特(bit)：在发送者与接收者之间传输</p>
-
-<p>物理链接(physical link)：连接发送者与接收者的物理材料</p>
-
-<p>导向媒体(guided media)：传输信号的固体媒体，比如铜导线，光纤，同轴电缆</p>
-
-<p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
-
-<h2 id="network-core">网络核心(network core)</h2>
-
-<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
-路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
-
-<h2 id="section-1">网络结构</h2>
-
-<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
-这样才能做到路由器之间的通讯。</p>
-
-<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
-但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
-同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
-使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
-
-<p>网络的层级如下：</p>
-
-<ol>
-  <li>一级网络服务提供商(Tier 1 ISP)与内容提供网络(Content Provider Network)</li>
-  <li>广域网交换点(IXP)</li>
-  <li>区域ISP</li>
-  <li>入口ISP</li>
-</ol>
-
-<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
-
-<p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
-
-<p>分组通过最佳路径(取决于 路由算法)路由到目标。但并不是所有在相同两个主机之间传送的分组（即使是来自同一消息的那些分组）一定要沿着相同的路径传送。</p>
-
-<p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
-
-<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
-终端-终端延迟在理想状况下为$2L / R$。</p>
-
-<h3 id="section-2">队列与丢包</h3>
-
-<p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
+<p>我们使用如下的符号来表示一些推导规则：</p>
 
 <ul>
-  <li>包被存储在队列中等待，或者</li>
-  <li>当队列存储容量满了以后，包会丢失(dropped)</li>
+  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法
+规则的一步推导(derivation)</li>
+  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*
+\beta$ 表示0或者多步推导。</li>
+  <li>$\Rightarrow_G$ 表示根据语法$G$的推导。</li>
 </ul>
 
-<h3 id="section-3">两个关键的的网络核心功能</h3>
+<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V
+\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A
+\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
 
-<p>路由(routing):决定包的源地址路由器</p>
+<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是
+上下文无关的(context-free)</p>
 
-<p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
+<h2 id="context-free-language">上下文无关语言(Context-Free Language)</h2>
 
-<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
+<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言
+为：
+$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
 
-<p>根据
-<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
-双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
-信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
+<p>当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。</p>
 
-<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
+<h2 id="kleene">联合，连接与Kleene星号运算</h2>
+<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cup
+L_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
 
-<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
-不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
-现代的通信中应用相对较少</p>
+<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,
+S_2$分别是起始变量。</p>
 
-<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
-进行通信的技术。典型应用有GSM。</p>
-
-<h3 id="vs-">封包交换 vs 电路交换</h3>
-
-<p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
-
-<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
-但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
-
-<h3 id="section-4">丢包与延迟的来源</h3>
-
-<h4 id="section-5">丢包</h4>
-
-<p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
-
-<h4 id="section-6">延迟</h4>
-
-<p>对于单路由节点而言，延迟的来源有四个：</p>
+<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,
+G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
 
 <ul>
-  <li>节点处理过程(nodal processing)：包含比特错误校验(check bit errors)，确定输出连接等，通常小于毫秒量级</li>
-  <li>队列延迟(queueing delay)：等待输出连接的传输时间，由当前连接的拥挤程度而决定</li>
-  <li>转换延迟(transmission delay)：将数据输入传输连接的时间，计算方式为$d_{trans} = L / R$,$L$表示包长度，$R$表示带宽</li>
-  <li>传输延迟(propagation delay):数据在连接媒体之间传输的时间，计算方式为$d_{prop} = d / s$，$d$表示物理连接的长度，$s$表示传输速度的中位数</li>
+  <li>对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 | S_2$</li>
+  <li>对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$</li>
+  <li>对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda | S_k S_1$</li>
 </ul>
 
-<p>计算延迟的公式为：</p>
+<h2 id="derivation-tree">派生树(Derivation Tree)与歧义</h2>
 
-<p>$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$</p>
+<p>派生树用于表示CFG生成字符串的一般步骤。构建派生树的方法如下：</p>
 
-<h2 id="section-7">层级</h2>
+<ul>
+  <li>跟节点用于表示起始变量S</li>
+  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物
+该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
+  <li>任何叶结点表示一个符号或者空串</li>
+  <li>最终派生的字符串从左到右读入，排除任何的空串</li>
+  <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
+</ul>
 
-<h3 id="section-8">网络协议层级栈</h3>
+<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推
+导，我们永远对当前最左边的变量使用派生规则。</p>
 
-<ol>
-  <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
-  <li>传输层(transport)：进程-进程(process-process)之间的数据传输，TCP，UDP</li>
-  <li>网络层(network)：路由相关，如IP，路由协议</li>
-  <li>连接层(link)：在相邻网络元素之间的数据传输，如以太网(Ethernet),802.111协议，PPP等</li>
-  <li>物理层(physical)：二进制数据</li>
-</ol>
+<p>我们有如下定理：
+如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
 
-<h3 id="isoosi">ISO/OSI七层模型</h3>
+<ul>
+  <li>$x$ 有多于一个的派生树</li>
+  <li>$x$ 有多于一个的左派生树</li>
+  <li>$x$ 有多于一个的右派生树</li>
+</ul>
 
-<p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
+<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$
+有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
 
-<ol>
-  <li>表示层(presentation)：允许应用解释数据的意义，比如加密，压缩，机器特定的约定，等</li>
-  <li>会话层(session)：同步，校验点(checkpoint)，从数据交换中恢复等等</li>
-</ol>
+<p>典型例子：</p>
 
-<p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
+<blockquote>
+  <p>if (e1) if (e2) f(); else g();</p>
+</blockquote>
+
+<p>我们可以通过引入新变量来消除歧义。</p>
+
+<h2 id="simplified-formsnormal-forms">简式(Simplified Forms)与范式(Normal Forms)</h2>
+
+<h2 id="section-1">上下文无关语言的泵引理</h2>
+
+<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u
+\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
+
+<ul>
+  <li>$| wy | &gt; 0$</li>
+  <li>$| wxy | \leq n$</li>
+  <li>$\forall m \geq 0, vw^mxy^mz \in L$</li>
+</ul>
+
+<p>（证明待补充）</p>
+
+<h2 id="section-2">泵引理的应用</h2>
+
+<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语
+言非上下文无关中的应用。</p>
+
+<p>令$u$是一个形如$a^nb^nc^n$的字符串且$| u | \geq n$</p>
+
+<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|
+wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中
+的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，
+但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性
+矛盾。</p>
 
  -->
     
-        <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+        <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
 
 
     
@@ -1379,6 +1333,8 @@ RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://MeowAlienOwO.github.io//assets/js/scripts.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendor/share.min.js"></script>
 
 
 
