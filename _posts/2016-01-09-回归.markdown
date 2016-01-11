@@ -16,8 +16,6 @@ comments:
 
 # 姑且算个标题
 
-<div class="social-share share-component"></div>
-
 首先……回忆一下这段时间干了个啥……
 
 暑假集了个训打个酱油……
