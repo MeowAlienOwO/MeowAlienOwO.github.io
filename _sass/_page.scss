@@ -476,3 +476,16 @@ header .entry-meta {
 #goog-wm-sb {
 	@extend .btn;
 }
+
+
+// 黑幕 
+// --------------------------------------------------
+.heimu, .heimu a, a .heimu, .heimu a.new{
+    background-color:#252525 !important;
+    color:#252525 !important
+}
+
+.heimu a:hover, a:hover .heimu{
+   color:#66CCFF !important
+}
+ 

@@ -5,7 +5,7 @@ date: "2016-01-09 21:47:01 +0800"
 categories: [自言自语]
 tags: [personal life]
 image: 
-  feature: 54571093_p0.png
+  feature: 54571093_p0.jpg
   credit: 紅美鈴さん その１ | クロごま [pixiv] 
   creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=54571093
 comments:

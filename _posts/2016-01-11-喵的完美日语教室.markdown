@@ -2,12 +2,35 @@
 layout: post
 title: "喵的完美日语教室"
 date: "2016-01-11 20:34:49 +0800"
-categories: 
-tags: 
+categories: [japanese]
+tags: [study, japanese]
 image: 
-  feature: 
-  credit: 
-  creditlink: 
+  feature: 46159854_p0.jpg
+  credit: Windows 9 | Anime4000 [pixiv] 
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=46159854
 comments: 
 ---
 
+民那~鸡露诺的<del>算数</del>日语教室，哈吉马路油~来大家跟我一起念：0,1，
+⑨~
+
+
+# 语言基础
+
+首先我们复习一下语言的定义~
+
+>
+> A formal language is a *set* of *strings* of *symbols* that may be
+> constrained by rules that are specific to it.
+>                                              --Wikipedia
+>
+噫，好像哪里不对……<span class="heimu" title="你知道的太多了">我才不会告诉你这是形式语言的定义</span>
+
+总而言之，我们知道了一个语言需要如下内容：
+
+- `symbols`: 语言的基础符号。
+- `strings`: 字符串。我们最常见的字符串是什么呢？单词！以及这些单词所
+  组成的句子。
+- `set`: 集合，这里特指由所有可能字符串的集合。
+
+说人话版：
