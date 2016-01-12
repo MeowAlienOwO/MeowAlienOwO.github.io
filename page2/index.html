@@ -175,6 +175,12 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/japanese/">
+				    japanese (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -199,6 +205,159 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" title="Transport Layer"><img src="http://MeowAlienOwO.github.io//images/2473257.jpg" alt="Transport Layer"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-15T21:00:24+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" rel="bookmark" title="Transport Layer" itemprop="url">Transport Layer</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+
+<h1 id="section">简介</h1>
+
+<p>传输层协议主要提供了不同主机上的应用程序之间的交流能力。在终端主机上运
+行。</p>
+
+<p>发送者:将应用信息分段，传给网络层
+接收者：将段重新汇编为信息，传给应用层</p>
+
+<p>在因特网上，主要是TCP与UDP两种。</p>
+
+<h1 id="tcpudp">TCP与UDP</h1>
+
+<h2 id="user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
+
+<p>IP上的很薄的一层。加入了校验和与包长度，用于防止包损坏；加入了源端口与
+目标端口，用于可能的特殊应用。</p>
+
+<p>UDP是不可靠的。</p>
+
+<p>组成：
+16比特源端口，16比特目标端口，16比特长度，16比特校验和。</p>
+
+<h2 id="transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
+
+<p>传输控制协议提供远比UDP可靠的通信手段。</p>
+
+<p>连接使用三次握手方式创建，数据被操作系统分成包并且标号，接收包的时候要
+返回已接收信息。连接必须被明确地关闭。</p>
+
+<h3 id="section-1">七个主要特性</h3>
+
+<ol>
+  <li>面向连接</li>
+  <li>点对点</li>
+  <li>完全可信，接收的数据就是发送的数据</li>
+  <li>完全双向通信</li>
+  <li>流接口</li>
+  <li>可靠的连接建立过程</li>
+  <li>优雅的(……)关闭过程</li>
+</ol>
+
+<h3 id="section-2">建立链接</h3>
+
+<p>使用特殊的同步(SYN)与结束(FIN)信息来打开/关闭连接，同时确认两边都接受
+了所有的数据。</p>
+
+<p>A      —SYN(SeqNo=x)—&gt;        B</p>
+
+<p>&lt;—SYN(SeqNo=y, AckNo=x+1)—</p>
+
+<p>—(SeqNo=x+1, AckNo=y+1)—&gt;</p>
+
+<p>（看
+<a href="http://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">维基</a>吧ppt实在太坑了……）</p>
+
+<h3 id="section-3">传输信息</h3>
+
+<p>维基的例子：</p>
+
+<ol>
+  <li>发送方首先发送第一个包含序列号为1（可变化）和1460字节数据的TCP报文段给接收方。接收方以一个没有数据的TCP报文段来回复（只含报头），用确认号1461来表示已完全收到并请求下一个报文段。</li>
+  <li>发送方然后发送第二个包含序列号为1461和1460字节数据的TCP报文段给接收方。正常情况下，接收方以一个没有数据的TCP报文段来回复，用确认号2921（1461+1460）来表示已完全收到并请求下一个报文段。发送接收这样继续
+下去。</li>
+  <li>然而当这些数据包都是相连的情况下，接收方没有必要每一次都回应。比如，他收到第1到5条TCP报文段，只需回应第五条就行了。在例子中第3条TCP报文段被丢失了，所以尽管他收到了第4和5条，然而他只能回应第2条。</li>
+  <li>发送方在发送了第三条以后，没能收到回应，因此当时钟（timer）过时（expire）时，他重发第三条。（每次发送者发送一条TCP报文段后，都会再次启动一次时钟：RTT）。</li>
+  <li>这次第三条被成功接收，接收方可以直接确认第5条，因为4，5两条已收到。</li>
+</ol>
+
+<h3 id="section-4">关闭连接</h3>
+
+<p>连接终止使用了四路握手过程（four-way handshake），在这个过程中每个终端的连接都能独立地被终止。因此，一个典型的拆接过程需要每个终端都提供一对FIN和ACK。</p>
+
+<p>A  —FIN—&gt;  B</p>
+
+<p>&lt;—ACK—</p>
+
+<p>&lt;—FIN—</p>
+
+<p>—ACK—&gt;</p>
+
+<h1 id="tcp">TCP的可靠性机制</h1>
+
+<h2 id="section-5">顺序</h2>
+
+<p>动态路由可能会导致包并非顺序到达，TCP通过给予每个包一个序号来确保它们可以按顺序排列。这个序列号也可以用来侦测包的重复与缺失。</p>
+
+<h2 id="section-6">重新传输</h2>
+
+<p>发送方发送某个包后开始计时，如果超过一段时间没有得到响应则重发包。有一
+定的尝试次数。接收方处理重复包。有的时候，在上一个会话的包会延迟抵达，
+而此时下一个会话如果有相同的顺序号，就会出现重复问题，解决方案是同时标
+记会话号。</p>
+
+<h2 id="section-7">流控制</h2>
+
+<p>数据超出往往在发送方传输速度大于接收方接受速度时发生。一个简单的方法是
+在发送下一个之前对每个包进行接收通知(ack)，但是这个会带来带宽浪费。</p>
+
+<p>TCP使用窗口机制。发送方与接收方约定一个窗口大小(包的数量)，在初始，一
+整个窗口被发送，之后每个包被通知，然后另外一个才可以发送。接收方发送可
+以接受的窗口大小。窗口大小为0则说明发送方需要在进一步的通知之前停止发
+送。</p>
+
+<p>TCP协议在工作时，如果发送端的TCP协议软件每传输一个数据分组后，必须等待接收端的确认才能够发送下一个分组，由于网络传输的时延，将有大量时间被用于等待确认，导致传输效率低下。为此TCP在进行数据传输时使用了滑动窗口机制。</p>
+
+<p>TCP滑动窗口用来暂存两台计算机间要传送的数据分组。每台运行TCP协议的计算机有两个滑动窗口：一个用于数据发送，另一个用于数据接收。发送端待发数据分组在缓冲区排队等待送出。被滑动窗口框入的分组，是可以在未收到接收确认的情况下多送出的部分。滑动窗口左端标志X的分组，是已经被接收端确认收到的分组。随着新的确认到来，窗口不断向右滑动。</p>
+
+<p>TCP协议软件依靠滑动窗口机制解决传输效率和流量控制问题。它可以在收到确认信息之前发送多个数据分组。这种机制使得网络通信处于忙碌状态，提高了整个网络的吞吐率，它还解决了端到端的通信流量控制问题，允许接收端在拥有容纳足够数据的缓冲之前对传输进行限制。在实际运行中，TCP滑动窗口的大小是可以随时调整的。收发端TCP协议软件在进行分组确认通信时，还交换滑动窗口控制信息，使得双方滑动窗口大小可以根据需要动态变化，达到在提高数据传输效率的同时，防止拥塞的发生。　称窗口左边沿向右边沿靠近为窗口合拢，这种现象发生在数据被发送和确认时。</p>
+
+<p>当窗口右边沿向右移动时将允许发送更多的数据，称之为窗口张开。这种现象发生在另一端的接收进程读取已经确认的数据并释放了TCP的接收缓存时。</p>
+
+<p>当右边沿向左移动时，称为窗口收缩。Host Requirements RFC强烈建议不要使用这种方式。但TCP必须能够在某一端产生这种情况时进行处理。
+如果左边沿到达右边沿，则称其为一个零窗口。</p>
+
+<ol>
+  <li>发送方不必发送一个全窗口大小的数据。</li>
+  <li>来自接收方的一个报文段确认数据并把窗口向右边滑动，这是因为窗口的大小是相对于确认序号的。</li>
+  <li>窗口的大小可以减小，但是窗口的右边沿却不能够向左移动。</li>
+  <li>接收方在发送一个ACK前不必等待窗口被填满。</li>
+</ol>
+
+<p>– 百度百科</p>
+
+<h2 id="section-8">防止拥堵</h2>
+
+<p>转换器信号与丢包都可以认为是网络拥堵的标志。TCP通过丢包来监控网络拥堵。对于第一个丢包，TCP将发送一个小信息。如果这个信息没有丢失，数据大小加倍，以此类推，直到窗口大小的一半，停止倍增。</p>
+ -->
+    
+        <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -1127,157 +1286,6 @@ RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码
  -->
     
         <p>第二篇……不要怂就是干…… おかわり！</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" title="MAL-下推自动机与上下文无关语言"><img src="http://MeowAlienOwO.github.io//images/31958311.png" alt="MAL-下推自动机与上下文无关语言"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-03T14:49:02+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/">May 03, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" rel="bookmark" title="MAL-下推自动机与上下文无关语言" itemprop="url">MAL-下推自动机与上下文无关语言</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
-
-<p>MD还要躺着……戴了护裆都能中招真是……</p>
-
-<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />
-
-<h1 id="section">上下文无关语言</h1>
-
-<h2 id="context-free-grammar">上下文无关文法(Context-Free Grammar)</h2>
-
-<p>上下文无关文法由一个四元组$G=(V, \Sigma, S, P)$来描述。其中：</p>
-
-<ul>
-  <li>$V$ 是变量集合，或者说非停止符号集</li>
-  <li>$\Sigma$ 是停止符号集</li>
-  <li>$S$ 是起始变量</li>
-  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to
-\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
-  <li>$S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。</li>
-</ul>
-
-<p>我们使用如下的符号来表示一些推导规则：</p>
-
-<ul>
-  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法
-规则的一步推导(derivation)</li>
-  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*
-\beta$ 表示0或者多步推导。</li>
-  <li>$\Rightarrow_G$ 表示根据语法$G$的推导。</li>
-</ul>
-
-<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V
-\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A
-\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
-
-<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是
-上下文无关的(context-free)</p>
-
-<h2 id="context-free-language">上下文无关语言(Context-Free Language)</h2>
-
-<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言
-为：
-$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
-
-<p>当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。</p>
-
-<h2 id="kleene">联合，连接与Kleene星号运算</h2>
-<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cup
-L_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
-
-<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,
-S_2$分别是起始变量。</p>
-
-<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,
-G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
-
-<ul>
-  <li>对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 | S_2$</li>
-  <li>对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$</li>
-  <li>对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda | S_k S_1$</li>
-</ul>
-
-<h2 id="derivation-tree">派生树(Derivation Tree)与歧义</h2>
-
-<p>派生树用于表示CFG生成字符串的一般步骤。构建派生树的方法如下：</p>
-
-<ul>
-  <li>跟节点用于表示起始变量S</li>
-  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物
-该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
-  <li>任何叶结点表示一个符号或者空串</li>
-  <li>最终派生的字符串从左到右读入，排除任何的空串</li>
-  <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
-</ul>
-
-<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推
-导，我们永远对当前最左边的变量使用派生规则。</p>
-
-<p>我们有如下定理：
-如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
-
-<ul>
-  <li>$x$ 有多于一个的派生树</li>
-  <li>$x$ 有多于一个的左派生树</li>
-  <li>$x$ 有多于一个的右派生树</li>
-</ul>
-
-<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$
-有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
-
-<p>典型例子：</p>
-
-<blockquote>
-  <p>if (e1) if (e2) f(); else g();</p>
-</blockquote>
-
-<p>我们可以通过引入新变量来消除歧义。</p>
-
-<h2 id="simplified-formsnormal-forms">简式(Simplified Forms)与范式(Normal Forms)</h2>
-
-<h2 id="section-1">上下文无关语言的泵引理</h2>
-
-<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u
-\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
-
-<ul>
-  <li>$| wy | &gt; 0$</li>
-  <li>$| wxy | \leq n$</li>
-  <li>$\forall m \geq 0, vw^mxy^mz \in L$</li>
-</ul>
-
-<p>（证明待补充）</p>
-
-<h2 id="section-2">泵引理的应用</h2>
-
-<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语
-言非上下文无关中的应用。</p>
-
-<p>令$u$是一个形如$a^nb^nc^n$的字符串且$| u | \geq n$</p>
-
-<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|
-wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中
-的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，
-但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性
-矛盾。</p>
-
- -->
-    
-        <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
 
 
     
