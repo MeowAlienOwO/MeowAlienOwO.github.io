@@ -82,7 +82,13 @@ comments:
 ## 假名
 假名是由汉字简化并加以变化而来，平假名对应汉字草书写法，片假名对应汉字
 楷书写法。以下是对应的变形图：
+
+平假名:
+
 ![hiragana]({{ site.url }}/images/Hiragana_origin.svg)
+
+片假名:
+
 ![katakana]({{ site.url }}/images/Katakana_origin.svg)
 
 
