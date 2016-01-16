@@ -117,9 +117,15 @@ comments:
 
 片假名|<br>
 
-罗马音</td><td>あ|ア|a</td><td>い|イ|i</td><td>う|ウ|u</td><td>え|エ|e</td><td>お|オ|o</td>
+罗马音<td></td><td>あ行↓</td><td>い行↓</td><td>う行↓</td><td>え行↓
+</td><td>お行↓</td>
+
 </tr>
 
+
+<tr>
+<td></td><td>あ|ア|a</td><td>い|イ|i</td><td>う|ウ|u</td><td>え|エ|e</td><td>お|オ|o</td>
+</tr>
 <tr>
 <td></td><td>か|カ|ka</td><td>き|キ|ki</td><td>く|ク|ku</td><td>け|ケ|ke</td><td>こ|コ|ko</td>
 </tr>
@@ -220,3 +226,44 @@ comments:
 
 五十音图分为あいうえお五个元音列，あかさたなはまやらわ十行，其中有些空
 缺的地方是已经被弃用的，有些是不存在的音。
+
+
+## 练习
+由于技术限制音频不好放，下面是钉宫版的五十音:
+<embed height="415" width="544" quality="high" allowfullscreen="true"
+type="application/x-shockwave-flash"
+src="http://static.hdslb.com/miniloader.swf"
+flashvars="aid=18169&page=2"
+pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"
+/>
+
+以及这里是公介君的一些建议……（山下鸡博那个五十音因为背叛FFF团直接烧
+掉）
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=3275604&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+另外，有没有觉得虽然字都认识，但是跟读的时候面对立本人的语速完全hold
+不住……
+
+当然，我们需要用一些传统的方式来练习一下嘴皮子<span class="heimu">绕口令</span>:
+
+<del>八百标兵奔北坡，北坡炮兵并排跑，炮兵怕把标兵碰，标兵怕碰炮兵炮!</del>
+
+![自豪]({{ site.url }}images/Ge_Ping_2.JPG)
+
+言归正传，以下是在沪江听五十音图的时候学到的，不知道是否有效……
+
+あえい あおう えおあお あいうえお
+かけき かこく けこかこ かきくけこ
+……
+
+以及，在以前被抓去听雅思课的时候被推荐了一个听着跟读的方法用于练听力口
+语<del>我才不说我跟不上立本人的语速</del>,大家姑且一试？
+
+では、ここまで。日本語について、分らないことがたくさんでありので、こん
+なんのクラス（実は自分のメーモ）をつづけたいと思います。何がアードバイスが
+あれば、ぜひ教えてください！
+
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=79496&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
