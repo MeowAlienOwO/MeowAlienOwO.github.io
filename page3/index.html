@@ -129,7 +129,11 @@
 				
 				<li>
 				  <a href="/categories/Computer Science/">
+<<<<<<< HEAD
 				    Computer Science (12)
+=======
+				    Computer Science (11)
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 				  </a>
 				</li>
 				
@@ -165,7 +169,11 @@
 				
 				<li>
 				  <a href="/categories/Network/">
+<<<<<<< HEAD
 				    Network (7)
+=======
+				    Network (6)
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 				  </a>
 				</li>
 				
@@ -176,12 +184,15 @@
 				</li>
 				
 				<li>
+<<<<<<< HEAD
 				  <a href="/categories/日本語/">
 				    日本語 (1)
 				  </a>
 				</li>
 				
 				<li>
+=======
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 				  <a href="/categories/japahese/">
 				    japahese (1)
 				  </a>
@@ -215,6 +226,7 @@
   <header>
     
       <div class="entry-image-index">
+<<<<<<< HEAD
         <a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/" title="Physical Layer"><img src="http://MeowAlienOwO.github.io//images/49604772.jpg" alt="Physical Layer"></a>
       </div><!-- /.entry-image -->
     
@@ -281,308 +293,7 @@
 <p>调幅指改变模拟信号的振幅，调频指改变模拟信号的频率，调相(?)指改变模拟信号的相位从而传输信息。</p>
 
 <h2 id="modem">猫(MODEM)</h2>
-
-<p>猫，或曰调制解调器，用于调制数字信号为模拟信号，或者将模拟信号解调制为数字信号。双向传输需要两边都有猫。</p>
-
-<h1 id="line-code">线路码(line code)</h1>
-<p>线路码（英语：Line code），有时也称传输码。为了便于数字信号传输，将原始的数据码进行一定的修改就得到了线路码。举例来说，当原始数据中存在长时间连续的1或0时，接收方便很难得知每一位信号的时长，也可能误以为信号传输终结而中断通信。线路码还可增加纠错功能，适应信道的特性。常见的线路码包括AMI码、HDB3码等。</p>
-
-<h2 id="section-6">时钟恢复与不归零编码</h2>
-
-<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)
-以下是介绍：</p>
-
-<h3 id="nrz">NRZ</h3>
-<p>在电信学中，不归零编码 (non-return-to-zero line code, NRZ) 指的是一种二进制的讯号代码，在这种传输方式中，1 和 0 都分别由不同的电子显著状态来表现，除此之外，没有中性状态、亦没有其他种状态。这种脉冲的能量比归零代码要来得密集，但它传输时是不停歇的，这代表同步信号必须在此代码之外独自传输。</p>
-
-<p>在给定一个信号频率的情况下（比如说位元率），NRZ 代码只需要曼彻斯特代码 (Manchester code) 的一半带宽。</p>
-
-<p>当用于异步传输时，由于缺少中性状态，必须依靠其他种机制，来达成在同步传输中使用时钟侦测错误的资料回复工作。</p>
-
-<p>NRZ-Level 本身并非一种同步系统，而更是一种编码方式，因为它可用于同步环境、或异步环境中，也就是不管有没有明确的时钟讯号，都可以运作。所以，讨论 NRZ-Level 编码是否在时钟“跳动 (clock-edge)”或“跳动之间 (between clock-edge)”并非必要的，因为每一个讯号一定都是以给定的时脉来传输的，这就暗示了讯号内在的时脉。真正的问题是，能否在接收端以当初取样时的同样频率重绘该讯号。</p>
-
-<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
-RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
-
-<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)
-### NRZI
-一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
-
-<p>零改变：“0”为物理电平上的改变。“1”为没有改变。</p>
-
-<p>改变发生在当下位元的时钟脉冲前缘。</p>
-
-<p>但是，NRZI 会有长串的 0或1 位元出现，导致时脉回复有困难，可以使用一些编码技巧（例如游长限制）来解决。曼彻斯特代码永远有时脉信号，但传输效率比 NRZI 低。</p>
-
-<p>NRZI 编码被用于磁带的录音、CD的刻录和标准 USB 的传讯。</p>
-
-<p>常见的NRZI编码: 0101 -&gt; H HLLH （高电平为基准，第一个为0表示电平不改变，第二个为1表示改变电平为低，第三个0表示电平不变仍为低，第四个1表示电平改变为高，计算方式为之前电平与当前的XOR）</p>
-
-<h3 id="clock-recovery">时钟恢复(clock recovery)</h3>
-<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。
-简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
-
-<h2 id="manchest-encoding">曼彻斯特编码(Manchest Encoding)</h2>
-
-<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。
-好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
-
-<p>计算曼彻斯特编码时，要使用时钟比特位与编码比特位异或。</p>
-
-<p>曼彻斯特编码的例子：</p>
-
-<p>0101 -&gt; H LH HL LH HL</p>
-
-<p>以太网使用曼彻斯特编码。</p>
-
-<h2 id="baud-rate">波特率(Baud Rate)</h2>
-
-<p>在电子通信领域，波特率（Baud）即调制速率，指的是有效数据信号调制载波的速率，即单位时间内载波调制状态变化的次数。它是对符号传输速率的一种度量，1波特即指每秒传输1个符号，而通过不同的调制方式，可以在一个码元符号上负载多个bit位信息。–<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E7%89%B9%E7%8E%87">维基百科</a></p>
-
-<h2 id="framing-error">帧错误(framing error)</h2>
-
-<p>当收发双方以不同的波特率进行通信时，容易出现帧错误的现象。</p>
-
-<h1 id="section-7">数据传输极限</h1>
-
-<h2 id="nyquist-sampling-theroem">Nyquist Sampling Theroem</h2>
-
-<p>一个无噪声的(noiseless/error-free)的介质的最大传输速率：</p>
-
-<ul>
-  <li>$D$：数据比率(bit)每秒，bps</li>
-  <li>$B$：带宽(hz)</li>
-</ul>
-
-<p>对于使用二进制信号的方案而言，</p>
-
-<p>$Data\ Rate = D = 2B$</p>
-
-<p>对于使用K阶信号的方案而言，</p>
-
-<p>$D = 2B\log_2 K$</p>
-
-<h2 id="shannons-theorem">Shannon’s Theorem</h2>
-
-<p>这个定理针对的是有噪声介质。</p>
-
-<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
-信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
-
-<p>对于有噪声介质的最大数据率为:</p>
-
-<p>$D = B \log_2(1 + S / N)$</p>
-
- -->
-    
-        <p>第二篇……不要怂就是干…… おかわり！</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" title="Foundation of Networking"><img src="http://MeowAlienOwO.github.io//images/46203097.jpg" alt="Foundation of Networking"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-13T16:59:52+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/">May 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" rel="bookmark" title="Foundation of Networking" itemprop="url">Foundation of Networking</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
-
-<p>这个照旧是网络的笔记……John个大坑比……</p>
-
-<h1 id="section">网络基础</h1>
-
-<h2 id="network">何为网络(Network)</h2>
-
-<p>网络是在节点之间传输数据的一种结构。</p>
-
-<ul>
-  <li>节点是多种多样的</li>
-  <li>节点的数量必须多余两个</li>
-</ul>
-
-<p>网络由如下设备组成：</p>
-
-<ul>
-  <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
-  <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
-  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
-(switch)两种。</li>
-</ul>
-
-<p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
-
-<h2 id="protocals">互联网协议(protocals)</h2>
-
-<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
-<em>顺序</em>与对信息传输的<em>行动</em>。</p>
-
-<h2 id="host">主机(host)</h2>
-
-<p>主机以包(packets)的形式传输信息。算法如下：</p>
-
-<ol>
-  <li>取得需要传输的信息</li>
-  <li>将其截成定长为$L$的小段(chunks)，称之为包(packet)</li>
-  <li>将包以某个传输比率(transmission rate)$R$传输至网络</li>
-</ol>
-
-<p>传输比率又称连接容量(link capacity)，连接带宽(link bandwidth)，计算公式如下：</p>
-
-<p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
-
-<h2 id="physical-media">物理媒体(Physical Media)</h2>
-
-<p>比特(bit)：在发送者与接收者之间传输</p>
-
-<p>物理链接(physical link)：连接发送者与接收者的物理材料</p>
-
-<p>导向媒体(guided media)：传输信号的固体媒体，比如铜导线，光纤，同轴电缆</p>
-
-<p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
-
-<h2 id="network-core">网络核心(network core)</h2>
-
-<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
-路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
-
-<h2 id="section-1">网络结构</h2>
-
-<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
-这样才能做到路由器之间的通讯。</p>
-
-<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
-但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
-同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
-使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
-
-<p>网络的层级如下：</p>
-
-<ol>
-  <li>一级网络服务提供商(Tier 1 ISP)与内容提供网络(Content Provider Network)</li>
-  <li>广域网交换点(IXP)</li>
-  <li>区域ISP</li>
-  <li>入口ISP</li>
-</ol>
-
-<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
-
-<p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
-
-<p>分组通过最佳路径(取决于 路由算法)路由到目标。但并不是所有在相同两个主机之间传送的分组（即使是来自同一消息的那些分组）一定要沿着相同的路径传送。</p>
-
-<p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
-
-<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
-终端-终端延迟在理想状况下为$2L / R$。</p>
-
-<h3 id="section-2">队列与丢包</h3>
-
-<p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
-
-<ul>
-  <li>包被存储在队列中等待，或者</li>
-  <li>当队列存储容量满了以后，包会丢失(dropped)</li>
-</ul>
-
-<h3 id="section-3">两个关键的的网络核心功能</h3>
-
-<p>路由(routing):决定包的源地址路由器</p>
-
-<p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
-
-<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
-
-<p>根据
-<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
-双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
-信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
-
-<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
-
-<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
-不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
-现代的通信中应用相对较少</p>
-
-<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
-进行通信的技术。典型应用有GSM。</p>
-
-<h3 id="vs-">封包交换 vs 电路交换</h3>
-
-<p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
-
-<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
-但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
-
-<h3 id="section-4">丢包与延迟的来源</h3>
-
-<h4 id="section-5">丢包</h4>
-
-<p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
-
-<h4 id="section-6">延迟</h4>
-
-<p>对于单路由节点而言，延迟的来源有四个：</p>
-
-<ul>
-  <li>节点处理过程(nodal processing)：包含比特错误校验(check bit errors)，确定输出连接等，通常小于毫秒量级</li>
-  <li>队列延迟(queueing delay)：等待输出连接的传输时间，由当前连接的拥挤程度而决定</li>
-  <li>转换延迟(transmission delay)：将数据输入传输连接的时间，计算方式为$d_{trans} = L / R$,$L$表示包长度，$R$表示带宽</li>
-  <li>传输延迟(propagation delay):数据在连接媒体之间传输的时间，计算方式为$d_{prop} = d / s$，$d$表示物理连接的长度，$s$表示传输速度的中位数</li>
-</ul>
-
-<p>计算延迟的公式为：</p>
-
-<p>$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$</p>
-
-<h2 id="section-7">层级</h2>
-
-<h3 id="section-8">网络协议层级栈</h3>
-
-<ol>
-  <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
-  <li>传输层(transport)：进程-进程(process-process)之间的数据传输，TCP，UDP</li>
-  <li>网络层(network)：路由相关，如IP，路由协议</li>
-  <li>连接层(link)：在相邻网络元素之间的数据传输，如以太网(Ethernet),802.111协议，PPP等</li>
-  <li>物理层(physical)：二进制数据</li>
-</ol>
-
-<h3 id="isoosi">ISO/OSI七层模型</h3>
-
-<p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
-
-<ol>
-  <li>表示层(presentation)：允许应用解释数据的意义，比如加密，压缩，机器特定的约定，等</li>
-  <li>会话层(session)：同步，校验点(checkpoint)，从数据交换中恢复等等</li>
-</ol>
-
-<p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
-
- -->
-    
-        <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
+=======
         <a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" title="MAL-下推自动机与上下文无关语言"><img src="http://MeowAlienOwO.github.io//images/31958311.png" alt="MAL-下推自动机与上下文无关语言"></a>
       </div><!-- /.entry-image -->
     
@@ -734,6 +445,919 @@ wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是�
   <header>
     
       <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/" title="操作系统笔记二：内存管理"><img src="http://MeowAlienOwO.github.io//images/27167056.jpg" alt="操作系统笔记二：内存管理"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-03-30T19:10:06+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/">March 30, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-30-operating_system/" rel="bookmark" title="操作系统笔记二：内存管理" itemprop="url">操作系统笔记二：内存管理</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- 操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。
+
+
+# 基础知识
+## 硬件存储器层级与操作系统
+
+现代的算机通常有如下几种存储层级，由速度快慢排列如下：
+
+1. 寄存器，1/2/3级缓存
+2. 主内存
+3. 硬盘
+
+更高级的存储器更快，但是代价更加昂贵以及更加容易被改变，低级的则相反。
+内存可以被认为是一个线性的字节/单词的数组，而操作系统负责提供内存的抽
+象。
+
+操作系统负责：
+
+1. 根据进程的请求分配/收回内存
+2. 追踪内存的使用情况
+3. “透明地”(Transparently)在内存与硬盘之间移动信息
+4. 在进程之间分配内存，模拟"无限大"的内存空间
+5. 多任务的情况下，负责控制权限分配
+
+## 内存管理模型
+
+内存管理模型有两种：连续模型与非连续模型。
+
+连续模型将所有的内存看作单个内存块，而非连续模型将内存分为若干内存块，
+或者称之为段(segments)。这些段可以在物理内存中的任何位置，而不需要一定与彼此相邻。
+
+至于内存的分区方面，对于单任务系统而言，只需要一个分区即可。而对于多任务系统而言，分区有多种方案。多任务系统可以是动态分区的，也可以是固定分区的。对于固定分区而言，有相等分区与不等分区两种。
+
+### 单任务系统
+
+单任务系统每次只允许一个用户进程在内存中被执行。内存的一部分被操作系统使用，而另外一部分被用户系统所使用("MS-DOS"方式)。被操作系统所使用的部分一般而言是固定大小的，通常可以直接使用物理内存。
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
+
+<p>猫，或曰调制解调器，用于调制数字信号为模拟信号，或者将模拟信号解调制为数字信号。双向传输需要两边都有猫。</p>
+
+<<<<<<< HEAD
+<h1 id="line-code">线路码(line code)</h1>
+<p>线路码（英语：Line code），有时也称传输码。为了便于数字信号传输，将原始的数据码进行一定的修改就得到了线路码。举例来说，当原始数据中存在长时间连续的1或0时，接收方便很难得知每一位信号的时长，也可能误以为信号传输终结而中断通信。线路码还可增加纠错功能，适应信道的特性。常见的线路码包括AMI码、HDB3码等。</p>
+
+<h2 id="section-6">时钟恢复与不归零编码</h2>
+
+<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)
+以下是介绍：</p>
+
+<h3 id="nrz">NRZ</h3>
+<p>在电信学中，不归零编码 (non-return-to-zero line code, NRZ) 指的是一种二进制的讯号代码，在这种传输方式中，1 和 0 都分别由不同的电子显著状态来表现，除此之外，没有中性状态、亦没有其他种状态。这种脉冲的能量比归零代码要来得密集，但它传输时是不停歇的，这代表同步信号必须在此代码之外独自传输。</p>
+
+<p>在给定一个信号频率的情况下（比如说位元率），NRZ 代码只需要曼彻斯特代码 (Manchester code) 的一半带宽。</p>
+
+<p>当用于异步传输时，由于缺少中性状态，必须依靠其他种机制，来达成在同步传输中使用时钟侦测错误的资料回复工作。</p>
+
+<p>NRZ-Level 本身并非一种同步系统，而更是一种编码方式，因为它可用于同步环境、或异步环境中，也就是不管有没有明确的时钟讯号，都可以运作。所以，讨论 NRZ-Level 编码是否在时钟“跳动 (clock-edge)”或“跳动之间 (between clock-edge)”并非必要的，因为每一个讯号一定都是以给定的时脉来传输的，这就暗示了讯号内在的时脉。真正的问题是，能否在接收端以当初取样时的同样频率重绘该讯号。</p>
+
+<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
+RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
+
+<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)
+### NRZI
+一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
+
+<p>零改变：“0”为物理电平上的改变。“1”为没有改变。</p>
+
+<p>改变发生在当下位元的时钟脉冲前缘。</p>
+
+<p>但是，NRZI 会有长串的 0或1 位元出现，导致时脉回复有困难，可以使用一些编码技巧（例如游长限制）来解决。曼彻斯特代码永远有时脉信号，但传输效率比 NRZI 低。</p>
+
+<p>NRZI 编码被用于磁带的录音、CD的刻录和标准 USB 的传讯。</p>
+
+<p>常见的NRZI编码: 0101 -&gt; H HLLH （高电平为基准，第一个为0表示电平不改变，第二个为1表示改变电平为低，第三个0表示电平不变仍为低，第四个1表示电平改变为高，计算方式为之前电平与当前的XOR）</p>
+
+<h3 id="clock-recovery">时钟恢复(clock recovery)</h3>
+<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。
+简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
+
+<h2 id="manchest-encoding">曼彻斯特编码(Manchest Encoding)</h2>
+
+<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。
+好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
+
+<p>计算曼彻斯特编码时，要使用时钟比特位与编码比特位异或。</p>
+
+<p>曼彻斯特编码的例子：</p>
+
+<p>0101 -&gt; H LH HL LH HL</p>
+
+<p>以太网使用曼彻斯特编码。</p>
+
+<h2 id="baud-rate">波特率(Baud Rate)</h2>
+
+<p>在电子通信领域，波特率（Baud）即调制速率，指的是有效数据信号调制载波的速率，即单位时间内载波调制状态变化的次数。它是对符号传输速率的一种度量，1波特即指每秒传输1个符号，而通过不同的调制方式，可以在一个码元符号上负载多个bit位信息。–<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E7%89%B9%E7%8E%87">维基百科</a></p>
+
+<h2 id="framing-error">帧错误(framing error)</h2>
+
+<p>当收发双方以不同的波特率进行通信时，容易出现帧错误的现象。</p>
+
+<h1 id="section-7">数据传输极限</h1>
+
+<h2 id="nyquist-sampling-theroem">Nyquist Sampling Theroem</h2>
+
+<p>一个无噪声的(noiseless/error-free)的介质的最大传输速率：</p>
+
+<ul>
+  <li>$D$：数据比率(bit)每秒，bps</li>
+  <li>$B$：带宽(hz)</li>
+</ul>
+
+<p>对于使用二进制信号的方案而言，</p>
+
+<p>$Data\ Rate = D = 2B$</p>
+
+<p>对于使用K阶信号的方案而言，</p>
+
+<p>$D = 2B\log_2 K$</p>
+
+<h2 id="shannons-theorem">Shannon’s Theorem</h2>
+
+<p>这个定理针对的是有噪声介质。</p>
+
+<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
+信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
+
+<p>对于有噪声介质的最大数据率为:</p>
+
+<p>$D = B \log_2(1 + S / N)$</p>
+
+ -->
+    
+        <p>第二篇……不要怂就是干…… おかわり！</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" title="Foundation of Networking"><img src="http://MeowAlienOwO.github.io//images/46203097.jpg" alt="Foundation of Networking"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-13T16:59:52+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/">May 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/foundation_of_networking/" rel="bookmark" title="Foundation of Networking" itemprop="url">Foundation of Networking</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+
+<p>这个照旧是网络的笔记……John个大坑比……</p>
+
+<h1 id="section">网络基础</h1>
+
+<h2 id="network">何为网络(Network)</h2>
+
+<p>网络是在节点之间传输数据的一种结构。</p>
+
+<ul>
+  <li>节点是多种多样的</li>
+  <li>节点的数量必须多余两个</li>
+</ul>
+
+<p>网络由如下设备组成：</p>
+
+<ul>
+  <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
+  <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
+  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
+(switch)两种。</li>
+</ul>
+
+<p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
+
+<h2 id="protocals">互联网协议(protocals)</h2>
+
+<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
+<em>顺序</em>与对信息传输的<em>行动</em>。</p>
+=======
+
+这种方式没有保护用户进程的必要，因为同一时间只有一个程序在运行。由于一个进程通常使用了所有的内存空间，同一进程通常被分配在同样的内存地址。当然，程序员可以用覆盖的方法来使用更多的空间，但是这种方法看起来更容易造成麻烦。
+
+对于单任务系统而言，它的缺点是显而易见的：
+1. 由于用户进程可以直接使用物理内存，它有可能会对操作系统的内存进行读写。
+2. 如果我们将操作系统自身看作一个进程的话，实际上有两个进程同时运行(ppt原话翻译，我的理解是这可能是因为虽然是两个进程，但是由于单任务的特性，一次只能运行一个进程，这也意味着操作系统进程在用户进程被激活时是处于suspend状态，结合前面的直接读取权限，很可能用户进程对操作系统内存的读写是没有保护的。另一个问题可能也是进程排程的问题，操作系统进程无法跟用户进程协同。)
+3. 对硬件资源的利用率低(比如说IO)
+4. 无法适应需要多任务的场景
+
+尽管如此，单任务系统依然在一些基础的嵌入式系统与家电中广泛运用。
+
+
+### 多任务系统
+
+从另一个角度而言，我们可以通过上下文切换来在单任务系统上模拟多任务：当需要切换进程的时候，将进程信息保存至硬盘，然后将新的进程信息读入并执行。但是这必然带来昂贵的开销。于是，真正的多任务系统就必不可少了。
+
+我们首先做一个假设：进程会使用$p%$的时间来等待IO事务。那么，当内存中有$n$个进程的时候，所有的$n$个进程等待IO的概率为$p^n$，而CPU的利用率为$1 - p^n$。显而易见的，当同时运行的进程越多时，CPU的利用率越高，而当面向IO的进程变多时，CPU的利用率会相对有所降低。
+
+但是，这个假设是建立在所有进程都是相互独立的基础上的，而在现实中，这是不可能的。不过我们仍旧可以用其来进行粗略的估算。
+
+假设一个计算机有1M的内存，操作系统使用了200k，剩下的空间分配给4个200k的进程。那么CPU的利用率就将在60%以下。如果我们增加1M内存，将这些内存分配给5个200k的进程，那么我们的CPU利用率就有了87%。如果我们再增加1M的内存，我们就会得到大于96%的CPU利用率。由此看出，多线程可以很有效地提高资源利用率。
+
+#### 固定分区（同等大小）
+
+固定分区方法将所有用于用户进程的内存分成固定大小的若干个段，这些段拥有固定大小以及固定的位置。
+
+优点：
+
+* 任何进程都可以使用任何足够大的分区
+* 开销较小，同时实现简单
+* 操作系统只需要追踪被使用的区块与空闲的区块即可
+
+缺点：
+
+* 内存利用率相对较低，内部碎片化程度(internal fragmentation)在分区过大的情况下会很高，分区可能会过大
+* 如果程序太大，需要重写内存（折腾程序员）
+* 分区过小，追踪、分配的开销会变得很大
+
+同时，固定分区还需要考虑如何将区块分配给任务，如何决定交换等。于是我们需要一些其他的策略来解决这些问题。
+
+#### 固定分区改（不同等大小）
+
+不同等大小分区策略将分区分成大小不同的几个固定区块，这样做的好处是可以增加内存使用率，以及可以更加灵活地分配资源。内部碎片化的程度也因此可以得到控制。相对的，对于不同等大小分区而言，我们需要考虑的是如何将合适的分区分配给相对应的进程。
+
+一种策略是，对于每个分区，我们设置一个私有队列，每次分配进程时，将其安排在空间足够大，且最小的分区:`p.size < m.size && m.isMin`。这种策略，由于每次都能保证进程分配的分区足够且最小，内部碎片度会很有效地减少。但是相对的，内存使用率就会下降（总是将进程分配给最小的段），以及会导致饥饿的发生。
+
+另一种策略则将队列设为全局的，对于每一个进程，分配给当前可用的、装的下的最小队列:`p.size < m.size && m.isAvailable && m.isMin`。
+这种策略没有那么容易饥饿(可以将小程序分给大分区)，然而相对的，内部碎片化程度也会相对提高。
+
+另一方面，我们需要注意的是，对内存需求的计算依赖于在程序开始时的估算，而程序的内存需求可能会随着运行而改变。同时，我们也无从预先得知程序运行时内存的分配情况。而进程更可能会被交换(swap)出去，然后被重新载入。那么，我们需要动态的去改变内存分配。
+
+# 地址管理
+
+
+## 基础知识
+
++ 相对分配(relocation)：操作系统无法在程序运行之前预先知道这个程序的分区与地址。这就意味着操作系统不能简单地静态地分配绝对地址，而相对的，地址必须根据运行时的情况进行相对分配。
+
++ 保护：当有复数的程序在内存中运行时，必须进行保护。
+
++ 逻辑地址(logical address)是进程所知道的内存形式。其独立于当前的物理内存，比如同程序的开始地址相对。
+
++ 物理地址(physical address)表示在主内存中的实际地址。逻辑地址空间必须以某种方式映射到物理地址空间上。
+
+## 管理方法
+
+- 编译时静态相对分配内存：一个进程每次都会被放在相同的地址
+- 在载入时动态相对分配内存：逻辑地址是相对的，每次载入的时候通过计算偏移量来分配内存块。这会使载入变慢。
+- 运行时动态分配内存
+
+在CPU中，有两个特殊的寄存器用来存储基准地址(base address)与极限(limit)。基准寄存器用于储存分区的开始地址(start address)，极限寄存器用来存储分区的极限
+
+运行时，基准寄存器的地址加上逻辑地址就可以得出物理地址，得出的结果会同极限寄存器中储存的值进行比较来判断是否有效。这种方式需要硬件支持。
+
+固定分区会导致内部碎片(internal fragmentation)：与进程需求完全一致的分区可能不存在，那么空间就有可能没有被完全使用。于此相反，动态分区可以动态地改变内存的开始地址与极限地址。同时，一个进程通常会被分配一块与其内存需求完全相符的连续地址，这就很有效的减少了内存的碎片化程度。
+
+## 交换(swapping)
+
+交换可以将进程的一部分信息保存在硬盘里，然后在主内存跟硬盘之间交换信息。
+
+我们需要使用交换的理由如下：
+
++ 我们可能有多余分区数的进程数量（假设我们使用固定分区方法）
++ 总内存的需求大于空余内存需求
++ 一些进程只是偶尔运行
++ 进程的内存需求可能会改变
+
+
+外部碎片：
+进程的交换也可能会导致内存的碎片化。将一个进程交换出去时，内存中会留下来一个“洞”，当另外的程序使用这个"洞"时，可能并没有使用整个空间，这样一来就会导致一些小小的，没有使用过的内存碎片。同时，一个新进程可能对于这个空间而言过大，那么就有可能导致这个空间自身成为一个碎片。另一方面，对于内存压缩来说，寻找这些碎片的代价也是非常高昂的，同时也需要动态的相对内存分配。
+
+现在，内存管理的问题是：
+
+- 如何快速地将可用的内存分配给进程
+- 如何追踪内存的使用->链表/表
+
+## 动态分区
+
+我们需要一个更加复杂的内存分配数据结构来处理可变的使用与空闲的分区数量。
+
+### 链表
+链表是一个可以实现如此的数据结构。示意图如下：
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
+
+<h2 id="host">主机(host)</h2>
+
+<p>主机以包(packets)的形式传输信息。算法如下：</p>
+
+<<<<<<< HEAD
+<ol>
+  <li>取得需要传输的信息</li>
+  <li>将其截成定长为$L$的小段(chunks)，称之为包(packet)</li>
+  <li>将包以某个传输比率(transmission rate)$R$传输至网络</li>
+</ol>
+
+<p>传输比率又称连接容量(link capacity)，连接带宽(link bandwidth)，计算公式如下：</p>
+
+<p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
+
+<h2 id="physical-media">物理媒体(Physical Media)</h2>
+
+<p>比特(bit)：在发送者与接收者之间传输</p>
+
+<p>物理链接(physical link)：连接发送者与接收者的物理材料</p>
+
+<p>导向媒体(guided media)：传输信号的固体媒体，比如铜导线，光纤，同轴电缆</p>
+
+<p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
+
+<h2 id="network-core">网络核心(network core)</h2>
+
+<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
+路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
+
+<h2 id="section-1">网络结构</h2>
+
+<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
+这样才能做到路由器之间的通讯。</p>
+
+<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
+但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
+同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
+使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
+
+<p>网络的层级如下：</p>
+
+<ol>
+  <li>一级网络服务提供商(Tier 1 ISP)与内容提供网络(Content Provider Network)</li>
+  <li>广域网交换点(IXP)</li>
+  <li>区域ISP</li>
+  <li>入口ISP</li>
+</ol>
+
+<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
+
+<p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
+
+<p>分组通过最佳路径(取决于 路由算法)路由到目标。但并不是所有在相同两个主机之间传送的分组（即使是来自同一消息的那些分组）一定要沿着相同的路径传送。</p>
+
+<p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
+
+<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
+终端-终端延迟在理想状况下为$2L / R$。</p>
+
+<h3 id="section-2">队列与丢包</h3>
+
+<p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
+
+<ul>
+  <li>包被存储在队列中等待，或者</li>
+  <li>当队列存储容量满了以后，包会丢失(dropped)</li>
+</ul>
+
+<h3 id="section-3">两个关键的的网络核心功能</h3>
+
+<p>路由(routing):决定包的源地址路由器</p>
+
+<p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
+
+<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
+
+<p>根据
+<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
+双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
+信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
+
+<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
+
+<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
+不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
+现代的通信中应用相对较少</p>
+
+<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
+进行通信的技术。典型应用有GSM。</p>
+
+<h3 id="vs-">封包交换 vs 电路交换</h3>
+
+<p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
+
+<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
+但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
+
+<h3 id="section-4">丢包与延迟的来源</h3>
+
+<h4 id="section-5">丢包</h4>
+
+<p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
+
+<h4 id="section-6">延迟</h4>
+
+<p>对于单路由节点而言，延迟的来源有四个：</p>
+
+<ul>
+  <li>节点处理过程(nodal processing)：包含比特错误校验(check bit errors)，确定输出连接等，通常小于毫秒量级</li>
+  <li>队列延迟(queueing delay)：等待输出连接的传输时间，由当前连接的拥挤程度而决定</li>
+  <li>转换延迟(transmission delay)：将数据输入传输连接的时间，计算方式为$d_{trans} = L / R$,$L$表示包长度，$R$表示带宽</li>
+  <li>传输延迟(propagation delay):数据在连接媒体之间传输的时间，计算方式为$d_{prop} = d / s$，$d$表示物理连接的长度，$s$表示传输速度的中位数</li>
+</ul>
+
+<p>计算延迟的公式为：</p>
+
+<p>$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$</p>
+
+<h2 id="section-7">层级</h2>
+
+<h3 id="section-8">网络协议层级栈</h3>
+
+<ol>
+  <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
+  <li>传输层(transport)：进程-进程(process-process)之间的数据传输，TCP，UDP</li>
+  <li>网络层(network)：路由相关，如IP，路由协议</li>
+  <li>连接层(link)：在相邻网络元素之间的数据传输，如以太网(Ethernet),802.111协议，PPP等</li>
+  <li>物理层(physical)：二进制数据</li>
+</ol>
+
+<h3 id="isoosi">ISO/OSI七层模型</h3>
+
+<p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
+
+<ol>
+  <li>表示层(presentation)：允许应用解释数据的意义，比如加密，压缩，机器特定的约定，等</li>
+  <li>会话层(session)：同步，校验点(checkpoint)，从数据交换中恢复等等</li>
+</ol>
+
+<p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
+
+ -->
+    
+        <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+=======
+
+
+#### 第一匹配算法(first fit algorithm)
+
+在初始化的时候，整个内存被认为是一整块，标记为空闲(free)。
+
+当请求内存时，遍历整个链表，直到找到一个足够大的空闲空间。如果这个空间恰好需求相等时，将这块空间标记为使用(used)。如果这块空间比需求的空间大，将接下来的空间切分成另一块链表的节点，标记为空闲。当一块内存被释放时，该内存被设定为空闲。
+
+#### 匹配算法改-第二匹配算法(second fit algorithm)
+
+第一匹配算法的近代化改修型。
+
+第一匹配算法在第一次请求内存时开始进行扫描，而第二匹配算法保存一个当前搜索位置的指针。第二次搜索时，从上一次扫描的结尾开始。这种算法可以保证所有的内存块都被扫描。但是第二匹配算法在实验中表现出来的效率比第一匹配差。
+
+#### 匹配算法改二-最佳匹配算法(best fit algorithm)
+
+第一匹配只匹配第一个<strong>足够大</strong>的空间，假设在之后的链表中存在一个恰好符合的空间，那么就会导致内存碎片的出现。
+
+最佳匹配算法总是选择一个大小最适合的区块进行分配。然而，由于搜索的存在，必然会导致整个算法的速度降低。同时，令人惊讶的是，这种算法也会导致更高的内存浪费——每个“最合适”的区块万一不是恰好，就会被分割出一块最小的空间。
+
+#### 配算法改三-最差匹配算法(worst fit algorithm)
+
+为了防止最佳匹配算法所导致的大量碎片内存，最差匹配算法每次都会选择一块最大的内存，这样子切分下来的内存就通常会有更高的可用性。
+
+然而在实际应用中似乎并没有什么卵用。
+
+#### 快速匹配与其他算法
+
+快速匹配大致是保存一份链表，里面分别保存固定大小的内存块，
+比如4byte,8byte……对于一个内存请求而言，寻找最接近的一块内存分配/
+如果是奇数大小的内存，或者寻找最近，或者在一个独立的表中处理内存。
+
+### 点阵(bitmap)
+
+作为链表的一种补充，点阵也是一种有效的数据结构。
+
+这些内存方法同样还有一些其它问题，比如进程运行时会请求更多内存等，
+我们需要动态的内存分配方法。
+
+
+
+# 分页(Paging)
+
+分页是基于固定分区(fixed partitioning)与代码重分配(code re-location)来的非连续内存管理方案。
+
+- 内存被分成很小的块(4kb左右)，每个进程被分配不止一个块
+- 内存块不必物理上连续，但是进程仍然认为他们是连续的
+
+同如上介绍的连续内存管理方案相比，分页方法有如下好处：
+
+- 内部碎片只会发生在最后的内存块
+- 没有外部碎片，物理上所有的内存块都以栈的形式一个连着一个存储
+
+## 定义
+
+一个页(page)是一个在逻辑地址空间(logical address space)上的连续小内存块。
+
+相对的，一个帧(frame)是一个在物理内存(physical memory)上连续小内存块。
+
+通常页与帧具有相同的大小，为2的指数，大致在512byte与1Gb之间。
+
+## 重分配(relocation)
+
+逻辑地址需要被转换成物理地址，对于每一个页，我们需要一个基寄存器(base register)
+来存储相对的帧所在的地址位置。显而易见的我们需要复数的基寄存器，这些寄存器被存储在分页表(page table)中。
+分页被视为一个将页编号与帧编号一一对应的函数映射，我们有：
+
+$frameNum = f(pageNum)$
+
+页面数字被用作分页表的索引(index)，存储其相对应的帧在内存中的顺序。
+
+每一个进程都有他们自己的分页表，存储他们自己的基寄存器。
+
+操作系统维护一个空闲帧的列表。
+
+## 地址转换的实现
+
+一个逻辑地址是想对于程序的开始而言的，其包含两个部分：
+
+- 左边n个比特位存储页的序数
+- 右边m个比特位存储在页中的偏移量(offset)
+
+物理地址拥有与逻辑地址相同的格式，他们之间的转换由分页表实现。
+
+地址转换的步骤：
+
+1. 将页序数从逻辑表中取出
+2. 使用页序数在分页表中寻找帧序数
+3. 将偏移量加到帧的基寄存器上
+
+地址转换的硬件实现：
+
+1. CPU的内存管理单元(memory management unit)用于拦截(intercept)(?)逻辑地址
+2. 使用分页表进行地址转换
+3. 得出的物理地址被放入内存总线(memory bus)
+
+# 虚拟内存(virtual memory)
+
+分页依然存在一些问题：
+
+- 代码的执行与数据结构被分解成很小的子集
+- 在同一时刻，不是所有的页面都需要被读入内存，只有在需求时才读入
+
+所以我们引入虚拟内存方法。虚拟内存指只有在需要的时候将对应的程序信息读入内存，
+但是对于程序而言，它所"看"到的仍然是一整块可用的内存。
+
+虚拟内存允许逻辑地址空间大于物理内存空间。理论上，64位机器可以支持$2^64$个逻辑地址。
+这意味着机器有更大的空间容纳更多的进程，而更多的进程可以提高CPU使用率。
+
+## 页面错误(page fault)
+
+页面错误是指在运行过程中，发现所需要的地址并不在内存中而引发的一个异常，通常作为虚拟内存的交换机制的触发器。
+页面错误会导致一个中断(interrupt)，进程进入阻塞状态(blocked state)。操作系统触发一个IO操作，
+将不存在的页面读入内存，这里可能会发生上下文切换。IO操作处理完了以后，发出一个中断信号表明IO操作完成，
+进程进入准备状态。常驻集(resident set)用于表示被读入主内存的页面。
+
+
+处理页面错误的流程：
+
+1. 操作系统陷阱(trap operating system)
+   - 储存当前的寄存器与进程状态
+   - 分析中断，例如页面错误
+   - 合法化页面引用，确定页位置
+   - 处理IO事务：队列，寻找，延迟，转换
+2. (可能的)上下文切换
+3. 中端等待IO完成
+   - 存储进程状态/寄存器
+   - 分析磁盘终端
+   - 更新分页表与在内存中的页面
+   - 等待原先的进程被排入时间表
+4. 上下文切换至原先的进程
+     
+## 分页表的内容
+
+> | other | caching | referenced | modified | protection | present/absent | frame num |
+
+- ”出席/缺席“位(present/absent bit)用于指示是否在内存中
+- “更改”位(modified bit)用于表示页面是否经过更改
+- “引用”位(referenced bit)用于表明页面是否在使用
+- “保护”域(protection bits)用于表明页面的读写执行权限
+- “缓存”位(caching bit)用于表明页面是否写入设备寄存器
+
+## 处理大型分页表
+
+在16bit机器上，地址空间为2^16，假设一个页面为2^10bit,剩下6bit用于标记页面序数，总共可以维护64个页面表。
+32bit机器上，一个页面为4kb(2^12)，有20位可以标记页面，总共维护的数量大约为100000。64bit机器拥有更加大量的页面数量。
+如何处理更大的页面数量，是一个问题。
+
+首先，对如此大的分页表，将其存储在寄存器不是一个好选择。我们选择将其放在主内存中(虚拟内存)。
+
+- 多级分页表(multi-level page table)
+- 逆分页表(inverted page table)
+
+另一个需要考虑的是处理时间，由于每次分页都需要进行转换，速度必须足够快。
+
+### 多级分页表
+
+这是一个简单的实现方式。考虑一个32位机器，对于每一个地址，我们使用10bit的PT1域，10bit PT2域，12bit的偏移量。令页面大小4k，总共2^20个页面。
+
+多级分页表不将所有的页面全部放在内存中，在如上例子中，我们将分页表分为两个层级，每个分页表都有2^10项，第一层分页表只有一个，对应1024个子分页表，在地址上我们使用PT1域。第二层分页表有1024个，每个对应1024个页面，使用PT2域。得到目标地址的方法：
+
+1. PT1+顶层表指针得到第二层表指针
+2. 第二层表指针+PT2得到帧序号
+3. 帧序号+偏移量得到目标物理地址
+
+对于任意一个地址，我们只需要保存第一层与相对的第二层表即可。
+处理时间：
+$L * T + C$,
+
+L 表示层级数， T表示处理每个表的时间，C表示剩余的常数项。
+
+当表已经在内存中时，寻找时间会变成原来的3倍(加上处理两个表)
+
+
+### TLB
+
+我们使用传输后备缓冲器TLB(Translation Look aside Buffer)来对一些经常使用的页面与表的入口进行缓存。
+页面表的搜索与TLB中的搜索是平行的。
+TLB同其他的缓存没有什么不同。
+
+搜索算法：
+
+1. 同时搜索TLB与分页表
+2. 如果TLB中搜索到，直接得出帧序号+偏移量(TLB Hit)
+3. 如果不在TLB中，搜索分页表得到帧序号(TLB Miss)
+
+
+假设我们需要20ns在TLB中寻找，内存处理时间100ns
+
+对于单层表而言,TLB Hit时间为20 + 100ns(TLB搜索时间+内存)
+TLB Miss时间为20 + 100 + 100ns(TLB搜索时间+分页表搜索时间+内存)
+
+### 逆分页表
+
+一个“正”分页表的大小同虚拟空间大小对应，而一个“逆”分页表同主内存的大小对应。
+逆分页表通过哈希函数来得到页面数字，而且使用帧序号作为索引。
+
+### 击打(Thrashing)
+
+假设所有的可以使用的表都在被活跃地使用，读入一个新的内存表时，这个表需要马上被交换出来，然后很快被读回去。
+
+击打发生在某块内存被交换出去，然后马上被读入的时候，使得CPU使用率下降
+CPU使用率下降会导致多任务程度上升，而多任务程度上升会进一步增加IO事务，减低CPU使用率。
+
+击打的原因包括：
+
+- 过高的多任务程度
+- 单个进程被分配的页面太少
+
+我们可以使用减低多任务率以及使用一个更好的页面替换策略来防止击打的发生。
+
+
+# 页面替换算法(Page-replacing Algorithms)
+
+
+
+## 页面请求(demand paging)
+
+令ma, p, pft表示内存处理时间(memory access time)，页面错误率(page fault rate)，页面错误处理时间(page fault time)，
+总处理时间(access time)为:
+
+$(1 - p) * ma + pft * p$
+
+一般而言处理时间与页面错误率成正比。
+
+虚拟内存依赖于共用页面组的位置。进程从一个位置移向另一个，如果所有需求的页面都在内存中，就不会出现页面错误。
+
+页面请求从内存中没有页面开始，第一个指令会马上导致页面错误。之后，页面错误数量会增加，但是最终会维持在一个稳定的水平。
+
+## 页面预载入(Pre-paging)
+
+当进程开始后，所有被预计所要使用的页面(工作集，working set)会一次性被读入内存。这将减少页面错误数量，而且减少转换所需时间。
+
+预载入在页面错误产生之前发生，经常被用在进程被交换的时候。
+
+
+## 页面替换算法
+
+当一个新的页面载入时，操作系统需要选择一个页面来移除。这个选择是由页面替换算法所决定的。
+这个算法需要考虑时间成本以及防止击打。
+
+### 最优页面替换(optimal pae replacement)
+
+每一个页面都有一个接下来需要执行的操作/接下来再被调用所需要的时间长度的列表，将最长时间不用的页面交换出去。
+这个算法在实现上是不可能的。但是这可以被提前执行分析所应用，也可以提供一个页面错误数量的下界。
+
+### 最近未使用(not recently used, NRU)
+
+NRU使用引用比特位与更改比特位来寻找下一个页面。在开始的时候，所有的引用比特位都设置未0，并且周期性地重置为0。
+当页面错误发生时，操作系统检查分页表，根据这两个比特位的取值，分成四种页面类型(page class):
+
+1. 无引用，无更改
+2. 无引用，有更改
+3. 有引用，无更改
+4. 有引用，有更改
+
+NRU算法从编号低的类型开始，选取第一个非空类型中的一个任意页面移除。
+
+NRU的性能尚可，对于理解与实现而言也相对简单。
+
+### 先进先出
+
+先进先出维护一个链表，新的页面会加入链表的末端。
+每次交换的时候交换链表头的元素。这是一个简单的实现，但是会有比较糟糕的性能：它不知道哪些页面被经常使用。
+
+有改进型第二选择FIFO(second chance FIFO)
+
+如果一个页面在链表的前面且引用位为0，则将其交换；如果引用位非0，将这个页面放在链表的最后，重置其引用位。
+
+这个算法依然比较简单，但是开销非常大。同时，当所有的页面被引用时，它会退化为平凡的FIFO算法
+
+### 时钟替换算法(clock replacement algorithm)
+
+将第二选择FIFO的链表首尾相连就成为时钟替换算法。我们保存一个指针指向最老的页面。这个算法中，指针只能想一个方向移动。
+
+这个算法效率更高，但是当链表很长的时候表现依然糟糕。
+
+
+### 最近少使用(least recently used, LRU)
+
+最近少使用算法移除一个距今最长时间不用的页面。操作系统必须追踪页面上一次被使用距今的时间，每个分页表入口有一块区域来存储计数器。
+这个实现的开销也不小，因为我们需要维护一个根据时间排序的页面列表(或者搜索)。
+
+这个算法可以在硬件层面加入一个计时器实现。
+
+## 页面守护进程(Paging daemons)
+
+实际上，保存一些空闲的页面来应对未来可能发生的页面错误更加经济有效。许多系统现在有一个后台的页面守护进程，这些进程周期性地运行。
+当空闲的页面太少时，会使用页面交换算法选取若干页面交换出去。
+ -->
+    
+        操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" title="MAL-下推自动机与上下文无关语言"><img src="http://MeowAlienOwO.github.io//images/31958311.png" alt="MAL-下推自动机与上下文无关语言"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-03T14:49:02+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/">May 03, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/math/machine_and_their_language(2)/" rel="bookmark" title="MAL-下推自动机与上下文无关语言" itemprop="url">MAL-下推自动机与上下文无关语言</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
+
+<p>MD还要躺着……戴了护裆都能中招真是……</p>
+
+<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />
+
+<<<<<<< HEAD
+<h1 id="section">上下文无关语言</h1>
+=======
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">hg clone https://hg.libsdl.org/SDL SDL</span>
+<span class="go">cd SDL</span>
+<span class="go">mkdir build</span>
+<span class="go">cd build</span>
+<span class="go">../configure</span>
+<span class="go">make</span>
+<span class="go">sudo make install</span></code></pre></figure>
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
+
+<h2 id="context-free-grammar">上下文无关文法(Context-Free Grammar)</h2>
+
+<p>上下文无关文法由一个四元组$G=(V, \Sigma, S, P)$来描述。其中：</p>
+
+<ul>
+  <li>$V$ 是变量集合，或者说非停止符号集</li>
+  <li>$\Sigma$ 是停止符号集</li>
+  <li>$S$ 是起始变量</li>
+  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to
+\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
+  <li>$S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。</li>
+</ul>
+
+<p>我们使用如下的符号来表示一些推导规则：</p>
+
+<ul>
+  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法
+规则的一步推导(derivation)</li>
+  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*
+\beta$ 表示0或者多步推导。</li>
+  <li>$\Rightarrow_G$ 表示根据语法$G$的推导。</li>
+</ul>
+
+<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V
+\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A
+\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
+
+<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是
+上下文无关的(context-free)</p>
+
+<h2 id="context-free-language">上下文无关语言(Context-Free Language)</h2>
+
+<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言
+为：
+$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
+
+<p>当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。</p>
+
+<h2 id="kleene">联合，连接与Kleene星号运算</h2>
+<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cup
+L_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
+
+<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,
+S_2$分别是起始变量。</p>
+
+<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,
+G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
+
+<ul>
+  <li>对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 | S_2$</li>
+  <li>对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$</li>
+  <li>对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda | S_k S_1$</li>
+</ul>
+
+<h2 id="derivation-tree">派生树(Derivation Tree)与歧义</h2>
+
+<p>派生树用于表示CFG生成字符串的一般步骤。构建派生树的方法如下：</p>
+
+<ul>
+  <li>跟节点用于表示起始变量S</li>
+  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物
+该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
+  <li>任何叶结点表示一个符号或者空串</li>
+  <li>最终派生的字符串从左到右读入，排除任何的空串</li>
+  <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
+</ul>
+
+<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推
+导，我们永远对当前最左边的变量使用派生规则。</p>
+
+<p>我们有如下定理：
+如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
+
+<ul>
+  <li>$x$ 有多于一个的派生树</li>
+  <li>$x$ 有多于一个的左派生树</li>
+  <li>$x$ 有多于一个的右派生树</li>
+</ul>
+
+<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$
+有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
+
+<p>典型例子：</p>
+
+<blockquote>
+  <p>if (e1) if (e2) f(); else g();</p>
+</blockquote>
+
+<p>我们可以通过引入新变量来消除歧义。</p>
+
+<h2 id="simplified-formsnormal-forms">简式(Simplified Forms)与范式(Normal Forms)</h2>
+
+<h2 id="section-1">上下文无关语言的泵引理</h2>
+
+<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u
+\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
+
+<ul>
+  <li>$| wy | &gt; 0$</li>
+  <li>$| wxy | \leq n$</li>
+  <li>$\forall m \geq 0, vw^mxy^mz \in L$</li>
+</ul>
+
+<p>（证明待补充）</p>
+
+<h2 id="section-2">泵引理的应用</h2>
+
+<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语
+言非上下文无关中的应用。</p>
+
+<p>令$u$是一个形如$a^nb^nc^n$的字符串且$| u | \geq n$</p>
+
+<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|
+wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中
+的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，
+但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性
+矛盾。</p>
+
+ -->
+    
+        <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+<<<<<<< HEAD
         <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system-_memory_management/" title="操作系统笔记二：内存管理"><img src="http://MeowAlienOwO.github.io//images/27167056.jpg" alt="操作系统笔记二：内存管理"></a>
       </div><!-- /.entry-image -->
     
@@ -1397,12 +2021,539 @@ display support.</p>
 <p><img src="http://MeowAlienOwO.github.io/images/linus-fuck-you.png" alt="" /></p>
 
 <h1 id="mac-os">Mac OS</h1>
+=======
+        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-05-operating_system/" title="操作系统笔记一：进程"><img src="http://MeowAlienOwO.github.io//images/46882263_p0.jpg" alt="操作系统笔记一：进程"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-03-05T19:10:06+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-05-operating_system/">March 05, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/2015-03-05-operating_system/" rel="bookmark" title="操作系统笔记一：进程" itemprop="url">操作系统笔记一：进程</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- 进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
+统的重要内容。主要是小学期的内容，现在来总结一下。
+
+
+# 计算机多任务系统
+现在的计算机系统大部分是多任务系统(multiprogramming),可以参考
+[MULTICS](http://en.wikipedia.org/wiki/Multics):
+
+* 并发(Concurrency, 或者伪并行pseudo parallelism)是通过对单一CPU上执行
+  的进程进行调配而实现的。(一个人吃三个馒头)
+* 并行(Parallelism)是通过物理上的多CPU来实现的。(三个人吃三个馒头)
+
+多任务系统需要上下文切换(context switching)来调整进程的执行，然而这种
+方式会带来开销(overhead)。
+上下文切换：中止并保存当前进程，然后启动/重启另一个进程
+操作系统通过调用器(dispatcher)与排程器(scheduler)来进行进程管理：
+
+* 分配/保护资源
+* 插入进程
+* 支持进程间通信
+
+
+# 进程
+
+
+
+每个进程都包括：
+
+- 程序代码
+- 数据，包括堆(stack)跟栈(heap)的数据
+- 进程控制块(process control block, PCB)
+
+PCB保存所有有关于进程管理的信息，对于多任务系统中的上下文切换而言，PCB是必不可少的。在后面我们会讨论一下PCB的内容。
+
+## 进程的状态(state)
+进程在它的生命周期中，会在不同的状态之间切换。
+一个常见的进程状态转换图如下：
+
+![process.jpg](http://MeowAlienOwO.github.io/images/process.jpg)
+
+* 状态为`running` 的进程占用CPU
+* 状态为`block` 的进程无法继续执行，比如正在等待I/O
+* 状态为`ready` 的进程等待CPU变得可用
+* 状态为`new` 的进程刚刚被创建，等待被处理
+* 状态为`terminated` 的进程已经结束，不过数据仍然有可能被暂时留在内存中
+* 状态为`suspended` 的进程被交换(swap)出去了
+
+状态转换包含如下：
+
+1. `new` -> `ready`: 接纳新创建的进程
+2. `running` -> `blocked`: 进程被阻塞，等待IO或者系统调用
+3. `ready` -> `running`: 进程被排程器选中执行
+4. `block` -> `ready`: 事件发生了，比如IO操作结束，进程回到等待状态等待被调用
+5. `running` -> `ready`: 进程被抢占
+6. `running` -> `exit`: 进程结束
+
+进程的生命周期：
+
+![process2.jpg](http://MeowAlienOwO.github.io/images/process2.jpg)
+
+中断(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。
+
+## 进程的创建与终止
+
+操作系统负责创建进程，如下的事件发生时可以创建进程：
+
++ 系统初始化的时候创建后台与前台进程
++ 用户请求
++ 批处理任务(注：这是windows下的说法，linux下的是shell脚本?)
++ 其他进程创建
+
+如下的系统调用命令可以用来创建子进程：
+
++ *NIX系统下`fork()`可以创建一个父进程的完整拷贝，然后使用`exec`来执行
++ windows系统下使用`NTCreateProcess()`API
++ Linux下使用`clone()`
+
+同样的，操作系统也负责终止进程。如下的事件发生时终止进程：
+
++ 进程正常退出
++ 错误：`ERROR`,比如说空间不足
++ 错误：`FATAL`,程序bug
++ 被父进程或者其他被授权的进程杀死（`KILL`）
+
+在进程终止时，需要使用系统调用来通知操作系统进程终止，然后释放被分配的资源，冲刷掉输出，以及执行可能的系统操作指令。
+
+如下的系统调用命令可以终止进程：
+
++ *NIX, Linux:`exit()`,`kill()`
++ Windows: `TerminateProcess()`
+
+## 进程的实现
+操作系统通过*表*来维护资源的状态：
+
++ 内存表：内存分配，内存保护以及虚拟内存等等
++ I/O表：可用性，状态，信息转换
++ 文件表：位置，状态
++ 进程表：进程控制块
+
+这些表可以被交叉引用。
+
+## PCB与进程表
+PCB包含一些进程管理时必要的属性。通常而言，包含如下几个类别：
+
++ 进程区分：PID，UID，父进程的PID等
++ 进程状态：用户注册，程序计数，堆栈指针，程序状态,内存管理，文件等等
++ 进程控制信息：进程状态，排程信息等等
+
+PCB必须被保护，否则可能带来一系列严重的问题。
+
+进程表负责管理所有进程的PCB,当进程被中断/切换的时候，操作系统会更新进程表中的PCB信息。而在进程创建之前，进程表中会为之分配一个入口。
+
+
+## 上下文切换
+上下文切换发生的时候，系统会将原来进程的状态与内容保存起来，然后读入新
+的进程所要执行的内容，这个读写操作会产生开销。
+如下的事件会触发上下文切换：
+
++ 进程内中断(interrupt):计时器，I/O，page fault等
++ 由于错误或者异常而导致的陷阱(traps)
++ 系统调用，比如I/O请求
+
+# 进程排程算法
+
+操作系统负责管理进程的排程：
+
+- 决定何时接受进程进入系统（`new` -> `ready`）
+- 决定哪一个进程接下来将被执行(`ready` -> `run`)
+- 决定哪一个，以及何时进程将被中断(`interrupt` -> `ready`)
+
+以上操作需要排程器与执行器的支持，排程器运行的算法称之为排程算法(scheduling algorithm)，根据操作系统的不同而有所区别。
+
+
+根据优先权分类：
+
+- 非抢占式算法(non-preemtive)：进程只会被自发地中断，比如说IO与"nice"的系统调用。
+实例： Windows3.1, DOS
+
+- 抢占式算法(preemtive)：进程可以被强制或者自发地中断，这需要上下文切换的支持。
+这种算法的好处是可以避免进程独占cpu资源，坏处是上下文切换会带来开销。目前大多数主流操作系统都使用优先权算法。
+
+
+## 评价标准
+
+面向用户的评价标准：
+
+- 响应时间(response time)：从创建任务到第一次执行之间的时间
+- 运行时间(turnaround time): 从创建任务到完成之间的时间
+- 可预测性(predictability): 运行时间的差异性（可以用方差来表示？）
+
+面向系统的评价标准：
+
+- 吞吐量(throughput): 每小时处理任务的数量
+- 公平性(fairness): 处理能力/等待时间是否平均分布？是否存在等待时间过长的进程？
+
+在下面我们主要使用平均响应时间与平均运行时间来衡量排程算法。
+
+
+## 先进先执行(First in first serve)
+先进先执行是一个非抢先式算法，使用严格队列机制(strict queueing mechanism)，即其按照任务加入任务队列的顺序执行任务。
+
+- 优势：在位置上是公平的，且易于实现
+- 劣势：容易造成长队列，以及造成系统资源之间的竞争
+
+![](http://MeowAlienOwO.github.io/images/first-in-first-serve.jpg)
+
+## 最短任务优先(Shotest job first)
+最短任务优先算法同样也是一个非抢先式算法，将所有任务以所需时间排序，将耗时最小的任务首先执行。
+
+- 优势：总是会有最好的运行时间
+- 劣势：
+    可能会导致饥饿(starvation)的发生:紧急的任务得不到优先执行；
+    需要牺牲公平性与可预测性；
+    必须预先得知进程执行时间。
+
+![](http://MeowAlienOwO.github.io/images/shortest-first.jpg)
+
+## 循环算法(Round-Robin)
+
+循环算法是先进先执行算法的一个抢占式版本。它依然按照进程创建的顺序执行进程，但是在经过了一段时间间隔后，操作系统会强制切换到下一个进程。
+
+- 优势：缩短了响应时间，而且在当前主流的分时操作系统下效率良好
+- 劣势：
+　　　　增加了上下文切换的开销；
+　　　　比起同IO绑定的进程(运行时间短)更加偏向同CPU绑定的线程(运行时间长)；
+　　　　最差情况下会变成先进先执行算法。
+
+使用循环算法时，切换的时间间隔需要小心设计。
+
+![](http://MeowAlienOwO.github.io/images/round-robin.jpg)
+
+## 优先级队列(Priority Queues)
+
+优先级队列也是一个抢先式算法，它将所有的任务按照优先级排列。优先级通常存储在进程的PCB里，而且可以动态改变。
+
+- 优势：可以优先执行同IO绑定的任务
+- 劣势：对于静态的优先级而言，低优先级的任务可能会被放置过久。
+
+![](http://MeowAlienOwO.github.io/images/priority-queue.jpg)
+
+# 线程(thread)与进程(process)
+
+进程包含两个基础单元：
+
+- 资源(resource)：包括包含进程镜像的（虚拟的）地址空间（比如程序，数据，堆，栈等等）
+- 文件(file)，IO设备，IO通道等等
+
+一个进程可以在多个执行追踪之间共享资源，比如多线程在同一资源环境下的共享。
+
+每个线程都有自己的执行上下文(execution contest)，比如说程序容器，寄存器等等。所有的线程都有权使用进程的共享资源。
+
+线程通常是合作完成同一目标。
+
+有的CPU对多线程有着硬件层面的支持。
+
+## 进程与线程的区别
+
+同进程类似的，线程同样有：
+
+- 状态以及转换函数(new, running, blocked, ready, terminated)
+- 线程控制块(thread control block)
+
+相比较而言，线程在创建/终止/切换的开销比进程小(地址空间在同一进程中是一样的)。
+
+线程间通信通常比进程间通信来的快(通过内存共享实现，而进程常常需要消息机制)，不存在保护边界（因为线程是合作的，属于同一用户并且实现同一目标）。因此，我们在设计多线程程序的时候需要仔细考虑同步性。
+
+<table summary="进程与线程共享资源的区别">
+  <tr>
+    <th>进程</th>
+    <th>线程</th>
+  </tr>
+  <tr>
+    <td>地址空间</td>
+    <td>程序计数器(指令地址寄存器)</td>
+  </tr>
+  <tr>
+    <td>全局变量</td>
+    <td>寄存器</td>
+  </tr>
+  <tr>
+    <td>打开的文件</td>
+    <td>栈</td>
+  </tr>
+  <tr>
+    <td>子进程</td>
+    <td>状态</td>
+  </tr>
+  <tr>
+    <td>挂起警报</td>
+    <td>本地变量</td>
+  </tr>
+  <tr>
+    <td>信号与信号处理器</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>计数信息</td>
+    <td></td>
+  </tr>
+</table>
+
+
+多线程主要用于如下场景：
+- 一系列的相关操作需要一些同样的资源，而这些资源需要被分享
+- 进程中会有很多阻塞任务，比如IO操作或者内存操作
+
+进程的一些替代：
+
+- 顺序执行追踪(sequential execution trace)
+- 多进程
+- 非阻塞系统调用
+
+
+操作系统的线程实现通常分为用户线程，核心线程与混合线程。
+
+## 用户线程
+线程管理是在用户库的协助下，在用户空间中发生的。线程管理包括：创建，摧
+毁，排程，线程控制块维护。
+
+进程通过运行时系统来管理线程表。同进程表类似，线程表用于管理线程切换并且跟踪同线程相关的信息。
+
+在用户线程下，操作系统核心不保存任何关于线程的信息。所以，这种实现方法常被用在那些实际上不支持多线程的操作系统中。
+
+优势：
+
+- 进程在用户空间，不需要模式切换
+- 完全被线程排程器控制
+- 操作系统无关
+- 运行时系统可以在用户空间里切换本地被阻塞的线程
+
+劣势：
+
+- 阻塞系统调用可以将整个进程终止
+- 页面错误(page faults)会阻塞整个进程
+- 不是真正的并行机制
+- 时钟中断不存在?(clock interrupts are non-existent)
+
+## 核心线程
+操作系统管理线程，用户应用通过API与系统调用来控制线程。
+线程表保存在操作系统核心中，包括线程控制块(是进程控制块的一个子集)。
+线程阻塞时，操作系统会选择该进程中另外一个线程运行。
+
+优势：
+
+- 实现真的并行机制
+- 不需要非阻塞系统调用
+- 不需要运行时系统
+
+劣势：
+
+- 需要不断进行模式切换，会导致运行效率下降。
+
+
+
+## 混合线程
+
+混合线程是以上两者的混合，系统线程由系统控制(数量有限),而用户应用控制用户线程
+
+
+# 线程的排程
+
+## 反馈队列算法
+
+进程可以按照占用资源大致被分成两类：
+
++ IO绑定进程(IO bound)：将绝大多数时间放在处理IO事务上，占用很少的CPU资源
++ CPU绑定进程(CPU bound)：将绝大多数时间放在CPU计算上
+
+操作系统需要良好地将以上两种进程混合在一起。因此，我们使用反馈队列算法。
+
+反馈队列(feedback queue)：优先级是<strong>动态更改</strong>(dynamically
+changed)的,例如将任务在不同的队列之间移动。
+
++ 应用中，我们往往多个拥有不同优先级的队列，比如前台进程与后台进程
++ 高优先级的进程总是最先执行
++ 每个队列可以有自己的排程算法
+
+
++ 我们可以将任务移至低优先级队列来将避免过多使用CPU时间，使得IO与交互进程有更高优先级
++ 将进程移至高优先级来避免饥饿
+
+我们定义一个反馈队列的性质如下：
+
++ 队列的数量
++ 每个队列的排程算法
++ 队列间移动算法
++ 初始执行的队列
+
+反馈队列拥有高度灵活以及可定制行强的特性。
+
+由于物理限制的存在，并行被认为是提高计算能力的一个非常重要的手段。
+
+## 排程的决定
+单处理器机器需要决定哪一个线程是接下来被执行的(一维)；
+
+相对的，多处理器机器需要决定：哪一个线程被_哪个_处理器执行，以及_何时_被执行。
+
+对于多用户而言，线程可以是相关的或者是非相关的。相关的线程：同一进程创建的线程，他们之间可以交互。非相关线程：属于不同的进程，很可能是被不同的用户所创建，运行不同的程序。
+
+## 共享队列
+
+一个队列或者多个队列可能被所有的CPU所共享。
+
++ 好处：自动平衡了负载
++ 坏处：会引发对队列的争夺，需要加锁；对非相关进程/线程更加有用；所有的CPU都有相同的机会，但是有些时候会有更高的优先权，而且对进程不够友善：移动到别的CPU时缓存不可用；Translation look aside buffers become invalid(?)
+
+## 私有队列
+每个进程/线程被单个CPU所私有
+
++ 好处：对CPU友善; 争夺队列的情况最小化
++ 坏处：负载不够均衡
+
+
+## 线程协作
+属于同一进程的线程被视为合作线程。他们可以互相传递消息或者共享信息。线程排程的目的是使得线程在多个CPU间同时运行。
+
+我们有如下方法：
+
++ 空间共享
++ 群排程(Gang scheduling)
+
+### 空间分配
+
+方法：
+
++ N个线程被分配在N个专用的CPU上
++ N个进程保持等待状态直到有N个CPU可用
++ 保持非抢占性
++ 使用排程算法来做决定
++ 阻塞不会使CPU空转
+
+我们可以通过调整数字N来匹配不同的处理容量。
+
+### 群排程
+
+我们做如下假定：
+
++ 进程A有线程A1,A2且A1,A2协作；
++ 进程B有线程B1,B2且B1,B2写作
+
+排程器选择A1,B1开始运行，然后切换到A2,B2,然后A1,A2，B1,B2，分别在不同的CPU上运行。
+他们将尝试向已经在Ready状态的线程发送信息。
+
+特性：
+
++ 时间段同步
++ 排程器将一些线程放在一起
++ 所有的线程（尽可能多的）同时运行
++ 抢占式算法
++ 阻塞会使CPU空转
+
+关于反馈队列的一些讨论，[百度百科](http://baike.baidu.com/view/4230337.htm)写的比较详细（虽然度娘的节操如浮云）
+
+# 中断
+
+中断被用来临时暂停进程的正常操作
+
+我们有如下几种中断方式：
+
++ 软件中断，比如错误有或者抛出异常
++ CPU时钟所导致的时间中断
++ IO完成或者错误时的IO中断
+
+## 无中断情况下的IO操作
+
++ 准备好IO设备
++ 执行IO操作
++ 通知IO进程，比如设定正确的flag或者进程错误
+
+问题：
+
++ 程序需要繁忙等待吗？
++ CPU这个时候可不可以进行其他的作业？（相对而言IO操作远慢于CPU）
+
+## 中断下的IO操作
+中断使得CPU可以当IO操作发生时，空出来执行其他操作。
+
++ 设定并且运行IO设备
++ 并发地进行IO与CPU计算
++ 进程中断：停止当前进程，执行中断处理程序
+
+![process.jpg](http://MeowAlienOwO.github.io/images/interrupt.jpg)
+
+具体的操作流程如下：
+
+1. 设备产生中断
+2. CPU完成当前指令
+3. CPU检测是否有中断
+    - 发现中断的产生
+4. 将中断转换成服务例程
+    - 存储当前进程状态
+    - 将程序计数器转换至中断服务例程
+5. 存储寄存器等其他状态信息
+6. 执行中断服务例程
+7. 重置之前的进程
+8. 重置程序计数器等
+
+## 进程间通信
+
+进程可以是独立的，也可以是协作的，协作进程有交换信息的需求。我们有两种方法用于进程间协作：
+
+- 共享内存
+    + 两个进程读写同一块共享的内存
+    + 通常而言是最快的方法，系统调用只需要建立共享区块
+- 协作进程间传递信息
+    + 使用系统调用传递信息
+    + 早期的分布式系统使用这种方式
+
+### 共享内存
+这种方法需要进程能够获得另一个进程的私有地址空间，通常而言我们可以通过重写保护边界来实现。同时，交流必须被同步，否则会出现问题。
+
+一旦共享空间设定，系统不需要过多干涉。但是同样有可能产生
+[竞态条件](http://www.searchstorage.com.cn/whatis/word_3948.htm)。
+
+缓冲区可以是有界的或者是无界的。
+
+### 竞态条件
+
+假设我们有一个操作系统连接着一个打印机。
+
+当一个进程想打印文件时，他会将该文件插入一个数字标记的“插槽”并加入一个特殊的打印路径。打印机守护进程间歇地检测是否有文件需要打印。操作系统维护两个变量：`IN`表示空闲的“插槽”数目，`OUT`表示需要被打印的文件数目。
+
+当两个进程同时将同一个文件提交至打印任务时：
+![Race condition](http://MeowAlienOwO.github.io/images/race-condition.jpg)
+
+### 消息传输
+
+通过消息传输器交流，进程之间没有共享的地址空间。这种方式在分布式环境中更加有用。
+
+传输的消息可以是定长的或是变长的。
+
+两个进程之间必须有交流连接。
+
+- 有向连接是自动创立的：
+    - p1: `send(p2, message)`
+    - p2: `receive(p1, message)`
+- 无向连接通过一个公众的”信箱“建立，这个信箱属于一个操作系统进程。
+    - p1: `send(mailbox, message)`
+    - p2: `receive(mailbox, message)`
+
+无向连接的同步有两种方式：
+
+- 阻塞收发：向邮箱请求的进程会被阻塞，直到收到消息/邮箱空闲
+- 非阻塞收发：邮箱在发送后重置操作或者当没有消息可用时返回空(null)
+
+消息队列可以是无容量的(no-capacity)，有限容量(bounded capacity)或者是无界容量(unbounded capacity)。
+
+
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 
 <p>哪个土豪送我一个啊啊啊啊啊</p>
  -->
     
+<<<<<<< HEAD
         <p>上课Eugene让我们装个SDL说Coursework要用。嗯，Eugene自己使用Mac的，然后周四的课上又告诉我们怎么在VisualStudio上面装SDL
 (虽然我是没搞定，不知道是因为那台电脑跟我冲怎么的)。</p>
+=======
+        进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系
+统的重要内容。主要是小学期的内容，现在来总结一下。
+>>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 
 
     
