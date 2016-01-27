@@ -117,7 +117,8 @@ div.entry-content > h1 h2 h3 h4 h5 h6{
 	// height: 200%;
 	// width:100%;
 	height:100%;
-	min-height: 645px;
+	//min-height: 645px;
+    min-height: 30%;
 	// min-height:600px;
 	overflow: hidden;
 	&:after {
@@ -130,15 +131,15 @@ div.entry-content > h1 h2 h3 h4 h5 h6{
 		background-color: rgba($base-color,0.3);
 	}
 	img {
-		position: absolute; 
-		// position: relative;
+		//position: absolute; 
+		position: relative;
 		top: 0; 
 		left: 0; 
 		right: 0; 
 		bottom: 0; 
 		margin: auto; 
 		min-width: 50%;
-		min-height: 645px; // match .entry-image min-height
+		min-height: 30%; // match .entry-image min-height
 		
 	}
 }
@@ -475,3 +476,16 @@ header .entry-meta {
 #goog-wm-sb {
 	@extend .btn;
 }
+
+
+// 黑幕 
+// --------------------------------------------------
+.heimu, .heimu a, a .heimu, .heimu a.new{
+    background-color:#252525 !important;
+    color:#252525 !important
+}
+
+.heimu:hover, .heimu a:hover, a:hover .heimu{
+   color:#66CCFF !important
+}
+ 

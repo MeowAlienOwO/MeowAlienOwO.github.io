@@ -238,7 +238,6 @@ some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$
 
 当该算法停止时，未被标记的二元对$(p, q)$表示两个可以被合成一个的状态。
 
-
 # Nondeterministic Finite Automata
 
 非确定有限状态机(Nondeterministic Finite Automata)的定义是将原来的确定有限状态机的单个转换函数扩展成一个
