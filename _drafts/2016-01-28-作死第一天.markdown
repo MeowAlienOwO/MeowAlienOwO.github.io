@@ -1,0 +1,13 @@
+---
+layout: post
+title: "作死第一天"
+date: "2016-01-28 01:40:32 +0800"
+categories: 
+tags: 
+image: 
+  feature: 
+  credit: 
+  creditlink: 
+comments: 
+---
+
