@@ -129,11 +129,7 @@
 				
 				<li>
 				  <a href="/categories/Computer Science/">
-<<<<<<< HEAD
 				    Computer Science (12)
-=======
-				    Computer Science (11)
->>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 				  </a>
 				</li>
 				
@@ -169,30 +165,23 @@
 				
 				<li>
 				  <a href="/categories/Network/">
-<<<<<<< HEAD
 				    Network (7)
-=======
-				    Network (6)
->>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 				  </a>
 				</li>
 				
 				<li>
 				  <a href="/categories/自言自语/">
-				    自言自语 (2)
+				    自言自语 (3)
 				  </a>
 				</li>
 				
 				<li>
-<<<<<<< HEAD
 				  <a href="/categories/日本語/">
 				    日本語 (1)
 				  </a>
 				</li>
 				
 				<li>
-=======
->>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 				  <a href="/categories/japahese/">
 				    japahese (1)
 				  </a>
@@ -226,399 +215,551 @@
   <header>
     
       <div class="entry-image-index">
-<<<<<<< HEAD
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/application_layer/" title="Application Layer"><img src="http://MeowAlienOwO.github.io//images/50388846.jpg" alt="Application Layer"></a>
-=======
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" title="Transport Layer"><img src="http://MeowAlienOwO.github.io//images/2473257.jpg" alt="Transport Layer"></a>
+        <a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system-_file_system/" title="Operating System: File System"><img src="http://MeowAlienOwO.github.io//images/47263624.jpg" alt="Operating System: File System"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-15T21:00:24+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-20T15:07:11+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system-_file_system/">May 20, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/transport_layer/" rel="bookmark" title="Transport Layer" itemprop="url">Transport Layer</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/operating%20system/operating_system-_file_system/" rel="bookmark" title="Operating System: File System" itemprop="url">Operating System: File System</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+    <!-- <p>文件系统的笔记……出院了(意味深)真是めでたしめでたし……(然而并没有驱逐王……明天最后一门……</p>
 
-<h1 id="section">简介</h1>
+<h1 id="section">硬盘结构</h1>
 
-<p>传输层协议主要提供了不同主机上的应用程序之间的交流能力。在终端主机上运
-行。</p>
+<h2 id="section-1">物理结构</h2>
 
-<p>发送者:将应用信息分段，传给网络层
-接收者：将段重新汇编为信息，传给应用层</p>
+<p>硬盘由铝或者玻璃制的圆片组成，圆片上覆盖磁性材料，这些磁性材料组成磁道(tracks)。读写头(read/write heads)在盘片表面上
+(0.2-0.07nm)，与一个磁盘臂(disk arm)相连接，磁盘臂由执行臂所控制,数据在两面存储。
+通常磁盘的直径在1.8-3.5英尺之间。硬盘以匀角速度旋转，通常速率慢于外部存储器，例如CD-ROM。
+硬盘控制器处于CPU与硬盘之间(逻辑上的？)。</p>
 
-<p>在因特网上，主要是TCP与UDP两种。</p>
+<p>硬盘的读写速度大约比主内存慢4倍左右。</p>
 
-<h1 id="tcpudp">TCP与UDP</h1>
+<p>中心轴：spindle</p>
 
-<h2 id="user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
+<h2 id="section-2">数据存储结构</h2>
 
-<p>IP上的很薄的一层。加入了校验和与包长度，用于防止包损坏；加入了源端口与
-目标端口，用于可能的特殊应用。</p>
-
-<p>UDP是不可靠的。</p>
-
-<p>组成：
-16比特源端口，16比特目标端口，16比特长度，16比特校验和。</p>
-
-<h2 id="transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
-
-<p>传输控制协议提供远比UDP可靠的通信手段。</p>
-
-<p>连接使用三次握手方式创建，数据被操作系统分成包并且标号，接收包的时候要
-返回已接收信息。连接必须被明确地关闭。</p>
-
-<h3 id="section-1">七个主要特性</h3>
-
-<ol>
-  <li>面向连接</li>
-  <li>点对点</li>
-  <li>完全可信，接收的数据就是发送的数据</li>
-  <li>完全双向通信</li>
-  <li>流接口</li>
-  <li>可靠的连接建立过程</li>
-  <li>优雅的(……)关闭过程</li>
-</ol>
-
-<h3 id="section-2">建立链接</h3>
-
-<p>使用特殊的同步(SYN)与结束(FIN)信息来打开/关闭连接，同时确认两边都接受
-了所有的数据。</p>
-
-<p>A      —SYN(SeqNo=x)—&gt;        B</p>
-
-<p>&lt;—SYN(SeqNo=y, AckNo=x+1)—</p>
-
-<p>—(SeqNo=x+1, AckNo=y+1)—&gt;</p>
-
-<p>（看
-<a href="http://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">维基</a>吧ppt实在太坑了……）</p>
-
-<h3 id="section-3">传输信息</h3>
-
-<p>维基的例子：</p>
-
-<ol>
-  <li>发送方首先发送第一个包含序列号为1（可变化）和1460字节数据的TCP报文段给接收方。接收方以一个没有数据的TCP报文段来回复（只含报头），用确认号1461来表示已完全收到并请求下一个报文段。</li>
-  <li>发送方然后发送第二个包含序列号为1461和1460字节数据的TCP报文段给接收方。正常情况下，接收方以一个没有数据的TCP报文段来回复，用确认号2921（1461+1460）来表示已完全收到并请求下一个报文段。发送接收这样继续
-下去。</li>
-  <li>然而当这些数据包都是相连的情况下，接收方没有必要每一次都回应。比如，他收到第1到5条TCP报文段，只需回应第五条就行了。在例子中第3条TCP报文段被丢失了，所以尽管他收到了第4和5条，然而他只能回应第2条。</li>
-  <li>发送方在发送了第三条以后，没能收到回应，因此当时钟（timer）过时（expire）时，他重发第三条。（每次发送者发送一条TCP报文段后，都会再次启动一次时钟：RTT）。</li>
-  <li>这次第三条被成功接收，接收方可以直接确认第5条，因为4，5两条已收到。</li>
-</ol>
-
-<h3 id="section-4">关闭连接</h3>
-
-<p>连接终止使用了四路握手过程（four-way handshake），在这个过程中每个终端的连接都能独立地被终止。因此，一个典型的拆接过程需要每个终端都提供一对FIN和ACK。</p>
-
-<p>A  —FIN—&gt;  B</p>
-
-<p>&lt;—ACK—</p>
-
-<p>&lt;—FIN—</p>
-
-<p>—ACK—&gt;</p>
-
-<h1 id="tcp">TCP的可靠性机制</h1>
-
-<h2 id="section-5">顺序</h2>
-
-<p>动态路由可能会导致包并非顺序到达，TCP通过给予每个包一个序号来确保它们可以按顺序排列。这个序列号也可以用来侦测包的重复与缺失。</p>
-
-<h2 id="section-6">重新传输</h2>
-
-<p>发送方发送某个包后开始计时，如果超过一段时间没有得到响应则重发包。有一
-定的尝试次数。接收方处理重复包。有的时候，在上一个会话的包会延迟抵达，
-而此时下一个会话如果有相同的顺序号，就会出现重复问题，解决方案是同时标
-记会话号。</p>
-
-<h2 id="section-7">流控制</h2>
-
-<p>数据超出往往在发送方传输速度大于接收方接受速度时发生。一个简单的方法是
-在发送下一个之前对每个包进行接收通知(ack)，但是这个会带来带宽浪费。</p>
-
-<p>TCP使用窗口机制。发送方与接收方约定一个窗口大小(包的数量)，在初始，一
-整个窗口被发送，之后每个包被通知，然后另外一个才可以发送。接收方发送可
-以接受的窗口大小。窗口大小为0则说明发送方需要在进一步的通知之前停止发
-送。</p>
-
-<p>TCP协议在工作时，如果发送端的TCP协议软件每传输一个数据分组后，必须等待接收端的确认才能够发送下一个分组，由于网络传输的时延，将有大量时间被用于等待确认，导致传输效率低下。为此TCP在进行数据传输时使用了滑动窗口机制。</p>
-
-<p>TCP滑动窗口用来暂存两台计算机间要传送的数据分组。每台运行TCP协议的计算机有两个滑动窗口：一个用于数据发送，另一个用于数据接收。发送端待发数据分组在缓冲区排队等待送出。被滑动窗口框入的分组，是可以在未收到接收确认的情况下多送出的部分。滑动窗口左端标志X的分组，是已经被接收端确认收到的分组。随着新的确认到来，窗口不断向右滑动。</p>
-
-<p>TCP协议软件依靠滑动窗口机制解决传输效率和流量控制问题。它可以在收到确认信息之前发送多个数据分组。这种机制使得网络通信处于忙碌状态，提高了整个网络的吞吐率，它还解决了端到端的通信流量控制问题，允许接收端在拥有容纳足够数据的缓冲之前对传输进行限制。在实际运行中，TCP滑动窗口的大小是可以随时调整的。收发端TCP协议软件在进行分组确认通信时，还交换滑动窗口控制信息，使得双方滑动窗口大小可以根据需要动态变化，达到在提高数据传输效率的同时，防止拥塞的发生。　称窗口左边沿向右边沿靠近为窗口合拢，这种现象发生在数据被发送和确认时。</p>
-
-<p>当窗口右边沿向右移动时将允许发送更多的数据，称之为窗口张开。这种现象发生在另一端的接收进程读取已经确认的数据并释放了TCP的接收缓存时。</p>
-
-<p>当右边沿向左移动时，称为窗口收缩。Host Requirements RFC强烈建议不要使用这种方式。但TCP必须能够在某一端产生这种情况时进行处理。
-如果左边沿到达右边沿，则称其为一个零窗口。</p>
-
-<ol>
-  <li>发送方不必发送一个全窗口大小的数据。</li>
-  <li>来自接收方的一个报文段确认数据并把窗口向右边滑动，这是因为窗口的大小是相对于确认序号的。</li>
-  <li>窗口的大小可以减小，但是窗口的右边沿却不能够向左移动。</li>
-  <li>接收方在发送一个ACK前不必等待窗口被填满。</li>
-</ol>
-
-<p>– 百度百科</p>
-
-<h2 id="section-8">防止拥堵</h2>
-
-<p>转换器信号与丢包都可以认为是网络拥堵的标志。TCP通过丢包来监控网络拥堵。对于第一个丢包，TCP将发送一个小信息。如果这个信息没有丢失，数据大小加倍，以此类推，直到窗口大小的一半，停止倍增。</p>
- -->
-    
-        <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" title="Network Layer"><img src="http://MeowAlienOwO.github.io//images/50136576.jpg" alt="Network Layer"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-15T16:41:05+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/network_layer/" rel="bookmark" title="Network Layer" itemprop="url">Network Layer</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>关于网络层的复习资料，T劣也要单纵干……听说放图能出船？总之捞到了云龙……</p>
-
-<h1 id="internet-protocal">因特网协议(Internet Protocal)</h1>
-
-<p>数据流被分成包，包含一个头部储存需要的信息；包在网络传输中是被单独传输的，因此，传输的方向性往往由头部决定。
-网络节点有可能暂时储存包，当然包也有可能会丢失，损坏，乱序。在目标处，信息被重新构建。</p>
-
-<p>同时，分包有如下好处：</p>
+<p>硬盘由如下结构组织起来：</p>
 
 <ul>
-  <li>数据传输是间歇性的</li>
-  <li>不会浪费带宽</li>
-  <li>容易多元化，不同的数据可以在同一个连接中传输</li>
-  <li>包可以被几乎所有的载体输送</li>
+  <li>圆筒(cylinder)：一组拥有相对于中心轴相同位置的轨道</li>
+  <li>磁道(track)：单个磁盘片上的同心圆</li>
+  <li>扇面(sector)：一段轨道，通常为512b或者4k大小</li>
 </ul>
 
-<p>当然，分包也带来了头部信息冗余的负担。</p>
+<p>扇面通常拥有同样的字节数，含有前导(preamble)，数据(data)与错误校正码(error correcting code)三个部分。</p>
 
-<p>对于IP服务而言，它不需要提供一些额外的服务。</p>
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>preamble</td>
+        <td>data</td>
+        <td>ECC</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>硬盘通常会有一定的柱面偏移(cylinder skew)，从扇面0开始，每次寻找的时候增加一个偏移量。(存疑，不太理解)
+(Disks usually have a cylinder skew:i.e., an offset is added to sector 0 in adjecent tracks to account for the seek time. Consecutive disks sectors may be interleaved to account for transfer time)</p>
+
+<h2 id="section-3">存储时间</h2>
+
+<p>存储时间(access time) = 寻找时间(seek time ) + 旋转延迟(rotational delay) + 转换时间(transfer time)</p>
 
 <ul>
-  <li>不需要错误检查/校正，这是其他层级的功能</li>
-  <li>同一来源/同一数据源的包不一定遵循同一路径，只要包可以被顺利接受即可</li>
-  <li>数据可以乱序输送，接收方负责将其重新排序</li>
-  <li>包可以被丢失或者任意地延迟，接收方可以要求重新发包。</li>
-  <li>没有对网络拥挤的控制，发送方可以减慢发送频率，延迟，或者丢包。</li>
+  <li>寻找时间 = 将执行臂移到柱面的时间</li>
+  <li>旋转延迟 = 在目标扇面出现在读写头前的旋转时间(平均而言是旋转时间的一半)</li>
+  <li>转换时间 = 数据转移的时间</li>
 </ul>
 
-<h2 id="section">头部的格式</h2>
+<p>如果我们考虑读写操作的顺序的话，在寻找时间上具有一定的优化空间。
+注意存储时间在有多个并发请求在队列中等待的情况下需要加入排队时间。</p>
 
-<p>在包中每32个比特作为一个单词(word)，包括头部跟数据。头部包含如下内容：</p>
+<p>最优的存储时间(将执行臂从一个轨道移动到下一个)可以用如下公式近似：</p>
+
+<p>$T_s = m * n + s$</p>
+
+<p>$T_s$表示最佳寻找时间，$n$表示穿过的轨道数量，$m$表示穿过时间，$s$表示额外的初始延迟。</p>
+
+<p>例子：</p>
+
+<p>我们假设一个以3600转速的硬盘，一转大约需要16.7ms的时间，平均的旋转延迟约为8.3ms。
+令b表示已经转换的字节数量，N表示每个轨道的字节数量，rpm表示每秒转速，T表示转换时间，我们可以得出：</p>
 
 <ul>
-  <li>Version(4)，现在是4</li>
-  <li>Hlen(4)，头部中32字节长度单词的数量</li>
-  <li>TOS(8)，服务种类，不常用</li>
-  <li>Length(16)，数据段(报文，datagram)中的字节数量</li>
-  <li>Ident(16)，被分割所使用</li>
-  <li>Flags/Offset(16)，同样是分割所用</li>
-  <li>TTL(8)，生存时间</li>
-  <li>Protocal(8)，协议种类，比如说TCP = 6,UDP = 17</li>
-  <li>Checksum(16)，头部的校验和</li>
-  <li>DestinationAddr &amp; SourceAddr(32)，源地址与目标地址</li>
+  <li>N字节需要1个旋转，$T = \frac{ms\ per\ minute}{rpm}$</li>
+  <li>b个连续字节需要$b/N$个旋转，$T = \frac{b}{N} \times \frac{ms\ per\ minute}{rpm}$</li>
 </ul>
 
-<p>括号内表示比特位数</p>
+<p>读入一个文件，大小为256个扇面。令寻找时间为20ms，每个轨道分成32个扇面。</p>
 
-<h1 id="ip">IP地址</h1>
+<p>假设文件存储是连续的，即按顺序存储于8个轨道，每个轨道32个扇面上。</p>
 
-<h2 id="ipv4">IPv4</h2>
-<p>每32比特地址被分成两个部分，分别是前缀与后缀。</p>
+<p>第一个磁道要$20+8.3+16.7=45ms$(寻找+延迟+转换时间)
+剩下的磁道不需要寻找时间，所以每个磁道我们只需要$8.3+16.7=25ms$。
+总时间为$45+7*25=220ms$</p>
+
+<p>假设存储位置是随机的，对于每个扇面而言，我们有：</p>
+
+<p>$T = 20 + 8.3 + 16.7 / 32 = 28.8ms$</p>
+
+<p>总共时间为$T * 256 = 7.37s$</p>
+
+<h2 id="section-4">硬盘排程</h2>
+
+<p>操作系统需要有效地使用硬件：</p>
 
 <ul>
-  <li>前缀(prefix):表示主机的物理网络</li>
-  <li>后缀(suffix):指定的物理网络的主机</li>
+  <li>文件系统可以分区/将文件用一定的策略组织起来。</li>
+  <li>经常被载入的硬盘队列需要允许将执行臂的移动最小化</li>
 </ul>
 
-<p>前缀同全球有关，而后缀同本地有关。</p>
+<p>当硬盘空闲的时候，队列请求将被执行；如果没有，请求存入队列等待执行。</p>
 
-<p>前/后缀的大小决定了网络的数量与某个特定网络的主机数量。同样，不同的前后缀长度也决定了不同的网络层级数量。
-前四位的比特为决定了地址的层级。</p>
+<p>注意所有的IO操作需要使用系统调用(system call)，允许操作系统拦截请求并且对其进行重排序。</p>
 
-<p>我们通常使用点表达法来表示IP地址。
-比如：
-10000001 00110100 00000110 00000000 为 129.52.6.0</p>
+<p>在一个动态的场景下，一些IO请求会随着时间而创建，这些请求会被存储在一个每柱面已请求的扇面表中。</p>
 
-<h3 id="section-1">五种层级</h3>
+<h3 id="first-come-first-served">先进先出(First-Come, First-Served)</h3>
+
+<p>按照到达的顺序处理请求。</p>
+
+<p>考虑如下的磁盘请求序列(柱面位置)：</p>
+
+<blockquote>
+  <p>11 1 36 16 34 9 12</p>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>总移动长度为</td>
+      <td>11 -1</td>
+      <td>+</td>
+      <td>1 - 36</td>
+      <td>+ .. = 111</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="shortest-seek-time-first">最短的寻找时间优先(Shortest seek time first)</h3>
+
+<p>最短寻找时间优先算法将距目前的读写头位置最近的位置的请求优先执行。对于如上的请求序列，最终的长度为61。
+但是最短寻找时间容易导致饥饿的发生：读写头一直在磁盘的中间位置，中间的负荷很大但是内外很少被使用。
+而且最短寻找时间优先算法也不是一个最优化算法。</p>
+
+<h3 id="scanlift-algorithm">扫描/电梯算法(scan/lift algorithm)</h3>
+
+<p>一直向一个方向移动直到结束。这个算法会向一个方向移动，处理这个方向上的所有未处理的请求。
+当它完成最后一个处理请求后(当前方向)，调换方向处理未处理请求。</p>
+
+<p>对于每一个请求，等待时间上限是2*柱面总数(请求在一头，移动方向相反)，不会导致饥饿的发生。
+当硬盘被重度使用时，中间的柱面会更加经常地使用。</p>
+
+<p>总移动长度为60。</p>
+
+<h4 id="c-scan">C-SCAN</h4>
+
+<p>为了改进等待时间的上限的情况，我们使用C-SCAN算法。</p>
 
 <ul>
-  <li>A: 0+7位前缀+24位后缀</li>
-  <li>B: 10+14位前缀+16位后缀</li>
-  <li>C: 110+21位前缀+8位后缀</li>
-  <li>D: 1110+多点传播地址</li>
-  <li>E: 1111+储存供未来使用</li>
+  <li>执行臂向一个方向移动，处理请求</li>
+  <li>当到达磁盘末尾时，方向调换，但是不处理任何请求。</li>
+  <li>回到磁盘的另一头，开始处理请求。</li>
 </ul>
 
-<h3 id="classless-inter-domain-routing-cidr">无类别域间路由(Classless Inter-Domain Routing, CIDR)</h3>
+<p>这个算法更加具有公平性，每个请求的响应时间也更加平均。</p>
 
-<p>CIDR（无类别域间路由，Classless Inter-Domain Routing）是一个在Internet上创建附加地址的方法，这些地址提供给服务提供商（ISP），再由ISP分配给客户。CIDR将路由集中起来，使一个IP地址代表主要骨干提供商服务的几千个IP地址，从而减轻Internet路由器的负担。</p>
+<p>更小变量(smaller variance)在移动执行臂向一个方向的时候被保持。总是返回路上最小的数字。</p>
 
-<p>获取前缀的方法，通常是将IP地址与子网掩码按位AND。</p>
+<h4 id="section-5">其他算法</h4>
 
-<p>通过子网掩码，我们可以把一些路由字段给分配到同一个空间下，比如说100.100.1.1,100.100.2.1，使用子网掩码255.255.0.0，我们可以将其看作一个路由地址100.100.0.0，从而达到了扩展路由空间，减轻路由器负载的效果。</p>
-
-<h2 id="section-2">32位地址的限制</h2>
-
-<p>32位地址本身有着极大的限制，$2^32$只有大约4亿的数量，而某些地址又被使用在特殊范围,在当前不同移动设备乃至物联网入网的情况下，IP地址的数量远远不够。</p>
-
-<p>短期解决方案：</p>
+<p>LOOK-SCAN将位置移到第一个/最后一个请求处，一个一个柱面寻找。执行臂有可能”卡”(stick)在某个柱面上，
+那么：</p>
 
 <ul>
-  <li>Network Address Translation (NAT)</li>
-  <li>Dynamically-assigned addresses(DHCP)</li>
+  <li>N-step-SCAN：将请求队列分成每个N段，每段使用SCAN算法进行处理。</li>
+  <li>F-SCAN：使用两个队列，当一个被SCAN处理的时候，另一个被装满。处理完后，两个队列交换。</li>
 </ul>
 
-<p>长期解决方案：</p>
+<p>LOOK算法与SSTF是比较合理的算法。算法的性能取决于请求与磁盘的负载。
+当任何时候都只有一个请求时，所有的算法性能相同。最优算法是很难实现的。</p>
 
-<p>使用IPv6标准扩展地址空间</p>
+<p>文件系统的布局与操作系统的文件分配方法对寻找移动有着很深的影响。</p>
 
-<h2 id="ipv6">IPv6</h2>
+<h2 id="section-6">硬盘缓存</h2>
 
-<p>IPv6同IPv4一样是无连接的，拥有128位地址大小。但是IPv6的地址模式有所不同，有单播(unicast)，复播(multicast)，从(cluster)等。</p>
+<p>对于目前的硬盘而言，寻找一个新的柱面的开销大于旋转时间，于是发展了硬盘缓存技术。
+硬盘缓存指将多个扇面的信息预先读入缓存，请求进入的时候可以先检查缓存，以省去寻找时间。
+硬盘缓存可以通过在旋转延迟的时候读入多个页面而实现。</p>
 
-<p>IPv6的头部是扩展的，并且拥有额外的安全性。</p>
+<h1 id="section-7">文件系统</h1>
 
-<h2 id="fragmentation">分割(fragmentation)</h2>
+<h2 id="file-system">文件(file system)</h2>
 
-<p>每一个网络都有一些最大传输单位(Maximum Transmission Unit, MTU)。 Ethernet：1500 FDDI：4500</p>
-
-<p>当路由接受到一个大小大于最大传输单位的报文时，需要进行分割处理。
-段(fragment)在接收主机进行重编译(reassembly)，而所有的段在Ident部分有着相同的区分标记。
-段是自包含(self-contained)的数据包。同样的,IP也不检测丢失的段。</p>
-
-<p>通过调整头部的偏移量(offset)以及记录开始的比特位来确定段的分割。</p>
-
-<h2 id="dynamic-host-configuation-protocal-dhcp">动态主机配置协议(Dynamic Host Configuation Protocal, DHCP)</h2>
-
-<p>特殊的DHCP服务器为主机分配IP地址</p>
-
-<p>新登录的机器广播一个DHCP发现(DISCOVER)包，然后DHCP服务器返回一个IP地址。</p>
-
-<h3 id="section-3">步骤：</h3>
-
-<ol>
-  <li>用户打开有DHCP客户端的机器，客户端机器广播一个DHCP DISCOVER包来寻找DHCP服务器，路由器将这个包传输到对应的DHCP服务器</li>
-  <li>服务器接收到发现包，确定一个合适的地址，临时分配该地址给客户端。确定地之后，返回一个包含地址信息的OFFER包</li>
-  <li>客户端发送REQUEST包，令服务器知道它要使用该地址</li>
-  <li>服务器发送ACKNOWLEDGE包，确认该客户端可以在服务器所确定的时间内使用该地址</li>
-</ol>
-
-<h1 id="section-4">路由</h1>
-
-<h2 id="forwarding-vs--routing">发送(Forwarding) vs 路由 (Routing)</h2>
-
-<p>发送：</p>
+<p>文件是相关信息的逻辑单元(logical unit)，存储在一个或者多个块(block)中。
+文件是一种抽象机制，将信息的存储方法向用户隐藏。文件由操作系统的文件系统(file system)管理。
+文件须是连续的，必须能够存储不同种类的信息。</p>
 
 <ul>
-  <li>基于目标地址与路由表选择一个输出端口</li>
-  <li>发送表的一行包含一个从网络数字(networking number)到输出接口的映射，同时也有一些MAC信息</li>
+  <li>可执行程序/机器码</li>
+  <li>数据</li>
 </ul>
 
-<p>路由：</p>
+<p>对于文件系统而言，我们需要首先考虑如下的一些内容：</p>
 
 <ul>
-  <li>路由表是根据路由算法所构建的，作为发送表的准备</li>
-  <li>一般来说包含从网络数字到下一个跳转的映射</li>
+  <li>正规文件(regular file)保存用户信息：ASCII/二进制(binary file)</li>
+  <li>目录(directory)</li>
 </ul>
 
-<h3 id="section-5">计算路由表</h3>
-
-<p>路由器需要知道如下两个东西：</p>
+<p>一些其他的文件：</p>
 
 <ul>
-  <li>哪个路由器来达到目标前缀</li>
-  <li>哪个接口连接该路由器</li>
+  <li>特殊字符文件(character spetial files)，用于模拟IO设备</li>
+  <li>块系列文件(files model)用于模拟硬盘</li>
 </ul>
 
-<p>转换器解包到连接层，而路由器解压到网络层</p>
+<h3 id="section-8">底层结构</h3>
 
-<p>路由算法往往是图的寻找任意两个节点之间的最短链接算法。
-令c(x, y)为从节点x到y的成本，当他们不是邻居时，为无穷大</p>
-
-<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本
-```python</p>
-
-<p>Initialization:
-  S = {u}
-  for all nodes v
-    if (v is adjacent to u)
-      D(v) = c(u,v)
-    else
-      D(v) = infinity</p>
-
-<p>Loop:Do
-  find w not in s with the smallest D(w)
-  add w to S
-  update D(v) for all v adjacent to w and not in S:
-    D(v) = min{D(v), D(w) + c(w,v)}
-until all nodes in S</p>
-
-<p>```</p>
-
-<h2 id="link-state-routing">连接状态路由(link state routing)</h2>
-
-<p>每个路由追踪它的对应的路由，包括路由是上/下，以及连接的成本；广播当前的连接状态；运行Dijkstra算法来计算最短路径并且创建发送表。</p>
-
-<h3 id="bellman-ford">Bellman-Ford算法</h3>
-
-<ol>
-  <li>初始化：将除源点外的所有顶点的最短距离估计值 d[v] ←+∞, d[s] ←0;</li>
+<ul>
   <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>迭代求解：反复对边集E中的每条边进行松弛操作，使得顶点集V中的每个顶点v的最短距离估计值逐步逼近其最短距离；（运行</td>
-          <td>v</td>
-          <td>-1次）</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>文件被表示成一系列的字节。应用程序负责解析文件及其结构。
+操作系统只将文件看做一系列的字节。这种做法被Windows与Unix所用。</p>
   </li>
-  <li>检验负权回路：判断边集E中的每一条边的两个端点是否收敛。如果存在未收敛的顶点，则算法返回false，表明问题无解；否则算法返回true，并且从源点可达的顶点v的最短距离保存在 d[v]中。 –百度百科</li>
+  <li>
+    <p>文件被认为是一系列定长的记录。每个记录都有相似的大小/结构</p>
+  </li>
+</ul>
+
+<p>索引入口(index access)：索引是被首先搜索，保存一个指针指向文件的位置。
+每一个索引中的元素都表示文件中的一个元素及</p>
+
+<h3 id="section-9">操作系统调用</h3>
+
+<p><code>Open</code>系统调用：</p>
+
+<ul>
+  <li>搜索文件目录来寻找文件位置</li>
+  <li>复制目录入口来打开文件表(考虑权限)</li>
+  <li>增加打开计数器</li>
+</ul>
+
+<p>系统与每个进程都保留一份文件打开表(file open table)。系统范围的文件打开表包含进程信息，
+比如文件在磁盘上位置，文件大小，打开计数器。</p>
+
+<p>每个进程的文件打开表都包含进程独立的信息，比如读写指针，系统文件表的引用等等。</p>
+
+<p>在打开文件后，使用<code>write/read</code>系统调用来进行文件读写。</p>
+
+<ul>
+  <li><code>write</code>：向一个文件写信息，开始地点为write指针所指的地方，而后更新write指针。</li>
+  <li><code>read</code>：从read指针所在的地方读取文件，将信息存入进程内存空间。</li>
+</ul>
+
+<p>系统调用优先：</p>
+
+<ul>
+  <li><code>create</code>：空间被分配，在目录下创建入口，属性被操作系统初始化</li>
+  <li><code>delete</code>：寻找文件，移除文件空间，将目录入口移除。</li>
+</ul>
+
+<h3 id="access-type">接入类型(access type)</h3>
+
+<ul>
+  <li>按序接入(Sequential access)：文件指针按时间增加，新信息附加在末尾</li>
+  <li>随机/直接接入(random/direct access)：比如硬盘。对于每个读写操作，特别设定一个位置参数。
+文件指针可以在文件内使用<code>seek</code>进行重定位。这种方法利用了逻辑/物理存储有固定大小的事实，
+需要将相对文件开始的块编号转换成物理块位置。</li>
+</ul>
+
+<h3 id="locking">锁(locking)</h3>
+
+<p>锁的种类：
+- 共享锁(shared lock)：多个进程可以得到文件权限
+- 互斥锁(exclusive lock)：每次只有一个进程可以得到权限</p>
+
+<p>锁的强制(enforcement)：
+- 强制锁(mandatory locking)：其他进程无法获得文件权限直到锁被释放-&gt;可能导致死锁
+- 报告锁(advisory locking)：其他进程也可以获得文件权限，程序负责处理锁。</p>
+
+<h2 id="directory">目录(directory)</h2>
+
+<p>目录用于组织文件。目录由操作系统调用管理，被标记为特殊的文件。</p>
+
+<p>目录用于存储文件相关的属性，比如名字，硬盘地址等。或者，目录包含一个指针指向存储文件相关位置的数据结构。</p>
+
+<p>目录的结构有如下：</p>
+
+<ul>
+  <li>单层：所有的文件都在一个目录下。</li>
+  <li>两层或者多层目录：树结构。参考无链接的UNIX目录系统</li>
+  <li>有向无环图(directed acyclic graph)：允许文件被不同的目录共享</li>
+</ul>
+
+<p>系统调用:
+- <code>create/delete</code>
+- <code>opendir/closedir</code>
+- <code>readdir</code></p>
+
+<h1 id="hard-drives">硬盘分区(hard drives)</h1>
+
+<p>硬盘总是被分成多个分区。每个分区可能都有一个独立的文件系统。
+管理者是引导(boot)记录，被分配在整个硬盘的开始位置。包含分区表，
+一个分区被操作系统默认标记为活动。</p>
+
+<p>分区包括一个被看作是体积(volumn)的文件系统。一个体积可以包括一个设备的部分，一整个设备，或者多个设备。</p>
+
+<h2 id="unix">Unix分区</h2>
+
+<ul>
+  <li>引导块分区(partition boot block)：包含操作系统的引导代码。每个分区都有一个引导块，尽管它没有包含操作系统</li>
+  <li>超块(supet block)：包含分区的细节，比如大小，块的数量，i-node表数量</li>
+  <li>自由空间管理(free space management):包含点阵图或者链表管理空闲块</li>
+  <li>i-node(文件管理块,file control blocks)：文件信息，主要被i-nodes管理</li>
+  <li>根目录(root directory)</li>
+  <li>数据：文件与目录</li>
+</ul>
+
+<h1 id="section-10">文件系统实现</h1>
+
+<h2 id="contiguous">连续(contiguous)</h2>
+
+<p>连续的文件系统同动态分区相似。所有的文件是存储在一组相邻的块之间，使用第一匹配，最佳匹配，下一匹配之类的算法分配空闲空间。</p>
+
+<p>优势：实现简单，最优化读写性能。</p>
+
+<p>劣势：文件的确切大小并无法被事先知道，使用分配算法来分配空间，删除文件会导致外部碎片。</p>
+
+<p>连续分配空间依然在诸如CD-ROM/DVD之类的存储容器使用。</p>
+
+<h2 id="section-11">链表</h2>
+<p>文件被保存在不同的块(block)中，这些块一个一个相互链接。每个块保存一个数据指针，指向下一个块。</p>
+
+<p>优势：维护简单，只需要处理第一个块，文件大小可以动态改变(文件末尾加入新的块)。同内存页面相似，每个可能的块/扇面都可以被使用。
+序列介入是非常直接的，虽然需要更多的寻找与硬盘操作。</p>
+
+<p>劣势：随机存取比较慢，必须从开头遍历之前所有的块。存在内部碎片，平均有一般的块没有使用。可能会导致随机磁盘介入，速度很慢。空间会因为指针的存在而丢失-区块大小不再是2的指数。万一中间出现文件损坏，会影响之后的文件。</p>
+
+<h2 id="fat">FAT</h2>
+
+<p>将链表的指针存储在一个独特的索引表，叫做文件分配表(file allocation table)。
+FAT将所有的块(blocks)作为索引，保存当前块的状态。如果块标记为0XFFFD，
+表明这是FAT表所在的位置；标记为OxFFFF表明文件在该块中结束；标记为
+0xFFF7表示块损坏；标记0表示块为空闲；标记其他序数表明文件的下一个占用
+的块。FAT表可以认为是链表存储方法与点阵图(bitmap)的结合。</p>
+
+<p>优势：块大小为2的指数，不会因为指针而损失空间；索引表可以存放在内存中
+从而允许快速的随机存取(random access)或者非顺序存取(non-sequential
+access)，但是在文件内部依然需要遍历所有的块。</p>
+
+<p>劣势：FAT表的大小决定于块的数量，对于大硬盘而言，FAT的分区表也会变得很
+大。</p>
+
+<h2 id="i-node">i-node</h2>
+
+<p>文件属性与块指针被存储在不同的数据结构中，被称为i-node。
+i-node仅当文件被打开的时候才会读入内存，如果每个i-node拥有n字节，最多k
+个文件可以在一段时间内被打开，最多在主内存中需要n*k字节的空间。</p>
+
+<p>i-node可以使用直接的块指针(通常为12个),非直接的块指针或者它们的组合。
+类似多层级分页表，非直接的块指针被认为是有层级的：上一级的块指针保存一
+个指向下一层级表的指针。</p>
+
+<p>i-node保存一份索引表，将i-node编号(i-node number)与文件名一一对应，
+寻找文件时通过文件名找到i-node编号，然后通过编号寻找对应的块指针。
+通常第一个i-node节点会保存文件的元信息。<a href="http://www.cnblogs.com/adforce/p/3522433.html">可以看这篇文章</a></p>
+
+<p>多层级的i-node在存储大文件的时候相对比较有优势。</p>
+
+<h2 id="unix-v7">Unix V7文件系统</h2>
+
+<p>Unix有一个有层级的文件系统，通过有向无环图来实现。目录被实现成为一个文件，
+在其中保存一个人类可读的文件名以及一个i-node指针。</p>
+
+<p>文件元属性在i-node里面存储，例如文件名，创建与使用时间，所有者，组，保护权限，i-node计数器
+（存储指向该文件的目录数量）</p>
+
+<p>Unix文件系统使用i-node的实现方式，开始的10个硬盘地址被存储在i-node中，使用单至三非直接块来存储大文件。
+打开一个文件需要硬盘块被定位：</p>
+
+<ul>
+  <li>绝对文件名(absolute file name)</li>
+  <li>相对文件名(relative file name)</li>
+</ul>
+
+<p>打开文件的步骤：</p>
+
+<ol>
+  <li>定位文件系统根目录</li>
+  <li>通过信息定位目录</li>
+  <li>在目录下寻找相对应的(目录)文件</li>
+  <li>如果找到的是目录，重复2,3</li>
+  <li>当文件被定位，将文件i-node读入内存</li>
 </ol>
 
-<p>松弛操作：</p>
+<h2 id="log-structured-file-system">日志文件系统(log structured file system)</h2>
 
-<p>单源最短路径算法中使用了松弛（relaxation）操作。对于每个顶点v∈V，都设置一个属性d[v]，用来描述从源点s到v的最短路径上权值的上界，称为最短路径估计（shortest-path estimate）。</p>
+<p>由于文件很大可能是非连续存储的，加之硬盘存取速度相对较慢，所以我们需要考虑别的方法来加快随机读写的速度。
+日志文件系统通过最小化读写头移动与读取延迟来进行优化。中心思想是保证文件的连续读写以减小移动数量。</p>
 
-<h2 id="distance-vector-routing">距离矢量路由(distance vector routing)</h2>
+<p>日志文件系统将读写操作缓存，使得我们可以一次写入大量的数据。缓存保存在日志文件中，当缓存满后，将所有的文件<em>连续</em>写入磁盘。所有的i-node与数据被存储在一个段中，寻找i-nodes变得更加困难。所以我们需要维护一个i-node表来快速寻找i-node的地址。</p>
 
-<p>每一个节点x维护如下状态：</p>
+<p>我们使用一个后台运行的清理线程来清理日志文件，接受数据，清理不需要的数据，将其存放在缓存区中。
+当缓存区满了以后，数据会被写入缓存区的开头部分。</p>
 
-<p>c(x, v) = 从x到邻居v的直接连接成本
-对于所有的节点y, 距离矢量Dx(y)（从x到y的最少成本）
-对于所有的邻居节点，Dv(y)</p>
+<p>参考：</p>
 
-<p>节点x周期性的发送距离矢量Dx到邻居y，y据此更新他自己的距离矢量。</p>
+<p>http://hill007299.iteye.com/blog/1990277</p>
 
-<p>$Dv(y) = minx{c(v,x) + Dx(y)}}, for\ each\ node\ y \in N$</p>
+<p>http://blog.csdn.net/?aspxerrorpath=/blog/KingEasternSun/42848773</p>
 
-<p>当要去节点m时，当前节点询问自己的邻居是否能达到m，当任意一节点收到询问请求时，检查自己的路由表，如果不能到达，同样询问邻居。
-当有多个邻居返回时，取最小值。当自己的路由表根据以上信息更新时，通知自己的邻居。</p>
+<h2 id="section-12">空间管理</h2>
+
+<p>同内存管理类似，硬盘的空间管理同样使用点阵图(bitmap)与链表两种方法。</p>
+
+<p>点阵图在一个表中保存所有块的信息。当硬盘容量变大时，点阵图也相应变大，
+但是对于一个确定大小的硬盘而言，其上界是确定的。
+一般而言点阵图在硬盘不太满的情况下所用空间是小于链表的。</p>
+
+<p>链表使用空余的区块来存储空余区块的数量。当磁盘快满时，链表的大小会收缩，
+从而不会有空间浪费。链表的大小会随着磁盘的大小而增长，随着块的大小而收
+缩。链表可以由追踪连续的空闲块的方法来维护。</p>
+
+<h2 id="virtual-file-system">虚拟文件系统(virtual file system)</h2>
+
+<p>我们可能在同一台机子上使用不同的文件系统，比如windows与linux双系统会将各自的磁盘分区分别使用不同的文件系统；
+甚至同一操作系统也有可能使用不同的文件系统。要对这些文件系统进行管理，我们使用虚拟文件系统(virtual file system)。
+虚拟文件系统可以看作是OO的多态性(polymorphism)原则的体现。</p>
+
+<pre><code class="language-Java">    DataReader dr = new CSVDataReader();
+    dr.readData();
+    DataReader dr = new XMLDataReader();
+    dr.readData();
+</code></pre>
+
+<p>Unix/Linux将不同的文件系统统一起来，使用单层胶合层来对用户隐藏/抽象相关的细节。
+虚拟文件系统包含POXIS系统调用，对于不同的文件系统而言，其如果要实现虚拟文件系统的需求，那么就需要实现这些系统调用。
+注意这些实现也可以是远程文件系统。</p>
+
+<p>每一个文件系统，包括root，都在VFS中注册。对于一个特定的文件系统，提供一个VFS调用的表(比如函数指针)。对于每个VFS调用而言，
+都在VFS函数表有一个特别的入口。VFS通过这些表来将POSIX系统调用转化为本地系统调用。</p>
+
+<h2 id="symbolic-and-hard-links">软连接与硬连接(symbolic and hard links)</h2>
+
+<p>我们有两种方式在两个目录之间共享文件：</p>
+
+<ul>
+  <li>硬连接(hard link)：对于某个i-node而言，在目录A,B下分别维护两个对与i-node的引用</li>
+  <li>软连接(symbolic link)：所有者目录维护i-node的引用，“引用者”维护一个小文件，保存位置与共享文件的名字。</li>
+</ul>
+
+<p>对于硬连接而言，它是最快的连接方式，但是当文件被删除的时候可能会出现指向空i-node或者错的i-node的情况。处理方式是维护一个连接计数器，记录有多少个硬连接。删除文件时，若该计数器非0，则保留i-node。</p>
+
+<p>对于软连接而言，它不存在处理删除文件的问题，也可以进行跨机器的连接。但是软连接需要额外的连接文件以及额外的i-node处理链接文件。</p>
+
+<h2 id="section-13">文件系统的信息完整性</h2>
+
+<h3 id="journaling-file-system">Journaling file system（也翻译成日志文件系统……）</h3>
+
+<p>Journaling file system(JFS)的目的主要是为了可以保证追踪错误的发生。在使用i-node的系统中，以删除文件为例，需要进行如下步骤：</p>
+
+<ol>
+  <li>移除文件的目录入口</li>
+  <li>将文件的i-node加入空闲的i-node池</li>
+  <li>将文件占用的硬盘块加入空闲列表</li>
+</ol>
+
+<p>在前两部中间若是出现崩溃，都会导致可用空间丢失。</p>
+
+<p>JFS的目的在于追踪文件系统的行动，从而提供对数据完整性的保证以及快速恢复的手段。
+JFS同样也维护日志文件，在事件发生之前记录事件。</p>
+
+<ol>
+  <li>将要进行的操作写入日志</li>
+  <li>执行操作</li>
+  <li>确认(commit)操作，或者是移除(remove)日志的内容</li>
+</ol>
+
+<p>如果在操作时发生系统崩溃，日志文件会记录下当前的操作。当崩溃结束后，我们可以使用日志来恢复文件。
+典型的例子是NTFS与EXT3-4文件系统。
+参考：</p>
+
+<p>http://www.cnblogs.com/bangerlee/archive/2012/03/31/2426069.html</p>
+
+<h3 id="section-14">存储完整性</h3>
+
+<p>我们使用两个表来处理块的完整性。</p>
+
+<ul>
+  <li>使用表：记录块出现在文件中的频率(基于i-node)</li>
+  <li>空余表：记录块出现在空闲列表中的频率</li>
+</ul>
+
+<p>一个拥有信息完整性的文件系统对于每个块保存两个这样的表。</p>
+
+<p>对于一个块而言，可能出现如下情况：</p>
+
+<ol>
+  <li>完整</li>
+  <li>块缺失：在某个位置，使用与空余表的计数均为0，
+将这一块加入空余列表</li>
+  <li>块在空余列表中冗余：空余表中的计数大于1，
+重建空余列表</li>
+  <li>块在使用列表中冗余：使用表中的计数大于1，
+这种情况表示两个文件使用了这个块，我们很难单独删除一个或者将两个文件同时删除，
+解决方案是使用一个新的块，将内容复制过去，但是仍然有内容损坏的风险。</li>
+</ol>
+
+<p>FSCK算法：</p>
+
+<ol>
+  <li>遍历所有的i-node
+    <ul>
+      <li>恢复块</li>
+      <li>增加计数器</li>
+    </ul>
+  </li>
+  <li>遍历空闲列表
+    <ul>
+      <li>增加空闲块的计数器</li>
+    </ul>
+  </li>
+</ol>
+
+<p>检查目录系统：所有的i-node计数都正确吗？
+可能出错的地方：</p>
+
+<ul>
+  <li>i-node计数器高于目录中的文件数量</li>
+  <li>i-node计数器低于目录中的文件数量</li>
+</ul>
+
+<p>恢复算法：</p>
+
+<ul>
+  <li>递归便利目录层级
+    <ul>
+      <li>增加文件计数器，所有的文件只同一个计数器相关</li>
+    </ul>
+  </li>
+  <li>一个文件可能出现在多个目录下
+    <ul>
+      <li>比较文件计数器与i-node计数器，如果需要修复，则修复之</li>
+    </ul>
+  </li>
+</ul>
+
  -->
     
-        <p>关于网络层的复习资料，T劣也要单纵干……听说放图能出船？总之捞到了云龙……</p>
+        <p>文件系统的笔记……出院了(意味深)真是めでたしめでたし……(然而并没有驱逐王……明天最后一门……</p>
 
 
     
@@ -629,8 +770,7 @@ until all nodes in S</p>
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/link_layer/" title="Link Layer"><img src="http://MeowAlienOwO.github.io//images/50285937.jpg" alt="Link Layer"></a>
->>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
+        <a href="http://MeowAlienOwO.github.io//computer%20science/network/application_layer/" title="Application Layer"><img src="http://MeowAlienOwO.github.io//images/50388846.jpg" alt="Application Layer"></a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
@@ -1475,7 +1615,6 @@ ${2..2^m - 1}$中选取一个$k$，等待$K * 512$个比特时间，返回第二
 
 <p>隐藏节点问题往往在无线网络通信中发生，需要在接收方进行载波检测。</p>
 
-<<<<<<< HEAD
 <p>“虚拟载波感应”(virtual carrier sensing)：发送者询问接收者是否能”听到”
 别的节点发来的信息，如果是，则认为信道忙碌。</p>
 
@@ -1672,122 +1811,6 @@ u v w                                    x y z</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" title="Introduction to Information Theory"><img src="http://MeowAlienOwO.github.io//images/49154861.jpg" alt="Introduction to Information Theory"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-14T23:23:43+08:00"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io//about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory" itemprop="url">Introduction to Information Theory</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
-
-<h1 id="section">简介</h1>
-
-<p>The fundamental problem of communication is that reproducing at one
-point either exactly or approximately a message selected at another
-point.</p>
-
-<h1 id="section-1">信息熵与信息</h1>
-
-<h2 id="section-2">信息冗余</h2>
-
-<blockquote>
-  <p>The quick brown fox jumps over the lazy dog</p>
-</blockquote>
-
-<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，
-比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，
-但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
-
-<h2 id="section-3">熵</h2>
-
-<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
-
-<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，
-或者被认为是度量信息内容的量。</p>
-
-<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，
-但是在实际的应用中，这往往无法实现。</p>
-
-<p>计算公式：</p>
-
-<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
-
-<h2 id="bias">偏离(bias)</h2>
-
-<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，
-它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。
-熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
-
-<h2 id="section-4">霍夫曼编码</h2>
-
-<h3 id="prefix-codes">前缀码(prefix codes)</h3>
-
-<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
-
-<p>霍夫曼编码是前缀码的一种。</p>
-
-<h3 id="section-5">创建霍夫曼编码</h3>
-
-<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
-
-<blockquote>
-  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
-</blockquote>
-
-<p>将所有的未编码符号按照出现频率升序排列：</p>
-
-<blockquote>
-  <p>e a d s</p>
-</blockquote>
-
-<p>从小到大将两个频率之和相加直到和为1</p>
-
-<blockquote>
-  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
-</blockquote>
-
-<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
-
-<blockquote>
-  <pre><code>         1 
-         |
-      s  +  0.64
-              |
-           d  +  0.34
-                   |
-                a  +  e
-</code></pre>
-</blockquote>
-
-<p>从上到下，左边取0, 右边取1，最终编码为：</p>
-
-<blockquote>
-  <p>s 0
-d 10
-a 110
-e 111</p>
-</blockquote>
- -->
-    
-        <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-=======
->>>>>>> d77044012985cebbf436dac2b11622441ab7ca20
 
 <div class="pagination">
   
