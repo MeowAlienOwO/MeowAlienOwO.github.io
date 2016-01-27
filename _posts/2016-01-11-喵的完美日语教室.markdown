@@ -52,7 +52,7 @@ comments:
 
 数学描述:
 
-- `A` : $\lbrace a | a 是基础字符 \rbrace$
+- `A` : $\lbrace a \| a 是基础字符 \rbrace$
 
 - `W`: $[ w | w = a+ 其中 a \in A  且 w需要有意义 ]$
 
