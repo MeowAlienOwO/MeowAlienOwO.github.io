@@ -54,11 +54,11 @@ comments:
 
 - `A` : $\lbrace a \| a 是基础字符 \rbrace$
 
-- `W`: $[ w | w = a+ 其中 a \in A  且 w需要有意义 ]$
+- `W`: $\lbrace w \| w = a+ 其中 a \in A  且 w需要有意义 \rbrace$
 
-- `S`: $[ s | s = [w, 标点符号]+, w \in A 且 s 符合语法]$
+- `S`: $\lbrace s \| s = [w, 标点符号]+, w \in A 且 s 符合语法\rbrace$
 
-- `C`: $[ c | c = s+, s in S 且 c 符合语境与文化背景]$
+- `C`: $\lbrace c \| c = s+, s in S 且 c 符合语境与文化背景\rbrace$
 
 
 ## 说人话版
