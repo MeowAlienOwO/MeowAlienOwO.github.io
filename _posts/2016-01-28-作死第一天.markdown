@@ -3,7 +3,7 @@ layout: post
 title: "作死第一天"
 date: "2016-01-28 01:40:32 +0800"
 categories: [自言自语]
-tags: [11区]
+tags: [11区, 计划]
 image: 
   feature: 54883169_p0.jpg
   credit: LL大法好 | Eeeeeee [pixiv] 
@@ -12,5 +12,6 @@ comments:
 ---
 
 仔细一想,日语没学好来11区真的是作死啊...一脸萌比.jpg
+
 
 
