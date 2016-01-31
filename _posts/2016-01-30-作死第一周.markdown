@@ -2,7 +2,7 @@
 layout: post
 title: "作死第一周"
 date: "2016-01-30 00:08:12 +0800"
-categories:[11区生活] 
+categories: [11区生活] 
 tags: [日本, 生活]
 image: 
   feature: 53824078_p0.jpg
