@@ -5,10 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Introduction to Information Theory &#8211; 喵窝[0]号机</title>
-<meta name="description" content="Notes on Information Theory">
+<title>作死第一周 &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
 
-<meta name="keywords" content="information theory, huffman coding, notes, cs">
+<meta name="keywords" content="日本, 生活">
 
 <!-- other plugins config -->
 <!-- mathjax -->
@@ -30,16 +30,16 @@
 <!-- <meta property="og:locale" content="en_US"> -->
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Information Theory">
-<meta property="og:description" content="Notes on Information Theory">
-<meta property="og:url" content="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/">
+<meta property="og:title" content="作死第一周">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/">
 <meta property="og:site_name" content="喵窝[0]号机">
 
 
 
 
 
-<link rel="canonical" href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/">
+<link rel="canonical" href="http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/">
 <link href="http://MeowAlienOwO.github.io//feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -202,9 +202,9 @@
 
 
 <div class="entry-header">
-  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49154861">偶然ではない必然 | junk [pixiv]</a></div><!-- /.image-credit -->
+  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=53824078">第一次投稿 乐正绫 | Kurisu丶Tina [pixiv]</a></div><!-- /.image-credit -->
   <div class="entry-image">
-    <img src="http://MeowAlienOwO.github.io//images/49154861.jpg" alt="Introduction to Information Theory">
+    <img src="http://MeowAlienOwO.github.io//images/53824078_p0.jpg" alt="作死第一周">
   </div><!-- /.entry-image -->
 </div><!-- /.entry-header -->
 
@@ -214,111 +214,153 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory">Introduction to Information Theory</a></h1>
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" rel="bookmark" title="作死第一周">作死第一周</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2015-05-14T23:23:43+08:00">May 14, 2015</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2016-01-30T00:08:12+08:00">January 30, 2016</time></span></h2>
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+      <p>嘛…被老司机秀了一脸._.</p>
 
-<h1 id="section">简介</h1>
+<p>首先，在日语荒废好几个月以后不知死活地跑路到立本……然后开始了在这里的
+实习……</p>
 
-<p>The fundamental problem of communication is that reproducing at one
-point either exactly or approximately a message selected at another
-point.</p>
+<p>仔细想想，我前几个月不应该在实习上面浪费太多时间的……应该关在某个小黑屋里学日语……不然现
+在也不会这么尴尬……</p>
 
-<h1 id="section-1">信息熵与信息</h1>
+<p>无论如何，现在整理一下目前的状态……</p>
 
-<h2 id="section-2">信息冗余</h2>
+<h1 id="section">目前状态</h1>
 
-<blockquote>
-  <p>The quick brown fox jumps over the lazy dog</p>
-</blockquote>
+<h2 id="section-1">语言</h2>
 
-<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，
-比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，
-但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
+<p>日语大致处于糊弄的水平，语法乱用，单词随机，作死有余生存不足。<del>这么
+看来英语水平不知道高到哪里去了</del></p>
 
-<h2 id="section-3">熵</h2>
+<p>嘛姑且而言是可以去便利店不会饿死的程度……日常的话加一点英语也可以
+poi……码农的工作大部分也就是英语所以大丈夫……<del>但是还是比不上老司
+机</del></p>
 
-<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
+<p>好了说正经的……</p>
 
-<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，
-或者被认为是度量信息内容的量。</p>
+<p>由于一贯的偷懒与拖延症，目前语言方面的问题在于：</p>
 
-<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，
-但是在实际的应用中，这往往无法实现。</p>
+<ul>
+  <li><em>词汇量</em>: 不论是英语还是日语，我一直没有认真地背单词的习惯，也因此词
+汇量一般是我的最大瓶颈。<del>其实就是懒</del></li>
+  <li><em>语法</em>: 这一周以来基本是处于出口就口胡的状态……问题在于以前为了考N2
+往死里冲课时，导致现在基础不扎实，而重新从头复习在这个时间点上看起来
+有点迟。</li>
+  <li><em>听力</em>: 这也跟前面的单词跟语法有关系，加上日本人语速又快的飞起……压
+力还是比较大的</li>
+</ul>
 
-<p>计算公式：</p>
+<p>利好也就一个吧……语言环境比较ok，而且在有生存压力的环境下会学得比较
+快- -<del>差点饿死</del></p>
 
-<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
+<h2 id="section-2">项目</h2>
 
-<h2 id="bias">偏离(bias)</h2>
+<p>目前的个人项目主要就是游戏……但是进度比想象中的慢……</p>
 
-<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，
-它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。
-熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
+<p>一半是因为拖延症……另一半是因为错误估计了难度……</p>
 
-<h2 id="section-4">霍夫曼编码</h2>
+<p>不过明确了方向以后就会好很多……</p>
 
-<h3 id="prefix-codes">前缀码(prefix codes)</h3>
+<p>接下来还是主要搭建整个游戏系统的几个核心。目前主要的就是事件链系统……
+（嘛这个是我跟运哥讨论出来的）</p>
 
-<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
+<p>在玩侠客风云传的时候，我们可以看到若干个事件是有前置先后关系的。就比如
+说某傲娇的攻略顺序是干掉黄骆，捉拿霹雳堂叛徒，湖边听笛子……一直到最后
+的打倭寇。这么一连串事件有两个特征：</p>
 
-<p>霍夫曼编码是前缀码的一种。</p>
+<ul>
+  <li>前后依赖,后面的事件必须在前面事件发生完毕以后发生</li>
+  <li>完整性，触发某些特定结局需要走完整个事件链</li>
+</ul>
 
-<h3 id="section-5">创建霍夫曼编码</h3>
+<p>初步的设想是将事件链写成json，然后在游戏初始化的时候将其读入，然后每次
+进入地图画面刷新一遍当前事件。目前的感觉是想法还可以……但是还是要经过
+实践检验。</p>
 
-<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
+<h2 id="section-3">学习</h2>
 
-<blockquote>
-  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
-</blockquote>
+<p>嘛姑且带了一本字帖跟一本漫画教程……大约是有时间练的……大约……</p>
 
-<p>将所有的未编码符号按照出现频率升序排列：</p>
+<p>练字么……总而言之是个长期拖延……虽然以前刷好过一阵子……但是之后又不
+行了……</p>
 
-<blockquote>
-  <p>e a d s</p>
-</blockquote>
+<p>漫画主要是因为可能得自己画立绘/背景……一脸萌比.jpg</p>
 
-<p>从小到大将两个频率之和相加直到和为1</p>
+<p>当然专业向的学习还是要做的，但是估计也木有什么心情去啃基础的东西了……
+就以SE向的为这一阶段的目标好了。</p>
 
-<blockquote>
-  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
-</blockquote>
+<h1 id="section-4">计划</h1>
 
-<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
+<h2 id="section-5">语言</h2>
 
-<blockquote>
-  <pre><code>         1 
-         |
-      s  +  0.64
-              |
-           d  +  0.34
-                   |
-                a  +  e
-</code></pre>
-</blockquote>
+<p>总而言之开始背单词……</p>
 
-<p>从上到下，左边取0, 右边取1，最终编码为：</p>
+<p>当然首先打算用一个礼拜的时间好好刷一下基础语法……不能出口成口胡……</p>
 
-<blockquote>
-  <p>s 0
-d 10
-a 110
-e 111</p>
-</blockquote>
+<p>以下这个网站是一个很好的guide……（虽然有中文版本……嘛跟译者的某些观
+点不能兼容，再加上原版有很好的视频支持）</p>
+
+<p>http://www.guidetojapanese.org/learn/grammar</p>
+
+<p>打算用这个来重新回顾复习一下基础语法，之后从标日中级开始重新刷。9的日
+语教室也打算继续写下去。</p>
+
+<p>每天背单词，不多，沪江词场里一篇大约25-30个，要求熟练掌握,最好可以有记
+录。</p>
+
+<p>项目上，公司的项目先不管(估计也不能)，自己的项目大约需要一周左右回顾汇报一次,如果
+有一些其他事情的话可能两周。</p>
+
+<p>专业学习的话就android跟设计方面了……先把23个设计模式看完再说吧，算法
+向可能一段时间不碰，当然无聊的时候还是会去leetcode练手的……</p>
+
+<p>剩下写字画画……两天耍一波？每天晚上回来以后看看视频打打游戏随便刷刷经
+验……以及保持体能……</p>
+
+<p>总而言之，一定要在这段时间内把执行力培养起来。</p>
+
+<h1 id="section-6">其他</h1>
+
+<p>啊啊啊硬盘快挂掉了好烦……海外用不了云音乐好不爽……</p>
+
+<p>秋叶原妹子有点萌&lt;(&gt;﹏&lt;)&gt;</p>
+
+<p>对了你们要看黑历史吗？</p>
+
+<p><span class="heimu" hint="你知道的太多了"></span></p>
+
+<p>黑历史                                                                            <br />
+&lt;/span&gt;</p>
+
+<p>啊你们真的要看黑历史？</p>
+
+<p><span class="heimu" hint="你知道的太多了"></span></p>
+
+<p>黑历史                                                                            <br />
+&lt;/span&gt;</p>
+
+<p>好吧给你们看黑历史……</p>
+
+<p><span class="heimu" hint="你知道的太多了"></span></p>
+
+<p>黑历史                                                                            <br />
+&lt;/span&gt;</p>
+
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io//tags/#information theory" title="Pages tagged information theory" class="tag"><span class="term">information theory</span></a><a href="http://MeowAlienOwO.github.io//tags/#huffman coding" title="Pages tagged huffman coding" class="tag"><span class="term">huffman coding</span></a><a href="http://MeowAlienOwO.github.io//tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a><a href="http://MeowAlienOwO.github.io//tags/#cs" title="Pages tagged cs" class="tag"><span class="term">cs</span></a></span>
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io//tags/#日本" title="Pages tagged 日本" class="tag"><span class="term">日本</span></a><a href="http://MeowAlienOwO.github.io//tags/#生活" title="Pages tagged 生活" class="tag"><span class="term">生活</span></a></span>
         
         <div class="social-share" >
   <!-- <ul class="socialcount socialcount-small inline-list"> -->
-  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
-  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
-  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io//computer%20science/network/introduction_to_information_theory/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
   <!-- </ul> -->
 </div><!-- /.social-share -->
 
@@ -327,23 +369,23 @@ e 111</p>
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io//computer%20science/network/physical_layer/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" title="作死第一周">作死第一周</a></h3>
-      <p>嘛...被老司机秀了一脸._.首先，在日语荒废好几个月以后不知死活地跑路到立本……然后开始了在这里的实习……仔细想想，我前几个月不应该在实习上面浪费太多时间的……应该关在某个小黑屋里学日语……不然现在也不会这么尴尬……无论如何，现在整理一下目前的状态……# 目前状态## 语...&hellip; <a href="http://MeowAlienOwO.github.io//11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="作死第一天">作死第一天</a></h3>
+      <p>仔细一想,日语没学好来11区真的是作死啊…一脸萌比.jpg&hellip; <a href="http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%A4%A9/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="作死第一天">作死第一天</a></h4>
-        <span>Published on January 28, 2016</span>
+        <h4><a href="http://MeowAlienOwO.github.io//japahese/%E5%96%B5%E7%9A%84%E5%AE%8C%E7%BE%8E%E6%97%A5%E8%AF%AD%E6%95%99%E5%AE%A4/" title="喵的完美日语教室">喵的完美日语教室</a></h4>
+        <span>Published on January 11, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io//japahese/%E5%96%B5%E7%9A%84%E5%AE%8C%E7%BE%8E%E6%97%A5%E8%AF%AD%E6%95%99%E5%AE%A4/" title="喵的完美日语教室">喵的完美日语教室</a></h4>
-        <span>Published on January 11, 2016</span>
+        <h4><a href="http://MeowAlienOwO.github.io//%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/%E5%9B%9E%E5%BD%92/" title="回归">回归</a></h4>
+        <span>Published on January 09, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->

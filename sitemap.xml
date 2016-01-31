@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://MeowAlienOwO.github.io//11%25E5%258C%25BA%25E7%2594%259F%25E6%25B4%25BB/%25E4%25BD%259C%25E6%25AD%25BB%25E7%25AC%25AC%25E4%25B8%2580%25E5%2591%25A8/</loc>
+<lastmod>2016-01-30T00:08:12+08:00</lastmod>
+</url>
+<url>
 <loc>http://MeowAlienOwO.github.io//%25E8%2587%25AA%25E8%25A8%2580%25E8%2587%25AA%25E8%25AF%25AD/%25E4%25BD%259C%25E6%25AD%25BB%25E7%25AC%25AC%25E4%25B8%2580%25E5%25A4%25A9/</loc>
 <lastmod>2016-01-28T01:40:32+08:00</lastmod>
 </url>
@@ -130,5 +134,8 @@
 </url>
 <url>
 <loc>http://MeowAlienOwO.github.io//categories/japahese/</loc>
+</url>
+<url>
+<loc>http://MeowAlienOwO.github.io//categories/11%25E5%258C%25BA%25E7%2594%259F%25E6%25B4%25BB/</loc>
 </url>
 </urlset>
