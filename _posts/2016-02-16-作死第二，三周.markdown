@@ -5,10 +5,10 @@ date: "2016-02-16 21:31:43 +0800"
 categories: [11区生活]
 tags: [生活, 11区]
 image: 
-  feature: 51846235_p0_master1200.jpg
-  credit: 雲龍これくしょん Vol.3 | 児島/blueStardust [pixiv] 
-  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=51846235
-comments: 
+  feature: 53698330_p0.jpg
+  credit: 【C89】雲龍型おひるねブランケット | 滝太郎＠こみトレ☆ソ08a [pixiv] 
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=53698330
+  comments: 
 ---
 
 作死作了两个礼拜……手动姚明脸.jpg
