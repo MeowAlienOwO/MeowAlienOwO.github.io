@@ -56,7 +56,7 @@ comments:
 
 努力吧……
 
-![]({{ site.url }}/image/表情/AC/01.jpg)
+![]({{ site.url }}/image/表情/AC/01.png)
 
 福利：Bash批量文件重命名为递增格式
 <script src="https://gist.github.com/MeowAlienOwO/383077b816c8192fc1f7.js"></script>
