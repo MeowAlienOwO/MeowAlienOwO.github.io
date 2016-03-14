@@ -261,7 +261,7 @@
 <p>进程在它的生命周期中，会在不同的状态之间切换。
 一个常见的进程状态转换图如下：</p>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/process.jpg" alt="process.jpg" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/process.jpg" alt="process.jpg" /></p>
 
 <ul>
   <li>状态为<code>running</code> 的进程占用CPU</li>
@@ -285,7 +285,7 @@
 
 <p>进程的生命周期：</p>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/process2.jpg" alt="process2.jpg" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/process2.jpg" alt="process2.jpg" /></p>
 
 <p>中断(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。</p>
 
@@ -414,7 +414,7 @@
   <li>劣势：容易造成长队列，以及造成系统资源之间的竞争</li>
 </ul>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/first-in-first-serve.jpg" alt="" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/first-in-first-serve.jpg" alt="" /></p>
 
 <h2 id="shotest-job-first">最短任务优先(Shotest job first)</h2>
 <p>最短任务优先算法同样也是一个非抢先式算法，将所有任务以所需时间排序，将耗时最小的任务首先执行。</p>
@@ -427,7 +427,7 @@
   必须预先得知进程执行时间。</li>
 </ul>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/shortest-first.jpg" alt="" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/shortest-first.jpg" alt="" /></p>
 
 <h2 id="round-robin">循环算法(Round-Robin)</h2>
 
@@ -443,7 +443,7 @@
 
 <p>使用循环算法时，切换的时间间隔需要小心设计。</p>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/round-robin.jpg" alt="" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/round-robin.jpg" alt="" /></p>
 
 <h2 id="priority-queues">优先级队列(Priority Queues)</h2>
 
@@ -454,7 +454,7 @@
   <li>劣势：对于静态的优先级而言，低优先级的任务可能会被放置过久。</li>
 </ul>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/priority-queue.jpg" alt="" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/priority-queue.jpg" alt="" /></p>
 
 <h1 id="threadprocess">线程(thread)与进程(process)</h1>
 
@@ -731,7 +731,7 @@ changed)的,例如将任务在不同的队列之间移动。</p>
   <li>进程中断：停止当前进程，执行中断处理程序</li>
 </ul>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/interrupt.jpg" alt="process.jpg" /></p>
+<p><img src="http://MeowAlienOwO.github.io/images/interrupt.jpg" alt="process.jpg" /></p>
 
 <p>具体的操作流程如下：</p>
 
@@ -789,7 +789,7 @@ changed)的,例如将任务在不同的队列之间移动。</p>
 <p>当一个进程想打印文件时，他会将该文件插入一个数字标记的“插槽”并加入一个特殊的打印路径。打印机守护进程间歇地检测是否有文件需要打印。操作系统维护两个变量：<code>IN</code>表示空闲的“插槽”数目，<code>OUT</code>表示需要被打印的文件数目。</p>
 
 <p>当两个进程同时将同一个文件提交至打印任务时：
-<img src="http://MeowAlienOwO.github.ioimages/race-condition.jpg" alt="Race condition" /></p>
+<img src="http://MeowAlienOwO.github.io/images/race-condition.jpg" alt="Race condition" /></p>
 
 <h3 id="section-23">消息传输</h3>
 
