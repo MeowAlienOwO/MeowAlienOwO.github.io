@@ -48,7 +48,7 @@ PCB保存所有有关于进程管理的信息，对于多任务系统中的上�
 进程在它的生命周期中，会在不同的状态之间切换。
 一个常见的进程状态转换图如下：
 
-![process.jpg]({{ site.url }}images/process.jpg)
+![process.jpg]({{ site.url }}/images/process.jpg)
 
 * 状态为`running` 的进程占用CPU
 * 状态为`block` 的进程无法继续执行，比如正在等待I/O
@@ -68,7 +68,7 @@ PCB保存所有有关于进程管理的信息，对于多任务系统中的上�
 
 进程的生命周期：
 
-![process2.jpg]({{ site.url }}images/process2.jpg)
+![process2.jpg]({{ site.url }}/images/process2.jpg)
 
 中断(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。
 
@@ -174,7 +174,7 @@ PCB必须被保护，否则可能带来一系列严重的问题。
 - 优势：在位置上是公平的，且易于实现
 - 劣势：容易造成长队列，以及造成系统资源之间的竞争
 
-![]({{ site.url }}images/first-in-first-serve.jpg)
+![]({{ site.url }}/images/first-in-first-serve.jpg)
 
 ## 最短任务优先(Shotest job first)
 最短任务优先算法同样也是一个非抢先式算法，将所有任务以所需时间排序，将耗时最小的任务首先执行。
@@ -185,7 +185,7 @@ PCB必须被保护，否则可能带来一系列严重的问题。
     需要牺牲公平性与可预测性；
     必须预先得知进程执行时间。
 
-![]({{ site.url }}images/shortest-first.jpg)
+![]({{ site.url }}/images/shortest-first.jpg)
 
 ## 循环算法(Round-Robin)
 
@@ -199,7 +199,7 @@ PCB必须被保护，否则可能带来一系列严重的问题。
 
 使用循环算法时，切换的时间间隔需要小心设计。
 
-![]({{ site.url }}images/round-robin.jpg)
+![]({{ site.url }}/images/round-robin.jpg)
 
 ## 优先级队列(Priority Queues)
 
@@ -208,7 +208,7 @@ PCB必须被保护，否则可能带来一系列严重的问题。
 - 优势：可以优先执行同IO绑定的任务
 - 劣势：对于静态的优先级而言，低优先级的任务可能会被放置过久。
 
-![]({{ site.url }}images/priority-queue.jpg)
+![]({{ site.url }}/images/priority-queue.jpg)
 
 # 线程(thread)与进程(process)
 
@@ -451,7 +451,7 @@ changed)的,例如将任务在不同的队列之间移动。
 + 并发地进行IO与CPU计算
 + 进程中断：停止当前进程，执行中断处理程序
 
-![process.jpg]({{ site.url }}images/interrupt.jpg)
+![process.jpg]({{ site.url }}/images/interrupt.jpg)
 
 具体的操作流程如下：
 
@@ -493,7 +493,7 @@ changed)的,例如将任务在不同的队列之间移动。
 当一个进程想打印文件时，他会将该文件插入一个数字标记的“插槽”并加入一个特殊的打印路径。打印机守护进程间歇地检测是否有文件需要打印。操作系统维护两个变量：`IN`表示空闲的“插槽”数目，`OUT`表示需要被打印的文件数目。
 
 当两个进程同时将同一个文件提交至打印任务时：
-![Race condition]({{ site.url }}images/race-condition.jpg)
+![Race condition]({{ site.url }}/images/race-condition.jpg)
 
 ### 消息传输
 
