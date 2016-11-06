@@ -11,7 +11,7 @@ deploy:
 	rm -r ./*
 	cp -r /tmp/_site/* ./
 	git add -A
-	git commit -m "update page infor"
+	git commit -m "update page info"
 	echo "deploy finished"
 	git push origin master 
 	git checkout source
