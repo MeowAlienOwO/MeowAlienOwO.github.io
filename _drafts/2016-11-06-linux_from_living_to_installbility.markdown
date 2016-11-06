@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "linux"
+title: "linux:从生存到装逼"
 date: "2016-11-06 10:09:07 +0800"
 categories: [linux]
 tags: [linux]
