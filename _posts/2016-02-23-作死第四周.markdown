@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "作死第四周"
 date: "2016-02-23 00:22:41 +0800"
 categories: 
