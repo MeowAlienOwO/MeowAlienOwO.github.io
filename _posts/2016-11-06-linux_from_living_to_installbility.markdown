@@ -104,73 +104,73 @@ mkdir my-directory
 执行命令，就可以创建一个名为`my-directory`的文件夹。接下来，我们要在这
 个文件夹里进行我们的编程任务。
 
-```bash
+{% highlight sh %}
 cd my-directory
-```
+{% endhighlight %}
 
 这个命令可以将你的工作目录转换到`my-directory`下面。我们理所当然的知道，
 我们新建的目录应当是空的。但是，当我们执行命令`ls`来查看目录下的文件时：
-```bash
+{% highlight sh %}
 ls -al
-```
+{% endhighlight %}
 我们会看到如下输出：
 
-```bash
+{% highlight sh %}
 ~/my-directory$ ls -al
 总用量 8
 drwxr-xr-x  2 meow meow 4096 Nov  7 00:53 .
 drwx------ 55 meow meow 4096 Nov  7 00:53 ..
-```
+{% endhighlight %}
 
 那这里的两个文件是怎么回事呢？这里的一个点`.`表示的是你的当前目录，而
 两个点`..`表示的是上级目录。如果我们想要回到家目录，我们可以执行：
-```bash
+{% highlight sh %}
 cd ..
-```
+{% endhighlight %}
 而我们要是想执行某个文件，我们可以:
 
-```bash
+{% highlight sh %}
 ./your-program # 在linux下通常可执行文件没有后缀
-```
+{% endhighlight %}
 
 4.接下来，我们创建一个文件：
 
-```bash
+{% highlight sh %}
 touch program.c
 ls -al
-```
+{% endhighlight %}
 
 我们可以看到输出增加了 program.c,说明文件已经创建成功。接下来，打开这
 个文件，我们就可以进行编辑了。
 
-```bash
+{% highlight sh %}
 gedit program.c # 图形界面
 emacs program.c # 命令行，或者
 vim program.c
-```
+{% endhighlight %}
 
 5. 写完程序以后，我们要将C源文件编译成可执行文件。
 
-```bash
+{% highlight sh %}
 gcc program.c -o program # 编译
 ./program # 执行
-```
+{% endhighlight %}
 
 但是，我们每次都要开两个东西：一个是gedit, 一个是terminal，出现编译错
 误得自己手动去找，不是很累吗？
 在emacs中，我们有命令：
 
-```bash
+{% highlight sh %}
 Alt+x compile # 之后在下面的小窗口中，会有编译命令，改成：
 gcc program.c -o program
-```
+{% endhighlight %}
 ![](http://og78s5hbx.bkt.clouddn.com/compile.jpg)
 
 然后，我们就可以直接使用快捷键：
 
-```bash
+{% highlight sh %}
 Ctrl+`
-```
+{% endhighlight %}
 
 ![](http://og78s5hbx.bkt.clouddn.com/compile-error.jpg)
 
@@ -180,19 +180,19 @@ Ctrl+`
 
 我们再进行ls:
 
-```bash
+{% highlight sh %}
  $ ls -al
 总用量 24
 drwxr-xr-x  2 meow meow 4096 Nov  7 01:33 .
 drwx------ 55 meow meow 4096 Nov  7 01:33 ..
 -rwxr-xr-x  1 meow meow 8392 Nov  7 01:33 program
 -rw-r--r--  1 meow meow   80 Nov  7 01:33 program.c
-```
+{% endhighlight %}
 
 我们可以很清晰地看到，我们的program是有执行权限的。我们改变它的权限，
 让其不能被执行：`
 
-```bash
+{% highlight sh %}
 chmod a-x program # 或者，二进制方式
 
 chmod 644
@@ -200,7 +200,7 @@ chmod 644
 ls -al
 
 ./program
-```
+{% endhighlight %}
 这里，我们会获得一个权限错误。这意味着我们没有了可执行权限。通常在写脚
 本的时候，由于linux文本文件默认是不可执行的，如果没有打开权限，在执行
 的时候就会出错。
@@ -210,7 +210,7 @@ ls -al
 学习能力与搜索技巧。
 我们来总结一下生存所必须的linux命令：
 
-```bash
+{% highlight sh %}
 pwd          # 当前工作目录的绝对路径，从/开始
 cd           # 切换目录
 cd ..        # 返回上一级
@@ -234,7 +234,7 @@ gcc          # GNU C Compiler的缩写。是linux下自带的C语言编译器，
 man          #查看帮助
 --help 或 -h # 许多命令可以通过追加这两个flag获得一些常用的用法以及解
 释
-```
+{% endhighlight %}
 
 # 来到两军阵前，必有高论
 
