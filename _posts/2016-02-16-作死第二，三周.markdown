@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "作死第二，三周"
 date: "2016-02-16 21:31:43 +0800"
 categories: [11区生活]

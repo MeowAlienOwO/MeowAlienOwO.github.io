@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "立贴为誓"
 date: "2015-07-10 13:16:02 +0800"
 modified: 

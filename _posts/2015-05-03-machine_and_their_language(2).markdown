@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "MAL-下推自动机与上下文无关语言"
 date: "2015-05-03 14:49:02 +0800"
 modified: 

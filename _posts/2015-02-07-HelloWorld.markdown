@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "Hello World"
 date: "2015-02-27 12:30:35 +0800"
 categories: [hello, jekyll]

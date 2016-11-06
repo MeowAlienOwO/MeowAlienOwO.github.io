@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "Operating System: File System"
 date: "2015-05-20 15:07:11 +0800"
 modified: 

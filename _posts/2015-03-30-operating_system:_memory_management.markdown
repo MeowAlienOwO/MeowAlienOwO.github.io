@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "操作系统笔记二：内存管理"
 date: "2015-03-30 19:10:06 +0800"
 modified: 

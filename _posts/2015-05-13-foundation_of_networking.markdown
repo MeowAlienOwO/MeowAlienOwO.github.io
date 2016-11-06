@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "Foundation of Networking"
 date: "2015-05-13 16:59:52 +0800"
 modified: 

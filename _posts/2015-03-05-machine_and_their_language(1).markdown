@@ -1,5 +1,6 @@
 ---
 layout: post
+oldpage: true
 title: "MAL-确定有限自动状态机"
 modified: 
 description: "Notes for Machines and their language"
