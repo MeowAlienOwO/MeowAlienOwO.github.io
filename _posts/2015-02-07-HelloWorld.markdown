@@ -8,8 +8,8 @@ image:
   feature: 48993714_p0.jpg
   credit: pixiv
   creditlink: "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=48993714"
-
 ---
+
 之前完全从零折腾过个人网站，但是后来因为拖延症以及各种各样的原因写完就没有搞过了（你们可以看看old-backup分支）。然后MOBA项目主页用的是jekyll，感觉很不错。姑且这次个人主页尝试用jekyll试试，希望自己能坚持下去。
 
 
