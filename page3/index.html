@@ -193,6 +193,12 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/linux/">
+				    linux (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -217,6 +223,159 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/computer%20science/network/transport_layer/" title="Transport Layer"><img src="http://MeowAlienOwO.github.io/images/2473257.jpg" alt="Transport Layer"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-15T21:00:24+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/network/transport_layer/">May 15, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/network/transport_layer/" rel="bookmark" title="Transport Layer" itemprop="url">Transport Layer</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+
+<h1 id="section">简介</h1>
+
+<p>传输层协议主要提供了不同主机上的应用程序之间的交流能力。在终端主机上运
+行。</p>
+
+<p>发送者:将应用信息分段，传给网络层
+接收者：将段重新汇编为信息，传给应用层</p>
+
+<p>在因特网上，主要是TCP与UDP两种。</p>
+
+<h1 id="tcpudp">TCP与UDP</h1>
+
+<h2 id="user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
+
+<p>IP上的很薄的一层。加入了校验和与包长度，用于防止包损坏；加入了源端口与
+目标端口，用于可能的特殊应用。</p>
+
+<p>UDP是不可靠的。</p>
+
+<p>组成：
+16比特源端口，16比特目标端口，16比特长度，16比特校验和。</p>
+
+<h2 id="transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
+
+<p>传输控制协议提供远比UDP可靠的通信手段。</p>
+
+<p>连接使用三次握手方式创建，数据被操作系统分成包并且标号，接收包的时候要
+返回已接收信息。连接必须被明确地关闭。</p>
+
+<h3 id="section-1">七个主要特性</h3>
+
+<ol>
+  <li>面向连接</li>
+  <li>点对点</li>
+  <li>完全可信，接收的数据就是发送的数据</li>
+  <li>完全双向通信</li>
+  <li>流接口</li>
+  <li>可靠的连接建立过程</li>
+  <li>优雅的(……)关闭过程</li>
+</ol>
+
+<h3 id="section-2">建立链接</h3>
+
+<p>使用特殊的同步(SYN)与结束(FIN)信息来打开/关闭连接，同时确认两边都接受
+了所有的数据。</p>
+
+<p>A      —SYN(SeqNo=x)—&gt;        B</p>
+
+<p>&lt;—SYN(SeqNo=y, AckNo=x+1)—</p>
+
+<p>—(SeqNo=x+1, AckNo=y+1)—&gt;</p>
+
+<p>（看
+<a href="http://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">维基</a>吧ppt实在太坑了……）</p>
+
+<h3 id="section-3">传输信息</h3>
+
+<p>维基的例子：</p>
+
+<ol>
+  <li>发送方首先发送第一个包含序列号为1（可变化）和1460字节数据的TCP报文段给接收方。接收方以一个没有数据的TCP报文段来回复（只含报头），用确认号1461来表示已完全收到并请求下一个报文段。</li>
+  <li>发送方然后发送第二个包含序列号为1461和1460字节数据的TCP报文段给接收方。正常情况下，接收方以一个没有数据的TCP报文段来回复，用确认号2921（1461+1460）来表示已完全收到并请求下一个报文段。发送接收这样继续
+下去。</li>
+  <li>然而当这些数据包都是相连的情况下，接收方没有必要每一次都回应。比如，他收到第1到5条TCP报文段，只需回应第五条就行了。在例子中第3条TCP报文段被丢失了，所以尽管他收到了第4和5条，然而他只能回应第2条。</li>
+  <li>发送方在发送了第三条以后，没能收到回应，因此当时钟（timer）过时（expire）时，他重发第三条。（每次发送者发送一条TCP报文段后，都会再次启动一次时钟：RTT）。</li>
+  <li>这次第三条被成功接收，接收方可以直接确认第5条，因为4，5两条已收到。</li>
+</ol>
+
+<h3 id="section-4">关闭连接</h3>
+
+<p>连接终止使用了四路握手过程（four-way handshake），在这个过程中每个终端的连接都能独立地被终止。因此，一个典型的拆接过程需要每个终端都提供一对FIN和ACK。</p>
+
+<p>A  —FIN—&gt;  B</p>
+
+<p>&lt;—ACK—</p>
+
+<p>&lt;—FIN—</p>
+
+<p>—ACK—&gt;</p>
+
+<h1 id="tcp">TCP的可靠性机制</h1>
+
+<h2 id="section-5">顺序</h2>
+
+<p>动态路由可能会导致包并非顺序到达，TCP通过给予每个包一个序号来确保它们可以按顺序排列。这个序列号也可以用来侦测包的重复与缺失。</p>
+
+<h2 id="section-6">重新传输</h2>
+
+<p>发送方发送某个包后开始计时，如果超过一段时间没有得到响应则重发包。有一
+定的尝试次数。接收方处理重复包。有的时候，在上一个会话的包会延迟抵达，
+而此时下一个会话如果有相同的顺序号，就会出现重复问题，解决方案是同时标
+记会话号。</p>
+
+<h2 id="section-7">流控制</h2>
+
+<p>数据超出往往在发送方传输速度大于接收方接受速度时发生。一个简单的方法是
+在发送下一个之前对每个包进行接收通知(ack)，但是这个会带来带宽浪费。</p>
+
+<p>TCP使用窗口机制。发送方与接收方约定一个窗口大小(包的数量)，在初始，一
+整个窗口被发送，之后每个包被通知，然后另外一个才可以发送。接收方发送可
+以接受的窗口大小。窗口大小为0则说明发送方需要在进一步的通知之前停止发
+送。</p>
+
+<p>TCP协议在工作时，如果发送端的TCP协议软件每传输一个数据分组后，必须等待接收端的确认才能够发送下一个分组，由于网络传输的时延，将有大量时间被用于等待确认，导致传输效率低下。为此TCP在进行数据传输时使用了滑动窗口机制。</p>
+
+<p>TCP滑动窗口用来暂存两台计算机间要传送的数据分组。每台运行TCP协议的计算机有两个滑动窗口：一个用于数据发送，另一个用于数据接收。发送端待发数据分组在缓冲区排队等待送出。被滑动窗口框入的分组，是可以在未收到接收确认的情况下多送出的部分。滑动窗口左端标志X的分组，是已经被接收端确认收到的分组。随着新的确认到来，窗口不断向右滑动。</p>
+
+<p>TCP协议软件依靠滑动窗口机制解决传输效率和流量控制问题。它可以在收到确认信息之前发送多个数据分组。这种机制使得网络通信处于忙碌状态，提高了整个网络的吞吐率，它还解决了端到端的通信流量控制问题，允许接收端在拥有容纳足够数据的缓冲之前对传输进行限制。在实际运行中，TCP滑动窗口的大小是可以随时调整的。收发端TCP协议软件在进行分组确认通信时，还交换滑动窗口控制信息，使得双方滑动窗口大小可以根据需要动态变化，达到在提高数据传输效率的同时，防止拥塞的发生。　称窗口左边沿向右边沿靠近为窗口合拢，这种现象发生在数据被发送和确认时。</p>
+
+<p>当窗口右边沿向右移动时将允许发送更多的数据，称之为窗口张开。这种现象发生在另一端的接收进程读取已经确认的数据并释放了TCP的接收缓存时。</p>
+
+<p>当右边沿向左移动时，称为窗口收缩。Host Requirements RFC强烈建议不要使用这种方式。但TCP必须能够在某一端产生这种情况时进行处理。
+如果左边沿到达右边沿，则称其为一个零窗口。</p>
+
+<ol>
+  <li>发送方不必发送一个全窗口大小的数据。</li>
+  <li>来自接收方的一个报文段确认数据并把窗口向右边滑动，这是因为窗口的大小是相对于确认序号的。</li>
+  <li>窗口的大小可以减小，但是窗口的右边沿却不能够向左移动。</li>
+  <li>接收方在发送一个ACK前不必等待窗口被填满。</li>
+</ol>
+
+<p>– 百度百科</p>
+
+<h2 id="section-8">防止拥堵</h2>
+
+<p>转换器信号与丢包都可以认为是网络拥堵的标志。TCP通过丢包来监控网络拥堵。对于第一个丢包，TCP将发送一个小信息。如果这个信息没有丢失，数据大小加倍，以此类推，直到窗口大小的一半，停止倍增。</p>
+ -->
+    
+        <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -395,25 +554,24 @@
 <p>路由算法往往是图的寻找任意两个节点之间的最短链接算法。
 令c(x, y)为从节点x到y的成本，当他们不是邻居时，为无穷大</p>
 
-<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本
-```python</p>
-
-<p>Initialization:
+<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本</p>
+<pre><code class="language-python">
+Initialization:
   S = {u}
   for all nodes v
     if (v is adjacent to u)
       D(v) = c(u,v)
     else
-      D(v) = infinity</p>
+      D(v) = infinity
 
-<p>Loop:Do
+Loop:Do
   find w not in s with the smallest D(w)
   add w to S
   update D(v) for all v adjacent to w and not in S:
     D(v) = min{D(v), D(w) + c(w,v)}
-until all nodes in S</p>
+until all nodes in S
 
-<p>```</p>
+</code></pre>
 
 <h2 id="link-state-routing">连接状态路由(link state routing)</h2>
 
@@ -713,7 +871,7 @@ ${2..2^m - 1}$中选取一个$k$，等待$K * 512$个比特时间，返回第二
 <p>星型star:现在比较常用，在中心有一个转换节点，每一个”辐条”(spoke)上运行一个独立的以太网协议，互相之间不发生碰撞。</p>
 
 <h2 id="section-12">扩展</h2>
-<p>### LAN的距离极限</p>
+<h3 id="lan">LAN的距离极限</h3>
 
 <p>MAC协议，比如CSMA/CD需要与导线长度成比例的时间;同时信号强度也会随着距离而衰减。</p>
 
@@ -1073,9 +1231,9 @@ e 111</p>
 <p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
 RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
 
-<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)
-### NRZI
-一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
+<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)</p>
+<h3 id="nrzi">NRZI</h3>
+<p>一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
 
 <p>零改变：“0”为物理电平上的改变。“1”为没有改变。</p>
 
@@ -1145,203 +1303,6 @@ RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码
  -->
     
         <p>第二篇……不要怂就是干…… おかわり！</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/computer%20science/network/foundation_of_networking/" title="Foundation of Networking"><img src="http://MeowAlienOwO.github.io/images/46203097.jpg" alt="Foundation of Networking"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-05-13T16:59:52+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/network/foundation_of_networking/">May 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/network/foundation_of_networking/" rel="bookmark" title="Foundation of Networking" itemprop="url">Foundation of Networking</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
-
-<p>这个照旧是网络的笔记……John个大坑比……</p>
-
-<h1 id="section">网络基础</h1>
-
-<h2 id="network">何为网络(Network)</h2>
-
-<p>网络是在节点之间传输数据的一种结构。</p>
-
-<ul>
-  <li>节点是多种多样的</li>
-  <li>节点的数量必须多余两个</li>
-</ul>
-
-<p>网络由如下设备组成：</p>
-
-<ul>
-  <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
-  <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
-  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
-(switch)两种。</li>
-</ul>
-
-<p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
-
-<h2 id="protocals">互联网协议(protocals)</h2>
-
-<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
-<em>顺序</em>与对信息传输的<em>行动</em>。</p>
-
-<h2 id="host">主机(host)</h2>
-
-<p>主机以包(packets)的形式传输信息。算法如下：</p>
-
-<ol>
-  <li>取得需要传输的信息</li>
-  <li>将其截成定长为$L$的小段(chunks)，称之为包(packet)</li>
-  <li>将包以某个传输比率(transmission rate)$R$传输至网络</li>
-</ol>
-
-<p>传输比率又称连接容量(link capacity)，连接带宽(link bandwidth)，计算公式如下：</p>
-
-<p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
-
-<h2 id="physical-media">物理媒体(Physical Media)</h2>
-
-<p>比特(bit)：在发送者与接收者之间传输</p>
-
-<p>物理链接(physical link)：连接发送者与接收者的物理材料</p>
-
-<p>导向媒体(guided media)：传输信号的固体媒体，比如铜导线，光纤，同轴电缆</p>
-
-<p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
-
-<h2 id="network-core">网络核心(network core)</h2>
-
-<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
-路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
-
-<h2 id="section-1">网络结构</h2>
-
-<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
-这样才能做到路由器之间的通讯。</p>
-
-<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
-但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
-同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
-使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
-
-<p>网络的层级如下：</p>
-
-<ol>
-  <li>一级网络服务提供商(Tier 1 ISP)与内容提供网络(Content Provider Network)</li>
-  <li>广域网交换点(IXP)</li>
-  <li>区域ISP</li>
-  <li>入口ISP</li>
-</ol>
-
-<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
-
-<p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
-
-<p>分组通过最佳路径(取决于 路由算法)路由到目标。但并不是所有在相同两个主机之间传送的分组（即使是来自同一消息的那些分组）一定要沿着相同的路径传送。</p>
-
-<p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
-
-<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
-终端-终端延迟在理想状况下为$2L / R$。</p>
-
-<h3 id="section-2">队列与丢包</h3>
-
-<p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
-
-<ul>
-  <li>包被存储在队列中等待，或者</li>
-  <li>当队列存储容量满了以后，包会丢失(dropped)</li>
-</ul>
-
-<h3 id="section-3">两个关键的的网络核心功能</h3>
-
-<p>路由(routing):决定包的源地址路由器</p>
-
-<p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
-
-<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
-
-<p>根据
-<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
-双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
-信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
-
-<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
-
-<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
-不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
-现代的通信中应用相对较少</p>
-
-<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
-进行通信的技术。典型应用有GSM。</p>
-
-<h3 id="vs-">封包交换 vs 电路交换</h3>
-
-<p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
-
-<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
-但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
-
-<h3 id="section-4">丢包与延迟的来源</h3>
-
-<h4 id="section-5">丢包</h4>
-
-<p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
-
-<h4 id="section-6">延迟</h4>
-
-<p>对于单路由节点而言，延迟的来源有四个：</p>
-
-<ul>
-  <li>节点处理过程(nodal processing)：包含比特错误校验(check bit errors)，确定输出连接等，通常小于毫秒量级</li>
-  <li>队列延迟(queueing delay)：等待输出连接的传输时间，由当前连接的拥挤程度而决定</li>
-  <li>转换延迟(transmission delay)：将数据输入传输连接的时间，计算方式为$d_{trans} = L / R$,$L$表示包长度，$R$表示带宽</li>
-  <li>传输延迟(propagation delay):数据在连接媒体之间传输的时间，计算方式为$d_{prop} = d / s$，$d$表示物理连接的长度，$s$表示传输速度的中位数</li>
-</ul>
-
-<p>计算延迟的公式为：</p>
-
-<p>$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$</p>
-
-<h2 id="section-7">层级</h2>
-
-<h3 id="section-8">网络协议层级栈</h3>
-
-<ol>
-  <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
-  <li>传输层(transport)：进程-进程(process-process)之间的数据传输，TCP，UDP</li>
-  <li>网络层(network)：路由相关，如IP，路由协议</li>
-  <li>连接层(link)：在相邻网络元素之间的数据传输，如以太网(Ethernet),802.111协议，PPP等</li>
-  <li>物理层(physical)：二进制数据</li>
-</ol>
-
-<h3 id="isoosi">ISO/OSI七层模型</h3>
-
-<p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
-
-<ol>
-  <li>表示层(presentation)：允许应用解释数据的意义，比如加密，压缩，机器特定的约定，等</li>
-  <li>会话层(session)：同步，校验点(checkpoint)，从数据交换中恢复等等</li>
-</ol>
-
-<p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
-
- -->
-    
-        <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
 
 
     

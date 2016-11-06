@@ -193,6 +193,12 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/linux/">
+				    linux (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -383,25 +389,24 @@
 <p>路由算法往往是图的寻找任意两个节点之间的最短链接算法。
 令c(x, y)为从节点x到y的成本，当他们不是邻居时，为无穷大</p>
 
-<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本
-```python</p>
-
-<p>Initialization:
+<p>Dikstra算法， S是当前最短的路径，D(v)是从源地址到v的已知最短路径，C(w,v)是已知从w到v的成本</p>
+<pre><code class="language-python">
+Initialization:
   S = {u}
   for all nodes v
     if (v is adjacent to u)
       D(v) = c(u,v)
     else
-      D(v) = infinity</p>
+      D(v) = infinity
 
-<p>Loop:Do
+Loop:Do
   find w not in s with the smallest D(w)
   add w to S
   update D(v) for all v adjacent to w and not in S:
     D(v) = min{D(v), D(w) + c(w,v)}
-until all nodes in S</p>
+until all nodes in S
 
-<p>```</p>
+</code></pre>
 
 <h2 id="link-state-routing">连接状态路由(link state routing)</h2>
 
@@ -463,20 +468,20 @@ until all nodes in S</p>
       <a href="http://MeowAlienOwO.github.io/computer%20science/network/link_layer/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/" title="作死第四周">作死第四周</a></h3>
-      <p>依旧是拖延症的一周……啊还有妹妹# 工作划水中……没什么好说的（其实是之后要去找妹妹）# 项目木有进展……我错了# 日语渣的一笔 木有背单词 木有看语法# 游戏刚捞到天城……现在目标齐柏林w其他木有玩# 妹妹是个坑……好吧我说详细点上来送了个口香糖，然后这个糖会炸……里面大...&hellip; <a href="http://MeowAlienOwO.github.io/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/linux/linux_from_living_to_installbility/" title="linux">linux</a></h3>
+      <p>题图:永远抽不到的呆毛其之一&hellip; <a href="http://MeowAlienOwO.github.io/linux/linux_from_living_to_installbility/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%BA%8C-%E4%B8%89%E5%91%A8/" title="作死第二，三周">作死第二，三周</a></h4>
-        <span>Published on February 16, 2016</span>
+        <h4><a href="http://MeowAlienOwO.github.io/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/" title="作死第四周">作死第四周</a></h4>
+        <span>Published on February 23, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" title="作死第一周">作死第一周</a></h4>
-        <span>Published on January 30, 2016</span>
+        <h4><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%BA%8C-%E4%B8%89%E5%91%A8/" title="作死第二，三周">作死第二，三周</a></h4>
+        <span>Published on February 16, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
