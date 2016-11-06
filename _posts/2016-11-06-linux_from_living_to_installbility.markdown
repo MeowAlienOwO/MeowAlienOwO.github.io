@@ -97,10 +97,9 @@ pwd
 面。
 
 3. 让我们创建一个文件夹：
-
-```bash
+{% highlight bash %}
 mkdir my-directory
-```
+{% endhighlight %}
 
 执行命令，就可以创建一个名为`my-directory`的文件夹。接下来，我们要在这
 个文件夹里进行我们的编程任务。
