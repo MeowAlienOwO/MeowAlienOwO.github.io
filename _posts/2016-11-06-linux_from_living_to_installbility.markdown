@@ -87,63 +87,80 @@ linux下的文件有两种类型：文本文件，以及二进制文件。文本
 1. 首先，我们登录学校的linux环境。可以通过图形界面，如果对自己的命令行能
 力有自信的话也可以通过putty登录。
 2. 登录进去之后，如果是图形界面打开Terminal。执行命令：
+
 ```bash
 pwd
 ```
+
 我们可以获取到当前的工作目录。比如，`/home/your-user-name`。在学校的机
 子上，一般第一个工作目录就是你的家目录，所有的文件都得存放在这个目录下
 面。
 
 3. 让我们创建一个文件夹：
+
 ```bash
 mkdir my-directory
 ```
+
 执行命令，就可以创建一个名为`my-directory`的文件夹。接下来，我们要在这
 个文件夹里进行我们的编程任务。
+
 ```bash
 cd my-directory
 ```
+
 这个命令可以将你的工作目录转换到`my-directory`下面。我们理所当然的知道，
 我们新建的目录应当是空的。但是，当我们执行命令`ls`来查看目录下的文件时：
 ```bash
 ls -al
 ```
 我们会看到如下输出：
+
 ```bash
 ~/my-directory$ ls -al
 总用量 8
 drwxr-xr-x  2 meow meow 4096 Nov  7 00:53 .
 drwx------ 55 meow meow 4096 Nov  7 00:53 ..
 ```
+
 那这里的两个文件是怎么回事呢？这里的一个点`.`表示的是你的当前目录，而
 两个点`..`表示的是上级目录。如果我们想要回到家目录，我们可以执行：
 ```bash
 cd ..
 ```
 而我们要是想执行某个文件，我们可以:
+
 ```bash
 ./your-program # 在linux下通常可执行文件没有后缀
 ```
+
 4.接下来，我们创建一个文件：
+
 ```bash
 touch program.c
 ls -al
 ```
+
 我们可以看到输出增加了 program.c,说明文件已经创建成功。接下来，打开这
 个文件，我们就可以进行编辑了。
+
 ```bash
 gedit program.c # 图形界面
 emacs program.c # 命令行，或者
 vim program.c
 ```
+
 5. 写完程序以后，我们要将C源文件编译成可执行文件。
+
 ```bash
 gcc program.c -o program # 编译
 ./program # 执行
 ```
+
 但是，我们每次都要开两个东西：一个是gedit, 一个是terminal，出现编译错
 误得自己手动去找，不是很累吗？
 在emacs中，我们有命令：
+
 ```bash
 Alt+x compile # 之后在下面的小窗口中，会有编译命令，改成：
 gcc program.c -o program
@@ -151,9 +168,11 @@ gcc program.c -o program
 ![](http://og78s5hbx.bkt.clouddn.com/compile.jpg)
 
 然后，我们就可以直接使用快捷键：
+
 ```bash
 Ctrl+`
 ```
+
 ![](http://og78s5hbx.bkt.clouddn.com/compile-error.jpg)
 
 来进行编译错误之间的跳转，一下子就节省了很多时间。
@@ -161,6 +180,7 @@ Ctrl+`
 `Ctrl+x c`是退出。
 
 我们再进行ls:
+
 ```bash
  $ ls -al
 总用量 24
@@ -169,12 +189,17 @@ drwx------ 55 meow meow 4096 Nov  7 01:33 ..
 -rwxr-xr-x  1 meow meow 8392 Nov  7 01:33 program
 -rw-r--r--  1 meow meow   80 Nov  7 01:33 program.c
 ```
+
 我们可以很清晰地看到，我们的program是有执行权限的。我们改变它的权限，
 让其不能被执行：`
+
 ```bash
 chmod a-x program # 或者，二进制方式
+
 chmod 644
+
 ls -al
+
 ./program
 ```
 这里，我们会获得一个权限错误。这意味着我们没有了可执行权限。通常在写脚
