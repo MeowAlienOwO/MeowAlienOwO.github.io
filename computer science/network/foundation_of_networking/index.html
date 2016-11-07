@@ -238,7 +238,9 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>考砸了不开心…………………………………………食我酸素鱼雷啦</p>
 
 <p>这个照旧是网络的笔记……John个大坑比……</p>
 
@@ -258,16 +260,14 @@
 <ul>
   <li>计算设备(computing devices)：主机，终端系统。主要用于运行网络应用。</li>
   <li>传输连接(communication links)：光纤，卫星，广播器等。</li>
-  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器
-(switch)两种。</li>
+  <li>分组交换器(packet switches)：用于传输信息，有路由器(router)与交换器(switch)两种。</li>
 </ul>
 
 <p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
 
 <h2 id="protocals">互联网协议(protocals)</h2>
 
-<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，
-<em>顺序</em>与对信息传输的<em>行动</em>。</p>
+<p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，<em>顺序</em>与对信息传输的<em>行动</em>。</p>
 
 <h2 id="host">主机(host)</h2>
 
@@ -295,18 +295,13 @@
 
 <h2 id="network-core">网络核心(network core)</h2>
 
-<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，
-路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
+<p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
 
 <h2 id="section-1">网络结构</h2>
 
-<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，
-这样才能做到路由器之间的通讯。</p>
+<p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，这样才能做到路由器之间的通讯。</p>
 
-<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。
-但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。
-同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，
-使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
+<p>我们不能将所有的ISP一一相连，这样我们会有$O(n^2)$的连接数目，难于管理。于是出现了ISP的ISP。但是，不同的高阶ISP又会带来竞争，为了防止竞争造成无法链接的情况，出现了广域网交换点$Internet Exchange Point, IXP$。同样的，在连接到高阶ISP之前，ISP们之间先组成各种局域网(Regional Network),再通过这些局域网同广域网相连接。同时，如Google, Microsoft之类的内容提供商可以自己组建自己的网络，使得他们的服务更加快捷地同终端用户相连接。这些网络被称作内容提供网络(content provider network)。</p>
 
 <p>网络的层级如下：</p>
 
@@ -325,8 +320,7 @@
 
 <p>一个数据连接通常传送数据的分组流，它们将不必全部以相同的方式路由过物理网络。目的计算机把收到的所有报文按照适当的顺序重新排列，就能合并恢复出原来的内容。</p>
 
-<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。
-终端-终端延迟在理想状况下为$2L / R$。</p>
+<p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。终端-终端延迟在理想状况下为$2L / R$。</p>
 
 <h3 id="section-2">队列与丢包</h3>
 
@@ -345,26 +339,19 @@
 
 <h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
 
-<p>根据
-<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，
-双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通
-信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
+<p>根据<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
 
 <h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
 
-<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至
-不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在
-现代的通信中应用相对较少</p>
+<p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在现代的通信中应用相对较少</p>
 
-<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户
-进行通信的技术。典型应用有GSM。</p>
+<p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户进行通信的技术。典型应用有GSM。</p>
 
 <h3 id="vs-">封包交换 vs 电路交换</h3>
 
 <p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
 
-<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。
-但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
+<p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
 
 <h3 id="section-4">丢包与延迟的来源</h3>
 
@@ -410,6 +397,7 @@
 
 <p>一般而言，这两个层级被认为并非绝对必要，且属于应用层的实现。</p>
 
+</body></html>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#network" title="Pages tagged network" class="tag"><span class="term">network</span></a><a href="http://MeowAlienOwO.github.io/tags/#cs" title="Pages tagged cs" class="tag"><span class="term">cs</span></a><a href="http://MeowAlienOwO.github.io/tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a></span>

@@ -238,15 +238,16 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动机展开。</p>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>Machines and Languages感觉难度比较大，这里记一下笔记来让自己记忆一下，以后复习的时候有一个可以参考的东西。这一篇文章主要是对ppt的一些翻译以及自己的一些想法的记录，主要围绕着确定有限自动机展开。</p>
 
 <h1 id="basic">Basic</h1>
 <p>在深入其他内容之前，我们需要掌握一下语言的概念。</p>
 
 <p>关系：对于集合$A$与集合$B$, <em>从A到B的关系(A relation from A to B)</em>是$A$与$B$的一个笛卡尔积$A \times B$的子集。一个在集合$A$上的关系是从$A$到$A$的关系，或者说是$A \times A$的一个子集。</p>
 
-<p>我们可以将关系表述为：
-定义$R$表示一个在某集合上的关系，我们可以将”A与B相关”写作：</p>
+<p>我们可以将关系表述为：定义$R$表示一个在某集合上的关系，我们可以将”A与B相关”写作：</p>
 
 <blockquote>
   <p>$aRb$</p>
@@ -284,8 +285,7 @@
 
 <p>我们用$\Sigma^*$来表示所有在字母表$\Sigma$之上的字符串。而一个<em>语言(language)</em>则是$\Sigma^*$的一个子集。</p>
 
-<p>我们用$xy$来表示字符串$x$与$y$的<em>连接(concatenation)</em>，这也是对字符串最基本的操作。它有着如下的特性：
-你</p>
+<p>我们用$xy$来表示字符串$x$与$y$的<em>连接(concatenation)</em>，这也是对字符串最基本的操作。它有着如下的特性：你</p>
 <ul>
   <li>对于任意的$x$,$x \Lambda = \Lambda x = x$</li>
   <li>$|xy| = |x| + |y|$</li>
@@ -302,8 +302,7 @@
 <h1 id="finite-automata">Finite Automata</h1>
 
 <h2 id="section">定义与性质</h2>
-<p>在讨论有限状态自动机前，我们先来讨论一下<em>语言接收机(language accepter)</em>: 任何输出被限制为”yes”或者”no”的计算机可以被认为是一个语言接收机。
-计算机所接受的语言是将语言输入该计算机后输出且只输出”yes”的语言，而除此之外的语言将输出”no”。另外，在没有任何输入时，我们可以认为其接受%\Lambda%作为输入，而且此时有输出。</p>
+<p>在讨论有限状态自动机前，我们先来讨论一下<em>语言接收机(language accepter)</em>: 任何输出被限制为”yes”或者”no”的计算机可以被认为是一个语言接收机。计算机所接受的语言是将语言输入该计算机后输出且只输出”yes”的语言，而除此之外的语言将输出”no”。另外，在没有任何输入时，我们可以认为其接受%\Lambda%作为输入，而且此时有输出。</p>
 
 <p>在这里，为了讨论的方便，我们约定：</p>
 
@@ -333,9 +332,12 @@
 <ul>
   <li>有限的<em>状态集</em>: $Q$</li>
   <li>有限的<em>输入字母表</em>: $\Sigma$</li>
-  <li><em>初始状态</em>: $q_0 \in Q$</li>
-  <li><em>接受状态集</em> $A \subseteq Q$</li>
-  <li><em>状态转换函数</em> $\delta: Q \times \Sigma \rightarrow Q$</li>
+  <li>
+<em>初始状态</em>: $q_0 \in Q$</li>
+  <li>
+<em>接受状态集</em> $A \subseteq Q$</li>
+  <li>
+<em>状态转换函数</em> $\delta: Q \times \Sigma \rightarrow Q$</li>
 </ul>
 
 <p>我们将有限状态自动机用如下的五元组所表示：</p>
@@ -408,8 +410,7 @@
 
 <h2 id="section-1">区分两个字符串</h2>
 
-<p>我们有定义如下：如果$L$是一个在字母表$\Sigma$之上定义的语言，
-$x$, $y$是在字母表$\Sigma^*$之上定义的字符串，那么如果存在一个字符串$z \in \Sigma^*$,使得要么$xz \in L$且$yz \not \in L$, 要么$xz \not \in L$且$yz \in L$,我们认为$x$与$y$<em>可被L区分(L-distinguishable)</em>。</p>
+<p>我们有定义如下：如果$L$是一个在字母表$\Sigma$之上定义的语言，$x$, $y$是在字母表$\Sigma^*$之上定义的字符串，那么如果存在一个字符串$z \in \Sigma^*$,使得要么$xz \in L$且$yz \not \in L$, 要么$xz \not \in L$且$yz \in L$,我们认为$x$与$y$<em>可被L区分(L-distinguishable)</em>。</p>
 
 <p>等价的，我们有：当$L/x \not = L/y$,$L/x = \lbrace z \in \Sigma^* | xz \in L \rbrace$,$x$与$y$可被L区分。</p>
 
@@ -423,10 +424,7 @@ $x$, $y$是在字母表$\Sigma^*$之上定义的字符串，那么如果存在�
 <h2 id="pumpling-lemma">泵引理(Pumpling Lemma)</h2>
 <p>如果$M = (Q, S, q_0, A, \delta)$是一个接受$L$的FA且状态数量为n，如果其接受一个字符串$x$使得$|x| \geq n$,那么当字符被读入时，M必然会不止一次进入同一个状态。</p>
 
-<p>这使得我们可以对如上FA创建任意多的字符串使得其被L所接受——只需要任意重复其重复的状态即可。于是，我们可以导出<em>泵引理(Pumping Lemma)</em>：
-如果$L$是定义在$\Sigma$上的语言，且$L$被FA$M = (Q, \Sigma, q_0, A,
-\delta)$所接受，存在一个整数$n$使得对于满足$|x| \geq n$的任意$x \in
-L$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
+<p>这使得我们可以对如上FA创建任意多的字符串使得其被L所接受——只需要任意重复其重复的状态即可。于是，我们可以导出<em>泵引理(Pumping Lemma)</em>：如果$L$是定义在$\Sigma$上的语言，且$L$被FA$M = (Q, \Sigma, q_0, A,\delta)$所接受，存在一个整数$n$使得对于满足$|x| \geq n$的任意$x \inL$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
 
 <ul>
   <li>$|uv| \leq n$</li>
@@ -436,8 +434,7 @@ L$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
 
 <p>这里，整数n通常是FA的状态数目，但是我们一般不需要知道这些。</p>
 
-<p>泵引理最普遍的应用是通过反证法证明一个语言<strong>不能</strong>被一个FA所接受。我们首先假设这个语言可以被FA接受，然后我们取n作为在泵引理中使用的整数。之后，我们选取一个字符串，使得$|x| \geq n$,然后我们使用泵引理来得到冲突。
-例题详见课件。</p>
+<p>泵引理最普遍的应用是通过反证法证明一个语言<strong>不能</strong>被一个FA所接受。我们首先假设这个语言可以被FA接受，然后我们取n作为在泵引理中使用的整数。之后，我们选取一个字符串，使得$|x| \geq n$,然后我们使用泵引理来得到冲突。例题详见课件。</p>
 
 <p>一些可被泵引理所解决的问题：</p>
 
@@ -473,11 +470,9 @@ L$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
 
 <p>那么$M_L$在能接受L的FA中有最少的状态数量。</p>
 
-<p>如果我们已经知道了一个FA可以接受L，那么我们可以通过如下方法来得到等价类：
-对于每一个状态$q$,我们可以定义$L_q = \lbrace x \in \Sigma^* | \delta^*(q_0, x) = q$。每一个$L_q$都是一个关于关系$I_L$的等价类的一个子集。</p>
+<p>如果我们已经知道了一个FA可以接受L，那么我们可以通过如下方法来得到等价类：对于每一个状态$q$,我们可以定义$L_q = \lbrace x \in \Sigma^* | \delta^*(q_0, x) = q$。每一个$L_q$都是一个关于关系$I_L$的等价类的一个子集。</p>
 
-<p>Myhill-Nerode同时也给了我们另一种方法来判断一个语言是否为正则语言（即存在对应该语言的FA）。而这种方法是一个比使用泵引理的更强的陈述。
-我们可以对一个语言创建其等价类的集合，如果该集合为无穷集合，那么就无法对该语言创建对应的FA，因而该语言也不是正则语言。</p>
+<p>Myhill-Nerode同时也给了我们另一种方法来判断一个语言是否为正则语言（即存在对应该语言的FA）。而这种方法是一个比使用泵引理的更强的陈述。我们可以对一个语言创建其等价类的集合，如果该集合为无穷集合，那么就无法对该语言创建对应的FA，因而该语言也不是正则语言。</p>
 
 <h3 id="section-3">创建最简状态机</h3>
 <p>假设我们有$M = (Q, \Sigma, q_0, A, \delta)$接受语言$L \subset \Sigma^*$,定义$L_q = \lbrace x \in \Sigma^* | \delta^*(q_0, x) = q \rbrace$</p>
@@ -487,26 +482,20 @@ L$，存在三个字符串$u, v, w$使得$x = uvw$，且：</p>
   <li>在状态集$Q$上定义运算$\equiv$:$p \equiv q$意即所有$L_p$中的字符串与在$L_q$中的所有字符串无法被区分，即$L_p$,$L_q$都是关于$I_L$的等价类的一个子集</li>
   <li>对于所有的$p \not \equiv q$，在状态$\delta^*(p, z), \delta^*(q, z)$中，有且仅有唯一一个状态属于状态集$A$</li>
   <li>定义无序二元状态对集合$S_M$，使得其中的所有二元状态对满足$p \not \equiv q$</li>
-  <li>我们可以用如下的方法来寻找$S_M$:
-    <ul>
+  <li>我们可以用如下的方法来寻找$S_M$:    <ul>
       <li>对于状态对$(p, q)$，如果仅$p$或者仅$q$属于接受状态集$A$,那么$(p, q) \in S_M$</li>
       <li>对于状态对$(p, q)$，如果对于所有的符号$\sigma$，都有$(\delta(p, \sigma), \delta(q, \sigma)) \in S_M$，那么$(p, q) \in S_M$</li>
     </ul>
   </li>
 </ol>
 
-<p>我们可以用如下的算法来寻找满足关系$p \not \equiv q$的二元对$(p, q)$：
-（注：感觉理解还不是很到位，把ppt原文放上来）
-An algorithm to identify the pairs $(p, q)$ with $p ≢ q$ :</p>
+<p>我们可以用如下的算法来寻找满足关系$p \not \equiv q$的二元对$(p, q)$：（注：感觉理解还不是很到位，把ppt原文放上来）An algorithm to identify the pairs $(p, q)$ with $p ≢ q$ :</p>
 
 <ul>
   <li>List all unordered pairs $(p, q)$ of distinct states.</li>
   <li>Make a sequence of passes through these pairs:</li>
-  <li>On the first pass, mark each pair $(p, q)$ so that exactly
-one of the two states is in A</li>
-  <li>On each subsequent pass, and each unmarked pair
-$(r, s)$, if $\delta(r, \sigma) = p$ and $\delta(s, \sigma) = q$ for
-some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$</li>
+  <li>On the first pass, mark each pair $(p, q)$ so that exactlyone of the two states is in A</li>
+  <li>On each subsequent pass, and each unmarked pair$(r, s)$, if $\delta(r, \sigma) = p$ and $\delta(s, \sigma) = q$ forsome$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$</li>
   <li>After a pass in which no pairs are marked, stop</li>
   <li>
     <p>The marked pairs are the pairs (p, q) for which p ≢ q</p>
@@ -523,33 +512,24 @@ some$\sigma \in \Sigma$ , and$(p, q)$ is marked, then mark $(r, s)$</li>
 
 <h1 id="nondeterministic-finite-automata">Nondeterministic Finite Automata</h1>
 
-<p>非确定有限状态机(Nondeterministic Finite Automata)的定义是将原来的确定有限状态机的单个转换函数扩展成一个
-转换函数集，每次运行时，使用平行(parallel)的思路运行不同的转换函数，只
-要有一个返回接受，那么该状态机就接受。</p>
+<p>非确定有限状态机(Nondeterministic Finite Automata)的定义是将原来的确定有限状态机的单个转换函数扩展成一个转换函数集，每次运行时，使用平行(parallel)的思路运行不同的转换函数，只要有一个返回接受，那么该状态机就接受。</p>
 
-<p>我们定义$\delta(q, \sigma)$为在状态$q$的NFA对于输入$\sigma$可以移动到的状态集合
-对于NFA而言，$\delta^*$的定义略有不同。由于$\delta*(q, x)$是一个集合，
-对于任意的前一集合中的$p$，$U \lbrace \delta(p, \sigma) | p \int \delta^*(q,
-x) \rbrace$是$\delta*$的第一步（不理解……）</p>
+<p>我们定义$\delta(q, \sigma)$为在状态$q$的NFA对于输入$\sigma$可以移动到的状态集合对于NFA而言，$\delta^*$的定义略有不同。由于$\delta*(q, x)$是一个集合，对于任意的前一集合中的$p$，$U \lbrace \delta(p, \sigma) | p \int \delta^*(q,x) \rbrace$是$\delta*$的第一步（不理解……）</p>
 
 <h2 id="lambda">$\Lambda$闭包</h2>
 
-<p>我们同样需要考虑$\Lambda$转换，它可以发生在任何状态。假设$M = (Q,
-\Sigma, q_0, A, \delta)$是一个NFA,$S \subset Q$是一个状态的集合。
-那么，$S$的$\Lambda$闭包是一个集合$\Lambda(S)$，这个集合可以被递归地定
-义如下：</p>
+<p>我们同样需要考虑$\Lambda$转换，它可以发生在任何状态。假设$M = (Q,\Sigma, q_0, A, \delta)$是一个NFA,$S \subset Q$是一个状态的集合。那么，$S$的$\Lambda$闭包是一个集合$\Lambda(S)$，这个集合可以被递归地定义如下：</p>
 
 <ul>
   <li>$S \subset \Lambda(S)$</li>
   <li>对于所有的$q \in \Lambda(S), \sigma(q, \Lambda) \subset \Lambda(S)$</li>
 </ul>
 
-<p>构建$\Lambda$闭包的方式也很简单，根据定义，令$T = S$，对于任意的$q \in
-T$，向$T$中加入所有的$\delta(q, \Lambda)$直到$T$不再发生改变。最终的结
-果$T$就是$\Lambda(S)$。</p>
+<p>构建$\Lambda$闭包的方式也很简单，根据定义，令$T = S$，对于任意的$q \inT$，向$T$中加入所有的$\delta(q, \Lambda)$直到$T$不再发生改变。最终的结果$T$就是$\Lambda(S)$。</p>
 
 <h2 id="nfa">消除NFA的不确定性</h2>
 
+</body></html>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#finite automata" title="Pages tagged finite automata" class="tag"><span class="term">finite automata</span></a><a href="http://MeowAlienOwO.github.io/tags/#cs" title="Pages tagged cs" class="tag"><span class="term">cs</span></a><a href="http://MeowAlienOwO.github.io/tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a></span>

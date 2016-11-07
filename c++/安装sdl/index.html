@@ -238,8 +238,9 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>上课Eugene让我们装个SDL说Coursework要用。嗯，Eugene自己使用Mac的，然后周四的课上又告诉我们怎么在VisualStudio上面装SDL
-(虽然我是没搞定，不知道是因为那台电脑跟我冲怎么的)。</p>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>上课Eugene让我们装个SDL说Coursework要用。嗯，Eugene自己使用Mac的，然后周四的课上又告诉我们怎么在VisualStudio上面装SDL(虽然我是没搞定，不知道是因为那台电脑跟我冲怎么的)。</p>
 
 <p>……</p>
 
@@ -249,7 +250,7 @@
 
 <p>Linux呢！?用了Linux不带我玩咯？！</p>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/Wuying.jpg" alt="" /></p>
+<p><img src="http://MeowAlienOwO.github.ioimages/Wuying.jpg" alt=""></p>
 
 <h1 id="visual-studio-2013">Visual Studio 2013</h1>
 
@@ -266,8 +267,7 @@
   <li>
     <p>在整个project上右键之，找到调整property的地方（反正在倒数几排）</p>
   </li>
-  <li>在Visual C/C++ properties的地方（反正是这么回事）,找到Includes那一
-行加入%path%\includes，找到Libraries那里加入%path%\lib\x86(为了兼容性)</li>
+  <li>在Visual C/C++ properties的地方（反正是这么回事）,找到Includes那一行加入%path%\includes，找到Libraries那里加入%path%\lib\x86(为了兼容性)</li>
   <li>
     <p>在底下input那里加上SDL2.lib, SDL2main.lib</p>
   </li>
@@ -309,19 +309,12 @@
 
 <p>为什么啊！老子按照教程装的啊！</p>
 
-<p>于是开始各种google……有人说ubuntu自带没有x11的dev包……有人说改用i386
-的，有人说环境变量没配置好的……</p>
+<p>于是开始各种google……有人说ubuntu自带没有x11的dev包……有人说改用i386的，有人说环境变量没配置好的……</p>
 
-<p>然后在
-<a href="https://forums.libsdl.org/viewtopic.php?t=7321&amp;sid=1a10fc21944a39bba3e89eeae4e93b38">这里</a>
-看到说:</p>
+<p>然后在<a href="https://forums.libsdl.org/viewtopic.php?t=7321&amp;sid=1a10fc21944a39bba3e89eeae4e93b38">这里</a>看到说:</p>
 
 <blockquote>
-  <p>Ubuntu does not ship with several important development headers and
-libraries installed. This includes even the basic Xlib stuff, which
-is why there is no video driver when you build SDL. You’re going to
-need to install all of those yourself. The Software Manager tool
-should be convenient here.</p>
+  <p>Ubuntu does not ship with several important development headers andlibraries installed. This includes even the basic Xlib stuff, whichis why there is no video driver when you build SDL. You’re going toneed to install all of those yourself. The Software Manager toolshould be convenient here.</p>
 </blockquote>
 
 <p><strong>WHAT THE HELL?</strong></p>
@@ -331,27 +324,23 @@ should be convenient here.</p>
 <p>于是接着google……然后看到<a href="http://wiki.libsdl.org/FAQLinux">官方wiki</a>的这个：</p>
 
 <blockquote>
-  <p>…if all those didn’t work, and you built SDL from source, make
-sure that you have the X11 development libraries installed,
-otherwise you’ll get a version of SDL that doesn’t include X11
-display support.</p>
+  <p>…if all those didn’t work, and you built SDL from source, makesure that you have the X11 development libraries installed,otherwise you’ll get a version of SDL that doesn’t include X11display support.</p>
 </blockquote>
 
 <p>sudo apt-get remove &amp;&amp; make clean…</p>
 
 <p>卸了重装，好了……</p>
 
-<p>目测因为我是先编译安装后用包管理器的，而ubuntu自己本身缺了dev包，
-那么我编译的版本也必然是没有dev包的。包管理器装上了x11，
-但是库里的东西还是原来的样子，调用的时候是没有x11dev的编译版本。</p>
+<p>目测因为我是先编译安装后用包管理器的，而ubuntu自己本身缺了dev包，那么我编译的版本也必然是没有dev包的。包管理器装上了x11，但是库里的东西还是原来的样子，调用的时候是没有x11dev的编译版本。</p>
 
 <p>……</p>
 
-<p><img src="http://MeowAlienOwO.github.ioimages/linus-fuck-you.png" alt="" /></p>
+<p><img src="http://MeowAlienOwO.github.ioimages/linus-fuck-you.png" alt=""></p>
 
 <h1 id="mac-os">Mac OS</h1>
 
 <p>哪个土豪送我一个啊啊啊啊啊</p>
+</body></html>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#C++" title="Pages tagged C++" class="tag"><span class="term">C++</span></a><a href="http://MeowAlienOwO.github.io/tags/#SDL" title="Pages tagged SDL" class="tag"><span class="term">SDL</span></a><a href="http://MeowAlienOwO.github.io/tags/#Installation" title="Pages tagged Installation" class="tag"><span class="term">Installation</span></a></span>

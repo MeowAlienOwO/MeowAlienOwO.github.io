@@ -238,18 +238,17 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>第二篇……不要怂就是干…… おかわり！</p>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>第二篇……不要怂就是干…… おかわり！</p>
 
 <h1 id="section">简介</h1>
-<p>物理层定义了电子，时间以及其接口的二进制数据通过信道以信号形式传输的方法。
-物理层是网络的基础，其属性，比如流量，延迟与错误率决定了网络的性能。
-由于物理极限的存在，网络传输数据的量是有极限的。</p>
+<p>物理层定义了电子，时间以及其接口的二进制数据通过信道以信号形式传输的方法。物理层是网络的基础，其属性，比如流量，延迟与错误率决定了网络的性能。由于物理极限的存在，网络传输数据的量是有极限的。</p>
 
 <p>两个重要概念：</p>
 
 <ul>
-  <li>数字模块化(digital modulation)：模拟信号(analog signals)与数字信号(digital bits)之间是如何
-转化的</li>
+  <li>数字模块化(digital modulation)：模拟信号(analog signals)与数字信号(digital bits)之间是如何转化的</li>
   <li>多路传输方案(multiplexing schemes)：探索如何将多个会话同时在一个传输中介中传输，同时不互相影响。</li>
 </ul>
 
@@ -266,8 +265,7 @@
 <h1 id="section-2">传输介质</h1>
 
 <ul>
-  <li>非屏蔽双绞线(Unshielded twisted pair)：最便宜普遍的传输介质，有不同的规格，最多在100米的距离上起作用。
-两条铜导线以一定规格相互缠绕，双方的电磁辐射会互相抵消。</li>
+  <li>非屏蔽双绞线(Unshielded twisted pair)：最便宜普遍的传输介质，有不同的规格，最多在100米的距离上起作用。两条铜导线以一定规格相互缠绕，双方的电磁辐射会互相抵消。</li>
   <li>同轴电缆(coaxial cable)：从内到外由铜芯(copper core)，绝缘材料(insulating material)，编织外导电体(braided outer conductor),保护塑料层(protective plastic covering)组成。</li>
   <li>光纤(fiber optics)：应用全反射传输信息的方法。内部由两层玻璃构成，外层是塑料包裹。</li>
 </ul>
@@ -281,13 +279,11 @@
 </ul>
 
 <h2 id="section-4">长距离传输</h2>
-<p>导线电阻导致信号丢失，从而不能进行长距离传输。
-持续的振荡信号往往比其他信号传输的更远。</p>
+<p>导线电阻导致信号丢失，从而不能进行长距离传输。持续的振荡信号往往比其他信号传输的更远。</p>
 
 <h1 id="section-5">调制</h1>
 
-<p>调制技术是将数字信号编码为模拟信号的方法。主要有调幅(amplitude modulation,AM)，调频(frequency modulation)，调相(phase modulation)三种方法。
-所有这三种方法都需要载波信号(carrier signal)，载波信号使用一个频率来传输数据。</p>
+<p>调制技术是将数字信号编码为模拟信号的方法。主要有调幅(amplitude modulation,AM)，调频(frequency modulation)，调相(phase modulation)三种方法。所有这三种方法都需要载波信号(carrier signal)，载波信号使用一个频率来传输数据。</p>
 
 <p>调幅指改变模拟信号的振幅，调频指改变模拟信号的频率，调相(?)指改变模拟信号的相位从而传输信息。</p>
 
@@ -300,8 +296,7 @@
 
 <h2 id="section-6">时钟恢复与不归零编码</h2>
 
-<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)
-以下是介绍：</p>
+<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)以下是介绍：</p>
 
 <h3 id="nrz">NRZ</h3>
 <p>在电信学中，不归零编码 (non-return-to-zero line code, NRZ) 指的是一种二进制的讯号代码，在这种传输方式中，1 和 0 都分别由不同的电子显著状态来表现，除此之外，没有中性状态、亦没有其他种状态。这种脉冲的能量比归零代码要来得密集，但它传输时是不停歇的，这代表同步信号必须在此代码之外独自传输。</p>
@@ -312,8 +307,7 @@
 
 <p>NRZ-Level 本身并非一种同步系统，而更是一种编码方式，因为它可用于同步环境、或异步环境中，也就是不管有没有明确的时钟讯号，都可以运作。所以，讨论 NRZ-Level 编码是否在时钟“跳动 (clock-edge)”或“跳动之间 (between clock-edge)”并非必要的，因为每一个讯号一定都是以给定的时脉来传输的，这就暗示了讯号内在的时脉。真正的问题是，能否在接收端以当初取样时的同样频率重绘该讯号。</p>
 
-<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
-RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
+<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 NRZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
 
 <p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)</p>
 <h3 id="nrzi">NRZI</h3>
@@ -330,13 +324,11 @@ RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码
 <p>常见的NRZI编码: 0101 -&gt; H HLLH （高电平为基准，第一个为0表示电平不改变，第二个为1表示改变电平为低，第三个0表示电平不变仍为低，第四个1表示电平改变为高，计算方式为之前电平与当前的XOR）</p>
 
 <h3 id="clock-recovery">时钟恢复(clock recovery)</h3>
-<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。
-简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
+<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
 
 <h2 id="manchest-encoding">曼彻斯特编码(Manchest Encoding)</h2>
 
-<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。
-好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
+<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
 
 <p>计算曼彻斯特编码时，要使用时钟比特位与编码比特位异或。</p>
 
@@ -377,13 +369,13 @@ RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码
 
 <p>这个定理针对的是有噪声介质。</p>
 
-<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
-信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
+<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
 
 <p>对于有噪声介质的最大数据率为:</p>
 
 <p>$D = B \log_2(1 + S / N)$</p>
 
+</body></html>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#cs" title="Pages tagged cs" class="tag"><span class="term">cs</span></a><a href="http://MeowAlienOwO.github.io/tags/#network" title="Pages tagged network" class="tag"><span class="term">network</span></a><a href="http://MeowAlienOwO.github.io/tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a></span>

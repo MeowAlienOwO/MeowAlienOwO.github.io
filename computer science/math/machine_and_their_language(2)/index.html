@@ -238,11 +238,13 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
 
 <p>MD还要躺着……戴了护裆都能中招真是……</p>
 
-<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />
+<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
 
 <h1 id="section">上下文无关语言</h1>
 
@@ -254,45 +256,34 @@
   <li>$V$ 是变量集合，或者说非停止符号集</li>
   <li>$\Sigma$ 是停止符号集</li>
   <li>$S$ 是起始变量</li>
-  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to
-\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
+  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
   <li>$S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。</li>
 </ul>
 
 <p>我们使用如下的符号来表示一些推导规则：</p>
 
 <ul>
-  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法
-规则的一步推导(derivation)</li>
-  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*
-\beta$ 表示0或者多步推导。</li>
+  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法规则的一步推导(derivation)</li>
+  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*\beta$ 表示0或者多步推导。</li>
   <li>$\Rightarrow_G$ 表示根据语法$G$的推导。</li>
 </ul>
 
-<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V
-\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A
-\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
+<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
 
-<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是
-上下文无关的(context-free)</p>
+<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是上下文无关的(context-free)</p>
 
 <h2 id="context-free-language">上下文无关语言(Context-Free Language)</h2>
 
-<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言
-为：
-$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
+<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言为：$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
 
 <p>当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。</p>
 
 <h2 id="kleene">联合，连接与Kleene星号运算</h2>
-<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cup
-L_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
+<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cupL_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
 
-<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,
-S_2$分别是起始变量。</p>
+<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,S_2$分别是起始变量。</p>
 
-<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,
-G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
+<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
 
 <ul>
   <li>对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 | S_2$</li>
@@ -306,18 +297,15 @@ G_k$表示对应的语法，我们可以创造如下规则使前述定理成立�
 
 <ul>
   <li>跟节点用于表示起始变量S</li>
-  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物
-该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
+  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
   <li>任何叶结点表示一个符号或者空串</li>
   <li>最终派生的字符串从左到右读入，排除任何的空串</li>
   <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
 </ul>
 
-<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推
-导，我们永远对当前最左边的变量使用派生规则。</p>
+<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推导，我们永远对当前最左边的变量使用派生规则。</p>
 
-<p>我们有如下定理：
-如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
+<p>我们有如下定理：如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
 
 <ul>
   <li>$x$ 有多于一个的派生树</li>
@@ -325,8 +313,7 @@ G_k$表示对应的语法，我们可以创造如下规则使前述定理成立�
   <li>$x$ 有多于一个的右派生树</li>
 </ul>
 
-<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$
-有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
+<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
 
 <p>典型例子：</p>
 
@@ -340,8 +327,7 @@ G_k$表示对应的语法，我们可以创造如下规则使前述定理成立�
 
 <h2 id="section-1">上下文无关语言的泵引理</h2>
 
-<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u
-\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
+<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
 
 <ul>
   <li>$| wy | &gt; 0$</li>
@@ -353,17 +339,13 @@ G_k$表示对应的语法，我们可以创造如下规则使前述定理成立�
 
 <h2 id="section-2">泵引理的应用</h2>
 
-<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语
-言非上下文无关中的应用。</p>
+<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语言非上下文无关中的应用。</p>
 
 <p>令$u$是一个形如$a^nb^nc^n$的字符串且$| u | \geq n$</p>
 
-<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|
-wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中
-的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，
-但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性
-矛盾。</p>
+<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性矛盾。</p>
 
+</body></html>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#context free language" title="Pages tagged context free language" class="tag"><span class="term">context free language</span></a><a href="http://MeowAlienOwO.github.io/tags/#pushdown automata" title="Pages tagged pushdown automata" class="tag"><span class="term">pushdown automata</span></a><a href="http://MeowAlienOwO.github.io/tags/#cs" title="Pages tagged cs" class="tag"><span class="term">cs</span></a><a href="http://MeowAlienOwO.github.io/tags/#notes" title="Pages tagged notes" class="tag"><span class="term">notes</span></a></span>
