@@ -30,7 +30,7 @@ comments:
 
 
 //题图:永远抽不到的呆毛其之一
-<embed src="http://music.163.com/style/swf/widget.swf?sid=751472&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+
 # 1.我到河北省来
 
 ![](http://og78s5hbx.bkt.clouddn.com/hebeisheng.jpg)
@@ -665,13 +665,15 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
 
 3. `Unity` Unity是Ubuntu独立开发出来的一套桌面环境。跟Ubuntu结合的比较
    紧密，在别的发行版上可能会比较不搭调。
-   
+
+  ![](http://img09.deviantart.net/8106/i/2011/197/b/c/unity_desktop_by_fedo64-d3wh03u.png) 
+
 ![](http://pre10.deviantart.net/02ed/th/pre/f/2014/119/5/c/numix_gtk_theme__modded_without__unity_boxes__by_chrisfr06-d7gfi3v.png)
    
 4. `LXDE/LXQT` 一套轻量级的桌面环境，相比GNOME与KDE占用更少资源，当然
    配置好要花一番功夫。LXDE占用更少的CPU、内存，是为上网本、移动设备、旧机器特别设计的轻量桌面环境。LXQt 是轻量级桌面环境 LXDE 的下一代产品。
-   
-![](http://pre08.deviantart.net/271f/th/pre/f/2011/271/2/2/lxde_strikes_back_by_nekron29-d4b6day.png)
+  
+  ![](http://pre08.deviantart.net/ebb4/th/pre/f/2015/128/b/c/debian_8_0_lxde_openbox_by_liiyes-d8slvpc.png)
 
 5. `Xfce` 轻量桌面环境Xfce，是Unix模块化、重用代码理念的践行者。其中包
    含各种功能的组件，是真正现代的桌面环境。各个组件划分成不同的包，用
