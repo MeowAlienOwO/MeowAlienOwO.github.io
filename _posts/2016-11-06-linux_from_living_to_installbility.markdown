@@ -30,7 +30,7 @@ comments:
 
 //题图:永远抽不到的呆毛其之一
 
-# 我到河北省来，俺来不是为了蛋疼
+# 我到河北省来
 
 ![](http://og78s5hbx.bkt.clouddn.com/hebeisheng.jpg)
 
@@ -40,6 +40,8 @@ comments:
 下，在linux下还要自己搞定编译，两相比较确实很难让人有学习的欲望。
 
 ![](http://og78s5hbx.bkt.clouddn.com/asswecan.jpg)
+
+## 俺来不是为了蛋疼
 
 为了保证在linux下生存，我们必须了解几个跟linux相关的基本概念：
 
@@ -81,6 +83,8 @@ linux下的文件有两种类型：文本文件，以及二进制文件。文本
 本编辑器就一无是处。文本编辑器的优势在广度，一个文本编辑器往往可以编辑
 许多种语言，有更好的灵活性。
 
+## 天朝好棒好棒的
+
 了解了以上概念以后，我们就可以很容易地解决如何在坑爹的linux下，在作业
 的炮火中生存下来了。
 
@@ -97,7 +101,7 @@ pwd
 面。
 
 3. 让我们创建一个文件夹：
-{% highlight bash %}
+{% highlight sh %}
 mkdir my-directory
 {% endhighlight %}
 
@@ -232,11 +236,290 @@ gcc          # GNU C Compiler的缩写。是linux下自带的C语言编译器，
              # -o用于指定输出文件名
 
 man          #查看帮助
---help 或 -h # 许多命令可以通过追加这两个flag获得一些常用的用法以及解
-释
+--help 或 -h # 许多命令可以通过追加这两个flag获得一些常用的用法以及解释
 {% endhighlight %}
 
-# 来到两军阵前，必有高论
+# 我以为你身为汉朝老臣
+
+知道上面的这些命令与概念，只能保证最低限度的linux生存，生活质量就谈不
+上好不好了。也许很多人知道怎么在linux下面编程，但是如果没有作业，linux
+就被丢到一边。windows/mac用得好好的，这么难用的系统，我们为什么要去用它呢？
+
+![](http://og78s5hbx.bkt.clouddn.com/guoanminle.jpg)
+
+一般来说，linux使用者有如下几个理由：
+
+1. 自由。在linux下，用户被假定为"知道自己想要什么，也知道自己在干什么，
+   会为自己负责"。 相反地，windows/mac可能对用户有各种各样的限制。（有
+   人可能对mac有异议，需要指出的是，linux可没有什么在不同的硬件上
+   不能跑的限制）
+2. 免费。linux下大部分软件与升级服务是无需付费的。当然，许多企业级的
+   linux服务是收费的，专业的linux运维其成本也不小，但是这不妨碍其软件免费。
+3. 安全。相比windows下多如牛毛的病毒，linux中病毒的概率几乎可以小到不
+   计。这主要是由于其良好的权限设计，比较一下root/越狱的手机中招的概率
+   与没有动手脚的手机中招的概率就知道了。
+4. 可定制性。linux的可定制性简直是深入到骨子里的。你能想象windows/mac
+   的系统内核可以随便改吗？只要有能力，linux的内核代码是开放的，你想调
+   教成什么样就可以调教成什么样。也因此，linux家族里既有小到嵌入式或者
+   智能硬件的小家伙<del>萝莉</del>，也能支撑起超算，大规模云计算服务
+   <del>御姐</del>。<span class="heimu">胸不平何以平天下，乳不巨何以聚
+   人心</span>
+5. 开放。大部分Linux的软件都是可以随便看源码的。Linux本身的良好设计也
+   是很值得学习的部分，包括文件系统，内存/进程管理等等。
+
+linux的本质就是折腾，从系统到软件再到配置，经常会出现系统挂掉，但是折
+腾一下又搞回来的情况，而Windows，就是不断地重装系统。如果不是自由软件/
+开源卫道士，对于一般人而言，尤其是windows使用者，linux的学习成本相对较
+高。但是，作为计算机系的学生，学习linux/unix体系是非常必要的。其一，大
+多数程序猿的工作环境是mac(我是异类，win+linux双系统)，学会了如何在命令
+行下工作可以把效率提高一个档次。其二，linux对科学计算，编程的支持非常
+强大，其本身也是非常值得学习的对象。
+
+
+## 来到两军阵前，必有高论
+
+说了这么多务虚的，我们来看看为了在Linux上生活，我们需要折腾哪些东西吧。
+
+### Bash
+
+首先我们了解一下什么是Shell。
+
+> 管理整個電腦硬體的其實是作業系統的核心 (kernel)，這個核心是需要被保
+> 護的！ 所以我們一般使用者就只能透過 shell 來跟核心溝通，
+> 以讓核心達到我們所想要達到的工作。 
+> --鸟哥的linux私房菜
+
+Shell，就是用户跟操作系统底层沟通的一个窗口。没有人想整天与底层的二进
+制汇编码打交道，所以shell应运而生，沟通用户与操作系统。而Bash就是Shell
+中使用最为普遍的一种。
+
+Bash提供了如下功能:
+1. 命令历史记录。输入命令后，如果想要再次执行，我们不需要重新输入一遍。
+   使用键盘的上下方向键与Ctrl+p/n可以浏览命令历史记录。
+2. 补全功能。使用Tab键，我们可以很方便地补全命令。比如`tou`+`tab`,会自
+   动补全为touch。在输入长文件名时，这个功能相当有用。
+3. 别名。 比如说`ls -al`,虽然很短，但是每次输入的时候也是很心烦的。我
+   们可以使用`alias lm='ls -al'`,来将这个命令绑定为`lm`。这样下次输入
+   就可以直接`lm`了。
+4. shell script。bash脚本提供了相对完善的逻辑功能，可以通过bash script
+   来构建复杂的脚本，以满足一些文本处理/系统处理的需求。相比较其他跨平
+   台脚本语言，bash的好处是跟linux内核系统结合紧密，可以很方便地处理权
+   限问题等等。
+5. 通配符。bash下有许多可以节省时间的通配符。比如`ls -al
+   /usr/bin/X*`就是列出在目录`/usr/bin`下面以X开头的所有文件。这些通配
+   符也跟正则表达式结合紧密，成为处理文本的强力工具。
+   
+Bash的配置在家目录下面的`.bashrc`里面。这是一个在启动bash的时候会自动
+加载的脚本，我们如果要对命令取别名，就可以将其放在`.bashrc`之中，否则，
+每次启动的时候我们都要手动重新绑定alias，非常不方便。`.bashrc`同样可以
+用来管理启动项。我们可以把要开机启动的命令放在这里。比如我想一开机就打
+开gedit，就可以在`.bashrc`中另起一行写`gedit`,这样开机了就可以直接打开
+gedit,不需要手动操作。
+
+关于bash与shell script,鸟哥的linux私房菜里有比较精彩的讲解，请参考：
+
+[bash](http://linux.vbird.org/linux_basic/0320bash.php)
+
+[shell script](http://linux.vbird.org/linux_basic/0340bashshell-scripts.php)
+
+### vim/emacs
+
+![](http://og78s5hbx.bkt.clouddn.com/bianjiqiquxian.jpg)
+
+Vim与emacs是unix/linux下两个比较知名的编辑器。两种编辑器各拥有一帮死忠
+信徒，天天嘴炮打来打去，曰编辑器圣战。其间还夹杂不少就职于
+google,facebook,microsoft的高手，每次开战，少不了一场血雨腥风。不过至
+少在我看来，我们这里倒是很少有人用vim或者emacs，刚刚入门的可能会用
+gedit,稍微高级一点的用sublime,或者直接用eclipse这种IDE。其原因，我想一
+是对初学者来说稍显复杂，二是颜值不够。但是，了解并且尝试这两种文本
+编辑器还是非常有益的，在使用学习的过程中，可以很大地提高对编辑器的认识
+理解，包括且不限于插件，配置，操作方式等。
+
+#### 神的编辑器--vim
+
+Vim是linux/unix下被使用最多的文本编辑工具，只要有linux，不管是大型操作
+系统还是嵌入式，都可以见到vim的身影，普及率堪比windows下的记事本，但是
+远比记事本强大。
+
+如果不是在终端里，vim看起来是这个样子的：
+
+!()[http://og78s5hbx.bkt.clouddn.com/Vim.png]
+
+感觉很丑对不对？但是vim同样也可以变得非常Sexy:
+
+!()[http://i.imgur.com/YbRC7np.png]
+
+当然，除了表面的功夫，我们更重要的是要了解vim的内涵。Vim的设计原则是来
+自于Unix的--只做一件事，做到最好，然后再根据需求把不同的东西拼接起来。
+Vim可以通过与内核中的其他工具交互，然后根据其输出组合成一个完整的任务。
+另外，vim的操作方式专注于高效编辑。vim的键位安排非常合理，虽然入门会比
+较困难，但是熟悉了操作方式以后非常高效。
+
+配合emmet插件，vim可以做到快速完成html文件：
+
+!()[https://github.com/aharris88/vim-gifs/raw/master/emmet-vim.gif]
+
+这是一个迅速更改相同单词的例子：
+
+!()[https://d26aqo05ggejx9.cloudfront.net/substitute-ampersand.gif]
+
+这些操作，都可以在双手不离开键盘的情况下完成<del>双手打字，以示清白</del>。
+如果你跟我一样是键盘党，就不难明白纯键盘操作比起鼠标操作是多么惬意的一
+件事情--你可以专注于代码，专注于思考，而不是拿个鼠标点来点去，这里复制
+那里粘贴。
+
+vim的学习需要一定的精力，不过幸运的是vim的学习资源也不少。
+初学者入门最好的办法是`:help`回车，花半个小时看帮助文档把操作方法学会。
+然后，可以参考如下一些网站：
+
+[鸟哥的linux私房菜](http://linux.vbird.org/linux_basic/0310vi.php)
+[简明vim练级攻略](http://coolshell.cn/articles/5426.html)
+[程序员的编辑器--vim](http://arch.pconline.com.cn//pcedu/soft/gj/photo/0609/877033.html)
+
+当你学会了基本的操作后，可能就要开始折腾配置文件--因为自带的界面实在太
+丑了。对于懒人，我推荐一些可以开箱即用的vim配置：
+
+[spf13-vim](https://github.com/spf13/spf13-vim),github上9000多星的项目
+
+[exvim](http://exvim.github.io/),国人开发的vim集成环境化方案。
+
+当你觉得vim的操作方式非常令人舒畅，想无论到哪里都用vim的话，还有这些插
+件把你的生活环境vim化：
+
+chrome: [vimium](http://www.jianshu.com/p/2b9b262e3817)
+firefox: [vimperator](https://addons.mozilla.org/en-US/firefox/addon/vimperator/)
+eclipse: [vrapper与eclim](http://coolshell.cn/articles/1837.html)
+JetBrain系: [IdeaVim](https://plugins.jetbrains.com/plugin/164)
+Visual Studio: [VsVim](https://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329)
+
+#### 编辑器之神--emacs
+
+emacs是另一个编辑器领域的上古神器。如果说vim是神的编辑器，那emacs就是
+编辑器之神。有句话说得好：
+
+> Emacs是伪装成编辑器的操作系统。
+> --某不知名大神
+
+emacs的力量在于其无限的扩展能力。除了底层，emacs全部是用elisp这一种
+lisp方言写成的。emacs本身就可以看作是一个lisp解释器--这意味着你可以想
+怎么改就怎么改。相比困难的vim脚本，emacs对扩展更加友好，这也鼓励着
+emacs使用者开各种各样的脑洞--日历，运行程序，上网，听音乐，甚至用
+emacs[煮咖啡](http://www.cppblog.com/xguru/archive/2014/10/03/121416.html)。
+
+使用emacs的不乏业界大牛。
+
+>Linux之父Linus多年来用的是一款 MicroEmacs，它比GNU Emacs或XEmacs少许
+>多功能，但Linus就是用它在维护Linux。 微软的大牛Don Box，Com之父，一直
+>用Emacs，他说谁也不能夺走他的编辑器。他还在网上放了一段他用Emacs写C#
+>程序的视频。
+
+当然，一开始而言，emacs虽然比vim更加好看一些，但还是比不上sublime之类
+对用户友好。然而，由于有着近乎无限的扩展能力，emacs可以配置成媲美IDE的
+开发环境，而且这个环境不单是针对单一语言的。你可以在emacs里用latex写文
+档，然后去编辑一段python代码，然后切换到一个C语言文件编写java的扩展……
+
+一开始，emacs长这样：
+
+![](http://og78s5hbx.bkt.clouddn.com/GNU_Emacs_23.1.1.png)
+
+但是经过调教她可以变成这样：
+
+！[](https://github.com/syl20bnr/spacemacs/raw/master/doc/img/spacemacs-python.png)
+
+我自己用的现在长这样：
+
+![](http://og78s5hbx.bkt.clouddn.com/emacs-look.jpg)
+
+emacs靠自己的快捷键也可以做到纯键盘操作，但是由于emacs中ctrl键经常被使
+用，会造成小拇指疼痛，我用evil插件把emacs的操作改成了vim的方式--编辑器
+之神<del>操作系统</del>用神的编辑器，<del>飞龙骑脸怎么输</del>。
+
+如果想要上面那个高颜值的emacs，从这里获取：
+
+[spacemacs](https://github.com/syl20bnr/spacemacs)
+
+不过它的键位貌似也是vim的，不适合作为学习emacs的第一选择。我建议从自己
+编写配置或者是别人的starter-kit进行入手，至少了解如何配置emacs的高亮，
+代码补全，快捷键并且掌握常用功能，比如前面提到的compile。另外，emacs的
+org-mode 可谓文档写作，日程管理一大神器。相比latex，它不那么复杂，相比
+markdown,它有更多的支持，可谓emacs平台一大杀手应用。
+
+或者这一套也是很不错的：https://github.com/redguardtoo/emacs.d
+
+我在[emacs-starter-kit](https://github.com/eschulte/emacs24-starter-kit/)的
+的基础上做出了自己的配置，强烈建议从这个配置开始，一步一步把emacs改成
+自己想要的样子，并且学习其管理配置的方式。
+
+学习emacs必须看的一些文章：
+[一年成为Emacs高手(像神一样使用编辑器)](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)
+
+[emacs是一种信仰--王垠](http://arch.pconline.com.cn//pcedu/soft/gj/photo/0609/865628.html)
+
+[emacs生存指南](http://lifegoo.pluskid.org/?p=152)
+
+### 包管理器
+
+![](http://og78s5hbx.bkt.clouddn.com/quanjiatong.jpg)
+
+Windows下，我们安装软件要么是直接解压，要么是运行安装程序，偶尔还要跟
+360/百度/...全家桶做斗争。Mac有个很棒的App中心，但是在linux下，我们可
+以用一种更加高效的方式--软件包。有些人可能知道Mac下的Homebrew,但是在
+linux,不同的发行版有不同的软件包管理器，某种意义上，包管理器是塑造
+linux发行版的关键之一。虽然Linux也可以用最古老的编译安装方式，但是如今
+软件包已经是linux大部分软件分发/管理的形式。
+
+> 软件包管理系统是在电脑中自动安装、配制、卸载和升级软件包的工具组合，在各种系统软件和应用软件的安装管理中均有广泛应用。
+> 维基百科
+
+
+不过，一般来说同一个系统不能拥有一个以上的包管理器，否则很容易出现软件
+冲突的情况。不同的包管理器的命令也不一样，具体的应用方式还是要根据选用
+的包管理器来。不知道命令的时候，尝试一下`man your-package-manager`吧。
+
+在linux世界中，最常用的一条安装命令：
+
+{% highlight sh %}
+apt-get install ...
+{% endhighlight %}
+
+包管理器不仅存在与linux系统下。许多高级编程语言也有自己的包管理器，比
+如说python有pip，ruby有gem，nodejs有npm，等等。甚至前端也有bower这样的
+包管理器方便引用js依赖。
+
+### 超级用户
+
+在安装软件的时候，如果我们单纯的用`apt-get`这样的命令，我们很容易就会
+碰到:
+
+{% highlight sh %}
+错误：非 root (根用户) 无法执行指定操作。
+{% endhighlight %}
+
+这是因为我们没有root用户的权限。那么，难道跟手机一样，linux也要root一
+下才可以吗？
+
+在linux下，提供了两条命令：
+
+{% highlight sh %}
+su root # 切换到root用户
+sudo #临时获取root权限运行命令
+{% endhighlight %}
+
+由于root用户同windows下的管理员类似，没有root的权限就无法对系统的关键
+位置进行读写。我们在安装软件，或者对关键位置进行操作的时候，必须使用
+root用户操作。这也带来了很大的风险--万一手贱呢？曾经有软件就因为在root
+权限下`rm -rf /`闹了个大笑话--从根目录起，干干净净地删了整个系统。
+
+![](http://og78s5hbx.bkt.clouddn.com/CJDY_06WgAAMoeg.jpg)
+
+所以，对于su与sudo命令，通常需要密码进行确认。为了保证安全性，我们通常
+不使用su，因为风险太高了。sudo虽然也可以取消密码，但是每一次都只能运行
+一条命令，相对安全一点。但是，对于用户而言，我们要记住--永远在使用
+超级用户权限的时候留个心眼。linux信任用户，认为用户做的都是对的，我们不能辜负
+这份信任。
+
+
+## 没想到竟说出如此粗鄙之语
 
 
 
