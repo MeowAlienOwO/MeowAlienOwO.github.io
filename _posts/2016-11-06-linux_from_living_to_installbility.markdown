@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "linux"
+title: "linux:从入门到装逼"
 date: "2016-11-06 10:09:07 +0800"
 categories: [linux]
 tags: [linux]
@@ -588,25 +588,25 @@ Windows与Mac版本一条线跑到黑，Linux发行版可谓琳琅满目。
 知名的linux发行版有：
 
 ![](http://og78s5hbx.bkt.clouddn.com/ubuntu1404.jpg)
-- [Ubuntu](http://cn.ubuntu.com/) 最流行的发行版，对新手友好的linux发
+- [Ubuntu](http://cn.ubuntu.com/): 最流行的发行版，对新手友好的linux发
   行版之一。使用自己开发的Unity作为桌面环境，内部的集成非常完善。可以免安装盘从Windows直接安装。
   拥有国内最大的社区。
   <del>但是对老手而言，有些臃肿</del>
-- [Fedora](https://getfedora.org/zh_CN/) 对新手友好的linux发行版之一，
+- [Fedora](https://getfedora.org/zh_CN/): 对新手友好的linux发行版之一，
   由知名的红帽公司提供技术支持，开发者的社区进行维护。会应用很多红帽的
   新技术<del>小白鼠</del>
-- [OpenSuse](https://zh.opensuse.org/) 又名大蜥蜴，一个知名的发行版。
+- [OpenSuse](https://zh.opensuse.org/): 又名大蜥蜴，一个知名的发行版。
   其特点是颜值高，以及有YaST这种高效的系统管理工具
-- [CentOS](https://www.centos.org/)根据红帽的企业Linux重新编译的版本，
+- [CentOS](https://www.centos.org/): 根据红帽的企业Linux重新编译的版本，
   被誉为最适合服务器的Linux发行版
-- [Arch Linux](https://wiki.archlinux.org/index.php/) 这是我在用的发
+- [Arch Linux](https://wiki.archlinux.org/index.php/): 这是我在用的发
   行版。一个采用滚动更新的方式的操作系统，轻量级，可定制性强，但是也
   经常带来麻烦。好处是轻量，(中文)文档完善。<del>喝喝 有人升级把系统升崩掉我会乱讲？你们不懂什么叫
   真 小白鼠@Fedora</del>
-- [Gentoo](https://www.gentoo.org/) 一个更具定制性的系统。Gentoo提供大
+- [Gentoo](https://www.gentoo.org/): 一个更具定制性的系统。Gentoo提供大
   量的*源码*而不是打包好的软件，用户可以自由定制。同时，Gentoo也采用滚
   动更新。<del>你们对作死一无所知</del>
-- [LFS](http://www.linuxfromscratch.org/lfs/) Linux From Scratch, 提供
+- [LFS](http://www.linuxfromscratch.org/lfs/): Linux From Scratch, 提供
   一份指南教你从源码编译开始定制Linux。当然，有最大的可定制性。<del>作
   死作死作～向着你的心底作死作死作～</del>
 
