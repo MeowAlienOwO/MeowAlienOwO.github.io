@@ -666,8 +666,6 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
 
   ![](http://img09.deviantart.net/8106/i/2011/197/b/c/unity_desktop_by_fedo64-d3wh03u.png) 
 
-![](http://pre10.deviantart.net/02ed/th/pre/f/2014/119/5/c/numix_gtk_theme__modded_without__unity_boxes__by_chrisfr06-d7gfi3v.png)
-   
 4. `LXDE/LXQT` 一套轻量级的桌面环境，相比GNOME与KDE占用更少资源，当然
    配置好要花一番功夫。LXDE占用更少的CPU、内存，是为上网本、移动设备、旧机器特别设计的轻量桌面环境。LXQt 是轻量级桌面环境 LXDE 的下一代产品。
   
