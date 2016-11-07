@@ -661,8 +661,6 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
 
 ![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
 
-![](http://img05.deviantart.net/4aa3/i/2012/280/4/7/arch_linux_kde_4_9_by_blaspher1on-d5h1oiw.png)
-
 3. `Unity` Unity是Ubuntu独立开发出来的一套桌面环境。跟Ubuntu结合的比较
    紧密，在别的发行版上可能会比较不搭调。
 
