@@ -904,6 +904,16 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
    统的做法有什么不同。
 6. 了解什么是配置文件，为什么linux要用文本文件做配置，而不是二进制文件？
 
+一些学习资源：
+
+- 鸟哥的私房菜： http://linux.vbird.org/
+- arch linux wiki: https://wiki.archlinux.org/
+- ubuntu论坛： http://forum.ubuntu.org.cn/
+- linuxcn: https://linux.cn/
+- 应该知道的Linux技巧：http://coolshell.cn/articles/8883.html
+- linux command: http://linuxcommand.org/
+
+
 最后，挖个老坟给大家轻松一下：
 
 <embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=107&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
