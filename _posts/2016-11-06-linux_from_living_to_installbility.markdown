@@ -30,8 +30,7 @@ comments:
 
 
 //题图:永远抽不到的呆毛其之一
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=751472&auto=1&height=66"></iframe>
+<embed src="http://music.163.com/style/swf/widget.swf?sid=751472&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
 # 1.我到河北省来
 
 ![](http://og78s5hbx.bkt.clouddn.com/hebeisheng.jpg)
@@ -284,7 +283,7 @@ linux的本质就是折腾，从系统到软件再到配置，经常会出现系
 说了这么多务虚的，我们来看看为了在Linux上生活，我们需要折腾哪些东西吧。
 
 
-![](http://og78s5hbx.bkt.clouddn.woyouyiyan.jpg)
+![](http://og78s5hbx.bkt.clouddn.com/woyouyiyan.jpg)
 
 ### Bash
 
@@ -639,14 +638,16 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
 高手甚至连成体系的桌面环境都不要，只留一个窗口管理器进行工作。下面，我
 们来看看Linux的桌面环境有哪些，以及可以被定制成什么样子吧。
 
-先晒下自己现在用的桌面：
 
-![](http://og78s5hbx.bkt.clouddn.com/my-desktop.jpg)
 
 1. `Gnome` (读音是gah-nohm 或 nohm)是一个简单易用的桌面环境. 它由
    GNOME 项目组设计，完全自由和开源. GNOME是GNU 项目的一部分. Gnome为
    了操作简便隐藏了很多东西，有的时候被吐槽为反人类设计。但是，作为使
    用人数最多的桌面环境，Gnome确实有独到之处。我现在用的桌面环境就是Gnome.
+
+    先晒下自己现在用的桌面：
+
+    ![](http://og78s5hbx.bkt.clouddn.com/my-desktop.jpg)
    
    别人家的Gnome:
    
@@ -660,7 +661,7 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
 
 ![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
 
-![](http://pre10.deviantart.net/02ed/th/pre/f/2014/119/5/c/numix_gtk_theme__modded_without__unity_boxes__by_chrisfr06-d7gfi3v.png)
+![](http://img05.deviantart.net/4aa3/i/2012/280/4/7/arch_linux_kde_4_9_by_blaspher1on-d5h1oiw.png)
 
 3. `Unity` Unity是Ubuntu独立开发出来的一套桌面环境。跟Ubuntu结合的比较
    紧密，在别的发行版上可能会比较不搭调。
