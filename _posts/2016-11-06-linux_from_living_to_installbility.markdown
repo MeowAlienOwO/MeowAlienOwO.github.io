@@ -32,7 +32,6 @@ comments:
 //题图:永远抽不到的呆毛其之一
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=751472&auto=1&height=66"></iframe>
-
 # 1.我到河北省来
 
 ![](http://og78s5hbx.bkt.clouddn.com/hebeisheng.jpg)
@@ -903,8 +902,6 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
 5. 了解tty终端，图形界面，X系统与桌面环境，并且思考他们跟你用的操作系
    统的做法有什么不同。
 6. 了解什么是配置文件，为什么linux要用文本文件做配置，而不是二进制文件？
-
-
 
 最后，挖个老坟给大家轻松一下：
 
