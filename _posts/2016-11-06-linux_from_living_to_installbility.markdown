@@ -28,9 +28,12 @@ comments:
 写这篇文章，主要是为了分享一点微小的人生经验，帮助大家在linux的环境下
 续上一秒。<del>其实是为了抽SSR攒人品</del>
 
+
 //题图:永远抽不到的呆毛其之一
 
-# 我到河北省来
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=751472&auto=1&height=66"></iframe>
+
+# 1.我到河北省来
 
 ![](http://og78s5hbx.bkt.clouddn.com/hebeisheng.jpg)
 
@@ -239,7 +242,7 @@ man          #查看帮助
 --help 或 -h # 许多命令可以通过追加这两个flag获得一些常用的用法以及解释
 {% endhighlight %}
 
-# 我原以为你身为汉朝老猴
+# 2.我原以为你身为汉朝老臣
 
 
 知道上面的这些命令与概念，只能保证最低限度的linux生存，生活质量就谈不
@@ -282,7 +285,7 @@ linux的本质就是折腾，从系统到软件再到配置，经常会出现系
 说了这么多务虚的，我们来看看为了在Linux上生活，我们需要折腾哪些东西吧。
 
 
-![](http://og78s5hbx.bkt.clouddn.com/zhugewang.jpg)
+![](http://og78s5hbx.bkt.clouddn.woyouyiyan.jpg)
 
 ### Bash
 
@@ -527,6 +530,8 @@ root用户操作。这也带来了很大的风险--万一手贱呢？曾经有�
 
 ## 没想到竟说出如此粗鄙之语
 
+![](http://og78s5hbx.bkt.clouddn.com/cubizhiyu.jpg)
+
 > Unix哲学：Keep it simple, stupid
 
 虽然linux是从unix衍生而来，但是新手第一次使用的时候往往感受到的不是系
@@ -541,7 +546,7 @@ root用户操作。这也带来了很大的风险--万一手贱呢？曾经有�
 扇大门，让你了解到我们这个信息世界的巨幅图景。
 
 
-# 为什么你会这么熟练啊！
+# 3.为什么你会这么熟练啊！
 
 虽然Linux的强势在服务器，嵌入式等上面，桌面操作系统往往不是Linux集中发
 力的地方，但是，为了装逼，我们还是需要看看如何在普通的PC中<del>熟练地
@@ -573,6 +578,7 @@ class="heimu"><del>醒醒哪有妹子跟死宅说话</del></span>面前装逼还
 windows下分出50G左右的硬盘空间装Linux吧。鉴于双系统重装很复杂，建议能
 自己动手修的问题都自己解决吧，man,搜索引擎以及linux社区都是你的好伙伴。
 
+![](https://static.mengniang.org/common/a/a3/Both_of_you_are_my_wings.JPG)
    
 ## 你到底要把我甩开多远你才甘心啊！？
 
@@ -595,16 +601,16 @@ Windows与Mac版本一条线跑到黑，Linux发行版可谓琳琅满目。
   其特点是颜值高，以及有YaST这种高效的系统管理工具
 - [CentOS](https://www.centos.org/)根据红帽的企业Linux重新编译的版本，
   被誉为最适合服务器的Linux发行版
-- [Arch Linux](https://wiki.archlinux.org/index.php/Main_page_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 这是我在用的发
+- [Arch Linux](https://wiki.archlinux.org/index.php/) 这是我在用的发
   行版。一个采用滚动更新的方式的操作系统，轻量级，可定制性强，但是也
-  经常带来麻烦。好处是轻量，文档完善。<del>喝喝 有人升级把系统升崩掉我会乱讲？你们不懂什么叫
+  经常带来麻烦。好处是轻量，(中文)文档完善。<del>喝喝 有人升级把系统升崩掉我会乱讲？你们不懂什么叫
   真 小白鼠@Fedora</del>
 - [Gentoo](https://www.gentoo.org/) 一个更具定制性的系统。Gentoo提供大
   量的*源码*而不是打包好的软件，用户可以自由定制。同时，Gentoo也采用滚
   动更新。<del>你们对作死一无所知</del>
 - [LFS](http://www.linuxfromscratch.org/lfs/) Linux From Scratch, 提供
-  一份指南教你从源码编译开始定制Linux。当然，有最大的可定制性。<del>最完
-  美的作死效果</del>
+  一份指南教你从源码编译开始定制Linux。当然，有最大的可定制性。<del>作
+  死作死作～向着你的心底作死作死作～</del>
 
 除了这些发行版以外，还有一些衍生发行版。
 
@@ -617,7 +623,290 @@ Windows与Mac版本一条线跑到黑，Linux发行版可谓琳琅满目。
 ![](http://og78s5hbx.bkt.clouddn.com/deepin2.jpg)
 - [Deepin](https://www.deepin.org/)
   有些人可能对深度很熟悉了--在XP时代，深度做了很多Windows的工作。现在
-  他们转投Linux，在Ubuntu的基础上定制了适合中国用户操作习惯的发行版，
+  他们转投Linux，在Ubuntu的基础上定制了适合中国用户操作习惯的发行版
+  （现在似乎转到了debian的分支下），
   颜值不错，软件齐全，适合作为新手入门以及主要工作的发行版。
 
 ## 为什么会变成这样呢
+
+桌面环境(desktop environment)是另一个Linux新手可能会搞不清楚的东西。
+Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我们前面介绍
+过shell作为一个用户与内核交互的桥梁，而桌面环境则是在这之上，提供的一
+套图形化界面的桥梁。
+
+如果不用第三方软件，Windows与Mac都只有一套桌面环境，包含很有限的一些可定
+制功能。但是Linux有着更多的桌面环境可供选择，并且可定制的内容多得多。
+<del>Windows与OS X都有借鉴Linux桌面环境的成分</del>当然，有的更激进的
+高手甚至连成体系的桌面环境都不要，只留一个窗口管理器进行工作。下面，我
+们来看看Linux的桌面环境有哪些，以及可以被定制成什么样子吧。
+
+先晒下自己现在用的桌面：
+
+![](http://og78s5hbx.bkt.clouddn.com/my-desktop.jpg)
+
+1. `Gnome` (读音是gah-nohm 或 nohm)是一个简单易用的桌面环境. 它由
+   GNOME 项目组设计，完全自由和开源. GNOME是GNU 项目的一部分. Gnome为
+   了操作简便隐藏了很多东西，有的时候被吐槽为反人类设计。但是，作为使
+   用人数最多的桌面环境，Gnome确实有独到之处。我现在用的桌面环境就是Gnome.
+   
+   别人家的Gnome:
+   
+   ![](http://pre05.deviantart.net/b405/th/pre/f/2013/086/4/c/arch_linux_with_gnome_compiz_by_samiuvic-d5zg31x.png)
+   
+2. `KDE Plasma` KDE是一个软件集，其中的桌面环境为Plasma，一般简称为KDE。
+   KDE同GNOME不同，强调功能的齐全与可定制性。有时候人们会觉得用KDE像用
+   Windows（实际上，Windows XP的桌面环境就借鉴了不少KDE的设计）,也不能
+   说不是空穴来风。KDE又被成为是最华丽的桌面环境，有各种各样的动画特效。
+   我曾经用过KDE4,在KDE5的环境下觉得不太适应换到了GNOME。
+
+![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
+
+![](http://pre10.deviantart.net/02ed/th/pre/f/2014/119/5/c/numix_gtk_theme__modded_without__unity_boxes__by_chrisfr06-d7gfi3v.png)
+
+3. `Unity` Unity是Ubuntu独立开发出来的一套桌面环境。跟Ubuntu结合的比较
+   紧密，在别的发行版上可能会比较不搭调。
+   
+![](http://pre10.deviantart.net/02ed/th/pre/f/2014/119/5/c/numix_gtk_theme__modded_without__unity_boxes__by_chrisfr06-d7gfi3v.png)
+   
+4. `LXDE/LXQT` 一套轻量级的桌面环境，相比GNOME与KDE占用更少资源，当然
+   配置好要花一番功夫。LXDE占用更少的CPU、内存，是为上网本、移动设备、旧机器特别设计的轻量桌面环境。LXQt 是轻量级桌面环境 LXDE 的下一代产品。
+   
+![](http://pre08.deviantart.net/271f/th/pre/f/2011/271/2/2/lxde_strikes_back_by_nekron29-d4b6day.png)
+
+5. `Xfce` 轻量桌面环境Xfce，是Unix模块化、重用代码理念的践行者。其中包
+   含各种功能的组件，是真正现代的桌面环境。各个组件划分成不同的包，用
+   户可以自由选取需要的安装使用。
+
+![](http://img02.deviantart.net/e180/i/2016/038/0/a/manjaro_linux_testing___xfce_2016_02_08_by_itachilinux-d9qymjk.png)
+
+以下由于其性质，已经不是桌面环境了。它们比桌面环境更轻量，更小，更灵活。
+
+6. `i3` 一套动态平铺式窗口管理器，灵感来自针对开发者与资深用户的 wmii。
+![](http://img08.deviantart.net/fee5/i/2016/155/5/e/archlinux__testing__2016_06_03___i3_gaps_by_itachilinux-da4xoqf.png)
+
+7. `awesome` 是 XWindows(不是Windows！) 下可高度定制的新一代窗口管理器。运行快捷、扩展性强，遵循GPLv2发布。
+Awesome主要面向高级用户、开发者和那些希望完美控制自己电脑的图形界面的人。
+
+![](http://pre13.deviantart.net/cefa/th/pre/f/2015/093/3/2/awesome_wm__3_5____pabucolor_by_ayumimai-d8o9ur4.png)
+
+<span class="heimu">四斋蒸鹅心</span>
+
+## 第一次有了喜欢的人
+
+除了Bash, 我们还可以用别的Shell增强命令行的能力，Zsh就是一个很好的用于
+替代Bash的shell。Zsh同样适用于Mac。
+
+相比Bash,zsh有如下优点：
+
+- 更高效
+- 更好的自动补全
+- 更好的文件名展开（通配符展开）
+- 更好的数组处理
+- 可定制性高
+
+[Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 是一个开箱即用的zsh配置。它包括了不同的主题与插件，用于增强
+Zsh的功能。
+
+![](https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png)
+
+Arch linux 在安装的时候默认终端是zsh，安装完进入系统后是bash。如果觉得
+安装过程zsh很舒适，就切换到zsh吧。
+
+
+## 有了能做一辈子朋友的人
+
+有些软件，如果只能在Windows下面跑，但是我又希望可以在Linux环境运行。这
+个时候，除了开虚拟机，我们还有另一种可能的选择--Wine.
+
+Wine 是类UNIX系统下运行微软Windows程序的"兼容层"。在Wine中运行的
+Windows程序，就如同运行原生Linux程序一样，不会有模拟器那样的性能问题。
+
+Wine是个很强大的工具，经过若干配置甚至可以运行诸如魔兽争霸3这样的游戏。
+包括我们日常用的QQ，如果不想用webqq的话，Wine QQ是一个可行的选择。
+
+据说在大蜥蜴与Arch上，有人已经成功地[运行了英雄联盟](https://appdb.winehq.org/objectManager.php?sClass=version&iId=33303)
+
+[国服的成功案例](https://bbs.deepin.org/forum.php?mod=viewthread&tid=11754&highlight=%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F)
+
+当然，由于windows不开放底层代码，wine在模拟的时候难免遇到各种各样的问
+题，这个时候唯有发挥折腾精神了。
+
+## 两件快乐事情重合在一起
+
+在Linux下处理word, ppt，excel等，虽然有开源的LibreOffice与OpenOffice,
+但是对于国人来说总是差点意思。幸运的是，我们
+有[Wps Linux](http://linux.wps.cn/)版本作为代替，日常的编辑行为基本足
+够用了。
+
+如果要对PDF文档进行处理的话，一般的linux都会自带阅读器，或者可以用
+Chrome/Chromium的阅读器阅读。
+
+## 而这两份快乐，又给我带来更多的快乐
+
+默认的linux是没有所谓输入法的。为了输入中文，我们有国人开发
+的[fcitx](https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)。
+Fcitx (Flexible Input Method Framework) ──即小企鹅输入法，它是一个以
+GPL 方式发布的输入法平台(即原来的 G 五笔)，包括五笔、拼音(全拼和双拼)、
+二笔、区位等输入模块，支持简入繁出，是在 Linux 操作系统中常用的中文输
+入法。它的优点是，短小精悍、跟程序的兼容性比较好。
+
+Fcitx只是个输入法框架，要往里面输入的话还是要用其他的输入法。对于中文
+而言，好用的输入法有google输入法，rime中州韵输入法，以及搜狗拼音。[搜狗
+的Linux版本](http://pinyin.sogou.com/linux/?r=pinyin)体验基本跟Windows
+下面差不多，包括皮肤配置与用户词库，习惯用搜狗的可以一试。[rime](http://rime.im/)被认为是
+一个很好用，可定制性很强的输入法，可以输入粤语，古汉语，吴语等，推荐高手使用。
+
+![](http://og78s5hbx.bkt.clouddn.com/sogou.jpg)
+
+## 得到的，本该是像梦境一般幸福的时间
+
+用Linux的用户，普遍应该对科学上网有所了解。但是在linux下可能没有常见的
+vpn客户端，我们应该怎么办呢？
+
+`shadowsocks` 是一个轻量socks5代理，从pip或者包管理器可以获得，配置好
+以后可以一直后台运行不用管它。当然，它是基于命令行的。`XX-net`也是一个可选
+项。如果有能力的话，可以通过`Tor`实现完全匿名。
+
+获得方法请善用搜索引擎/百科/wiki。
+
+## 但是，为什么，会变成这样呢
+
+桌面的美化，除了依赖Gnome或者KDE自带的工具，还可以使用一些别的工具来实
+现。
+
+[Docky](http://wiki.go-docky.com/index.php?title=Welcome_to_the_Docky_wiki)
+是一个类似Mac下dock的应用启动器。它可以同dock一样进行程序的快速启动，
+而启动项也是可以定制的。<del>比如我扔了个poi上去方便刷舰娘</del>
+
+[conky](https://github.com/brndnmtthws/conky)
+Conky 是一个用于X窗口系统的系统监视软件。它可以运行在 GNU/Linux 和
+FreeBSD 上，是一个基于GPL协议的免费软件。Conky 可以监控许多系统变量，
+包括 CPU，内存，交换分区，磁盘空间，温度，top，上传，下载，系统消息，
+以及更多。它具有很高的可配置性，但配置有一些难于理解。
+我的桌面用了Conky来实现系统监控以及TODO-list。
+
+包括且不限于图标、主题的系统定制项可以在诸
+如[gnome-look](https://www.gnome-look.org/),
+[kde-look](https://www.kde-look.org/)之类的网站找到。
+
+比如[这个](https://www.gnome-look.org/p/1013055/)就是一个OS X Yosemite
+的Cosplay主题。[这个](https://store.kde.org/p/1005229/)是一个Windows的
+Cosplay主题。
+
+## 白色相簿什么的已经无所谓了
+
+在Linux下要进行写作的话，除了Word，我们还可以选择markdown,org与LaTeX。
+
+Markdown 是一种「标记语言」，通常为程序员群体所用。用markdown可以进行
+高效的笔记，写作等等。这篇文章就是用markdown格式进行书写的。
+
+参见： 
+- [为什么作家应该用 Markdown 保存自己的文稿](http://www.jianshu.com/p/qqGjLN)
+- [Markdown写作浅谈](http://www.jianshu.com/p/PpDNMG)
+
+主流的文本编辑器都可以配置成支持Markdown.
+
+Org 是另一种标记语言。它较markdown来得复杂，对表格，标记，代码引入的支
+持比markdown来得强，同时与emacs深度集成，借助插件可以完成图片预览，时
+间管理，导出PDF等等强大功能。
+
+- [org-mode: 最好的文档编辑利器，没有之一](http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html)
+- [Org-mode,最强的任务管理利器，没有之一](http://www.cnblogs.com/holbrook/archive/2012/04/14/2447754.html)
+
+LaTeX(/leɪtɛk/)是上世纪80年代开发的一套排版系统，对数学，制图以及公式
+的支持非常强力。作为计算机系的学生，使用LaTeX进行重要论文/文档的写作是
+基本要求。在Linux下，有许多不同的LaTeX写作的实现方式，这里介绍一篇用
+emacs作为编辑器的文章：[Emacs + LaTeX 快速上手](http://cs2.swfc.edu.cn/~wx672/lecture_notes/linux/latex/latex_tutorial.html)
+
+关于博客的写作，我们可以上Github注册个账号，利
+用[Github Page](https://pages.github.com/)进行写作。
+但是，Github Page只能使用静态页面，wordpress之类的PHP软件无法使用。
+我们可以用[Jekyll](https://jekyllrb.com/)作为静态页面生成器。
+同样的，emacs也可以作为Jekyll写作的后端。Vim下也有相应的插件，使得vim
+也可以编写jekyll项目。
+
+
+## 因为已经不再有歌，值得去唱了
+
+在Linux下听音乐也有很多选择，但是大部分音乐软件都是直接播放MP3等音频文
+件的，这让我这种网易云音乐重度用户非常尴尬。幸运的是，我们有一个命令行
+版本的第三方云音乐：
+[NetEase-MusicBox](https://github.com/darknessomi/musicbox).
+使用Python开发，可以在pip与linux发行版的软件仓库中找到。该项目使用vim
+的交互方式，简洁明快，个人觉得比客户端不知高到哪里去。可惜其对电台的支
+持不太完善，喜欢听电台的可能会遇到麻烦。<span class="heimu">没有小萝莉
+prpr听我要死了</span>
+
+![](https://camo.githubusercontent.com/5b0f2a90c5eaf8f4e235291c40ffee31f21c06de/687474703a2f2f376a317976332e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f707265766965772e676966)
+
+Linux下的视频播放有[VLC](https://www.videolan.org/index.zh.html)这种神
+器存在，基本能解决大部分需求。视频下载可以
+用[aria2](https://aria2.github.io/),或者在百度云上可以用插件导出下载链
+接或者[bcloud](https://github.com/LiuLang/bcloud)(但是由于百度云升级导
+致不好用，可能要等作者修复)。wget与curl是linux下的两个下载神器。
+
+
+## 传达不了的恋情已经不需要了
+
+Git是一个开放源码的版本控制软件，是Linux的开发者Linus Torwalds 创作的。
+关于如何使用Git可以写成一本书，网上的文章也已经汗牛充栋，如何使用git请
+自行搜索殷勤。Git可以作为一个本地版本管理工具管理你自己的代码，以免各
+种复制粘贴；Git也可以作为一个下载工具来下载Github等网站上有用有趣的开
+源项目。
+
+SSH是Linux的一个安全的网络传输协议。登录远程Linux主机需要用命令行中的
+ssh命令。实际上，在机房登录学校的Linux靠的也是ssh，包括图形界面与putty。
+学会ssh，就可以对远程主机进行操作，比如自己的服务器或者学校的Linux
+server之类。
+
+由于linux是多用户系统，用户之间可以用各种方式聊天，比如说 `write`，
+`talk`,`wall`,`mesg`等等。似乎有一届滥用`wall`被Paul抓到过。<span
+class="heimu">好像这个方法也是我告诉他们的</span>
+
+
+
+## 因为已经不再有人，值得去爱了
+Linux下的游戏基本等于聊胜于无。Steam有Linux客户端，并且Steam OS也是基
+于linux的。我们还可以发现一些Linux上原生的游戏，比如说在Ubuntu软件中心
+里的韦诺之战，或者跨平台的minecraft。要是想玩游戏基本还是要使用wine的。
+
+对于ACG爱好者而言，有许多Galgame,Avg<span class="heimu">女装♂山脉</span>是可以通过wine运行的，包括但不限
+于菲特今晚留下来等等。这是一个实
+现[参考](https://homulilly.com/post/run-japanese-galgame-on-Ubuntu-with-wine.html)，
+但是由于11区程序猿水平参差不齐而又不愿意弄开源引擎，是否能够wine成功似
+乎要看情况。另外，ONScripter也可以用来运行NScript脚本制作的游戏。
+
+东方也可以通过Wine运行。目前看到的有截止到神灵庙的[成功信息](https://wiki.archlinux.org/index.php/Touhou)。
+
+著名的音乐游戏Osu也可以通过wine在linux上面运行。
+[这个脚本](https://www.playonlinux.com/en/app-1856-osu.html)使用[playonlinux](https://www.playonlinux.com/en/),可以作为参
+考。[这里](https://osu.ppy.sh/forum/t/367783)是另一位爱好者的经验分享。
+
+# 4. 阿妹你看，上帝压狗
+
+要想用好linux，所需要了解的东西远远不止我在文中说的这么点。为了能够在
+Linux下面愉快地玩耍，除了历史的进程，个人的努力也是非常重要的。总而言
+之，希望诸君能够去尝试并且了解这个看起来很奇怪的系统。这篇文章不是为了
+让人放弃自己用得很好的操作系统，但是会让你同自己用熟的系统进行比较。
+linux对于初学者而言不好用，但是会
+逼着你去思考什么是计算机，什么是工作效率，什么是良好的设计。学会了在
+linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，装逼
+装过头忘记在linux下真正重要的是什么，那可就得不偿失了。
+
+课后题:
+
+1. 通过搜索引擎，博客，百科等手段，了解什么是管道，标准输入输出错误，
+   输出重定向
+2. 思考如何用管道组合命令
+3. 了解linux的目录结构
+4. 了解正则表达式与grep命令
+5. 了解tty终端，图形界面，X系统与桌面环境，并且思考他们跟你用的操作系
+   统的做法有什么不同。
+6. 了解什么是配置文件，为什么linux要用文本文件做配置，而不是二进制文件？
+
+
+
+最后，挖个老坟给大家轻松一下：
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=107&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
