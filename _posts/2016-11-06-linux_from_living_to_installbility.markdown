@@ -543,6 +543,19 @@ root用户操作。这也带来了很大的风险--万一手贱呢？曾经有�
 树莓派之类的智能硬件，大到云计算，物联网，超算。学会linux，可以打开一
 扇大门，让你了解到我们这个信息世界的巨幅图景。
 
+如果我们把操作系统看做是厨师，Unix可以说是金盆洗手的名厨，只有在必要的
+时候才出来露一手；Windows是新东方走出来的厨师，做出来的口味烂大街；Mac
+是米其林3星饭店的主勺，做出来的菜令人眼花缭乱。那么Linux就是私
+房菜厨师。有的厨师能做出毫无色香味可言的黑暗料理，而有的人却可以如小
+当家一般闪闪发光。<del>还有的人往里面下春药。</del>而对于他们
+而言，料理的可能性是无限的。再加上Linux天生拥抱自由软件与开源社区，各
+式各样的菜谱指南唾手可得。有了原材料，有了一群热衷分享菜谱的人们，能做
+成什么样的料理，就看各位厨师的手艺了。<del>要是有幸读者诸君当中出了一位药王，还
+请本着老司机的精神分享一下菜谱：)</del>
+
+![](http://og78s5hbx.bkt.clouddn.com/yaowang.jpg)
+
+<del><font color="yellow">为什么我变黄了</font></del>
 
 # 3.为什么你会这么熟练啊！
 
@@ -612,19 +625,19 @@ Windows与Mac版本一条线跑到黑，Linux发行版可谓琳琅满目。
 
 除了这些发行版以外，还有一些衍生发行版。
 
-![](http://og78s5hbx.bkt.clouddn.com/elementaryos.png)
-
 - [elementary OS](https://elementary.io/zh_CN/) 从Ubuntu衍生而来，致力
   于提高桌面用户体验。Elementary本身是被广泛赞誉的Linux桌面外观，后来
   独立出来成立集成操作系统项目。
   
-![](http://og78s5hbx.bkt.clouddn.com/deepin2.jpg)
+  ![](http://og78s5hbx.bkt.clouddn.com/elementaryos.png)
+
 - [Deepin](https://www.deepin.org/)
   有些人可能对深度很熟悉了--在XP时代，深度做了很多Windows的工作。现在
   他们转投Linux，在Ubuntu的基础上定制了适合中国用户操作习惯的发行版
   （现在似乎转到了debian的分支下），
   颜值不错，软件齐全，适合作为新手入门以及主要工作的发行版。
 
+  ![](http://og78s5hbx.bkt.clouddn.com/deepin2.jpg)
 ## 为什么会变成这样呢
 
 桌面环境(desktop environment)是另一个Linux新手可能会搞不清楚的东西。
@@ -645,9 +658,9 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
    了操作简便隐藏了很多东西，有的时候被吐槽为反人类设计。但是，作为使
    用人数最多的桌面环境，Gnome确实有独到之处。我现在用的桌面环境就是Gnome.
 
-    先晒下自己现在用的桌面：
+   先晒下自己现在用的桌面：
 
-    ![](http://og78s5hbx.bkt.clouddn.com/my-desktop.jpg)
+   ![](http://og78s5hbx.bkt.clouddn.com/my-desktop.jpg)
    
    别人家的Gnome:
    
@@ -659,7 +672,7 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
    说不是空穴来风。KDE又被成为是最华丽的桌面环境，有各种各样的动画特效。
    我曾经用过KDE4,在KDE5的环境下觉得不太适应换到了GNOME。
 
-![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
+  ![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
 
 3. `Unity` Unity是Ubuntu独立开发出来的一套桌面环境。跟Ubuntu结合的比较
    紧密，在别的发行版上可能会比较不搭调。
@@ -674,18 +687,17 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
 5. `Xfce` 轻量桌面环境Xfce，是Unix模块化、重用代码理念的践行者。其中包
    含各种功能的组件，是真正现代的桌面环境。各个组件划分成不同的包，用
    户可以自由选取需要的安装使用。
+  ![](http://img02.deviantart.net/e180/i/2016/038/0/a/manjaro_linux_testing___xfce_2016_02_08_by_itachilinux-d9qymjk.png)
 
-![](http://img02.deviantart.net/e180/i/2016/038/0/a/manjaro_linux_testing___xfce_2016_02_08_by_itachilinux-d9qymjk.png)
+窗口管理器是另一套图形界面方案，已经不能算桌面环境了。它们比桌面环境更轻量，更小，更灵活。
 
-以下由于其性质，已经不是桌面环境了。它们比桌面环境更轻量，更小，更灵活。
+1. `i3` 一套动态平铺式窗口管理器，灵感来自针对开发者与资深用户的 wmii。
+   ![](http://img08.deviantart.net/fee5/i/2016/155/5/e/archlinux__testing__2016_06_03___i3_gaps_by_itachilinux-da4xoqf.png)
 
-6. `i3` 一套动态平铺式窗口管理器，灵感来自针对开发者与资深用户的 wmii。
-![](http://img08.deviantart.net/fee5/i/2016/155/5/e/archlinux__testing__2016_06_03___i3_gaps_by_itachilinux-da4xoqf.png)
-
-7. `awesome` 是 XWindows(不是Windows！) 下可高度定制的新一代窗口管理器。运行快捷、扩展性强，遵循GPLv2发布。
+2. `awesome` 是 XWindows(不是Windows！) 下可高度定制的新一代窗口管理器。运行快捷、扩展性强，遵循GPLv2发布。
 Awesome主要面向高级用户、开发者和那些希望完美控制自己电脑的图形界面的人。
 
-![](http://pre13.deviantart.net/cefa/th/pre/f/2015/093/3/2/awesome_wm__3_5____pabucolor_by_ayumimai-d8o9ur4.png)
+   ![](http://pre13.deviantart.net/cefa/th/pre/f/2015/093/3/2/awesome_wm__3_5____pabucolor_by_ayumimai-d8o9ur4.png)
 
 <span class="heimu">四斋蒸鹅心</span>
 
@@ -788,8 +800,19 @@ FreeBSD 上，是一个基于GPL协议的免费软件。Conky 可以监控许多
 [kde-look](https://www.kde-look.org/)之类的网站找到。
 
 比如[这个](https://www.gnome-look.org/p/1013055/)就是一个OS X Yosemite
-的Cosplay主题。[这个](https://store.kde.org/p/1005229/)是一个Windows的
-Cosplay主题。
+的主题。[这个](https://store.kde.org/p/1005229/)是一个Windows的主题。
+
+活用主题我们可以完美Cosplay一套苹果风格的UI:
+
+KDE:
+
+![](http://img05.deviantart.net/68d3/i/2014/340/8/d/macstyle_kde_by_stkevintan-d88ynq6.png)
+
+GNOME:
+
+![](http://og78s5hbx.bkt.clouddn.com/maq___mac_os_x_lion_theme___gtk3_by_batil-d4voqy2.jpg)
+
+
 
 ## 白色相簿什么的已经无所谓了
 
