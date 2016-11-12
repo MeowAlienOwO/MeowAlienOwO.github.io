@@ -42,31 +42,41 @@ comments:
 
 ![](http://og78s5hbx.bkt.clouddn.com/asswecan.jpg)
 
-## 俺来不是为了蛋疼
+## 1.1俺来不是为了蛋疼
 
-为了保证在linux下生存，我们必须了解几个跟linux相关的基本概念：
+为了保证在linux下生存，我们必须了解几个跟linux相关的基本概念。有些人可
+能已经在Mac/Win下对这些概念有所了解，但是为了说明方便，这里姑且请再看
+一遍。这些概念的说明会以学校的linux主机作为基础，同自己用的或是服务器
+上的linux会略有不同，请在应用的时候注意甄别。
 
-1. terminal 终端
+1. terminal 终端：
 简单地来说，在这个时候你只需要知道终端是linux下的一个命令行工具，跟
 windows下的cmd类似就可以了。当然，terminal远比cmd这种渣渣强大百倍。
-2. directory 目录
+以后有兴趣的同学可以深入了解一下Terminal应用的不同实现，包括Gnome下的
+Terminal，KDE下的Konsole, 可以下拉的Guake等等。<del>Windows下要想有很
+好用的命令行工具的话，不用PowerShell的情况下可以用Cmder或者Cygwin这样
+的整合一部分或是克隆了linux下命令行工具的软件。</del>
+2. directory 目录：
 一些用mac的同学可能已经熟悉了目录这个概念，目录就像windows下面的文件夹，
 里面存放工作文件或者下一级目录。但是，linux不存在不同的盘符。所有的目
-录都是从根目录`/`开始，一层一层地往下展开。
-3. working directory 工作目录
-这是一个很特殊的概念。在windows下，我们可能习惯了打开多个文件夹，在不
-同的文件夹里对不同的文件进行操作。但是，linux下，同一时间只能存在一个
-主工作目录。有些人可能会发现在linux下也可以打开多个文件，或者打开多个
-终端。其实他们本质上是不同的进程，在同一进程下只能存在一个主工作目录。
-至于什么是进程，大家可以在大三的操作系统课中学到。
-4. compiling 编译
-把程序码转换成二进制码的过程，至少对C语言是如此。详细的编译概念请回顾C
-语言课程。在linux下，我们不能像code blocks中一样一键搞定工具，所以我们
+录都是从根目录`/`开始，`/home`,`/home/your-home`...一层一层地往下展开，如同一棵树一样。这样的层级
+结构被称为树状结构。如果我们打开终端，我们会看到最左边有：`～`或者
+`/home$`之类的标志，这个标志表示当前工作目录，或者我们可以认为是我们处
+于从根部长出来的这棵树的某一个树干分叉点或者树枝上。
+3. 相对路径与绝对路径：
+假设你处于目录`/a/b/c/d`中的`c`点位置，想要到达`b`点应该怎么办呢？我们
+有两种寻找的方法。一种，从根部起，找到`/a/b`；另一种，从你现在的位置起，
+找到你的上一层。这两种寻找方法分别被成为绝对路径与相对路径。
+4. compiling 编译：
+把程序码转换成目标代码的过程，对C语言一般是二进制可执行文件。详细的编译概念请回顾C
+语言课程。在学校机房的linux环境下，我们不能像code blocks中一样一键搞定编译链接等等，所以我们
 要使用linux下的工具进行编译。
 5. 文件类型
-linux下的文件有两种类型：文本文件，以及二进制文件。文本文件我们可以理
+linux下的文件主要有两种类型：文本文件，以及二进制文件。文本文件我们可以理
 解成可以用记事本打开的文件，二进制我们可以理解成exe文件。这只是粗略的
-分类，也有可执行的文本文件与单纯用于存储的二进制文件。
+分类，也有可执行的文本文件与单纯用于存储的二进制文件。当然，我们还有链
+接文件，目录文件等等其他文件，但是目前对我们重要的是二进制跟文本文件的
+区别。在linux下，以点号`.`开头的文件是隐藏文件。
 6. 文件权限
 所有的文件的权限都有三个种类：可读，可写，可执行。分别用rwx字母来表示。
 而文件权限又分成三个层级：持有者，同用户组，所有人。在linux中，文件采
@@ -75,7 +85,7 @@ linux下的文件有两种类型：文本文件，以及二进制文件。文本
 `-r--r-----`表示仅所有者与同组的用户可以读取。有的时候文件执行不了，就
 需要考虑是不是权限出了问题。权限同样可以用二进制表示，比如说
 `-rwxrwxr--`就可以看作是`-111111100`，每三位算一个数字可以表示成
-<del>水树</del>774
+<del>水树</del>774。
 7. 文本编辑器与集成环境
 文本编辑器就是用于编辑文本文件的东西（包括但不限于.txt），比如windows
 下的记事本，gedit，sublime之类。集成环境通常是将编辑，代码补全，编译等
@@ -84,7 +94,7 @@ linux下的文件有两种类型：文本文件，以及二进制文件。文本
 本编辑器就一无是处。文本编辑器的优势在广度，一个文本编辑器往往可以编辑
 许多种语言，有更好的灵活性。
 
-## 天朝好棒好棒的
+## 1.2天朝好棒好棒的
 
 了解了以上概念以后，我们就可以很容易地解决如何在坑爹的linux下，在作业
 的炮火中生存下来了。
@@ -206,7 +216,7 @@ ls -al
 
 ./program
 {% endhighlight %}
-这里，我们会获得一个权限错误。这意味着我们没有了可执行权限。通常在写脚
+这里，命令行会输出权限错误。这意味着我们没有了可执行权限。通常在写脚
 本的时候，由于linux文本文件默认是不可执行的，如果没有打开权限，在执行
 的时候就会出错。
 
@@ -257,9 +267,18 @@ man          #查看帮助
    不能跑的限制）
 2. 免费。linux下大部分软件与升级服务是无需付费的。当然，许多企业级的
    linux服务是收费的，专业的linux运维其成本也不小，但是这不妨碍其软件免费。
-3. 安全。相比windows下多如牛毛的病毒，linux中病毒的概率几乎可以小到不
-   计。这主要是由于其良好的权限设计，比较一下root/越狱的手机中招的概率
+3. 安全。作为服务器的主流操作系统，linux每天需要面对大量的攻击，但是仍
+   然拥有着良好的安全性。这主要得益于如下几个因素：
+   - 权限控制。相比windows下多如牛毛的病毒，linux中病毒的概率几乎可以小到不
+   计。这主要是由于unix/linux良好的权限设计，比较一下root/越狱的手机中招的概率
    与没有动手脚的手机中招的概率就知道了。
+   - 使用人群。使用Linux的普遍水平比较高，基本都有一定的编程，查错，自
+     我学习能力。这就导致了一般的病毒很难在Linux下生存。
+   - 源码透明。大部分linux的软件是开源的，这意味着如果有人想动手脚，全
+     世界成千上万只眼睛盯着，很难成功。
+   - 开源社区。活跃的开源社区与透明源码使得漏洞可以很快地被发现修复，
+     在官方修复之前开源社区也可以制作自己的修复补丁，不像windows，一切
+     都得等上游更新。
 4. 可定制性。linux的可定制性简直是深入到骨子里的。你能想象windows/mac
    的系统内核可以随便改吗？只要有能力，linux的内核代码是开放的，你想调
    教成什么样就可以调教成什么样。也因此，linux家族里既有小到嵌入式或者
@@ -278,14 +297,14 @@ linux的本质就是折腾，从系统到软件再到配置，经常会出现系
 强大，其本身也是非常值得学习的对象。
 
 
-## 来到两军阵前，必有高论
+## 2.1来到两军阵前，必有高论
 
 说了这么多务虚的，我们来看看为了在Linux上生活，我们需要折腾哪些东西吧。
 
 
 ![](http://og78s5hbx.bkt.clouddn.com/woyouyiyan.jpg)
 
-### Bash
+### 2.1.1Bash
 
 首先我们了解一下什么是Shell。
 
@@ -327,7 +346,7 @@ gedit,不需要手动操作。
 
 [shell script](http://linux.vbird.org/linux_basic/0340bashshell-scripts.php)
 
-### vim/emacs
+### 2.1.2vim/emacs
 
 ![](http://og78s5hbx.bkt.clouddn.com/bianjiqiquxian.jpg)
 
@@ -343,7 +362,7 @@ gedit,稍微高级一点的用sublime,或者直接用eclipse这种IDE。其原�
 编辑器还是非常有益的，在使用学习的过程中，可以很大地提高对编辑器的认识
 理解，包括且不限于插件，配置，操作方式等。
 
-#### 神的编辑器--vim
+#### 2.1.2.1神的编辑器--vim
 
 Vim是linux/unix下被使用最多的文本编辑工具，只要有linux，不管是大型操作
 系统还是嵌入式，都可以见到vim的身影，普及率堪比windows下的记事本，但是
@@ -399,7 +418,7 @@ vim的学习需要一定的精力，不过幸运的是vim的学习资源也不�
 - JetBrain系: [IdeaVim](https://plugins.jetbrains.com/plugin/164)
 - Visual Studio: [VsVim](https://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329)
 
-#### 编辑器之神--emacs
+#### 2.1.2.2编辑器之神--emacs
 
 emacs是另一个编辑器领域的上古神器。如果说vim是神的编辑器，那emacs就是
 编辑器之神。有句话说得好：
@@ -464,7 +483,7 @@ markdown,它有更多的支持，可谓emacs平台一大杀手应用。
 
 [emacs生存指南](http://lifegoo.pluskid.org/?p=152)
 
-### 包管理器
+### 2.1.3包管理器
 
 ![](http://og78s5hbx.bkt.clouddn.com/quanjiatong.jpg)
 
@@ -493,7 +512,7 @@ apt-get install ...
 如说python有pip，ruby有gem，nodejs有npm，等等。甚至前端也有bower这样的
 包管理器方便引用js依赖。
 
-### 超级用户
+### 2.1.4超级用户
 
 在安装软件的时候，如果我们单纯的用`apt-get`这样的命令，我们很容易就会
 碰到:
@@ -526,7 +545,7 @@ root用户操作。这也带来了很大的风险--万一手贱呢？曾经有�
 
 另外，通过linux的usb安装盘，其root权限是可以作用于windows系统的:)
 
-## 没想到竟说出如此粗鄙之语
+## 2.2没想到竟说出如此粗鄙之语
 
 ![](http://og78s5hbx.bkt.clouddn.com/cubizhiyu.jpg)
 
@@ -570,7 +589,7 @@ class="heimu"><del>醒醒哪有妹子跟死宅说话</del></span>面前装逼还
 
 ![](http://og78s5hbx.bkt.clouddn.com/baixue.png)
 
-## 你和雪菜亲过多少次了啊！？
+## 3.1你和雪菜亲过多少次了啊！？
 
 除了学校的Linux系统，我们如果还想玩Linux应该怎么办呢？两个选择：
 
@@ -591,7 +610,7 @@ windows下分出50G左右的硬盘空间装Linux吧。鉴于双系统重装很�
 
 ![](https://static.mengniang.org/common/a/a3/Both_of_you_are_my_wings.JPG)
    
-## 你到底要把我甩开多远你才甘心啊！？
+## 3.2你到底要把我甩开多远你才甘心啊！？
 
 决定要装Linux之后，烦恼可能就是装哪个发行版了。Linux发行版指的是一套已
 经为用户集成好的操作系统与应用软件的集合，为用户省去了大量重新编译安装
@@ -638,7 +657,7 @@ Windows与Mac版本一条线跑到黑，Linux发行版可谓琳琅满目。
   颜值不错，软件齐全，适合作为新手入门以及主要工作的发行版。
 
   ![](http://og78s5hbx.bkt.clouddn.com/deepin2.jpg)
-## 为什么会变成这样呢
+## 3.3为什么会变成这样呢
 
 桌面环境(desktop environment)是另一个Linux新手可能会搞不清楚的东西。
 Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我们前面介绍
@@ -701,7 +720,7 @@ Awesome主要面向高级用户、开发者和那些希望完美控制自己电�
 
 <span class="heimu">四斋蒸鹅心</span>
 
-## 第一次有了喜欢的人
+## 3.4第一次有了喜欢的人
 
 除了Bash, 我们还可以用别的Shell增强命令行的能力，Zsh就是一个很好的用于
 替代Bash的shell。Zsh同样适用于Mac。
@@ -723,25 +742,26 @@ Arch linux 在安装的时候默认终端是zsh，安装完进入系统后是bas
 安装过程zsh很舒适，就切换到zsh吧。
 
 
-## 有了能做一辈子朋友的人
+## 3.5有了能做一辈子朋友的人
+对于普通人来说，在Linux下上网的体验可以跟Windows/Mac差不多。Firefox与
+Chrome的开源版本Chromium都可以在大多数linux软件源里头找到，配置跟
+windows/mac一样。如果平时就是用户的话基本没有什么迁移成本。
 
-有些软件，如果只能在Windows下面跑，但是我又希望可以在Linux环境运行。这
-个时候，除了开虚拟机，我们还有另一种可能的选择--Wine.
+如果喜欢用客户端收发邮件的话，ThunderBird是Mozilla出品的一个很好用的跨
+平台邮件客户端，是Gnome的自带邮件管理器。KDE下也有自己的KMail。
 
-Wine 是类UNIX系统下运行微软Windows程序的"兼容层"。在Wine中运行的
-Windows程序，就如同运行原生Linux程序一样，不会有模拟器那样的性能问题。
+但是，在Linux还可以做到一点--在命令行上网。w3m是一个命令行环境下的文字
+是网页浏览器。在纯命令行环境下，要是想上网浏览信息，可以使用w3m。Mutt
+是一个命令行的邮件管理软件，有了它就可以在命令行进行邮件的收发。也许有
+人会问为什么要在命令行进行网络操作，第一个原因是有的时候不得不用纯命令
+行处理工作，比如服务器环境；另一个原因是它们可以和vim/emacs或者其他
+linux命令行软件高度集成，从而组成工具链提高效率。
 
-Wine是个很强大的工具，经过若干配置甚至可以运行诸如魔兽争霸3这样的游戏。
-包括我们日常用的QQ，如果不想用webqq的话，Wine QQ是一个可行的选择。
+Linux下的微信，qq，line等即时聊天软件没有对应的客户端，有些发行版的软
+件仓库里可能会有Wine的打包版本，但是如果使用Chrome的话，Chrome应用也是
+一种可行的选择。
 
-据说在大蜥蜴与Arch上，有人已经成功地[运行了英雄联盟](https://appdb.winehq.org/objectManager.php?sClass=version&iId=33303)
-
-[国服的成功案例](https://bbs.deepin.org/forum.php?mod=viewthread&tid=11754&highlight=%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F)
-
-当然，由于windows不开放底层代码，wine在模拟的时候难免遇到各种各样的问
-题，这个时候唯有发挥折腾精神了。
-
-## 两件快乐事情重合在一起
+## 3.6两件快乐事情重合在一起
 
 在Linux下处理word, ppt，excel等，虽然有开源的LibreOffice与OpenOffice,
 但是对于国人来说总是差点意思。幸运的是，我们
@@ -751,7 +771,7 @@ Wine是个很强大的工具，经过若干配置甚至可以运行诸如魔兽�
 如果要对PDF文档进行处理的话，一般的linux都会自带阅读器，或者可以用
 Chrome/Chromium的阅读器阅读。
 
-## 而这两份快乐，又给我带来更多的快乐
+## 3.7而这两份快乐，又给我带来更多的快乐
 
 默认的linux是没有所谓输入法的。为了输入中文，我们有国人开发
 的[fcitx](https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)。
@@ -768,7 +788,7 @@ Fcitx只是个输入法框架，要往里面输入的话还是要用其他的输
 
 ![](http://og78s5hbx.bkt.clouddn.com/sogou.jpg)
 
-## 得到的，本该是像梦境一般幸福的时间
+## 3.8得到的，本该是像梦境一般幸福的时间
 
 用Linux的用户，普遍应该对科学上网有所了解。但是在linux下可能没有常见的
 vpn客户端，我们应该怎么办呢？
@@ -779,7 +799,7 @@ vpn客户端，我们应该怎么办呢？
 
 获得方法请善用搜索引擎/百科/wiki。
 
-## 但是，为什么，会变成这样呢
+## 3.9但是，为什么，会变成这样呢
 
 桌面的美化，除了依赖Gnome或者KDE自带的工具，还可以使用一些别的工具来实
 现。
@@ -789,7 +809,7 @@ vpn客户端，我们应该怎么办呢？
 而启动项也是可以定制的。<del>比如我扔了个poi上去方便刷舰娘</del>
 
 [conky](https://github.com/brndnmtthws/conky)
-Conky 是一个用于X窗口系统的系统监视软件。它可以运行在 GNU/Linux 和
+是一个用于X窗口系统的系统监视软件。它可以运行在 GNU/Linux 和
 FreeBSD 上，是一个基于GPL协议的免费软件。Conky 可以监控许多系统变量，
 包括 CPU，内存，交换分区，磁盘空间，温度，top，上传，下载，系统消息，
 以及更多。它具有很高的可配置性，但配置有一些难于理解。
@@ -814,7 +834,7 @@ GNOME:
 
 
 
-## 白色相簿什么的已经无所谓了
+## 3.10白色相簿什么的已经无所谓了
 
 在Linux下要进行写作的话，除了Word，我们还可以选择markdown,org与LaTeX。
 
@@ -847,7 +867,7 @@ emacs作为编辑器的文章：[Emacs + LaTeX 快速上手](http://cs2.swfc.edu
 也可以编写jekyll项目。
 
 
-## 因为已经不再有歌，值得去唱了
+## 3.11因为已经不再有歌，值得去唱了
 
 在Linux下听音乐也有很多选择，但是大部分音乐软件都是直接播放MP3等音频文
 件的，这让我这种网易云音乐重度用户非常尴尬。幸运的是，我们有一个命令行
@@ -867,7 +887,7 @@ Linux下的视频播放有[VLC](https://www.videolan.org/index.zh.html)这种神
 致不好用，可能要等作者修复)。wget与curl是linux下的两个下载神器。
 
 
-## 传达不了的恋情已经不需要了
+## 3.12传达不了的恋情已经不需要了
 
 Git是一个开放源码的版本控制软件，是Linux的开发者Linus Torwalds 创作的。
 关于如何使用Git可以写成一本书，网上的文章也已经汗牛充栋，如何使用git请
@@ -875,7 +895,7 @@ Git是一个开放源码的版本控制软件，是Linux的开发者Linus Torwal
 种复制粘贴；Git也可以作为一个下载工具来下载Github等网站上有用有趣的开
 源项目。
 
-SSH是Linux的一个安全的网络传输协议。登录远程Linux主机需要用命令行中的
+SSH是一个安全的网络传输协议。登录远程Linux主机需要用命令行中的
 ssh命令。实际上，在机房登录学校的Linux靠的也是ssh，包括图形界面与putty。
 学会ssh，就可以对远程主机进行操作，比如自己的服务器或者学校的Linux
 server之类。
@@ -886,7 +906,18 @@ class="heimu">好像这个方法也是我告诉他们的</span>
 
 
 
-## 因为已经不再有人，值得去爱了
+## 3.13因为已经不再有人，值得去爱了
+有些软件，如果只能在Windows下面跑，但是我又希望可以在Linux环境运行。这
+个时候，除了开虚拟机，我们还有另一种可能的选择--Wine.
+
+Wine 是类UNIX系统下运行微软Windows程序的"兼容层"。在Wine中运行的
+Windows程序，就如同运行原生Linux程序一样，不会有模拟器那样的性能问题。
+
+Wine是个很强大的工具，经过若干配置甚至可以运行诸如魔兽争霸3这样的游戏。
+包括我们日常用的QQ，如果不想用webqq的话，Wine QQ是一个可行的选择。
+当然，由于windows不开放底层代码，wine在模拟的时候难免遇到各种各样的问
+题，这个时候唯有发挥折腾精神了。
+
 Linux下的游戏基本等于聊胜于无。Steam有Linux客户端，并且Steam OS也是基
 于linux的。我们还可以发现一些Linux上原生的游戏，比如说在Ubuntu软件中心
 里的韦诺之战，或者跨平台的minecraft。要是想玩游戏基本还是要使用wine的。
@@ -903,7 +934,15 @@ Linux下的游戏基本等于聊胜于无。Steam有Linux客户端，并且Steam
 [这个脚本](https://www.playonlinux.com/en/app-1856-osu.html)使用[playonlinux](https://www.playonlinux.com/en/),可以作为参
 考。[这里](https://osu.ppy.sh/forum/t/367783)是另一位爱好者的经验分享。
 
-# 4. 阿妹你看，上帝压狗
+
+据说在大蜥蜴与Arch上，有人已经成功地[运行了英雄联盟](https://appdb.winehq.org/objectManager.php?sClass=version&iId=33303)
+
+[国服的成功案例](https://bbs.deepin.org/forum.php?mod=viewthread&tid=11754&highlight=%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F)
+
+
+
+
+# 4.阿妹你看，上帝压狗
 
 要想用好linux，所需要了解的东西远远不止我在文中说的这么点。为了能够在
 Linux下面愉快地玩耍，除了历史的进程，个人的努力也是非常重要的。总而言
@@ -921,19 +960,26 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
 2. 思考如何用管道组合命令
 3. 了解linux的目录结构
 4. 了解正则表达式与grep命令
-5. 了解tty终端，图形界面，X系统与桌面环境，并且思考他们跟你用的操作系
+5. 了解tty终端，图形界面，Xwindow与桌面环境，并且思考他们跟你用的操作系
    统的做法有什么不同。
 6. 了解什么是配置文件，为什么linux要用文本文件做配置，而不是二进制文件？
 
+7. 看王垠的
+[完全在Linux下工作](https://www.douban.com/group/topic/12121637/),
+[谈Linux, Windows和Mac](http://blog.csdn.net/ctcwri/article/details/8863095)
+两篇文章，思考一下Linux/Windows/Mac有哪些优点，哪些局限。他们解决问题
+的风格是怎样的，有哪些好的设计，有哪些坏的设计。
+
+
 一些学习资源：
 
-- 鸟哥的私房菜： http://linux.vbird.org/
-- arch linux wiki: https://wiki.archlinux.org/
-- ubuntu论坛： http://forum.ubuntu.org.cn/
-- linuxcn: https://linux.cn/
-- 应该知道的Linux技巧：http://coolshell.cn/articles/8883.html
-- linux command: http://linuxcommand.org/
-
+- [鸟哥的私房菜](http://linux.vbird.org/)
+- [arch linux wiki](https://wiki.archlinux.org/)
+- [ubuntu论坛](http://forum.ubuntu.org.cn/)
+- [linuxcn](https://linux.cn/)
+- [应该知道的Linux技巧](http://coolshell.cn/articles/8883.html)
+- [linux command](http://linuxcommand.org/)
+- [美丽新世界：Linux下的惬意生活](https://github.com/yangyangwithgnu/the_new_world_linux)
 
 最后，挖个老坟给大家轻松一下：
 
@@ -944,4 +990,12 @@ flashvars="aid=107&page=1"
 pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"
 />
 
+-----
+Update:1.1
 
+- 删去容易引起误会的工作目录一节，新增相对路径与绝对路径
+- 安全的部分增加部分内容。
+- 编译部分进行修改以消除歧义。
+- 注明面向新手/学校机房环境，避免不必要误会。
+- Wine的部分合并，增加Linux上网部分。
+- 增加标题号。
