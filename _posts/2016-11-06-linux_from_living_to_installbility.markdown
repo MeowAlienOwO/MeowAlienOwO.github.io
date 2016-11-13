@@ -691,22 +691,22 @@ Windows跟MacOS都是开机就是图形界面，但是Linux可不是这样。我
    说不是空穴来风。KDE又被成为是最华丽的桌面环境，有各种各样的动画特效。
    我曾经用过KDE4,在KDE5的环境下觉得不太适应换到了GNOME。
 
-  ![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
+   ![](http://orig09.deviantart.net/0929/f/2016/248/b/4/kaos_plasma_5_7_4_desktop__september_by_jomada74-dagmzhk.png)
 
 3. `Unity` Unity是Ubuntu独立开发出来的一套桌面环境。跟Ubuntu结合的比较
    紧密，在别的发行版上可能会比较不搭调。
 
-  ![](http://img09.deviantart.net/8106/i/2011/197/b/c/unity_desktop_by_fedo64-d3wh03u.png) 
+   ![](http://img09.deviantart.net/8106/i/2011/197/b/c/unity_desktop_by_fedo64-d3wh03u.png) 
 
 4. `LXDE/LXQT` 一套轻量级的桌面环境，相比GNOME与KDE占用更少资源，当然
    配置好要花一番功夫。LXDE占用更少的CPU、内存，是为上网本、移动设备、旧机器特别设计的轻量桌面环境。LXQt 是轻量级桌面环境 LXDE 的下一代产品。
   
-  ![](http://pre08.deviantart.net/ebb4/th/pre/f/2015/128/b/c/debian_8_0_lxde_openbox_by_liiyes-d8slvpc.png)
+   ![](http://pre08.deviantart.net/ebb4/th/pre/f/2015/128/b/c/debian_8_0_lxde_openbox_by_liiyes-d8slvpc.png)
 
 5. `Xfce` 轻量桌面环境Xfce，是Unix模块化、重用代码理念的践行者。其中包
    含各种功能的组件，是真正现代的桌面环境。各个组件划分成不同的包，用
    户可以自由选取需要的安装使用。
-  ![](http://img02.deviantart.net/e180/i/2016/038/0/a/manjaro_linux_testing___xfce_2016_02_08_by_itachilinux-d9qymjk.png)
+   ![](http://img02.deviantart.net/e180/i/2016/038/0/a/manjaro_linux_testing___xfce_2016_02_08_by_itachilinux-d9qymjk.png)
 
 窗口管理器是另一套图形界面方案，已经不能算桌面环境了。它们比桌面环境更轻量，更小，更灵活。
 
