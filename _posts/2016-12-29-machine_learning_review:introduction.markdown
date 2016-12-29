@@ -2,8 +2,8 @@
 layout: post
 title: "Machine Learning Review:Introduction"
 date: "2016-12-29 19:20:50 +0800"
-categories:[Machine Learning] 
-tags: 
+categories: [Machine Learning] 
+tags: [] 
 image: 
   feature: http://og78s5hbx.bkt.clouddn.com/60393964_p0.jpg 
   credit: スカサハ師匠 | 冬ゆき [pixiv] 
