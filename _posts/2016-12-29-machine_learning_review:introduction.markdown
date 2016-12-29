@@ -96,7 +96,7 @@ Mitchell's formal definition:
 对于某个特定的样本来说，在这$m$次采样中始终不被采到的概率为
 $(1-\frac{1}{m})^m$，取极限有:
 
-$\limits_{n \to \infty}(1 - \frac{1}{m}) = \frac{1}{e} \approx 36.8%$
+$\limits_{n \to \infty}(1 - \frac{1}{m}) = \frac{1}{e} = 36.8%$
 
 在数据集足够大的情况下，初始数据集中大约有36.8%的数据是不会出现在集合
 $D'$里的。于是，我们可以使用$D'$作为训练集，$D - D'$ 作为测试集。这样
@@ -115,9 +115,6 @@ $D'$里的。于是，我们可以使用$D'$作为训练集，$D - D'$ 作为测
 销太过巨大，而且这还是不考虑“没有免费午餐定理”的情况下。
 
 ## Measuring Performance
-
-
-
 
 
 ### Overfitting & Underfitting
