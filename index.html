@@ -207,6 +207,12 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -231,6 +237,329 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-introduction/" title="Machine Learning Review:Introduction">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/60393964_p0.jpg" alt="Machine Learning Review:Introduction">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-12-29T19:20:50+08:00"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-introduction/">December 29, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-introduction/" rel="bookmark" title="Machine Learning Review:Introduction" itemprop="url">Machine Learning Review:Introduction</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>本学期机器学习的一个复习，还是跟大三下一样会写一个系列，就当为GRE跟师
+匠攒人品了。</p>
+
+<p>// 话说就课了一个礼拜的夜宵钱就出了总司什么情况……不会败人品吧……</p>
+
+<h1 id="what-is-machine-learning">What is Machine Learning?</h1>
+<p>在西瓜书里，给出了这么一个定义：</p>
+
+<blockquote>
+  <p>机器学习是这样一门学科：它致力于研究如何通过计算的手段，利用<strong>经验</strong>来<strong>改
+善</strong>系统自身的性能。</p>
+</blockquote>
+
+<p>Mitchell’s formal definition:</p>
+
+<blockquote>
+  <p>A computer program is said to learn from experience $E$ with respect
+to some class of tasks $T$ and performance measure $P$, if its
+performance at tasks in $T$, as measured by $P$, improves with
+experience $E$.</p>
+</blockquote>
+
+<p>我们可以总结出三条要点：</p>
+<ol>
+  <li>有一个确定的<em>任务</em></li>
+  <li>根据过去的<em>经验</em></li>
+  <li><em>性能</em>需要提高</li>
+</ol>
+
+<p>拿西瓜书里的西瓜做个例子（我也蛮喜欢吃西瓜的）：</p>
+<ul>
+  <li><em>任务</em>：(根据西瓜的特征)挑一个好瓜</li>
+  <li><em>经验</em>：过去挑西瓜的经验，比如说声音闷的是好瓜之类</li>
+  <li><em>性能</em>：给定一组西瓜的特征，正确地挑出好瓜的概率</li>
+</ul>
+
+<h2 id="no-free-lunch-theorem">没有免费的午餐定理(No Free Lunch Theorem)</h2>
+<p>在问题出现概率相同的情况下，总误差与学习算法无关，推理详见西瓜书。
+在实际中，问题并不是<em>等概率</em>出现的，也就意味着我们可以针对<em>特定问题</em>可
+以用机器学习方法找出一个很好的方案。</p>
+
+<h1 id="how-to-design-a-learning-system">How to design a learning system?</h1>
+
+<p>以神经网络识别手写数字为例：</p>
+<ol>
+  <li>确定问题，没有确定问题学习什么呢- -</li>
+  <li>寻找经验（训练集）</li>
+  <li>将经验中的<em>特征数据</em>用向量表示，比如将手写数字识别的图片转换成向量：$X = transform(Image)$</li>
+  <li>用向量表示经验中的<em>目标数据</em>$D$，然后将两者结合成为一个二元组来形式化
+地表示经验：$E = (X, D)$</li>
+  <li>寻找一个学习算法$F(W, X)$, 其中$W$ 是学
+习算法的参数，或者说权重。用$M$来表示性能量度算法，$P$表示性能，我们有：
+$E = (X, D)$
+$F(W, X) = D’$
+$P = M(D, D’)$</li>
+  <li>调整$W$,使得获得更好的$P$</li>
+  <li>调整好参数后，就可以系统拿去应用了。</li>
+</ol>
+
+<h1 id="how-to-evaluate-learning-algorithm">How to evaluate learning algorithm</h1>
+
+<p>在这一部分，我们会大致了解一下如何评价学习算法的表现。</p>
+
+<h2 id="data-split">Data Split</h2>
+
+<p>一些较小的数据集，比如说我们用过的手写识
+别<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>集，会有测试集与训练集的划
+分。但是，对于比较大的经验集，我们通常将其自身分成测试集(test set)
+与训练集(training set)（以及可能的验证集(verification set)）</p>
+
+<h3 id="hold-out">1.Hold-out</h3>
+<p>西瓜书里叫做留出法，是一种基础的分类方法：</p>
+<ol>
+  <li>将数据<em>随机地</em>分成训练（，开发）与测试集</li>
+  <li>在训练/测试的时候，不要用全部数据</li>
+  <li>对很大的数据集来说比较有用</li>
+</ol>
+
+<p>随机性的划分主要是为了保持数据分布的一致性，否则容易产生偏差。</p>
+
+<p>留出法的问题在于，它对原始的数据集进行了一定的操作。如果测试集太大，会
+导致训练集太小，得出的结果没有办法去近似在整个训练数据$D$上的结果；反
+之，则会导致测试集不能很好地估计训练结果。目前而言没有完美解决方案，常
+用的手法是训练集占比大约在三分之二至80%之间。</p>
+
+<h3 id="bootstrapping">2.Bootstrapping</h3>
+<p>西瓜书里叫”自助法”。步骤如下：</p>
+<ol>
+  <li>给定包含$m$个样本的数据集$D$</li>
+  <li>构建测试集$D’$：每次从$D$中随机挑选一个数据，复制到$D’$中</li>
+  <li>重复步骤2$m$次，我们就能得到集$D’$（注：这是极限情况）</li>
+</ol>
+
+<p>对于某个特定的样本来说，在这$m$次采样中始终不被采到的概率为
+$(1-\frac{1}{m})^m$，取极限有:</p>
+
+<p>$\limits_{n \to \infty}(1 - \frac{1}{m}) = \frac{1}{e} \approx 36.8%$</p>
+
+<p>在数据集足够大的情况下，初始数据集中大约有36.8%的数据是不会出现在集合
+$D’$里的。于是，我们可以使用$D’$作为训练集，$D - D’$ 作为测试集。这样
+做的坏处是，虽然我们的$D’$跟$D$有同样的大小，但是分布被改变了，也就会
+导致训练误差。</p>
+
+<h3 id="cross-validation">3.Cross Validation</h3>
+<p>交叉验证法。其步骤如下：</p>
+<ol>
+  <li>将数据集$D$划分成$k$个大小相等的<em>互斥</em>子集</li>
+  <li>每次使用一个子集作为测试集，剩下的子集的合集作为训练集</li>
+  <li>我们因而获得了$k$组测试/训练集，最终返回其结果的均值。</li>
+</ol>
+
+<p>一般而言，我们在使用交叉验证的时候$k$值取10。在极限的情况下，$k$与数据
+集的数据数量$m$相等，即每个子集有且仅有一个样本。这种情况叫做留一法
+(Leave-One-Out), 好处是非常接近用整个数据集$D$训练的结果，坏处是计算开
+销太过巨大，而且这还是不考虑“没有免费午餐定理”的情况下。</p>
+
+<h2 id="measuring-performance">Measuring Performance</h2>
+
+<h3 id="overfitting--underfitting">Overfitting &amp; Underfitting</h3>
+
+<p>过拟合与欠拟合。</p>
+
+<p>定义错误率为分类错误的样本数占总数的比例：$E = a / m$</p>
+
+<p>我们同样可以定义精度：$(1 - a / m) * 100%$</p>
+
+<p>更一般地，定义误差为“学习器的实际输出”与样本的真实输出之间的差异。学
+习器在<em>训练集</em>上的误差称作”训练误差”(training error)，在<em>测试集</em>上的误
+差称作”泛化误差”(generalization error)。
+我们的目标是，获得一个<em>泛化误差</em>较小的学习器，但是我们并不能事先知道新
+的样本长什么样。在实际操作中，我们采取的策略是使得经验误差最小化。但是，
+我们很可能得到这样一种学习器：经验误差很小，但是在测试集上表现不佳。这
+种情况，我们称作”过拟合”(overfitting)。与之相对，是“欠拟合”(underfitting).</p>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/1341814477_1796.jpg" alt="Stanford_Machine_Learning" />
+<em>Overfitting</em> Source: Stanford Machine Learning</p>
+
+<p>过拟合的本质，是学习器在训练集上学习得“太好了”，以至于没有办法对一个
+更加泛化的数据集做出正确的反应。</p>
+
+<p>由于我们通过学习器拟合的函数往往是多项式函数，而机器学习所解决的现实问
+题往往是NP难或者以上，因此，只要我们认为$P \neq NP$，那么过拟合就<em>无法
+避免</em>。我们所能做的，是尽量减少泛化误差。</p>
+
+<p>通常有这么几个原因导致明显的过拟合：</p>
+<ol>
+  <li>学习过程太长了！</li>
+  <li>训练集不能较好地反映所有的情况，这是大多数场合出现过拟合的原因</li>
+  <li>模型参数被调整到训练集中无效信息的部分–同目标函数根本没有正式关系
+(这段不太理解：Model parameters are adjusted to uninformative
+features in the training set that have no causal relation to the
+true underlying target function!)</li>
+</ol>
+
+<h3 id="f1-measure">F1 Measure</h3>
+
+<p>对于二分类问题（分类只有正反两类），我们可以根据其真实类别与学习器预测的类别组合划分为：</p>
+
+<ol>
+  <li>真正例(TP)：真实为正，预测为正</li>
+  <li>假正例(FP)：真实为反，预测为正</li>
+  <li>真反例(TN)：真实为反，预测为反</li>
+  <li>假反例(FN): 真实为正，预测为反</li>
+</ol>
+
+<p>显然，我们有：</p>
+
+<ol>
+  <li>$TP + FP + TN + FN$ = 样本总数</li>
+  <li>$TP + TN$ = 预测正确的数量</li>
+  <li>$TP + FP$ = 预测结果为正的数量</li>
+  <li>$TP + FN$ = 实际结果为正的数量</li>
+</ol>
+
+<p>…等等。</p>
+
+<p>定义<em>查准率</em>(precision, 或者也叫准确率):</p>
+
+<p>$P = \frac{TP}{TP + FP}$</p>
+
+<p>意义为正确地分类为正占预测分类为正的百分比。</p>
+
+<p>定义<em>查全率</em>(recall, 或者也叫召回率)：</p>
+
+<p>$P = \frac{TP}{TP + FN}$</p>
+
+<p>意义为正确地分类为正占真实分类为正的百分比。</p>
+
+<p>查准率跟查全率是一对相对的度量。我们拿挑瓜做一个直观的理解：</p>
+
+<p>小明（你可以把小明看做学习器）去挑瓜，瓜有甜的跟不甜的两种类型。小明不
+是天才，不能百分之百地挑出所有的甜瓜。那么，我们就有四种情况对应上面的
+四个数据：</p>
+<ol>
+  <li>小明觉得是甜的瓜，实际上是甜的瓜 -&gt; TP</li>
+  <li>小明觉得是甜的瓜，实际上是不甜的瓜 -&gt; FP</li>
+  <li>小明觉得是不甜的瓜（不挑），实际上是甜的瓜 -&gt; FN</li>
+  <li>小明觉得是不甜的瓜，实际上是不甜的瓜 -&gt; TN</li>
+</ol>
+
+<p>如果小明希望能够尽可能地挑出甜的瓜，即，尽量使挑到的瓜都是甜的，那么小
+明可以做的事情是：尽量少挑瓜！在这种情况下，小明挑出来的瓜(TP + FP)会
+很少，但是小明会对挑出瓜的甜度很有信心(极端情况下，小明只挑一个有把握
+的甜瓜：查准率100%)。当然，另一个方面就是小明尽可能挑出更多的瓜，这种
+情况下查全率会很高，但是甜的瓜有多少就是一个问题了。</p>
+
+<p>我们衡量一个学习器的好坏，要综合查准率跟查重率两方面考虑。比如说，小刚
+说他比小明更会挑瓜，理由是他挑的瓜是甜的概率大-&gt;你要考虑小刚是不是只挑
+很少的有把握的瓜的那种类型。但是，如果小红说她比小明更会挑瓜，理由是小
+红能够挑出更多的瓜，而且小红能挑中好瓜的概率还比小明高-&gt;那这毫无疑问是
+小红比较强。</p>
+
+<p>但是，我们不能保证相比较的情况都像小明跟小红那样无可争议。因此，我们需
+要一个另外的度量来衡量两个人挑瓜的能力。我们可以使用平衡点（Break-Even
+Point），定义为查全率与查准率相等时的值；当然我们还有更好的：F度量(F-measure)</p>
+
+<p>$F_{\beta} = \frac{(1 + \beta^2) \times P \times R}{\beta^2 + R}$</p>
+
+<p>这里，我们用$\beta$来控制查全率与查准率的权重。在某些时候我们希望查全
+率高一点，某些时候希望查准率高一点。当$\beta$取1的时候，即为查全率与查
+准率有同样的权重的时候。我们称这样的F度量为F1度量（F1-measure）。</p>
+
+<p>在本质上，F度量的倒数是查全率与查准率的调和平均数：</p>
+
+<p>$\frac{1}{F_{\beta}} = \frac{1}{1 + \beta^2} (\frac{1}{P} + \frac{\beta^2}{R})$</p>
+
+<p>我们可以容易看出，当$\beta$值小于1的时候，查准率有更大的权重；而当
+$\beta$大于1的时候，查全率有更大的权重。</p>
+
+<h3 id="rocreceiver-operator-characteristic-curve">ROC(Receiver Operator Characteristic) Curve</h3>
+
+<p>很多学习器是为测试样本产生一个预测值，并且将之与一个分类阈值
+(threshold)比较，如果大于则为正，反之则为反。</p>
+
+<p>我们可以根据这个预测值将样本排序，例如将“最可能”为正的值排在前面，
+“最不可能”为正的放在后面。我们可以根据情况来选择不同的阈值，但是如何
+衡量排序本身的质量好坏，我们需要别的工具。</p>
+
+<p>ROC曲线取“真正例率”与“假正例率”两个重要量的值，分别以他们为纵，横坐标作图。</p>
+
+<p>定义真正例率（TPR）：</p>
+
+<p>$TPR = \frac{TP}{TP + FN}$</p>
+
+<p>定义假正例率（FPR）：</p>
+
+<p>$FPR = \frac{FP}{FP + TN}$</p>
+
+<p>ROC曲线为以TPR为纵轴，FPR为横轴的曲线</p>
+
+<p>$TPR = ROC(FPR)$</p>
+
+<p>坐标轴的对角线表示随机猜测的模型，点(0, 1)表示的是将所有正例排在反例之
+前的理想模型。</p>
+
+<p>ROC曲线下面包覆的面积即为AUC(Area Under ROC),经常被用作衡量学习器好坏
+的一个度量。求AUC可以简单地对ROC进行加和或者求积分。</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Roccurves.png" alt="ROC_curve" />
+<em>By BOR at the English language Wikipedia, CC BY-SA 3.0</em></p>
+
+<h3 id="confusion-matrix">Confusion Matrix</h3>
+<p>混淆矩阵。这是一个很好用的可视化工具来判断是不是正确分类，比如西瓜：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">真实情况\预测结果</th>
+      <th style="text-align: center">正</th>
+      <th style="text-align: center">反</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">正</td>
+      <td style="text-align: center">TP</td>
+      <td style="text-align: center">FN</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">反</td>
+      <td style="text-align: center">FP</td>
+      <td style="text-align: center">TN</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="references">References</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material Topic 1, Topic 2, Topic 8</li>
+</ol>
+
+ -->
+    
+        <p>本学期机器学习的一个复习，还是跟大三下一样会写一个系列，就当为GRE跟师
+匠攒人品了。</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -1625,310 +1954,6 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
  -->
     
         <p>嘛…被老司机秀了一脸._.</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/japanese/%E5%96%B5%E7%9A%84%E5%AE%8C%E7%BE%8E%E6%97%A5%E8%AF%AD%E6%95%99%E5%AE%A4/" title="喵的完美日语教室">
-            
-            <img src="http://MeowAlienOwO.github.io/images/46159854_p0.jpg" alt="喵的完美日语教室">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-01-11T20:34:49+08:00"><a href="http://MeowAlienOwO.github.io/japanese/%E5%96%B5%E7%9A%84%E5%AE%8C%E7%BE%8E%E6%97%A5%E8%AF%AD%E6%95%99%E5%AE%A4/">January 11, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/japanese/%E5%96%B5%E7%9A%84%E5%AE%8C%E7%BE%8E%E6%97%A5%E8%AF%AD%E6%95%99%E5%AE%A4/" rel="bookmark" title="喵的完美日语教室" itemprop="url">喵的完美日语教室</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>民那~鸡露诺的<del>算数</del>日语教室，哈吉马路油~来大家跟我一起念：0,1，
-⑨~</p>
-
-<p>打算写一个系列文章来构建自己的日语知识体系，由于是渣初学者，出错·不系
-统的地方再所难免，各位看官如果觉得有哪里不对的地方请多多指正m(_ _)m</p>
-
-<p>ご指導ご鞭撻、よろしくです!</p>
-
-<h1 id="big-picture">Big Picture:</h1>
-
-<h2 id="section">不说人话版</h2>
-<p>维基百科上对于<a href="https://en.wikipedia.org/wiki/Language#Structure">语言的结构</a>有如下叙述：</p>
-
-<blockquote>
-
-  <p>When described as a system of symbolic communication, language is traditionally seen as consisting of three parts: signs, meanings, and a code connecting signs with their meanings.</p>
-</blockquote>
-
-<p>而其又分为如下几个子部分：</p>
-
-<ul>
-  <li><code>semantics</code>:语义学,研究的是是自然文本的意义</li>
-  <li><code>sounds and symbols</code>:语音与符号</li>
-  <li><code>Grammar</code>:语法
-    <ul>
-      <li><code>grammatical categories</code>: 语法范畴，指的是对语法意义的归类，常见
-的有性，数，格，时，体，式，态，人称，级等<del>编一个：阴性第三人称
-单数过去时……</del></li>
-      <li><code>word classes</code>: 词类，比如名词，动词，形容词……</li>
-      <li><code>morphology</code>: 构词学，诸如dish,dishwasher之间的关系</li>
-      <li><code>syntax</code>: 语法学</li>
-    </ul>
-  </li>
-  <li><code>typology and univarsals</code>: 似乎是跨语言研究的玩意？</li>
-</ul>
-
-<h2 id="section-1">更不说人话版</h2>
-<p>就个人的理解来说，我认为一门语言可以大体分成如下几个层次：</p>
-<ul>
-  <li>基础字符集：最基本的字符，比如英语的26字母</li>
-  <li>词汇集：由基本字符组成的单词的集合，单词需要有<em>意义</em>，一般不是”aaaa”这样
-的东西</li>
-  <li>单句集：词汇集中的元素经由一定的<em>语法</em>组合而成，而且要有意义。这个层
-次上会发生一些词语的变形，以使其符合语法</li>
-  <li>上下文：单句集合而成的符合语境的语言集合，这个层次需要考虑到语境，乃
-至文化背景。</li>
-</ul>
-
-<p>数学描述:</p>
-
-<ul>
-  <li>
-    <p><code>A</code> : $\lbrace a | a 是基础字符 \rbrace$</p>
-  </li>
-  <li>
-    <p><code>W</code>: $\lbrace w | w = a+ 其中 a \in A  且 w需要有意义 \rbrace$</p>
-  </li>
-  <li>
-    <p><code>S</code>: $\lbrace s | s = [w, 标点符号]+, w \in A 且 s 符合语法\rbrace$</p>
-  </li>
-  <li>
-    <p><code>C</code>: $\lbrace c | c = s+, s in S 且 c 符合语境与文化背景\rbrace$</p>
-  </li>
-</ul>
-
-<h2 id="section-2">说人话版</h2>
-
-<p>回忆一下我们认字的过程吧。小孩子首先学会的是发一两个简单的音，然后是单
-词，再然后将之组合成句子，最后才是学会完整的说一段话。当然，考虑到文字
-这个过程会更复杂，但是大致的流程是一样的。那么，我们首先就从基本的字符
-开始。</p>
-
-<h1 id="section-3">基本字符</h1>
-
-<p>不知道是不是很上古的事情，有段时间大家装X的时候（火星文？）,喜欢把”的
-“打成”の”。这就是大概第一次接触到日语的时候。</p>
-
-<p>当然系统的学习日语总是不能按照以往装X的方式学习。下面我们就来看看日语
-的基本字符吧。</p>
-
-<p>就书写方面，日语的书写系统主要使用假名与汉字。由于拉丁字母的通行，近现
-代也使用罗马音来书写日语。</p>
-
-<blockquote>
-  <p>现代日语的书写系统包括假名、汉字和罗马字。</p>
-
-  <p>假名为日语的表音文字，主要有平假名、片假名和万叶假名、变体假名几种类型。万叶假名现已不再使用，但是是前两者的雏形。</p>
-
-  <p>日语罗马字（日语：ローマ字，指代日语时常称为罗马音）是使用拉丁字母来表示日语发音的一种表示法。</p>
-
-  <pre><code>                                         --综合Wikipedia
-</code></pre>
-</blockquote>
-
-<h2 id="section-4">假名</h2>
-<p>假名是由汉字简化并加以变化而来，平假名对应汉字草书写法，片假名对应汉字
-楷书写法。以下是对应的变形图：</p>
-
-<p>平假名:</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/Hiragana_origin.svg" alt="hiragana" /></p>
-
-<p>片假名:</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/Katakana_origin.svg" alt="katakana" /></p>
-
-<h2 id="section-5">五十音图</h2>
-
-<p>虽然有这么多的书写方式，但是同英语不同，日语的读音同假名基本是可以一一
-对应的。现代日语有46个清音，
-20个浊音，5个半浊音，还有拗音，拨音，促音，长音等。还好，我们有五十音
-图这种比较方便的工具来记忆基本的字符以及其读音。</p>
-
-<p>では、はじめましょう~</p>
-<div>
-<table>
-<tr>
-<td>
-平假名|<br />
-
-片假名|<br />
-
-罗马音<td></td><td>あ行↓</td><td>い行↓</td><td>う行↓</td><td>え行↓
-</td><td>お行↓</td>
-
-&lt;/tr&gt;
-
-
-<tr>
-<td></td><td>あ|ア|a</td><td>い|イ|i</td><td>う|ウ|u</td><td>え|エ|e</td><td>お|オ|o</td>
-</tr>
-<tr>
-<td></td><td>か|カ|ka</td><td>き|キ|ki</td><td>く|ク|ku</td><td>け|ケ|ke</td><td>こ|コ|ko</td>
-</tr>
-
-<tr>
-<td></td><td>さ|サ|sa</td><td>し|シ|shi</td><td>す|ス|su</td><td>せ|セ|se</td><td>そ|ソ|so</td>
-</tr>
-
-<tr>
-<td></td><td>た|タ|ta</td><td>ち|チ|chi</td><td>つ|ツ|tsu</td><td>て|テ|te</td><td>と|ト|to</td>
-</tr>
-
-<tr>
-<td></td><td>な|ナ|na</td><td>に|ニ|ni</td><td>ぬ|ヌ|nu</td><td>ね|ネ|ne</td><td>の|ノ|no</td>
-</tr>
-
-<tr>
-<td></td><td>や|ヤ|ya</td><td></td><td>ゆ|ユ|yu</td><td></td><td>よ|ヨ|yo</td>
-</tr>
-
-<tr>
-<td></td><td>ら|ラ|ra</td><td>り|リ|ri</td><td>る|ル|ru</td><td>れ|レ|re</td><td>ろ|ロ|ro</td>
-</tr>
-
-<tr>
-<td></td><td>わ|ワ|wa</td><td></td><td></td><td></td><td>を|ヲ|wo</td>
-</tr>
-<tr>
-<td></td><td>ん|ン|n</td><td></td><td></td><td></td><td></td>
-</tr>
-<tr>
-<td>浊音</td><td>が|ガ|ga</td><td>ぎ|ギ|gi</td><td>ぐ|グ|gu</td><td>げ|ゲ|ge</td><td>ご|ゴ|go</td>
-</tr>
-
-<tr>
-<td></td><td>ざ|ザ|za</td><td>じ|ジ|ji</td><td>ず|ズ|zu</td><td>ぜ|ゼ|ze</td><td>ぞ|ゾ|zo</td>
-</tr>
-
-<tr>
-<td></td><td>だ|ダ|da</td><td>ぢ|ヂ|ji</td><td>づ|ヅ|zu</td><td>で|デ|de</td><td>ど|ド|do</td>
-</tr>
-
-<tr>
-<td></td><td>ば|バ|ba</td><td>び|ビ|bi</td><td>ぶ|ブ|bu</td><td>べ|ベ|be</td><td>ぼ|ボ|bo</td>
-</tr>
-
-<tr>
-<td></td><td>ぱ|パ|pa</td><td>ぴ|ピ|pi</td><td>ぷ|プ|pu</td><td>ぺ|ペ|pe</td><td>ぽ|ポ|po</td>
-</tr>
-
-
-<tr>
-<td>拗音</td><td>きゃ|キャ|kya</td><td></td><td>きゅ|キュ|kyu</td><td></td><td>きょ/キョ|kyo</td>
-</tr>
-
-
-<tr>
-<td></td><td>しゃ|シャ|sha</td><td></td><td>しゅ|シュ|shu</td><td></td><td>しょ|ショ|sho</td>
-</tr>
-
-<tr>
-<td></td><td>ちゃ|チャ|cha</td><td></td><td>ちゅ|チュ|chu</td><td></td><td>ちょ/チョ|cho</td>
-</tr>
-
-<tr>
-<td></td><td>にゃ|ニャ|nya</td><td></td><td>にゅ|ニュ|nyu</td><td></td><td>にょ/ニョ|nyo</td>
-</tr>
-
-
-<tr>
-<td></td><td>にゃ|ニャ|hya</td><td></td><td>にゅ|ニュ|hyu</td><td></td><td>にょ/ニョ|hyo</td>
-</tr>
-
-<tr>
-<td></td><td>みゃ|ミャ|mya</td><td></td><td>みゅ|ミュ|myu</td><td></td><td>みょ/ミョ|myo</td>
-</tr>
-
-<tr>
-<td></td><td>りゃ|リャ|rya</td><td></td><td>りゅ|リュ|ryu</td><td></td><td>りょ/リョ|ryo</td>
-</tr>
-
-<tr>
-<td></td><td>ぎゃ|ギャ|gya</td><td></td><td>ぎゅ|ギュ|gyu</td><td></td><td>ぎょ/ギョ|gyo</td>
-</tr>
-
-<tr>
-<td></td><td>じゃ|ジャ|ja</td><td></td><td>じゅ|ジュ|ju</td><td></td><td>じょ/ジョ|jo</td>
-</tr>
-
-<tr>
-<td></td><td>びゃ|ビャ|bya</td><td></td><td>びゅ|ビュ|byu</td><td></td><td>びょ/ビョ|byo</td>
-</tr>
-
-<tr>
-<td></td><td>ぴゃ|ぴゃ|pya</td><td></td><td>ぴゅ|ピュ|pyu</td><td></td><td>ぴょ/ピョ|pyo</td>
-</tr>
-&lt;/table&gt;
-&lt;/div&gt;
-五十音图分为あいうえお五个元音列，あかさたなはまやらわ十行，其中有些空
-缺的地方是已经被弃用的，有些是不存在的音。
-
-
-## 练习
-由于技术限制音频不好放，下面是钉宫版的五十音:
-<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=18169&amp;page=2" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />
-
-以及这里是公介君的一些建议……（山下鸡博那个五十音因为背叛FFF团直接烧
-掉）
-
-
-<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=3275604&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />&lt;/embed&gt;
-
-
-另外，有没有觉得虽然字都认识，但是跟读的时候面对立本人的语速完全hold
-不住……
-
-当然，我们需要用一些传统的方式来练习一下嘴皮子<span class="heimu">绕口令</span>:
-
-<del>八百标兵奔北坡，北坡炮兵并排跑，炮兵怕把标兵碰，标兵怕碰炮兵炮!</del>
-
-![自豪](http://MeowAlienOwO.github.ioimages/Ge_Ping_2.JPG)
-
-言归正传，以下是在沪江听五十音图的时候学到的，不知道是否有效……
-
-あえい あおう えおあお あいうえお
-
-かけき かこく けこかこ かきくけこ
-
-……
-
-
-以及，在以前被抓去听雅思课的时候被推荐了一个听着跟读的方法用于练听力口
-语<del>我才不说我跟不上立本人的语速</del>,大家姑且一试？
-
-<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=79496&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />&lt;/embed&gt;
-
-
-
-では、ここまで。日本語について、分らないことがたくさんでありので、こん
-なんのクラス（実は自分のメーモ）をつづけたいと思います。何がアードバイスが
-あれば、ぜひ教えてください！
-
-</td></tr></table></div>
- -->
-    
-        <p>民那~鸡露诺的<del>算数</del>日语教室，哈吉马路油~来大家跟我一起念：0,1，
-⑨~</p>
 
 
     
