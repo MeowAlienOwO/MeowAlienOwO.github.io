@@ -146,8 +146,7 @@ $$
 求$\alpha$,使得函数$L'$有最大值，并且符合约束条件$\sum\alpha_i y_i = 0$
 另外，我们还需要该函数满足KKT条件：
 $$
-\left\{ 
-\alpha_i \geq 0;\\
+\alpha_i \geq 0; \\
 y_i f(\mathbf{x}_i) - 1 \geq 0;\\
 \alpha_i(y_i f(x_i) -1) = 0.
 $$
@@ -356,3 +355,4 @@ $$
 5. July(2012) 支持向量机通俗导论，http://blog.csdn.net/v\_july\_v/article/details/7624837
 6. D.W's Notes, 机器学习-损失函数，http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/
 7. 古剑寒 PCA详解，https://my.oschina.net/gujianhan/blog/225241
+8. 进击的马斯特 再谈协方差矩阵之主成分分析http://pinkyjie.com/2011/02/24/covariance-pca/
