@@ -209,7 +209,7 @@
 				
 				<li>
 				  <a href="/categories/Machine Learning/">
-				    Machine Learning (1)
+				    Machine Learning (2)
 				  </a>
 				</li>
 				
@@ -237,6 +237,124 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/computer%20science/network/introduction_to_information_theory/" title="Introduction to Information Theory">
+            
+            <img src="http://MeowAlienOwO.github.io/images/49154861.jpg" alt="Introduction to Information Theory">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-14T23:23:43+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/network/introduction_to_information_theory/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/network/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory" itemprop="url">Introduction to Information Theory</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+
+<h1 id="section">简介</h1>
+
+<p>The fundamental problem of communication is that reproducing at one
+point either exactly or approximately a message selected at another
+point.</p>
+
+<h1 id="section-1">信息熵与信息</h1>
+
+<h2 id="section-2">信息冗余</h2>
+
+<blockquote>
+  <p>The quick brown fox jumps over the lazy dog</p>
+</blockquote>
+
+<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，
+比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，
+但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
+
+<h2 id="section-3">熵</h2>
+
+<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
+
+<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，
+或者被认为是度量信息内容的量。</p>
+
+<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，
+但是在实际的应用中，这往往无法实现。</p>
+
+<p>计算公式：</p>
+
+<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
+
+<h2 id="bias">偏离(bias)</h2>
+
+<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，
+它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。
+熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
+
+<h2 id="section-4">霍夫曼编码</h2>
+
+<h3 id="prefix-codes">前缀码(prefix codes)</h3>
+
+<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
+
+<p>霍夫曼编码是前缀码的一种。</p>
+
+<h3 id="section-5">创建霍夫曼编码</h3>
+
+<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
+
+<blockquote>
+  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
+</blockquote>
+
+<p>将所有的未编码符号按照出现频率升序排列：</p>
+
+<blockquote>
+  <p>e a d s</p>
+</blockquote>
+
+<p>从小到大将两个频率之和相加直到和为1</p>
+
+<blockquote>
+  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
+</blockquote>
+
+<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
+
+<blockquote>
+  <pre><code>         1 
+         |
+      s  +  0.64
+              |
+           d  +  0.34
+                   |
+                a  +  e
+</code></pre>
+</blockquote>
+
+<p>从上到下，左边取0, 右边取1，最终编码为：</p>
+
+<blockquote>
+  <p>s 0
+d 10
+a 110
+e 111</p>
+</blockquote>
+ -->
+    
+        <p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -1306,150 +1424,6 @@ CPU使用率下降会导致多任务程度上升，而多任务程度上升会�
  -->
     
         <p>操作系统笔记之二，内存管理。每一次上操作系统跟MAL都是智商上的一种煎熬啊……跟上一篇同样，这也是一些翻译ppt的内容，充作笔记。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/c++/%E5%AE%89%E8%A3%85sdl/" title="安装SDL">
-            
-            <img src="http://MeowAlienOwO.github.io/images/8017236.jpg" alt="安装SDL">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-28T18:21:11+08:00"><a href="http://MeowAlienOwO.github.io/c++/%E5%AE%89%E8%A3%85sdl/">March 28, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/c++/%E5%AE%89%E8%A3%85sdl/" rel="bookmark" title="安装SDL" itemprop="url">安装SDL</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>上课Eugene让我们装个SDL说Coursework要用。嗯，Eugene自己使用Mac的，然后周四的课上又告诉我们怎么在VisualStudio上面装SDL
-(虽然我是没搞定，不知道是因为那台电脑跟我冲怎么的)。</p>
-
-<p>……</p>
-
-<p>……</p>
-
-<p>……</p>
-
-<p>Linux呢！?用了Linux不带我玩咯？！</p>
-
-<p><img src="http://MeowAlienOwO.github.ioimages/Wuying.jpg" alt="" /></p>
-
-<h1 id="visual-studio-2013">Visual Studio 2013</h1>
-
-<ol>
-  <li>
-    <p>下载安装包： <a href="https://libsdl.org/download-2.0.php">https://libsdl.org/download-2.0.php</a></p>
-  </li>
-  <li>
-    <p>然后解压，放到一个适当的地方，记下路径 %path%</p>
-  </li>
-  <li>
-    <p>打开Visual Studio，新建一个empty project</p>
-  </li>
-  <li>
-    <p>在整个project上右键之，找到调整property的地方（反正在倒数几排）</p>
-  </li>
-  <li>在Visual C/C++ properties的地方（反正是这么回事）,找到Includes那一
-行加入%path%\includes，找到Libraries那里加入%path%\lib\x86(为了兼容性)</li>
-  <li>
-    <p>在底下input那里加上SDL2.lib, SDL2main.lib</p>
-  </li>
-  <li>
-    <p>在system那里设为console</p>
-  </li>
-  <li>
-    <p>将压缩包里的dll文件复制到你的项目directory底下</p>
-  </li>
-  <li>fucking done…</li>
-</ol>
-
-<p>可能有记忆不清楚的地方，有空再改……</p>
-
-<h1 id="ubuntu-linux">Ubuntu Linux</h1>
-
-<p>听说包管理器可以搞定：</p>
-
-<pre><code class="language-shell">sudo apt-get install libsdl2-dev
-</code></pre>
-
-<p>听说编译安装可以搞定：</p>
-
-<p>到官网下载源码包，然后make&amp;&amp;make install</p>
-
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">hg clone https://hg.libsdl.org/SDL SDL</span>
-<span class="go">cd SDL</span>
-<span class="go">mkdir build</span>
-<span class="go">cd build</span>
-<span class="go">../configure</span>
-<span class="go">make</span>
-<span class="go">sudo make install</span></code></pre></figure>
-
-<p>没有hg的话自己装下……</p>
-
-<p>于是我自己手动编译了一遍，不放心又用apt-get装了一遍。</p>
-
-<p>然后挂了。g++可以编译，但是运行的时候返回”No available video device”。</p>
-
-<p>为什么啊！老子按照教程装的啊！</p>
-
-<p>于是开始各种google……有人说ubuntu自带没有x11的dev包……有人说改用i386
-的，有人说环境变量没配置好的……</p>
-
-<p>然后在
-<a href="https://forums.libsdl.org/viewtopic.php?t=7321&amp;sid=1a10fc21944a39bba3e89eeae4e93b38">这里</a>
-看到说:</p>
-
-<blockquote>
-  <p>Ubuntu does not ship with several important development headers and
-libraries installed. This includes even the basic Xlib stuff, which
-is why there is no video driver when you build SDL. You’re going to
-need to install all of those yourself. The Software Manager tool
-should be convenient here.</p>
-</blockquote>
-
-<p><strong>WHAT THE HELL?</strong></p>
-
-<p>老子用了包管理器为何还是这个熊样？</p>
-
-<p>于是接着google……然后看到<a href="http://wiki.libsdl.org/FAQLinux">官方wiki</a>的这个：</p>
-
-<blockquote>
-  <p>…if all those didn’t work, and you built SDL from source, make
-sure that you have the X11 development libraries installed,
-otherwise you’ll get a version of SDL that doesn’t include X11
-display support.</p>
-</blockquote>
-
-<p>sudo apt-get remove &amp;&amp; make clean…</p>
-
-<p>卸了重装，好了……</p>
-
-<p>目测因为我是先编译安装后用包管理器的，而ubuntu自己本身缺了dev包，
-那么我编译的版本也必然是没有dev包的。包管理器装上了x11，
-但是库里的东西还是原来的样子，调用的时候是没有x11dev的编译版本。</p>
-
-<p>……</p>
-
-<p><img src="http://MeowAlienOwO.github.ioimages/linus-fuck-you.png" alt="" /></p>
-
-<h1 id="mac-os">Mac OS</h1>
-
-<p>哪个土豪送我一个啊啊啊啊啊</p>
- -->
-    
-        <p>上课Eugene让我们装个SDL说Coursework要用。嗯，Eugene自己使用Mac的，然后周四的课上又告诉我们怎么在VisualStudio上面装SDL
-(虽然我是没搞定，不知道是因为那台电脑跟我冲怎么的)。</p>
 
 
     

@@ -209,7 +209,7 @@
 				
 				<li>
 				  <a href="/categories/Machine Learning/">
-				    Machine Learning (1)
+				    Machine Learning (2)
 				  </a>
 				</li>
 				
@@ -241,9 +241,222 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_svm_&_pca/" title="Machine Learning Review: SVM & PCA">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/60095827_p0.jpg" alt="Machine Learning Review: SVM & PCA">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-12-31T14:23:05+08:00"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_svm_&_pca/">December 31, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_svm_&_pca/" rel="bookmark" title="Machine Learning Review: SVM & PCA" itemprop="url">Machine Learning Review: SVM & PCA</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>新年快乐，跨年也是元气满满地在机房～</p>
+
+<p>就不按照上课顺序了，从自己搞不清楚的部分写起。在考SQM之前姑且看看能不
+能再复习一遍决策树吧。</p>
+
+<h1 id="support-vector-machine">支持向量机 Support Vector Machine</h1>
+
+<h2 id="section">线性分类器</h2>
+
+<p>分类学习的基本想法是，在训练集$D$的样本空间中，寻找到一个超平面
+(hyperplane)，从而将数据分成两类。感知机(perceptron)就是一个典型的线性
+分类器。</p>
+
+<p>线性分类器的一般方程可以表示如下：</p>
+
+<p>$\mathbf{w}^T\mathbf{x} + b = 0$</p>
+
+<p>其中，$\mathbf{w}$是权重向量，$\mathbf{x}$是特征向量。另外，在数学意义上，
+$\mathbf{w}$是由方程$\mathbf{w}^T\mathbf{x} + b = 0$所表示的超平面的法向量，
+$b$为该超平面的截距。</p>
+
+<h2 id="section-1">支持向量机</h2>
+
+<p>应用线性分类器的时候，我们常常会碰到这样一种情况：</p>
+
+<p><img src="https://computersciencesource.files.wordpress.com/2010/01/svmafter_thumb.png?w=230&amp;h=240" alt="best-svm" /></p>
+
+<p>线性分类器可能的取值在<strong>训练</strong>集上不止一个，那么我们如何寻找__最优__的
+线性分类器呢？</p>
+
+<p>注意到样本空间中任意一点$x$到超平面的距离为：</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$r = \frac{</td>
+      <td>\mathbf{w}^T\mathbf{x} + b</td>
+      <td>}{</td>
+      <td> </td>
+      <td>w</td>
+      <td> </td>
+      <td>}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>复习一下解析几何：</p>
+
+<p>在二维情况下的情形是点到直线的距离:</p>
+
+<p>$r = \frac{ax + by +c}{\sqrt{a^2 + b^2}}$</p>
+
+<p>三维情况下点到平面的距离：</p>
+
+<p>$r = \frac{Ax +By + Cz + D}{\sqrt{A^2 + B^2 + C^2}}$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>我们不难推广到高维，其中$</td>
+      <td> </td>
+      <td>w</td>
+      <td> </td>
+      <td>$表示向量的模。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>另外，我们还有一个关于距离的定义：</p>
+
+<blockquote>
+  <p>两个非空集合间的距离为两者内各自的点之间的距离之下确界。</p>
+</blockquote>
+
+<p>将直线看做点集，点看做只有一个元素的点集，就是点与直线的距离公式。同样，
+我们可以将其应用于直线与直线，直线与平面…
+这个定义在测试中的基于距离的自适应测试（DART）以及KNN算法里都有应用。</p>
+
+<p>距离超平面最近的样本点为__支持向量__(support vector)。假定超平面可以将训练样本正确分类，
+那么我们可以得到：对分类结果有明显影响的是__支持向量__，而样本中其他的
+样本点可以忽略不计。定义__间距__(margin)为两个分别在超平面不同边的支持向量到超
+平面的距离之和，那么，为了寻找一个__最好__的超平面，我们需要找到有__最大__间
+距的超平面。</p>
+
+<p>如果我们令样本分成两类$y = {-1, 1}$,我们可以得到：</p>
+
+<p>$\mathbf{w}^T\mathbf{x}_i + b \geq \rho / 2, if y_i \geq 1$</p>
+
+<p>$\mathbf{w}^T\mathbf{x}_i + b \leq - \rho / 2, if y_i \leq -1$</p>
+
+<p>其中$\rho$为间距。由于在这种情况下，支持向量到超平面的距离可以表示为：</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$r = \frac{</td>
+      <td>(\mathbf{w}^T\mathbf{x}) + b</td>
+      <td>}{</td>
+      <td> </td>
+      <td>\mathbf{w}</td>
+      <td> </td>
+      <td>}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>我们可以得到：</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\rho = 2r = \frac{2}{</td>
+      <td> </td>
+      <td>\mathbf{w}</td>
+      <td> </td>
+      <td>}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>于是我们的问题便可以转化为：求取超平面的法向量$\mathbf{w}$的模
+的最小值，且使得所有的样本$(\mathbf{x}_i, y_i)$有
+$y_i{\mathbf{w}^T\mathbf{x}_i + b &gt; 1}$。这就是支持向量机的基本模式:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$min_{w,b}\frac{1}{2}</td>
+      <td> </td>
+      <td>w</td>
+      <td> </td>
+      <td>^2$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$s.t. y_i(\mathbf{w}^T\mathbf{x}_i+b) \geq 1, i=1,2,…,m$</p>
+
+<p>于是，我们的问题转换成了一个二次规划(quadratic optimization)问题。</p>
+
+<h2 id="section-2">有约束的二次规划最优化问题，拉格朗日乘子</h2>
+
+<p>我们有许多程序包求解二次规划问题，通常而言不需要自己动手。但是了解一下
+其中的数学意义还是非常有帮助的。</p>
+
+<p>常用的解二次规划的方法之一，是应
+用<a href="https://en.wikipedia.org/wiki/Lagrange_multiplier">拉格朗日乘子</a>
+(Lagrange Multiplier)。</p>
+
+<p>首先我们来看一下二次规划问题的几何意义。</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lagrange_multiplier.png" alt="" /></p>
+
+<p>我们有约束条件$g(x,y) = c$，在图中表示成一条曲线；二次函数$f(x,y)$如
+图，描述了一个曲面。假设这个曲面是一座山，约束条件的曲线是我们可以沿着
+走的路，我们的目的就变成了：在这条路上，我们要走到最高的地方。图中的圆
+圈表示二次函数的<a href="https://en.wikipedia.org/wiki/Level_set">水平集</a>（可
+以直观地理解为等高线）。在__有解__的情况下，二次曲面与约束曲线会有交点。</p>
+
+<p>我们可以容易看出，在（局部）最优的情况下,$f(x, y)$与$g(x,y)$的交点有且
+仅有一个，即二者的__切线__相互平行。由于切线与梯度是垂直的，我们可以得
+到：在最优点的情况下，二者的__梯度__相互平行。</p>
+
+<p>我们引入一个未知标量–拉格朗日乘子$\alpha$。构建函数：</p>
+
+<script type="math/tex; mode=display">L(\mathbf{w}, b, \mathbf{a}) = 
+\frac{1}{2}||\mathbf{w}||^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
+y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
+
+<p>令函数$L$对$\mathbf{w}$与$b$的偏导数为0：</p>
+
+<script type="math/tex; mode=display"></script>
+
+<p>$$</p>
+
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material</li>
+  <li>知乎 “拉格朗日乘子法如何理解？”，https://www.zhihu.com/question/38586401</li>
+  <li>July(2012) 支持向量机通俗导论，http://blog.csdn.net/v_july_v/article/details/7624837</li>
+</ol>
+
+ -->
+    
+        <p>新年快乐，跨年也是元气满满地在机房～</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-introduction/" title="Machine Learning Review:Introduction">
             
-            <img src="http://og78s5hbx.bkt.clouddn.com/60393964_p0.jpg" alt="Machine Learning Review:Introduction">
+            <img src="http://og78s5hbx.bkt.clouddn.com/60095827_p0.jpg" alt="Machine Learning Review:Introduction">
             
         </a>
       </div><!-- /.entry-image -->
@@ -1734,226 +1947,6 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
  -->
     
         <p>作死作了两个礼拜……手动姚明脸.jpg</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" title="作死第一周">
-            
-            <img src="http://MeowAlienOwO.github.io/images/53824078_p0.jpg" alt="作死第一周">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-01-30T00:08:12+08:00"><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/">January 30, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%B8%80%E5%91%A8/" rel="bookmark" title="作死第一周" itemprop="url">作死第一周</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>嘛…被老司机秀了一脸._.</p>
-
-<p>首先，在日语荒废好几个月以后不知死活地跑路到立本……然后开始了在这里的
-实习……</p>
-
-<p>仔细想想，我前几个月不应该在实习上面浪费太多时间的……应该关在某个小黑
-屋里学日语……不然现在也不会这么尴尬……</p>
-
-<p>无论如何，现在整理一下目前的状态……</p>
-
-<h1 id="section">目前状态</h1>
-
-<h2 id="section-1">语言</h2>
-
-<p>日语大致处于糊弄的水平，语法乱用，单词随机，作死有余生存不足。<del>这
-么看来英语水平不知道高到哪里去了</del></p>
-
-<p>嘛姑且而言是可以去便利店不会饿死的程度……日常的话加一点英语也可以poi……码农的工作大部分也就是英语所以大丈夫……<del>但是还是比不上老司机</del></p>
-
-<p>好了说正经的……</p>
-
-<p>由于一贯的偷懒与拖延症，目前语言方面的问题在于：</p>
-
-<ul>
-  <li><em>词汇量</em>: 不论是英语还是日语，我一直没有认真地背单词的习惯，也因此词
-汇量一般是我的最大瓶颈。<del>其实就是懒</del></li>
-  <li><em>语法</em>: 这一周以来基本是处于出口就口胡的状态……问题在于以前为了考N2
-往死里冲课时，导致现在基础不扎实，而重新从头复习在这个时间点上看起来
-有点迟。</li>
-  <li><em>听力</em>: 这也跟前面的单词跟语法有关系，加上日本人语速又快的飞起……压
-力还是比较大的</li>
-</ul>
-
-<p>利好也就一个吧……语言环境比较ok，而且在有生存压力的环境下会学得比较
-快- -<del>差点饿死</del></p>
-
-<h2 id="section-2">项目</h2>
-
-<p>目前的个人项目主要就是游戏……但是进度比想象中的慢……</p>
-
-<p>一半是因为拖延症……另一半是因为错误估计了难度……</p>
-
-<p>不过明确了方向以后就会好很多……</p>
-
-<p>接下来还是主要搭建整个游戏系统的几个核心。目前主要的就是事件链系统……
-（嘛这个是我跟运哥讨论出来的）</p>
-
-<p>在玩侠客风云传的时候，我们可以看到若干个事件是有前置先后关系的。就比如
-说某傲娇的攻略顺序是干掉黄骆，捉拿霹雳堂叛徒，湖边听笛子……一直到最后
-的打倭寇。这么一连串事件有两个特征：</p>
-
-<ul>
-  <li>前后依赖,后面的事件必须在前面事件发生完毕以后发生</li>
-  <li>完整性，触发某些特定结局需要走完整个事件链</li>
-</ul>
-
-<p>初步的设想是将事件链写成json，然后在游戏初始化的时候将其读入，然后每次
-进入地图画面刷新一遍当前事件。目前的感觉是想法还可以……但是还是要经过
-实践检验。</p>
-
-<h2 id="section-3">学习</h2>
-
-<p>嘛姑且带了一本字帖跟一本漫画教程……大约是有时间练的……大约……</p>
-
-<p>练字么……总而言之是个长期拖延……虽然以前刷好过一阵子……但是之后又不
-行了……</p>
-
-<p>漫画主要是因为可能得自己画立绘/背景……一脸萌比.jpg</p>
-
-<p>当然专业向的学习还是要做的，但是估计也木有什么心情去啃基础的东西了……
-就以SE向的为这一阶段的目标好了。</p>
-
-<h1 id="section-4">计划</h1>
-
-<p>总而言之开始背单词……</p>
-
-<p>当然首先打算用一个礼拜的时间好好刷一下基础语法……不能出口成口胡……</p>
-
-<p>以下这个网站是一个很好的guide……（虽然有中文版本……嘛跟译者的某些观
-点不能兼容，再加上原版有很好的视频支持）</p>
-
-<p>http://www.guidetojapanese.org/learn/grammar</p>
-
-<p>打算用这个来重新回顾复习一下基础语法，之后从标日中级开始重新刷。9的日
-语教室也打算继续写下去。</p>
-
-<p>每天背单词，不多，沪江词场里一篇大约25-30个，要求熟练掌握,最好可以有记
-录。</p>
-
-<p>项目上，公司的项目先不管(估计也不能)，自己的项目大约需要一周左右回顾汇报一次,如果
-有一些其他事情的话可能两周。</p>
-
-<p>专业学习的话就android跟设计方面了……先把23个设计模式看完再说吧，算法
-向可能一段时间不碰，当然无聊的时候还是会去leetcode练手的……</p>
-
-<p>剩下写字画画……两天耍一波？每天晚上回来以后看看视频打打游戏随便刷刷经
-验……以及保持体能……</p>
-
-<p>总而言之，一定要在这段时间内把执行力培养起来。</p>
-
-<h1 id="section-5">其他</h1>
-
-<p>啊啊啊硬盘快挂掉了好烦……海外用不了云音乐好不爽……</p>
-
-<p>秋叶原妹子有点萌&lt;(&gt;﹏&lt;)&gt;</p>
-
-<p>对了你们要看黑历史吗？</p>
-
-<div class="heimu" hint="你知道的太多了">
-黑历史                                                                              
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-</div>
-
-<p>啊你们真的要看黑历史？</p>
-
-<div class="heimu" hint="你知道的太多了">
-<br />
-<br />
-<br />
-<br />
-<br />
-黑历史                                                                              
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-</div>
-
-<p>好吧给你们看黑历史……</p>
-
-<div class="heimu" hint="你知道的太多了">
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-黑历史                                                                              
-</div>
-
-<div class="heimu" hint="你知道的太多了">
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-黑历史                                                                              
-</div>
-
-<div class="heimu" hint="你知道的太多了">
-
-</div>
-
-<div class="heimu" hint="你知道的太多了">
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-黑历史                                                                              
-</div>
-
- -->
-    
-        <p>嘛…被老司机秀了一脸._.</p>
 
 
     
