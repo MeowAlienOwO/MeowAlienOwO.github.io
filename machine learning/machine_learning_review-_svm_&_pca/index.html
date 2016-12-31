@@ -349,9 +349,11 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
 \sum\limits_{i=1}^{m}\sum\limits_{j=1}{m} \alpha_i \alpha_j y_i y_j
 \mathbf{x}_i \mathbf{x}_j</script>
 
-<p>从而，问题也转换成了原问题的拉格朗日对偶问题(Lagrange dual problem)：求$\alpha$,使得函数$L’$有最大值，并且符合约束条件$\sum\alpha_i y_i = 0$另外，我们还需要该函数满足KKT条件：<script type="math/tex">\alpha_i \geq 0; \\
+<p>从而，问题也转换成了原问题的拉格朗日对偶问题(Lagrange dual problem)：求$\alpha$,使得函数$L’$有最大值，并且符合约束条件$\sum\alpha_i y_i = 0$另外，我们还需要该函数满足KKT条件：</p>
+
+<script type="math/tex; mode=display">\alpha_i \geq 0; \\
 y_i f(\mathbf{x}_i) - 1 \geq 0;\\
-\alpha_i(y_i f(x_i) -1) = 0.</script></p>
+\alpha_i(y_i f(x_i) -1) = 0.</script>
 
 <p>解出该二次规划后，我们可以得到模型：</p>
 
