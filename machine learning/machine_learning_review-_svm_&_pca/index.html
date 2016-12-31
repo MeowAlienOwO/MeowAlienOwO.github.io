@@ -272,19 +272,7 @@
 
 <p>注意到样本空间中任意一点$x$到超平面的距离为：</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$r = \frac{</td>
-      <td>\mathbf{w}^T\mathbf{x} + b</td>
-      <td>}{</td>
-      <td> </td>
-      <td>w</td>
-      <td> </td>
-      <td>}$</td>
-    </tr>
-  </tbody>
-</table>
+<p>$r = \frac{|\mathbf{w}^T\mathbf{x} + b|}{||w||}$</p>
 
 <p>复习一下解析几何：</p>
 
@@ -296,17 +284,7 @@
 
 <p>$r = \frac{Ax +By + Cz + D}{\sqrt{A^2 + B^2 + C^2}}$</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>我们不难推广到高维，其中$</td>
-      <td> </td>
-      <td>w</td>
-      <td> </td>
-      <td>$表示向量的模。</td>
-    </tr>
-  </tbody>
-</table>
+<p>我们不难推广到高维，其中$||w||$表示向量的模。</p>
 
 <p>另外，我们还有一个关于距离的定义：</p>
 
@@ -326,47 +304,15 @@
 
 <p>其中$\rho$为间距。由于在这种情况下，支持向量到超平面的距离可以表示为：</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$r = \frac{</td>
-      <td>(\mathbf{w}^T\mathbf{x}) + b</td>
-      <td>}{</td>
-      <td> </td>
-      <td>\mathbf{w}</td>
-      <td> </td>
-      <td>}$</td>
-    </tr>
-  </tbody>
-</table>
+<p>$r = \frac{|(\mathbf{w}^T\mathbf{x}) + b|}{||\mathbf{w}||}$</p>
 
 <p>我们可以得到：</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$\rho = 2r = \frac{2}{</td>
-      <td> </td>
-      <td>\mathbf{w}</td>
-      <td> </td>
-      <td>}$</td>
-    </tr>
-  </tbody>
-</table>
+<p>$\rho = 2r = \frac{2}{||\mathbf{w}||}$</p>
 
 <p>于是我们的问题便可以转化为：求取超平面的法向量$\mathbf{w}$的模的最小值，且使得所有的样本$(\mathbf{x}_i, y_i)$有$y_i{\mathbf{w}^T\mathbf{x}_i + b &gt; 1}$。这就是支持向量机的基本模式:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$min_{w,b}\frac{1}{2}</td>
-      <td> </td>
-      <td>w</td>
-      <td> </td>
-      <td>^2$</td>
-    </tr>
-  </tbody>
-</table>
+<p>$min_{w,b}\frac{1}{2}||w||^2$</p>
 
 <p>$s.t. y_i(\mathbf{w}^T\mathbf{x}_i+b) \geq 1, i=1,2,…,m$</p>
 
@@ -389,14 +335,12 @@
 <p>我们引入一个未知标量–拉格朗日乘子$\alpha$。构建函数：</p>
 
 <script type="math/tex; mode=display">L(\mathbf{w}, b, \mathbf{a}) = 
-\frac{1}{2}||\mathbf{w}||^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
+\frac{1}{2}\|\|\mathbf{w}\|\|^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
 y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
 
 <p>令函数$L$对$\mathbf{w}$与$b$的偏导数为0：</p>
 
 <script type="math/tex; mode=display"></script>
-
-<p>$$</p>
 
 <h1 id="reference">Reference</h1>
 <ol>
