@@ -243,7 +243,7 @@
       <div class="entry-image-index">
         <a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_svm_&_pca/" title="Machine Learning Review: SVM & PCA">
             
-            <img src="http://og78s5hbx.bkt.clouddn.com/60095827_p0.jpg" alt="Machine Learning Review: SVM & PCA">
+            <img src="http://og78s5hbx.bkt.clouddn.com/60319234_p0.jpg" alt="Machine Learning Review: SVM & PCA">
             
         </a>
       </div><!-- /.entry-image -->
@@ -369,12 +369,211 @@ $y_i{\mathbf{w}^T\mathbf{x}_i + b &gt; 1}$。这就是支持向量机的基本�
 <p>我们引入一个未知标量–拉格朗日乘子$\alpha$。构建函数：</p>
 
 <script type="math/tex; mode=display">L(\mathbf{w}, b, \mathbf{a}) = 
-\frac{1}{2}\|\|\mathbf{w}\|\|^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
+\frac{1}{2}\|\mathbf{w}\|^2 +\sum\limits_{i=1}^{m}\alpha_i(1 -
 y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
 
 <p>令函数$L$对$\mathbf{w}$与$b$的偏导数为0：</p>
 
-<script type="math/tex; mode=display"></script>
+<script type="math/tex; mode=display">\mathbf{w} = \sum\limits_{i=1}{m}\alpha_i y_i \mathbf{x}_i\\
+0 = \sum\limits_{i=1}^{m}\alpha_i y_i</script>
+
+<p>将上述两式代入原来的函数$L$得到函数$L’$:</p>
+
+<script type="math/tex; mode=display">L' = \sum\limits_{i=1}^{m} - \frac{1}{2}
+\sum\limits_{i=1}^{m}\sum\limits_{j=1}{m} \alpha_i \alpha_j y_i y_j
+\mathbf{x}_i \mathbf{x}_j</script>
+
+<p>从而，问题也转换成了原问题的拉格朗日对偶问题(Lagrange dual problem)：
+求$\alpha$,使得函数$L’$有最大值，并且符合约束条件$\sum\alpha_i y_i = 0$
+另外，我们还需要该函数满足KKT条件：
+<script type="math/tex">\left\{ 
+\alpha_i \geq 0;\\
+y_i f(\mathbf{x}_i) - 1 \geq 0;\\
+\alpha_i(y_i f(x_i) -1) = 0.</script></p>
+
+<p>解出该二次规划后，我们可以得到模型：</p>
+
+<script type="math/tex; mode=display">f(x) = \mathbf{w}^T\mathbf{x} + b \\
+= \sum\limits_{i=1}^{m}\alpha_i y_i \mathbf{x}_i^T \mathbf{x} + b</script>
+
+<p>其中，每一个非零的$\alpha_i$都对应一个支持向量$x_i$。</p>
+
+<p>对于支持向量机的开销，我们要记住以下几点：</p>
+<ol>
+  <li>我们要计算支持向量与所有测试点$x$的内积</li>
+  <li>我们要计算所有的样本点$x$的模</li>
+</ol>
+
+<p>这两点使得支持向量机的开销在面对大量的数据点时会变得比较糟糕。</p>
+
+<h2 id="section-3">软间隔与正则化</h2>
+
+<p>在理想情况下，支持向量机应当能够对所有的样本正确分类；但实际上这并不一
+定能够做到。解决的方法是，我们“容忍”一些样本点不被正确分类，即一些样
+本点不满足：</p>
+
+<script type="math/tex; mode=display">y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1</script>
+
+<p>将原来的优化目标重写为：</p>
+
+<script type="math/tex; mode=display">\min\limits_{\mathbf{x}, b} \frac{1}{2} \|\mathbf{w}\|^2 +
+C\sum\limits_{i=1}^{m}lost(y_i (\mathbf{w}^T \mathbf{x}_i + b) - 1)</script>
+
+<p>其中，$lost$ 是一个损失函数，有多种定义。如果采用hinge损失，即将损
+失函数定义为：
+<script type="math/tex">lost_{hinge}(z) = max(0, 1-z)</script>
+<img src="http://www.csuldw.com/assets/articleImg/4DFDU.png" alt="多种损失函数" /></p>
+
+<p>引入松弛变量$\xi$(slack vairable),我们可以将其改写为：</p>
+
+<script type="math/tex; mode=display">L(\mathbf{w}) = \mathbf{w}^T\mathbf{w} + C\sum\xi_{i} \\
+y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
+
+<p>其中，常数C可以被认为是一个用于控制过拟合与正确率之间的参数。由于每个
+样本都有一二对应的松弛变量，我们同样需要类似地引入另一个拉格朗日算子来
+化简变量。</p>
+
+<p>// TODO 考试要推公式吗？要推公式吗？我就先不写了QAQ</p>
+
+<h2 id="section-4">对最大间隔的证明</h2>
+<p>// TODO</p>
+
+<h2 id="svm">非线性SVM，核函数与升维方法</h2>
+
+<p>我们之前讨论的SVM有一个前提：样本空间是线性可分的。但是，我们存在很多
+问题是<strong>线性不可分</strong>的，比如说异或。对于这种问题，我们通常将其映射到一
+个更高维的特征空间，使其线性可分。如果原始空间是有限维，那么一定存在一
+个高维特征空间，使得样本可分。</p>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/03/1364952814_3505.gif" alt="" /></p>
+
+<p>注意到线性分类器依赖于向量的内积：$K(\mathbf{x}_i, \mathbf{x}_j)$，我
+们有升维变换
+$\varphi\mathbf{x}\rightarrow\varphi(\mathbf{x}_i)^T\varphi(\mathbf{x}_j)$
+。由于升维后的特征空间维数可能很高，我们直接计算这个升维变换会变得比较
+困难。</p>
+
+<p><strong>核函数</strong>(kernel function)是一个等价于
+$\varphi(\mathbf{x_i})^T\varphi(\mathbf{x_j})$ 的函数。通过直接应用核
+函数，我们就不需要去计算高维乃至无穷维特征的内积。核函数隐式地将低维空
+间的点映射到高维空间，就不需要显式地计算高维空间的内积了。</p>
+
+<p>如果我们知道映射$\varphi$的具体形式，我们就可以很容易地找到核函数。但
+是，我们常常不知道具体的映射方式。同时，单纯地用原始的映射构造高维空间
+有可能导致维数爆炸（比如July在他的文章里写的，两个同心圆分布+噪声的数
+据的映射有可能是2维到5维，维度更高的会更加糟糕）。</p>
+
+<p>我们有如下定理：</p>
+
+<blockquote>
+  <p>令$\chi$为输入空间，$k$是定义在$\chi * \chi$上的对称函数，则函数$k$
+是核函数，当且仅当对于任意数据$D = {x_1, x_2,…,x_m}$, 核矩阵
+(kernel matrix)总是半正定(semi-positive)的。</p>
+</blockquote>
+
+<p>(矩阵见PPT)</p>
+
+<p>也就是说，只要一个对称函数所对应的核矩阵半正定，它就能作为核函数使用。</p>
+
+<p>一些常见的核函数：</p>
+<ol>
+  <li>线性核：$k(x_i, x_j) = x_i^T x_j$</li>
+  <li>多项式核：$k(x_i, x_j) = (x_i^Tx_j)^d$</li>
+  <li>高斯核：$k(x_i, x_j) = exp(-\frac{|x_i - x_j |^2}{2\sigma})$</li>
+</ol>
+
+<h1 id="pca">主成分分析(PCA)</h1>
+
+<p>同升维方法相反，PCA是一种降维方法<del>二向箔</del>。比如在面部识别的时
+候，常用的方法是用一个遮罩(mask)对当前图像的像素进行逐一扫描。这时特征
+空间的维度会非常高，以至于难以处理。在这种情况下，我们需要缩减特征的数
+量，也就是进行降维处理。</p>
+
+<p>复习一下矩阵，我们要将一个高维向量(N维)缩减成低维(n维)：</p>
+
+<script type="math/tex; mode=display">Y = AX</script>
+
+<p>其中$Y$是转换后的低维向量，$A$是n*N转换矩阵。</p>
+
+<p>PCA的数学定义：</p>
+
+<blockquote>
+  <p>一个正交化线性变换，将数据变换到一个新的坐标系统中，使得这个数据的任
+何投影的第一大方差在第一个坐标（第一主成分）上，第二大方差在第二个坐
+标（第二主成分）上…</p>
+</blockquote>
+
+<p>我们可以想象一个超平面，在这个超平面上，样本的投影能分开，这样，我们就
+只需要关心超平面上的样本就行了–这意味着，我们不需要处理更高维的样本空
+间了。于是，我们关心两个性质：</p>
+<ol>
+  <li>最近重构性：所有的样本点尽量靠近超平面</li>
+  <li>最大可分性：样本点在这个超平面上的投影尽可能分开</li>
+</ol>
+
+<p>两种方式都可以推出主成分分析，但是我们主要从最大可分性的角度入手。我们
+要使得投影点分得最开，就要让方差最大。</p>
+
+<h2 id="section-5">协方差矩阵</h2>
+
+<p>在统计学上，计算不同变量之间的方差叫做<strong>协方差</strong>。假设我们有两个变量
+$x$，$y$，我们希望探索他们之间的相关程度：</p>
+
+<script type="math/tex; mode=display">cov(x, y) = \frac{\sum\limits_{i=1}^{n}(x_i - \overline{x})(y_i -
+\overline{y})}{n - 1}</script>
+
+<p>容易看出，方差就是协方差的一种特殊形式。</p>
+
+<p>对于一个m*n的样本矩阵$M$，每行为一个样本，每列为一个维度，我们定义协方差矩
+阵$C$，使得矩阵中一个元素$C_{ij}$有：</p>
+
+<script type="math/tex; mode=display">C_{ij} = cov(M_{:,i}, M_{:,j}) \\
+= \frac{\sum(M_{:,i} - \overline{M_{:,i}})(M_{:,j} - \overline{M_{:,j}})}{m - 1}</script>
+
+<p>特别注明一下，协方差矩阵计算的是<strong>维度</strong>之间的协方差，不是单个数据的。</p>
+
+<p>在实际应用的时候，我们会先对样本矩阵进行处理：对于每一个数据，减去该
+列的均值。我们称这种方法为中心化处理。经过中心化处理后，不难看出，协方
+差矩阵是样本矩阵及其转置的乘积，再除以标量$m-1$，即样本数量。</p>
+
+<h2 id="section-6">求解转换矩阵</h2>
+
+<p>// 这一部分主要翻译PPT,西瓜书，网上博客都各种各样的推导方法，我很好奇
+// <del>好骑</del></p>
+
+<p>我们可以看出，如果我们想尽量的让维度之间无关（分得更开），我们应该将矩
+阵的协方差部分（非对角线部分）尽量为0，为此，我们需要将协方差矩阵<strong>对
+角化</strong>（注，这里对为什么要对角化以及特征值的意义很模糊……有懂的人教教
+我）</p>
+
+<p>令$P$表示转换矩阵，推导如下：</p>
+
+<p><script type="math/tex">S_y = \frac{1}{n - 1} YY^T = \frac{1}{n-1}(PX)(PX)^T \\
+    = \frac{1}{n-1}P X X^T P^T \\
+    = \frac{1}{n-1}P (X X^T) P^T \\
+    = \frac{1}{n-1}P A P^T \\
+    where A = XX^T</script>
+这里，我们要让最终转换后的协方差矩阵成为<strong>对角矩阵</strong>，即各个维度之
+间协方差为0。</p>
+
+<p>考
+虑<a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">特征值分解</a>矩
+阵：$A = P’DP’^T$，我们可以发现，中间的$D$显然是一个对角矩阵。将
+$A=XX^T$进行特征值分解，我们得到：</p>
+
+<script type="math/tex; mode=display">S_y = \frac{1}{n-1} PP'DP'^TPT</script>
+
+<p>显然，当$P = P’^T$的时候，我们有$S_y = \frac{1}{n-1}D$。鉴于我们在做PCA的时候认为所有的基础向量都是正交的
+(PCA assumes all basis vectors are orthonormal)，我们的结果是，问题转换
+成了求矩阵$P’^T$。于是，PCA的步骤如下：</p>
+
+<ol>
+  <li>将样本矩阵中心化</li>
+  <li>计算样本的协方差矩阵$XX^T$</li>
+  <li>对$XX^T$做特征值分解</li>
+  <li>取若干个最大的特征值所对应的特征向量，组成转换矩阵。其他特征值小的
+被认为不是“主成分”，被丢弃。</li>
+</ol>
 
 <h1 id="reference">Reference</h1>
 <ol>
@@ -383,8 +582,9 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
   <li>Lecture Material</li>
   <li>知乎 “拉格朗日乘子法如何理解？”，https://www.zhihu.com/question/38586401</li>
   <li>July(2012) 支持向量机通俗导论，http://blog.csdn.net/v_july_v/article/details/7624837</li>
+  <li>D.W’s Notes, 机器学习-损失函数，http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/</li>
+  <li>古剑寒 PCA详解，https://my.oschina.net/gujianhan/blog/225241</li>
 </ol>
-
  -->
     
         <p>新年快乐，跨年也是元气满满地在机房～</p>
@@ -1943,7 +2143,7 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 
