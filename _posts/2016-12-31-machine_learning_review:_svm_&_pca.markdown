@@ -145,6 +145,7 @@ $$
 从而，问题也转换成了原问题的拉格朗日对偶问题(Lagrange dual problem)：
 求$\alpha$,使得函数$L'$有最大值，并且符合约束条件$\sum\alpha_i y_i = 0$
 另外，我们还需要该函数满足KKT条件：
+
 $$
 \alpha_i \geq 0; \\
 y_i f(\mathbf{x}_i) - 1 \geq 0;\\
