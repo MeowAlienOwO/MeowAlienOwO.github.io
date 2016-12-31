@@ -43,7 +43,7 @@ $b$为该超平面的截距。
 
 注意到样本空间中任意一点$x$到超平面的距离为：
 
-$r = \frac{|\mathbf{w}^T\mathbf{x} + b|}{||w||}$
+$r = \frac{\|\mathbf{w}^T\mathbf{x} + b\|}{\|\|w\|\|}$
 
 复习一下解析几何：
 
@@ -55,7 +55,7 @@ $r = \frac{ax + by +c}{\sqrt{a^2 + b^2}}$
 
 $r = \frac{Ax +By + Cz + D}{\sqrt{A^2 + B^2 + C^2}}$
 
-我们不难推广到高维，其中$||w||$表示向量的模。
+我们不难推广到高维，其中$\|\|w\|\|$表示向量的模。
 
 另外，我们还有一个关于距离的定义：
 
@@ -79,17 +79,17 @@ $\mathbf{w}^T\mathbf{x}_i + b \leq - \rho / 2, if y_i \leq -1$
 
 其中$\rho$为间距。由于在这种情况下，支持向量到超平面的距离可以表示为：
 
-$r = \frac{|(\mathbf{w}^T\mathbf{x}) + b|}{||\mathbf{w}||}$
+$r = \frac{\|(\mathbf{w}^T\mathbf{x}) + b\|}{\|\|\mathbf{w}\|\|}$
 
 我们可以得到：
 
-$\rho = 2r = \frac{2}{||\mathbf{w}||}$
+$\rho = 2r = \frac{2}{\|\|\mathbf{w}\|\|}$
 
 于是我们的问题便可以转化为：求取超平面的法向量$\mathbf{w}$的模
 的最小值，且使得所有的样本$(\mathbf{x}_i, y_i)$有
 $y_i{\mathbf{w}^T\mathbf{x}_i + b > 1}$。这就是支持向量机的基本模式:
 
-$min_{w,b}\frac{1}{2}||w||^2$
+$min_{w,b}\frac{1}{2}\|\|w\|\|^2$
 
 $s.t. y_i(\mathbf{w}^T\mathbf{x}_i+b) \geq 1, i=1,2,...,m$
 
@@ -123,16 +123,13 @@ $s.t. y_i(\mathbf{w}^T\mathbf{x}_i+b) \geq 1, i=1,2,...,m$
 
 $$
 L(\mathbf{w}, b, \mathbf{a}) = 
-\frac{1}{2}||\mathbf{w}||^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
+\frac{1}{2}\|\|\mathbf{w}\|\|^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
 y_i(\mathbf{w}^T\mathbf{x}_i + b))
 $$
 
 令函数$L$对$\mathbf{w}$与$b$的偏导数为0：
 
 $$
-
-$$
-
 
 $$
 
