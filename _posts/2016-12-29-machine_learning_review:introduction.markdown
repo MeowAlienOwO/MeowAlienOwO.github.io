@@ -5,9 +5,9 @@ date: "2016-12-29 19:20:50 +0800"
 categories: [Machine Learning] 
 tags: [] 
 image: 
-  feature: http://og78s5hbx.bkt.clouddn.com/60393964_p0.jpg 
-  credit: スカサハ師匠 | 冬ゆき [pixiv] 
-  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=60393964
+  feature: http://og78s5hbx.bkt.clouddn.com/60095827_p0.jpg
+  credit: スカサハ | ice [pixiv] 
+  creditlink: http://www.pixiv.net/member_illust.php?mode=medium&illust_id=60095827
 comments: "General introduction on machine learning"
 ---
 
