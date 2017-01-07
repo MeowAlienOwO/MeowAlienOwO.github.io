@@ -209,7 +209,7 @@
 				
 				<li>
 				  <a href="/categories/Machine Learning/">
-				    Machine Learning (2)
+				    Machine Learning (3)
 				  </a>
 				</li>
 				
@@ -237,6 +237,214 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_decision_tree_&_random_forest/" title="Machine Learning Review: Decision Tree & Random Forest">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/60741116.jpg" alt="Machine Learning Review: Decision Tree & Random Forest">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2017-01-06T21:08:28+08:00"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_decision_tree_&_random_forest/">January 06, 2017</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_decision_tree_&_random_forest/" rel="bookmark" title="Machine Learning Review: Decision Tree & Random Forest" itemprop="url">Machine Learning Review: Decision Tree & Random Forest</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>GRE姑且考得还算满意吧，复习一个多月有V146还算说得过去……实在不是很想
+二刷，太累了……</p>
+
+<p>死亡冲锋抽师匠！</p>
+
+<h1 id="decision-tree">Decision Tree</h1>
+
+<p>决策树是一个有层次(hierachical)的结构，可以通过分治法
+（divide-and-conquer）来将数据分成多个类别。</p>
+
+<p>决策树的一个特点是，可以用来处理不能用数字表示的数据，比如说西瓜的颜色
+等等。
+决策树学习的目标是，构建一棵树，使之能够表示决策过程。树的节点是决策点，
+树的叶子是最后的分类。算法可以大致描述如下：</p>
+
+<ol>
+  <li>Input：
+    <ul>
+      <li>训练集$D$: ${(x_1, y_1), (x_2, y_2)….}$</li>
+      <li>属性集$A$: ${a_1, a_2,…a_d}$，每个属性集有若干取值，比如说西瓜：
+硬度有很硬，硬，普通，软；大小有很大，大，中，小，很小…这里的硬
+度与大小就是不同的$a_n$</li>
+    </ul>
+  </li>
+  <li>Function DecisionTreeGen($D$, $A$)</li>
+  <li>生成节点Node</li>
+  <li><code>if</code> $D$中所有元素属于属性$C$：
+    <ol>
+      <li>将Node标记为$C$类叶子，返回</li>
+    </ol>
+  </li>
+  <li><code>if</code> $A$为空集，或者$D$的样本在$A$上均有相同取值:
+    <ol>
+      <li>将Node标记为叶子，其类别标记为$D$中样本数最多的类，返回</li>
+    </ol>
+  </li>
+  <li><strong>从A中选择最优划分属性</strong>$a_m$</li>
+  <li><code>for</code> $a_m$的每一个值$a_m^v$:
+    <ol>
+      <li>为Node生成一个分支SubNode。</li>
+      <li>令$D_v$ 为训练集中在属性$a_m$上取值为$a_m^v$的样本集</li>
+      <li><code>if</code> $D_v$为空集：
+        <ol>
+          <li>SubNode标记为叶子，类别取$D$中样本最多的类，返回</li>
+        </ol>
+      </li>
+      <li><code>else</code>：
+        <ol>
+          <li>SubNode = TreeGenerate($D_v$, $A - a_m$)</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>返回：以Node为根节点的决策树</li>
+</ol>
+
+<p>如上算法的3,4,6.3分别表示了决策树的三种递归停止的情形：</p>
+<ol>
+  <li>当前节点的样本都属于同一类别无需划分(最终划分到大小这一类，都是大的西瓜)</li>
+  <li>当前属性集为空，或者所有的样本在所有属性上都有相同的取值（这里指某
+一个属性没有办法作为划分属性，比如说如果有属性“是水果”–所有的西
+瓜都是水果，这个属性就没有意义）</li>
+  <li>当前节点包含的样本集合为空</li>
+</ol>
+
+<p>解决递归停止的情形2的方法称为“多数表决”法。</p>
+
+<p>我们可以很明显地看出，步骤5是决定决策树算法性能的关键。</p>
+
+<h2 id="section">信息熵</h2>
+
+<p>我们的目标是寻找一个较好的找出最优的划分属性的方法，使得其划分后的样本
+能够<strong>最纯</strong>–换言之，尽可能相近的类别应该尽可能分在一起。为此，我们需
+要了解信息熵。</p>
+
+<p>信息熵是对不确定性的测量。一件事情发生的概率越低，描述其所需要的信息量
+就越多。同样的，对于决策树而言，最容易划分的属性类别往往应该在高处，不
+容易划分的在低处。信息熵的定义为：</p>
+
+<script type="math/tex; mode=display">Ent(D) = - \sum\limits_{k=1}^{\|y\|}p_{k}log_{2}p_{k}</script>
+
+<p>当p为0的时候，信息熵为0。</p>
+
+<h2 id="id3">ID3算法与信息增益</h2>
+
+<p>但是，单单用信息熵我们是无法找到什么属性能够“最优”地划分样本集–样本
+往往由多个属性复合而成，我们选取划分属性的时候应该怎么做呢？ID3算法
+(iterative dichotomiser)引入了“信息增益”的概念。</p>
+
+<p>离散属性$a$有$V$个可能的取值${a^1, a^2…a^V}$。如果使用$a$来对样本
+进行划分的话，会有$V$个分支节点，每个分支节点下都包含若干属性为$a^v$的
+样本，记作$D^v$。我们可以计算每个节点的信息熵，取$|D^v| / |D|$为权
+重，然后对所有节点的信息熵进行加权求和。样本集$D$的信息熵与加权求和后
+的结果定义为<strong>信息增益</strong>(gain)：</p>
+
+<script type="math/tex; mode=display">Gain(D, a) = Ent(D) - \sum\limits_{v = 1}^{V}\frac{\|D^v\|}{\|D\|}Ent(D^v)</script>
+
+<p>ID3算法在每次选取属性的时候，计算所有属性的增益，然后选取增益最大的一
+个属性进行划分，以此类推。</p>
+
+<h2 id="c45">C4.5算法与增益率</h2>
+
+<p>ID3算法的问题在于，它会天然地倾向于属性多的类别。比如说，如果把编号(id)作为
+一类计入考虑，ID3会先划分编号–虽然划分非常纯净，但这毫无用处。为了克
+服这一缺点，C4.5算法引入了“增益率”(gai ratio)的概念。增益率定义为：</p>
+
+<script type="math/tex; mode=display">GainRatio(D, a) = \frac{Gain(D, a)}{IV(a)}</script>
+
+<p>其中，固有值(intrinsic value)$IV$定义为：</p>
+
+<script type="math/tex; mode=display">IV(a) = - \sum\limits_{v=1}{V} \frac{\|D^v\|}{\|D\|}log_{2}\frac{\|D^v\|}{\|D\|}</script>
+
+<p>但是实际上增益率的处理会导致偏向取值少的类别。在实际应用中，会先用启发
+式算法找出信息增益水平高于平均水平的属性，然后再选择高增益的属性。</p>
+
+<h2 id="section-1">过拟合</h2>
+
+<p>决策树也会过拟合，主要的表现为分支过多，导致判断很多不必要的噪声。降低
+过拟合的风险的主要手段是剪枝。剪枝的手段主要有预剪枝与后剪枝两种。预剪
+枝指的是在构造树的过程中满足某些条件停止分支的构建，而后剪枝指构建完
+整的决策树后再进行剪枝。</p>
+
+<h1 id="section-2">随机森林</h1>
+
+<p>// 注：这是根据中文网络上比较常见的随机森林与西瓜书写的，可能跟PPT有出
+// 入</p>
+
+<h2 id="section-3">集成学习</h2>
+
+<p>集成学习(ensemble learning)是一种将多个学习器组合起来完成学习任务的方
+法。其一般结构为，先生成一组基<span color="black">♂</span>学习器(base
+learner)，然后用某种策略组合其输出。其学习算法称作基<span color="black">♂</span>学习算法(base learning algorithm)</p>
+
+<p><img src="http://images.cnitblog.com/blog/633472/201410/181942114048093.png" alt="" /></p>
+
+<p>集成学习的种类大致有两种：</p>
+<ol>
+  <li>个体间存在强依赖关系，必须串行执行。代表：Boosting</li>
+  <li>个体间没有强依赖关系，可以并行执行。代表：Bagging, 随机森林
+    <h2 id="baggingbootstrap-aggregating">Bagging（Bootstrap Aggregating）</h2>
+  </li>
+</ol>
+
+<p>并行学习器的基本思想是，通过使基学习器之间尽量互相独立（有较大差异），
+从而提高总体的泛化性能。在此，我们了解一下随机森林的基本型：Bagging算
+法。</p>
+
+<p>我们首先对样本进行Bootstrap采样：给定包含$m$个样本的样本集，每次随机抽
+选一个，维持原有的采样集不变，重复$m$次，构建新的样本集。正如我们之前
+所讨论的，这个样本集大约会包含原有样本集中63.2%的样本。同样的，我们可
+以构建任意多个Bootstrap样本集，根据需求，我们构建$T$个样本集，每个样本
+集都会包含原有样本集的63.2%。我们对每个采样集训练一个学习器，然后将这
+些学习器进行结合。当结论不一致的时候，Bagging使用简单投票法。当得票数
+相等时，我们可以随机选一个，或者考察学习器投票的置信率。</p>
+
+<h2 id="section-4">随机森林算法</h2>
+
+<p>随机森林是Bagging的一个变种。随机森林以决策树作为基学习算法，在Bagging
+基础上引入随机属性选择。</p>
+
+<p>传统的决策树在选择划分属性的时候，使用一个最优化算法。但是在随机森林中，
+对于基决策树的每一个节点，从原有属性集中随机选择一个包含$k$个属性的子
+集，然后在这个子集中选取最优属性。$k$的取值决定了随机性的程度，当$k$与
+属性集的大小相等时，就为传统决策树；当$k$为1的时候，就是随机选取属性。
+一般情况使用的值为：$k=log_{2}d$</p>
+
+<p>随机森林的特性是，起始性能比较差，但是当学习器数量增加时，随机森林的泛
+化误差往往比较低。</p>
+
+<h1 id="reference">Reference</h1>
+
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material</li>
+  <li>CodingLabs, 算法杂货铺——分类算法之决策树(Decision tree),
+http://www.cnblogs.com/leoo2sk/archive/2010/09/19/decision-tree.html</li>
+</ol>
+ -->
+    
+        <p>GRE姑且考得还算满意吧，复习一个多月有V146还算说得过去……实在不是很想
+二刷，太累了……</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -2013,86 +2221,6 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%BA%8C-%E4%B8%89%E5%91%A8/" title="作死第二，三周">
-            
-            <img src="http://MeowAlienOwO.github.io/images/53698330_p0.jpg" alt="作死第二，三周">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-02-16T21:31:43+08:00"><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%BA%8C-%E4%B8%89%E5%91%A8/">February 16, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/11%E5%8C%BA%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E4%BA%8C-%E4%B8%89%E5%91%A8/" rel="bookmark" title="作死第二，三周" itemprop="url">作死第二，三周</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>作死作了两个礼拜……手动姚明脸.jpg</p>
-
-<p>我忏悔……首先因为拖延症日语没学……其次因为拖延症博客没写……然后因为
-拖延症项目没干……</p>
-
-<h1 id="section">生活</h1>
-
-<p>大致饿不死了，基本上便利店跟食其家大丈夫了(其实也没有什么话要讲……)
-但是还是离谈笑风生的程度有点远……</p>
-
-<h1 id="section-1">工作</h1>
-<p>熟悉了一下Android,渐渐找回感觉了。服务端用的是CakePHP框架，不是很熟，
-感觉比较小众？嘛……根据需求写服务器咯。之前给另一个APP追加了个语言版
-本，那个代码真是干净，改起来超爽。</p>
-
-<h1 id="section-2">游戏</h1>
-
-<p>项目么，当然……木有进展……因为拖延症……</p>
-
-<p>文明5目测又要太监……最拖时间的就是文明5……</p>
-
-<p>冬活中……我的玄学是博客放什么出什么好像（?）</p>
-
-<h1 id="section-3">日语</h1>
-
-<p>拖延症……语法跟单词都木有看……但是平时的交流跟没事查词典也有了一些积
-累。</p>
-
-<h1 id="section-4">书/画</h1>
-
-<p>偶尔抄两笔字帖，画画完全没动过，应该穿插着来吧。</p>
-
-<h1 id="section-5">博客</h1>
-
-<p>拖延症木有写……我的锅</p>
-
-<p>我会想办法填上那个日语坑的……</p>
-
-<h1 id="section-6">总结</h1>
-
-<ol>
-  <li>要想办法搞掉拖延症了，一个人生活应该更加有规律</li>
-  <li>每天做一点，再少也比不做强……</li>
-</ol>
-
-<p>努力吧……</p>
-
-<p><img src="http://MeowAlienOwO.github.io/images/biaoqingbao/AC/01.png" alt="" /></p>
-
-<p>福利：Bash批量文件重命名为递增格式
-<script src="https://gist.github.com/MeowAlienOwO/383077b816c8192fc1f7.js"></script></p>
- -->
-    
-        <p>作死作了两个礼拜……手动姚明脸.jpg</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -2126,6 +2254,12 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
       <li>
         
           <a href="http://MeowAlienOwO.github.io/page5">5</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://MeowAlienOwO.github.io/page6">6</a>
         
       </li>
     
