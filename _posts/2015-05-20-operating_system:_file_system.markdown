@@ -5,7 +5,7 @@ title: "Operating System: File System"
 date: "2015-05-20 15:07:11 +0800"
 modified: 
 description: 
-categories: [Computer Science, Operating System]
+categories: [Operating System]
 tags: [cs, file system, os ,notes]
 image:
   feature: 47263624.jpg

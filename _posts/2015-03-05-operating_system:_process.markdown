@@ -5,7 +5,7 @@ title: "操作系统笔记一：进程"
 description:
 date: "2015-03-05 19:10:06 +0800"
 tags: [process, cs, os, notes]
-categories: [ Computer Science, Operating System]
+categories: [Operating System]
 image:
   feature: 46882263_p0.jpg
   credit: "私服 | dEi [pixiv]"

@@ -3,7 +3,7 @@ layout: post
 title: "Machine Learning Review: Decision Tree & Random Forest"
 date: "2017-01-06 21:08:28 +0800"
 categories: [Machine Learning]
-tags: []
+tags: [Decision Tree, Random Forest]
 image: 
   feature: http://og78s5hbx.bkt.clouddn.com/60741116.jpg
   credit: 【FGO】「スカサハ」 | @CLare [pixiv] 

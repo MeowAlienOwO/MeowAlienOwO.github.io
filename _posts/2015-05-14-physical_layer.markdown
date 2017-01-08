@@ -5,7 +5,7 @@ title: "Physical Layer"
 date: "2015-05-14 20:15:47 +0800"
 modified: 
 description: "notes on physical layer"
-categories: [Computer Science, Network]
+categories: [Network]
 tags: [cs, network, notes]
 image:
   feature: 49604772.jpg

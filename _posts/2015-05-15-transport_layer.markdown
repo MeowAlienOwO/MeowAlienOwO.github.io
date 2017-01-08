@@ -5,7 +5,7 @@ title: "Transport Layer"
 date: "2015-05-15 21:00:24 +0800"
 modified: 
 description: "notes for transport layer"
-categories: [Computer Science, Network]
+categories: [Network]
 tags: [transport layer, cs, notes]
 image:
   feature: 2473257.jpg

@@ -5,7 +5,7 @@ title: "Foundation of Networking"
 date: "2015-05-13 16:59:52 +0800"
 modified: 
 description: "Note for network module 1"
-categories: [Computer Science, Network]
+categories: [Network]
 tags: [network, cs, notes]
 image: 
   feature: 46203097.jpg

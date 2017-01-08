@@ -3,8 +3,8 @@ layout: post
 oldpage: true
 title: "作死第四周"
 date: "2016-02-23 00:22:41 +0800"
-categories: [生活]
-tags: [生活, 日本]
+categories: [Life]
+tags: [Japan, Life]
 image: 
   feature: 55407608_p0.jpg
   credit: 彼女との邂逅 | sofs [pixiv] 

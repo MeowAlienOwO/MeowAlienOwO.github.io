@@ -5,7 +5,7 @@ title: "Introduction to Information Theory"
 date: "2015-05-14 23:23:43 +0800"
 modified: 
 description: "Notes on Information Theory"
-categories: [Computer Science, Network]
+categories: [Computer Science]
 tags: [information theory, huffman coding, notes, cs]
 image:
   feature: 49154861.jpg

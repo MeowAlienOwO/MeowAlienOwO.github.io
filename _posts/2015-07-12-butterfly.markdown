@@ -6,8 +6,8 @@ date: "2015-07-12 23:42:15 +0800"
 modified: 
 description: "自制butterfly歌词翻译，日语歌词中文翻译，日语学习
 "
-categories: [日本語]
-tags: [日本語]
+categories: [Japanese]
+tags: []
 image:
   feature: 
   credit: 

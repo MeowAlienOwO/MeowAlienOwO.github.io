@@ -3,8 +3,8 @@ layout: post
 oldpage: true
 title: "作死第二，三周"
 date: "2016-02-16 21:31:43 +0800"
-categories: [11区生活]
-tags: [生活, 11区]
+categories: [Life]
+tags: [Japan, Life]
 image: 
   feature: 53698330_p0.jpg
   credit: 【C89】雲龍型おひるねブランケット | 滝太郎＠こみトレ☆ソ08a [pixiv] 
