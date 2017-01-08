@@ -137,8 +137,8 @@ $$
 其可以被分为某类的概率)。因此，贝叶斯分类器的数学形式可以表达如下：
 
 $$
-Y = argmax\limits_{d_i \in D} P(d_i \| \mathbf{x}) \\
-~~= argmax\limits_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}
+Y = argmax_{d_i \in D} P(d_i \| \mathbf{x}) \\
+~~= argmax_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}
 $$
 
 ## 极大似然估计（MLE）与极大后验概率（MAP）
@@ -159,7 +159,7 @@ $P(\mathbf{x} \| d_i)$这一项即可。根据极大似然估计，我们可以�
 类器转化为：
 
 $$
-Y = argmax\limits_{d_i \in D} P(\mathbf{x} \| d_i)
+Y = argmax_{d_i \in D} P(\mathbf{x} \| d_i)
 $$
 
 贝叶斯学派认为，样本的分布是不确定的，先验概率也是随机变量之一，于是，
@@ -167,7 +167,7 @@ $P(d_i)$项不为常数，在求最大值时无法约去。我们把这种处理
 验概率(maximum posteriori)。这时，贝叶斯分类器转化为：
 
 $$
-Y = argmax\limits_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)
+Y = argmax_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)
 $$
 
 根据贝叶斯学派的观点，先验概率的选取会对结果造成影响，在现实世界中，这
@@ -185,8 +185,8 @@ conditional independence assumption)，即假设所有的属性对结果的影�
 根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：
 
 $$
-Y = {argmax}\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
-\prod\limits_{j=1}^{m} P(x_j \| d_i)
+Y = argmax_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+\prod_{j=1}^{m} P(x_j \| d_i)
 $$
 
 由于对于所有的属性$P(\mathbf{x})$均为常数，我们可以将其约去。先验概率
