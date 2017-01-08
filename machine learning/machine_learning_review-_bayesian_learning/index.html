@@ -321,7 +321,7 @@
 
 <p>根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：</p>
 
-<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+<script type="math/tex; mode=display">Y = {argmax}\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
 \prod\limits_{j=1}^{m} P(x_j \| d_i)</script>
 
 <p>由于对于所有的属性$P(\mathbf{x})$均为常数，我们可以将其约去。先验概率的选取需要考虑问题的性质，如果我们可以很有信心地得出先验概率，则用已经确定的先验概率。否则，我们可以对样本集进行统计，或者使用正态分布等。特征是连续值的情况下，通常假设其服从于高斯分布（正态分布）。</p>
