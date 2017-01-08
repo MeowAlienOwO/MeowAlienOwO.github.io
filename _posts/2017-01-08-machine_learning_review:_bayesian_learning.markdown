@@ -222,4 +222,5 @@ $$
 4. 阮一峰，贝叶斯推断及其互联网应用（一）：定理简介，http://www.ruanyifeng.com/blog/2011/08/bayesian\_inference\_part\_one.html
 5. 阮一峰，贝叶斯推断及其互联网应用（二）：过滤垃圾邮件，http://www.ruanyifeng.com/blog/2011/08/bayesian\_inference\_part\_two.html
 6. 冰枫的随笔， 贝叶斯方法的m-估计，http://blog.csdn.net/cyningsun/article/details/8671975
+7. 张洋,算法杂货铺——分类算法之朴素贝叶斯分类(Naive Bayesian classification),http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html
 
