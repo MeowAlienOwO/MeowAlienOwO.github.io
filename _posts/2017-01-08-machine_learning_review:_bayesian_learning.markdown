@@ -185,7 +185,7 @@ conditional independence assumption)，即假设所有的属性对结果的影�
 根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：
 
 $$
-Y = argmax\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+Y = {argmax}\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
 \prod\limits_{j=1}^{m} P(x_j \| d_i)
 $$
 
@@ -205,6 +205,8 @@ $$
 别**的先验概率，$m$是等效样本的大小(equivalent sample size)。这里，$m$
 可以取正的任意值。在样本量足够大的情况下，取一个较小的m不会对最终结果
 有很大的影响。
+
+
 
 # Reference
 1. 周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版
