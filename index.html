@@ -329,8 +329,8 @@ $D = {d_1,d_2,…,d_n}$上寻找最大可能的概率。</p>
 的先验分布，我们的目的是最大化我们的后验概率(即，在样本发生的情况下，
 其可以被分为某类的概率)。因此，贝叶斯分类器的数学形式可以表达如下：</p>
 
-<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} P(d_i \| \mathbf{x}) \\
-~~= argmax\limits_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}</script>
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i \| \mathbf{x}) \\
+~~= argmax_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}</script>
 
 <h2 id="mlemap">极大似然估计（MLE）与极大后验概率（MAP）</h2>
 
@@ -349,13 +349,13 @@ $P(d_i)$这一项在实际上是常数。我们在做计算的时候，只需要
 $P(\mathbf{x} | d_i)$这一项即可。根据极大似然估计，我们可以将贝叶斯分
 类器转化为：</p>
 
-<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} P(\mathbf{x} \| d_i)</script>
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(\mathbf{x} \| d_i)</script>
 
 <p>贝叶斯学派认为，样本的分布是不确定的，先验概率也是随机变量之一，于是，
 $P(d_i)$项不为常数，在求最大值时无法约去。我们把这种处理方式称为极大后
 验概率(maximum posteriori)。这时，贝叶斯分类器转化为：</p>
 
-<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)</script>
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)</script>
 
 <p>根据贝叶斯学派的观点，先验概率的选取会对结果造成影响，在现实世界中，这
 也意味着之前的认知会对之后的估计造成影响，这里不展开。</p>
@@ -371,8 +371,8 @@ conditional independence assumption)，即假设所有的属性对结果的影�
 
 <p>根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：</p>
 
-<script type="math/tex; mode=display">Y = {argmax}\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
-\prod\limits_{j=1}^{m} P(x_j \| d_i)</script>
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+\prod_{j=1}^{m} P(x_j \| d_i)</script>
 
 <p>由于对于所有的属性$P(\mathbf{x})$均为常数，我们可以将其约去。先验概率
 的选取需要考虑问题的性质，如果我们可以很有信心地得出先验概率，则用已经
@@ -388,6 +388,15 @@ conditional independence assumption)，即假设所有的属性对结果的影�
 别</strong>的先验概率，$m$是等效样本的大小(equivalent sample size)。这里，$m$
 可以取正的任意值。在样本量足够大的情况下，取一个较小的m不会对最终结果
 有很大的影响。</p>
+
+<h1 id="section-8">思想及其应用</h1>
+
+<p>在Paul Graham的《黑客与画家》一书中，使用了朴素贝叶斯分类器来分辨垃圾
+邮件，具体操作是抽取关键词，并且计算关键词出现与邮件为垃圾邮件的概率。
+朴素贝叶斯分类器的效率极高，在这方面的应用往往有99%以上的正确率。</p>
+
+<p>另外，朴素贝叶斯的基本思想–将属性分开来独立地看待，也是在自然语言处理
+方面很有用的隐马尔科夫模型的基本假设。</p>
 
 <h1 id="reference">Reference</h1>
 <ol>
