@@ -118,26 +118,14 @@
 				<li><a href="http://MeowAlienOwO.github.io/tags/">All Tags</a></li>
 				
 				<li>
-				  <a href="/categories/hello/">
-				    hello (1)
+				  <a href="/categories/Life/">
+				    Life (6)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/jekyll/">
-				    jekyll (1)
-				  </a>
-				</li>
-				
-				<li>
-				  <a href="/categories/Computer Science/">
-				    Computer Science (12)
-				  </a>
-				</li>
-				
-				<li>
-				  <a href="/categories/Math/">
-				    Math (2)
+				  <a href="/categories/MAL/">
+				    MAL (2)
 				  </a>
 				</li>
 				
@@ -154,12 +142,6 @@
 				</li>
 				
 				<li>
-				  <a href="/categories/空之境界/">
-				    空之境界 (1)
-				  </a>
-				</li>
-				
-				<li>
 				  <a href="/categories/C++/">
 				    C++ (1)
 				  </a>
@@ -167,49 +149,31 @@
 				
 				<li>
 				  <a href="/categories/Network/">
-				    Network (7)
+				    Network (6)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/自言自语/">
-				    自言自语 (2)
+				  <a href="/categories/Computer Science/">
+				    Computer Science (1)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/日本語/">
-				    日本語 (1)
+				  <a href="/categories/Japanese/">
+				    Japanese (2)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/japanese/">
-				    japanese (1)
-				  </a>
-				</li>
-				
-				<li>
-				  <a href="/categories/11区生活/">
-				    11区生活 (2)
-				  </a>
-				</li>
-				
-				<li>
-				  <a href="/categories/生活/">
-				    生活 (1)
-				  </a>
-				</li>
-				
-				<li>
-				  <a href="/categories/linux/">
-				    linux (1)
+				  <a href="/categories/Linux/">
+				    Linux (1)
 				  </a>
 				</li>
 				
 				<li>
 				  <a href="/categories/Machine Learning/">
-				    Machine Learning (3)
+				    Machine Learning (4)
 				  </a>
 				</li>
 				
@@ -237,6 +201,213 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/60680252.jpg" alt="Machine Learning Review: Bayesian Learning">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2017-01-08T15:02:38+08:00"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_bayesian_learning/">January 08, 2017</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/machine_learning_review-_bayesian_learning/" rel="bookmark" title="Machine Learning Review: Bayesian Learning" itemprop="url">Machine Learning Review: Bayesian Learning</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>死亡冲师匠失败(艸□`..)但是还是姑且把这个当成攒人品吧……</p>
+
+<h1 id="section">贝叶斯分类器</h1>
+<h2 id="section-1">数学准备</h2>
+<p>主要用到概率论的一些知识，简要地复习一下。</p>
+<h3 id="section-2">条件概率</h3>
+<p>条件概率指的是在事件$A$发生的情况下，事件$B$发生的概率。数学符号记为
+$P(A | B)$</p>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082502.jpg" alt="" /></p>
+
+<p>显然，如果要计算在事件$B$发生的情况下$A$发生的概率，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B) = \frac{P(A \cap B)}{P(B)}</script>
+
+<p>那么，我们可以很容易得出：</p>
+
+<script type="math/tex; mode=display">P(A \cap B) = P(A \| B)P(B)</script>
+
+<p>同理，将事件换个位置我们有：</p>
+
+<script type="math/tex; mode=display">P(A\cap B) = P(B \| A)P(A)</script>
+
+<p>那么，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B)P(B) = P(B \| A )P(A)</script>
+
+<p>这就是条件概率公式。</p>
+<h3 id="section-3">全概率公式</h3>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082504.jpg" alt="" /></p>
+
+<p>假定我们有样本空间$S$与事件$A$，事件$A$与事件$\not A$构成了整个样本空
+间。我们引入事件$B$，那么有：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B\|A)P(A) + P(B\| \not A)P(\not A)</script>
+
+<p>证明：
+由于$A$与$\not A$之和为整个样本空间，对于事件B我们有:</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \cap A) + P(B \cap \not A)</script>
+
+<p>根据条件概率，我们有：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \| A)P(A) + P(B \| \not A) P(\not A)</script>
+
+<h3 id="section-4">贝叶斯推断</h3>
+
+<p>对条件概率公式变形，我们有如下形式:</p>
+
+<script type="math/tex; mode=display">P(A \| B) = P(A)\frac{P(B \| A)}{P(B)}</script>
+
+<p>我们把$P(A)$看作是<strong>先验概率</strong>（即我们在观察样本之前对事件$A$发生概率的估
+计），$P(A|B)$是<strong>后验概率</strong>（即事件$B$发生的情况下，事件$A$发生的概率），
+而$P(B |A) / P(B)$被称作<strong>似然度</strong>（likelyhood）。那么，我们的条件概
+率公式就可以被认为是：</p>
+
+<blockquote>
+  <p>后验概率 = 先验概率 × 似然度</p>
+</blockquote>
+
+<p>这就是贝叶斯推断的意义。</p>
+
+<p>用西瓜做比喻。假设我们从一堆西瓜中挑出了若干个，
+那么根据贝叶斯公式，我们认为：</p>
+
+<blockquote>
+  <p>P(我们预计是甜的情况下真的是甜的) = P(我们预计是甜的) × P(真的是甜
+的情况下且我们预计是甜的) / P(真的是甜的)</p>
+</blockquote>
+
+<h3 id="section-5">例子：假阳性问题</h3>
+<p>医学上的假阳性问题是一个很经典的例子，可以用来解释条件概率与贝叶斯定理。
+假定某种疾病发生的概率是1%，现在有一种准确率为99%的检查手段可以检测病
+情，即患者有病的情况下，检测为阳性的概率为99%。但是，这种手段的误报率
+是5%，即患者如果没有病，它有5%的概率呈现阳性。现在有一个病人的检验结果
+为阳性，求其得病的概率？</p>
+
+<p>我们的先验概率，即疾病发生的概率是1%。我们要计算的是：“在检测为阳性的
+情况下患者患病的概率”，即后验概率。根据贝叶斯定理，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B) = P(A)\frac{P(B \| A)}{P(B)}</script>
+
+<p>其中$P(A)$为先验概率，$P(B | A)$是在患者患病的情况下的检测成功率。
+$P(B)$是患者被检测出阳性的总概率。对于未知的$P(B)$，我们可以用全概率公
+式求解：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \| A) * P(A) + P(B \| \not A) * P(\not A)</script>
+
+<p>则我们可以计算出，患者被检测出阳性的总概率大致为5.94%，从而，患者检测
+为阳性的情况下患病率大致为16.7%。这是一个反直觉的结论，即检测结果为阳
+性也只能说明检测对象有大约百分之十七的概率患病。如果发病率更低，检测结
+果的效果更差，大家不妨试一试。</p>
+
+<h2 id="section-6">贝叶斯分类器的原理</h2>
+
+<p>将贝叶斯定理与分类器的原理进行结合，我们就得到了贝叶斯分类器。其原理可
+以简单地叙述如下：</p>
+
+<blockquote>
+  <p>给定一个包含若干个属性${x_1, x_2,…,x_m}$的样本，在已知所有相关概率的情况下，在类别空间
+$D = {d_1,d_2,…,d_n}$上寻找最大可能的概率。</p>
+</blockquote>
+
+<p>我们先根据某些原则（过去的经验，某些性质比较好的点，等等）给出一个概率
+的先验分布，我们的目的是最大化我们的后验概率(即，在样本发生的情况下，
+其可以被分为某类的概率)。因此，贝叶斯分类器的数学形式可以表达如下：</p>
+
+<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} P(d_i \| \mathbf{x}) \\
+~~= argmax\limits_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}</script>
+
+<h2 id="mlemap">极大似然估计（MLE）与极大后验概率（MAP）</h2>
+
+<p>由上式我们可以看出，样本的发生概率$P(\mathbf{x})$对于给定的数据集是一
+个常数。但是，对于如何处理分子项$P(d_i)P(\mathbf{x} | d_i)$而言，根据
+不同的视角而言会有不同的结论。</p>
+
+<p>目前，概率学界大致有两种看法：频率主义认为，虽然频率的分布是未知的，但
+是在实际上是一个确定的值；但是贝叶斯学派认为，频率的分布也是一个未知的
+随机变量。</p>
+
+<p>根据频率主义学派的观点，我们有极大似然估计(maximum likelihood
+estimation)方法。频率学派认为，样本的分布是确定的，这意味着如果样本满
+足独立同分布条件（虽然是什么我不清楚），先验概率
+$P(d_i)$这一项在实际上是常数。我们在做计算的时候，只需要考虑似然度
+$P(\mathbf{x} | d_i)$这一项即可。根据极大似然估计，我们可以将贝叶斯分
+类器转化为：</p>
+
+<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} P(\mathbf{x} \| d_i)</script>
+
+<p>贝叶斯学派认为，样本的分布是不确定的，先验概率也是随机变量之一，于是，
+$P(d_i)$项不为常数，在求最大值时无法约去。我们把这种处理方式称为极大后
+验概率(maximum posteriori)。这时，贝叶斯分类器转化为：</p>
+
+<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)</script>
+
+<p>根据贝叶斯学派的观点，先验概率的选取会对结果造成影响，在现实世界中，这
+也意味着之前的认知会对之后的估计造成影响，这里不展开。</p>
+
+<h2 id="section-7">朴素贝叶斯分类器</h2>
+
+<p>基于贝叶斯公式估计后验概率的时候，由于样本的属性向量$\mathbf{x}$会随着
+属性的不同而不同，在属性很多的情况下会是一个天文数字。这导致了两个问题：
+在计算的时候出现组合爆炸；在泛化的时候又过于稀疏，难以估计广泛情况。为
+了避开这个障碍，朴素贝叶斯分类器采用了“属性条件独立性假设”(attribute
+conditional independence assumption)，即假设所有的属性对结果的影响是独
+立的。</p>
+
+<p>根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：</p>
+
+<script type="math/tex; mode=display">Y = argmax\limits_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+\prod\limits_{j=1}^{m} P(x_j \| d_i)</script>
+
+<p>由于对于所有的属性$P(\mathbf{x})$均为常数，我们可以将其约去。先验概率
+的选取需要考虑问题的性质，如果我们可以很有信心地得出先验概率，则用已经
+确定的先验概率。否则，我们可以对样本集进行统计，或者使用正态分布等。
+特征是连续值的情况下，通常假设其服从于高斯分布（正态分布）。</p>
+
+<p>当连乘式中出现某个属性没有出现，即其概率为0的情况，无论其他属性有多高
+的可能性，其总概率为0，而这是我们不想看到的。其解决方法是m-估计(m-estimation):</p>
+
+<script type="math/tex; mode=display">\frac{\|D_c\| + m\|D_c\|p}{\|D\| + m}</script>
+
+<p>其中，$|D_c|$指的是该类别的样本总量，$|D|$是样本总量，$p$是<strong>该类
+别</strong>的先验概率，$m$是等效样本的大小(equivalent sample size)。这里，$m$
+可以取正的任意值。在样本量足够大的情况下，取一个较小的m不会对最终结果
+有很大的影响。</p>
+
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material</li>
+  <li>阮一峰，贝叶斯推断及其互联网应用（一）：定理简介，http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_one.html</li>
+  <li>阮一峰，贝叶斯推断及其互联网应用（二）：过滤垃圾邮件，http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_two.html</li>
+  <li>冰枫的随笔， 贝叶斯方法的m-估计，http://blog.csdn.net/cyningsun/article/details/8671975</li>
+</ol>
+
+ -->
+    
+        <p>死亡冲师匠失败(艸□`..)但是还是姑且把这个当成攒人品吧……</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -2140,80 +2311,6 @@ linux下生存能使你变得牛逼，也因此有了装逼的资本。当然，
  -->
     
         <p>相信很多同学在第一次<del>抽</del>听到要用linux写程序的时候是懵逼的：</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/" title="作死第四周">
-            
-            <img src="http://MeowAlienOwO.github.io/images/55407608_p0.jpg" alt="作死第四周">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-02-23T00:22:41+08:00"><a href="http://MeowAlienOwO.github.io/%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/">February 23, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/%E7%94%9F%E6%B4%BB/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/" rel="bookmark" title="作死第四周" itemprop="url">作死第四周</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>依旧是拖延症的一周……啊还有妹妹</p>
-
-<h1 id="section">工作</h1>
-
-<p>划水中……没什么好说的（其实是之后要去找妹妹）</p>
-
-<h1 id="section-1">项目</h1>
-
-<p>木有进展……我错了</p>
-
-<h1 id="section-2">日语</h1>
-
-<p>渣的一笔 木有背单词 木有看语法</p>
-
-<h1 id="section-3">游戏</h1>
-
-<p>刚捞到天城……现在目标齐柏林w</p>
-
-<p>其他木有玩</p>
-
-<h1 id="section-4">妹妹</h1>
-
-<p>是个坑……</p>
-
-<p>好吧我说详细点</p>
-
-<p>上来送了个口香糖，然后这个糖会炸……里面大约是某种不明所以的刺激性液体
-（薄荷香料提取物？）</p>
-
-<p>然后被母上拖到银座去买买买<del>买了个电饭煲叫我用完拿回家</del></p>
-
-<p>然后去了某个自由女神公园（？）</p>
-
-<p>然后去御台场……<del>高达迷的圣地？</del></p>
-
-<p><span class="heimu">晚上回酒店被妹妹喂了奇怪的东西</span></p>
-
-<p>第二天上午去某坑钱免税店<del>都是中国人</del></p>
-
-<p>然后去秋叶原……抓娃娃机坑了300，然后陪妹妹四处买周边,最后送了个真姬的
-抱枕。</p>
-
-<p>以上。</p>
-
-<p><span class="heimu">我不会放照片的你们别想了,我选择十循</span></p>
- -->
-    
-        <p>依旧是拖延症的一周……啊还有妹妹</p>
 
 
     
