@@ -100,7 +100,7 @@ $$
 值，或者说哑输入）作为输出值。
 
 $$
-o = \theta + \sum\limints_{i=1}{n} w_i x_i
+o = \theta + \sum\limits_{i=1}{n} w_i x_i
 $$
 
 我们的误差函数也需要从原来的简单相减进行改变：
