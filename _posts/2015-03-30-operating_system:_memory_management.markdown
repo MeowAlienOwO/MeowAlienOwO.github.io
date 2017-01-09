@@ -5,8 +5,8 @@ title: "操作系统笔记二：内存管理"
 date: "2015-03-30 19:10:06 +0800"
 modified: 
 description: 
-categories: [Operating System]
-tags: [cs, os, notes]
+categories: [Computer Science]
+tags: [Operating System]
 image:
   feature: 27167056.jpg
   credit: TYPE-MOON10YEARS!! | STAR影法師 [pixiv]

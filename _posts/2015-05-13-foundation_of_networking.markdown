@@ -5,8 +5,8 @@ title: "Foundation of Networking"
 date: "2015-05-13 16:59:52 +0800"
 modified: 
 description: "Note for network module 1"
-categories: [Network]
-tags: [network, cs, notes]
+categories: [Computer Science]
+tags: [Network]
 image: 
   feature: 46203097.jpg
   credit: 「新しい北上…それがアタシ」 | 青い人 [pixiv]

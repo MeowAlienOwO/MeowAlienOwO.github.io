@@ -7,7 +7,7 @@ modified:
 description: "自制butterfly歌词翻译，日语歌词中文翻译，日语学习
 "
 categories: [Japanese]
-tags: []
+tags: [Lyric]
 image:
   feature: 
   credit: 

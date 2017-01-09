@@ -5,8 +5,8 @@ title: "Physical Layer"
 date: "2015-05-14 20:15:47 +0800"
 modified: 
 description: "notes on physical layer"
-categories: [Network]
-tags: [cs, network, notes]
+categories: [Computer Science]
+tags: [Network]
 image:
   feature: 49604772.jpg
   credit: 加賀x赤城 | YAMAno [pixiv]

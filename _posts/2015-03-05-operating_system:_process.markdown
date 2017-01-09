@@ -4,8 +4,8 @@ oldpage: true
 title: "操作系统笔记一：进程"
 description:
 date: "2015-03-05 19:10:06 +0800"
-tags: [process, cs, os, notes]
-categories: [Operating System]
+tags: [Operating System]
+categories: [Computer Science]
 image:
   feature: 46882263_p0.jpg
   credit: "私服 | dEi [pixiv]"

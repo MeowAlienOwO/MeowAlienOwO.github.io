@@ -4,7 +4,7 @@ oldpage: true
 title: "喵的完美日语教室"
 date: "2016-01-11 20:34:49 +0800"
 categories: [Japanese]
-tags: [japanese]
+tags: []
 image: 
   feature: 46159854_p0.jpg
   credit: Wihdows 9 | Anime4000 [pixiv] 

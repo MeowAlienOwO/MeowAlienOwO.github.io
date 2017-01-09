@@ -6,7 +6,7 @@ date: "2015-05-14 23:23:43 +0800"
 modified: 
 description: "Notes on Information Theory"
 categories: [Computer Science]
-tags: [information theory, huffman coding, notes, cs]
+tags: [Theory]
 image:
   feature: 49154861.jpg
   credit: 偶然ではない必然 | junk [pixiv] 

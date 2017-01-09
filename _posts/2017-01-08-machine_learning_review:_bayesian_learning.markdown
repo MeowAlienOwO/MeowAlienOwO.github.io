@@ -2,8 +2,8 @@
 layout: post
 title: "Machine Learning Review: Bayesian Learning"
 date: "2017-01-08 15:02:38 +0800"
-categories: [Machine Learning]
-tags: []
+categories: [Computer Science]
+tags: [Machine Learning]
 image: 
   feature: http://og78s5hbx.bkt.clouddn.com/60680252.jpg
   credit: 年越し | 幻像黒兎@3日目東ヨ−60b [pixiv] 
@@ -18,7 +18,7 @@ comments:
 ## 数学准备
 主要用到概率论的一些知识，简要地复习一下。
 ### 条件概率
-条件概率指的是在事件$A$发生的情况下，事件$B$发生的概率。数学符号记为
+条件概率指的是在事件$B$发生的情况下，事件$A$发生的概率。数学符号记为
 $P(A \| B)$
 
 ![](http://og78s5hbx.bkt.clouddn.com/bg2011082502.jpg)

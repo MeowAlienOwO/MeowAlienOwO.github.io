@@ -4,7 +4,7 @@ oldpage: true
 title: "作死第一周"
 date: "2016-01-30 00:08:12 +0800"
 categories: [Life] 
-tags: [Japan, Life]
+tags: [Japan]
 image: 
   feature: 53824078_p0.jpg
   credit: 第一次投稿 乐正绫 | Kurisu丶Tina [pixiv] 

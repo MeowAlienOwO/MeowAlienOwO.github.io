@@ -6,7 +6,7 @@ date: "2015-07-10 13:16:02 +0800"
 modified: 
 description: "关于对未来的想法"
 categories: [Life]
-tags: []
+tags: [chyunibyo]
 image:
   feature: 46298136_p0.jpg
   credit: 開幕 | Sky [pixiv] 

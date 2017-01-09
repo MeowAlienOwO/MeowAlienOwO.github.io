@@ -2,7 +2,7 @@
 layout: post
 title: "linux:从入门到装逼"
 date: "2016-11-06 10:09:07 +0800"
-categories: [Linux]
+categories: [Computer Science]
 tags: [Linux]
 image:
   feature: http://og78s5hbx.bkt.clouddn.com/59740832_p0_press.jpg

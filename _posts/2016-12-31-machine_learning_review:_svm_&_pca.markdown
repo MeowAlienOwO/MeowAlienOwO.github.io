@@ -2,8 +2,8 @@
 layout: post
 title: "Machine Learning Review: SVM & PCA"
 date: "2016-12-31 14:23:05 +0800"
-categories: [Machine Learning]
-tags: [SVM, PCA]
+categories: [Computer Science]
+tags: [Machine Learning]
 image: 
   feature: http://og78s5hbx.bkt.clouddn.com/60319234_p0.jpg
   credit: snow miku2017 | Lococo:p [pixiv] 
@@ -302,6 +302,7 @@ $$
 ## 求解转换矩阵
 
 // 这一部分主要翻译PPT,西瓜书，网上博客都各种各样的推导方法，我很好奇
+
 // <del>好骑</del>
 
 我们可以看出，如果我们想尽量的让维度之间无关（分得更开），我们应该将矩
@@ -318,6 +319,7 @@ S_y = \frac{1}{n - 1} YY^T = \frac{1}{n-1}(PX)(PX)^T \\
     = \frac{1}{n-1}P A P^T \\
     where A = XX^T
 $$
+
 这里，我们要让最终转换后的协方差矩阵成为**对角矩阵**，即各个维度之
 间协方差为0。
 
@@ -327,7 +329,7 @@ $$
 $A=XX^T$进行特征值分解，我们得到：
 
 $$
-S_y = \frac{1}{n-1} PP'DP'^TPT 
+S_y = \frac{1}{n-1} PP'DP'^TP^T 
 $$
 
 显然，当$P = P'^T$的时候，我们有$S_y = \frac{1}{n-1}D$。鉴于我们在做PCA的时候认为所有的基础向量都是正交的

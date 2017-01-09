@@ -5,8 +5,8 @@ title: "Network Layer"
 date: "2015-05-15 16:41:05 +0800"
 modified: 
 description: "notes for network layer"
-categories: [Network]
-tags: [network layer, cs, notes]
+categories: [Computer Science]
+tags: [Network]
 image:
   feature: 50136576.jpg
   credit: ぱすた | 椿木 かえ [pixiv]

@@ -4,8 +4,8 @@ oldpage: true
 title: "俯瞰风景"
 date: "2015-03-06 22:18:16 +0800"
 description:
-tags: [空之境界, ACG, 音乐, 动漫, 两仪式, 黑桐干也]
-categories: [ACG]
+tags: [ACG]
+categories: [Life]
 image: 
   feature: 48899625_p0.jpg
   credit: 式 | ぬゐりゑる [pixiv]

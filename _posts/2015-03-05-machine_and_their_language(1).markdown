@@ -4,7 +4,7 @@ oldpage: true
 title: "MAL-确定有限自动状态机"
 modified: 
 description: "Notes for Machines and their language"
-tags: [ finite automata, cs, notes]
+tags: [Machine & Languages]
 categories: [Computer Science]
 image:
   feature: 49196792_p0.jpg

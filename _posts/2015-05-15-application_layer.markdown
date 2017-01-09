@@ -5,8 +5,8 @@ title: "Application Layer"
 date: "2015-05-15 22:06:18 +0800"
 modified: 
 description: "notes for communication layer"
-categories: [Network]
-tags: [application layer, cs, notes]
+categories: [Computer Science]
+tags: [Network]
 image:
   feature: 50388846.jpg
   credit: 榛名は大丈夫です！ | YAMAno [pixiv]
