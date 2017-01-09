@@ -1,0 +1,402 @@
+<!doctype html lang="zh">
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Machine Learning Review: Bayesian Learning &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
+
+<meta name="keywords" content="Machine Learning">
+
+<!-- other plugins config -->
+<!-- mathjax -->
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+</script>
+
+<!-- Share.js -->
+<link href="/assets/css/share.min.css" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/vendor/share.min.js"></script>
+<!-- end of plugins -->
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Open Graph -->
+<!-- <meta property="og:locale" content="en_US"> -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Review: Bayesian Learning">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/">
+<meta property="og:site_name" content="喵窝[0]号机">
+
+
+
+
+
+<link rel="canonical" href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/">
+<link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+<!--
+     <link href="//fonts.useso.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css"> -->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://MeowAlienOwO.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://MeowAlienOwO.github.io/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://MeowAlienOwO.github.io/images/avatar.png" alt="死鱼眼的喵星人 photo" class="author-photo">
+					<h4>死鱼眼的喵星人</h4>
+					<p>烈風？いいえ、知らない子ですね。（もぐもぐ</p>
+
+				</li>
+				<li><a href="http://MeowAlienOwO.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:meowalienowo@outlook.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				<li>
+					<a href="http://github.com/https://github.com/MeowAlienOwO"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://MeowAlienOwO.github.io/posts/">All Posts</a></li>
+				<li><a href="http://MeowAlienOwO.github.io/tags/">All Tags</a></li>
+				
+				<li>
+				  <a href="/categories/Life/">
+				    Life (7)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Computer Science/">
+				    Computer Science (19)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Software Engineering/">
+				    Software Engineering (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Japanese/">
+				    Japanese (2)
+				  </a>
+				</li>
+				
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+<div class="entry-header">
+  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=60680252">年越し | 幻像黒兎@3日目東ヨ−60b [pixiv]</a></div><!-- /.image-credit -->
+  <div class="entry-image">
+    
+    <img src="http://og78s5hbx.bkt.clouddn.com/60680252.jpg" alt="Machine Learning Review: Bayesian Learning">
+    
+
+  </div><!-- /.entry-image -->
+</div><!-- /.entry-header -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" rel="bookmark" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2017-01-08T15:02:38+08:00">January 08, 2017</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>死亡冲师匠失败(艸□`..)但是还是姑且把这个当成攒人品吧……</p>
+
+<h1 id="section">贝叶斯分类器</h1>
+<h2 id="section-1">数学准备</h2>
+<p>主要用到概率论的一些知识，简要地复习一下。</p>
+<h3 id="section-2">条件概率</h3>
+<p>条件概率指的是在事件$B$发生的情况下，事件$A$发生的概率。数学符号记为$P(A | B)$</p>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082502.jpg" alt=""></p>
+
+<p>显然，如果要计算在事件$B$发生的情况下$A$发生的概率，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B) = \frac{P(A \cap B)}{P(B)}</script>
+
+<p>那么，我们可以很容易得出：</p>
+
+<script type="math/tex; mode=display">P(A \cap B) = P(A \| B)P(B)</script>
+
+<p>同理，将事件换个位置我们有：</p>
+
+<script type="math/tex; mode=display">P(A\cap B) = P(B \| A)P(A)</script>
+
+<p>那么，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B)P(B) = P(B \| A )P(A)</script>
+
+<p>这就是条件概率公式。</p>
+<h3 id="section-3">全概率公式</h3>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082504.jpg" alt=""></p>
+
+<p>假定我们有样本空间$S$与事件$A$，事件$A$与事件$\not A$构成了整个样本空间。我们引入事件$B$，那么有：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B\|A)P(A) + P(B\| \not A)P(\not A)</script>
+
+<p>证明：由于$A$与$\not A$之和为整个样本空间，对于事件B我们有:</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \cap A) + P(B \cap \not A)</script>
+
+<p>根据条件概率，我们有：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \| A)P(A) + P(B \| \not A) P(\not A)</script>
+
+<h3 id="section-4">贝叶斯推断</h3>
+
+<p>对条件概率公式变形，我们有如下形式:</p>
+
+<script type="math/tex; mode=display">P(A \| B) = P(A)\frac{P(B \| A)}{P(B)}</script>
+
+<p>我们把$P(A)$看作是<strong>先验概率</strong>（即我们在观察样本之前对事件$A$发生概率的估计），$P(A|B)$是<strong>后验概率</strong>（即事件$B$发生的情况下，事件$A$发生的概率），而$P(B |A) / P(B)$被称作<strong>似然度</strong>（likelyhood）。那么，我们的条件概率公式就可以被认为是：</p>
+
+<blockquote>
+  <p>后验概率 = 先验概率 × 似然度</p>
+</blockquote>
+
+<p>这就是贝叶斯推断的意义。</p>
+
+<p>用西瓜做比喻。假设我们从一堆西瓜中挑出了若干个，那么根据贝叶斯公式，我们认为：</p>
+
+<blockquote>
+  <p>P(我们预计是甜的情况下真的是甜的) = P(我们预计是甜的) × P(真的是甜的情况下且我们预计是甜的) / P(真的是甜的)</p>
+</blockquote>
+
+<h3 id="section-5">例子：假阳性问题</h3>
+<p>医学上的假阳性问题是一个很经典的例子，可以用来解释条件概率与贝叶斯定理。假定某种疾病发生的概率是1%，现在有一种准确率为99%的检查手段可以检测病情，即患者有病的情况下，检测为阳性的概率为99%。但是，这种手段的误报率是5%，即患者如果没有病，它有5%的概率呈现阳性。现在有一个病人的检验结果为阳性，求其得病的概率？</p>
+
+<p>我们的先验概率，即疾病发生的概率是1%。我们要计算的是：“在检测为阳性的情况下患者患病的概率”，即后验概率。根据贝叶斯定理，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B) = P(A)\frac{P(B \| A)}{P(B)}</script>
+
+<p>其中$P(A)$为先验概率，$P(B | A)$是在患者患病的情况下的检测成功率。$P(B)$是患者被检测出阳性的总概率。对于未知的$P(B)$，我们可以用全概率公式求解：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \| A) * P(A) + P(B \| \not A) * P(\not A)</script>
+
+<p>则我们可以计算出，患者被检测出阳性的总概率大致为5.94%，从而，患者检测为阳性的情况下患病率大致为16.7%。这是一个反直觉的结论，即检测结果为阳性也只能说明检测对象有大约百分之十七的概率患病。如果发病率更低，检测结果的效果更差，大家不妨试一试。</p>
+
+<h2 id="section-6">贝叶斯分类器的原理</h2>
+
+<p>将贝叶斯定理与分类器的原理进行结合，我们就得到了贝叶斯分类器。其原理可以简单地叙述如下：</p>
+
+<blockquote>
+  <p>给定一个包含若干个属性${x_1, x_2,…,x_m}$的样本，在已知所有相关概率的情况下，在类别空间$D = {d_1,d_2,…,d_n}$上寻找最大可能的概率。</p>
+</blockquote>
+
+<p>我们先根据某些原则（过去的经验，某些性质比较好的点，等等）给出一个概率的先验分布，我们的目的是最大化我们的后验概率(即，在样本发生的情况下，其可以被分为某类的概率)。因此，贝叶斯分类器的数学形式可以表达如下：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i \| \mathbf{x}) \\
+~~= argmax_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}</script>
+
+<h2 id="mlemap">极大似然估计（MLE）与极大后验概率（MAP）</h2>
+
+<p>由上式我们可以看出，样本的发生概率$P(\mathbf{x})$对于给定的数据集是一个常数。但是，对于如何处理分子项$P(d_i)P(\mathbf{x} | d_i)$而言，根据不同的视角而言会有不同的结论。</p>
+
+<p>目前，概率学界大致有两种看法：频率主义认为，虽然频率的分布是未知的，但是在实际上是一个确定的值；但是贝叶斯学派认为，频率的分布也是一个未知的随机变量。</p>
+
+<p>根据频率主义学派的观点，我们有极大似然估计(maximum likelihoodestimation)方法。频率学派认为，样本的分布是确定的，这意味着如果样本满足独立同分布条件（虽然是什么我不清楚），先验概率$P(d_i)$这一项在实际上是常数。我们在做计算的时候，只需要考虑似然度$P(\mathbf{x} | d_i)$这一项即可。根据极大似然估计，我们可以将贝叶斯分类器转化为：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(\mathbf{x} \| d_i)</script>
+
+<p>贝叶斯学派认为，样本的分布是不确定的，先验概率也是随机变量之一，于是，$P(d_i)$项不为常数，在求最大值时无法约去。我们把这种处理方式称为极大后验概率(maximum posteriori)。这时，贝叶斯分类器转化为：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)</script>
+
+<p>根据贝叶斯学派的观点，先验概率的选取会对结果造成影响，在现实世界中，这也意味着之前的认知会对之后的估计造成影响，这里不展开。</p>
+
+<h2 id="section-7">朴素贝叶斯分类器</h2>
+
+<p>基于贝叶斯公式估计后验概率的时候，由于样本的属性向量$\mathbf{x}$会随着属性的不同而不同，在属性很多的情况下会是一个天文数字。这导致了两个问题：在计算的时候出现组合爆炸；在泛化的时候又过于稀疏，难以估计广泛情况。为了避开这个障碍，朴素贝叶斯分类器采用了“属性条件独立性假设”(attributeconditional independence assumption)，即假设所有的属性对结果的影响是独立的。</p>
+
+<p>根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+\prod_{j=1}^{m} P(x_j \| d_i)</script>
+
+<p>由于对于所有的属性$P(\mathbf{x})$均为常数，我们可以将其约去。先验概率的选取需要考虑问题的性质，如果我们可以很有信心地得出先验概率，则用已经确定的先验概率。否则，我们可以对样本集进行统计，或者使用正态分布等。特征是连续值的情况下，通常假设其服从于高斯分布（正态分布）。</p>
+
+<p>当连乘式中出现某个属性没有出现，即其概率为0的情况，无论其他属性有多高的可能性，其总概率为0，而这是我们不想看到的。其解决方法是m-估计(m-estimation):</p>
+
+<script type="math/tex; mode=display">\frac{\|D_c\| + m\|D_c\|p}{\|D\| + m}</script>
+
+<p>其中，$|D_c|$指的是该类别的样本总量，$|D|$是样本总量，$p$是<strong>该类别</strong>的先验概率，$m$是等效样本的大小(equivalent sample size)。这里，$m$可以取正的任意值。在样本量足够大的情况下，取一个较小的m不会对最终结果有很大的影响。</p>
+
+<h1 id="section-8">思想及其应用</h1>
+
+<p>在Paul Graham的《黑客与画家》一书中，使用了朴素贝叶斯分类器来分辨垃圾邮件，具体操作是抽取关键词，并且计算关键词出现与邮件为垃圾邮件的概率。朴素贝叶斯分类器的效率极高，在这方面的应用往往有99%以上的正确率。</p>
+
+<p>另外，朴素贝叶斯的基本思想–将属性分开来独立地看待，也是在自然语言处理方面很有用的隐马尔科夫模型的基本假设。</p>
+
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong>
+</li>
+  <li>Lecture Material</li>
+  <li>阮一峰，贝叶斯推断及其互联网应用（一）：定理简介，http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_one.html</li>
+  <li>阮一峰，贝叶斯推断及其互联网应用（二）：过滤垃圾邮件，http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_two.html</li>
+  <li>冰枫的随笔， 贝叶斯方法的m-估计，http://blog.csdn.net/cyningsun/article/details/8671975</li>
+  <li>张洋,算法杂货铺——分类算法之朴素贝叶斯分类(Naive Bayesian classification),http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html</li>
+</ol>
+
+</body></html>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#Machine Learning" title="Pages tagged Machine Learning" class="tag"><span class="term">Machine Learning</span></a></span>
+        
+        <div class="social-share" >
+  <!-- <ul class="socialcount socialcount-small inline-list"> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!-- </ul> -->
+</div><!-- /.social-share -->
+
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_decision_tree_&_random_forest/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
+      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
+        <span>Published on January 08, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_decision_tree_&_random_forest/" title="Machine Learning Review: Decision Tree & Random Forest">Machine Learning Review: Decision Tree & Random Forest</a></h4>
+        <span>Published on January 06, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendor/share.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'meowalienowogithubio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	        
+
+</body>
+
+</html>

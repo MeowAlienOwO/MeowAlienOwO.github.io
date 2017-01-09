@@ -5,10 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Introduction to Information Theory &#8211; 喵窝[0]号机</title>
-<meta name="description" content="Notes on Information Theory">
+<title>Machine Learning Review: K-means & KNN &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
 
-<meta name="keywords" content="Theory">
+<meta name="keywords" content="Machine Learning">
 
 <!-- other plugins config -->
 <!-- mathjax -->
@@ -30,16 +30,16 @@
 <!-- <meta property="og:locale" content="en_US"> -->
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Information Theory">
-<meta property="og:description" content="Notes on Information Theory">
-<meta property="og:url" content="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/">
+<meta property="og:title" content="Machine Learning Review: K-means & KNN">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/">
 <meta property="og:site_name" content="喵窝[0]号机">
 
 
 
 
 
-<link rel="canonical" href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/">
+<link rel="canonical" href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/">
 <link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -150,10 +150,10 @@
 
 
 <div class="entry-header">
-  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49154861">偶然ではない必然 | junk [pixiv]</a></div><!-- /.image-credit -->
+  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=56118124">4.1 | およよよよよ [pixiv]</a></div><!-- /.image-credit -->
   <div class="entry-image">
     
-    <img src="http://MeowAlienOwO.github.io/images/49154861.jpg" alt="Introduction to Information Theory">
+    <img src="http://og78s5hbx.bkt.clouddn.com/56118124.jpg" alt="Machine Learning Review: K-means & KNN">
     
 
   </div><!-- /.entry-image -->
@@ -165,103 +165,99 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory">Introduction to Information Theory</a></h1>
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" rel="bookmark" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2015-05-14T23:23:43+08:00">May 14, 2015</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2017-01-08T23:09:34+08:00">January 08, 2017</time></span></h2>
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body>
-<p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+<p>啊……感觉要加快点节奏，不然来不及……</p>
 
-<h1 id="section">简介</h1>
+<h1 id="section">聚类学习</h1>
+<p>聚类学习(clustering)是无监督学习(unsupervised learning)的一种。训练样本的标记信息是未知的，目的是通过无监督学习的算法来揭示数据的内部联系。聚类学习的目的是，将原有的数据集合划分成若干个不相交的子集。每个子集被称为一个簇(cluster)。但是，这些簇对于聚类算法而言具体代表什么意义是未知的，需要使用者去标记。</p>
 
-<p>The fundamental problem of communication is that reproducing at onepoint either exactly or approximately a message selected at anotherpoint.</p>
+<h2 id="k-means">K-Means</h2>
 
-<h1 id="section-1">信息熵与信息</h1>
+<p>K-Means是一个典型的聚类学习算法。给定样本集$D = {x_1, x_2,…,x_m}$，K-Means的目标是产生k个簇$C = {C_1, C_2,…,C_k}$，使得其平方误差最小：</p>
 
-<h2 id="section-2">信息冗余</h2>
+<script type="math/tex; mode=display">E = \sum\limits_{i=1}^{k}\sum\limits_{x \in C_i} \|\mathbf{x} - \mu_i\|^2</script>
 
-<blockquote>
-  <p>The quick brown fox jumps over the lazy dog</p>
-</blockquote>
+<p>其中，$\mu$是划分为该簇的向量的均值，类似物理学中的质心。</p>
 
-<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
+<p>K-means的算法可以大致描述如下：</p>
 
-<h2 id="section-3">熵</h2>
+<ol>
+  <li>随机选取k个初始均值向量$\mu_1,\mu_2,…,\mu_k$，用来表示簇的中心</li>
+  <li>对于所有样本，根据样本数据与均值向量之间的距离$dst = $|\mathbf{x} - \mu$|$,将样本划分至最近的簇中</li>
+  <li>划分完后，对于所有的簇，根据现有的样本，重新计算其均值向量并且更新。</li>
+  <li>重复步骤2,3，直到所有的均值向量不变或者变动范围小于某个阈值</li>
+</ol>
 
-<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
+<p>K-Means可以看做是不断地更新质心的过程。</p>
 
-<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，或者被认为是度量信息内容的量。</p>
+<h2 id="section-1">对距离的处理</h2>
 
-<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，但是在实际的应用中，这往往无法实现。</p>
+<p>K-Means处理距离的时候常使用闵可夫斯基距离(Minkowski distance)。</p>
 
-<p>计算公式：</p>
+<script type="math/tex; mode=display">dst_mk(\mathbf{x_i}, \mathbf{x_j}) = (\sum\limits_{u=1}^{n}\|x_{iu} - x_{ju}\|^p)^{\frac{1}{p}}</script>
 
-<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
+<p>在p值取2的时候，闵可夫斯基距离就是普通的欧几里得距离(Euclideandistance)：<script type="math/tex">dst_eu(\mathbf{x_i}, \mathbf{x_j}) =
+\sqrt{\sum\limits_{u=1}^{n}\|x_{iu} - x_{ju}\|^2}</script></p>
 
-<h2 id="bias">偏离(bias)</h2>
+<p>p值取1的时候，闵可夫斯基距离变成曼哈顿距离。</p>
 
-<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
+<h1 id="section-2">竞争学习</h1>
+<h2 id="competitive-network">竞争神经网络(Competitive Network)</h2>
 
-<h2 id="section-4">霍夫曼编码</h2>
+<p>竞争神经网络是无监督学习的一种，即训练集中的样本没有给出最终的分类结果。神经网络同样也可以用于无监督学习。其处理方式为增加了一道”竞争”机制。</p>
 
-<h3 id="prefix-codes">前缀码(prefix codes)</h3>
+<p>竞争学习的神经网络通常只有两层：输入层与单层输出节点，输出神经元与输入节点完全相连。</p>
 
-<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
+<p>对于每次输入，只有一个输出神经元会被激活并更新权重。竞争神经网络采取“赢家通吃”的方法来决定，即只有输出值最大的神经元得到激活并且更新权重。如果下一次有相近的输入，那么该神经元也会有更大的概率被激活。</p>
 
-<p>霍夫曼编码是前缀码的一种。</p>
+<h2 id="minimun-distance-classifier">最小距离分类(minimun distance classifier)</h2>
 
-<h3 id="section-5">创建霍夫曼编码</h3>
+<p>最小距离首先计算每一个已知类别的平均点，然后对于新的样本，分别计算其到类别平均点的距离，选取距离最近的那个类别进行分类并且更新平均点。</p>
 
-<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
+<h1 id="k">K邻近算法</h1>
 
-<blockquote>
-  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
-</blockquote>
+<p>K邻近算法(K-nearest neighbour)是一个简单的分类算法。其具体思想是，将样本同训练集中的元素进行一一比较，取前k个最近的元素，选取这$k$个中最多的类别进行分类。</p>
 
-<p>将所有的未编码符号按照出现频率升序排列：</p>
+<p>K邻近算法没有学习过程，被称之为懒惰学习。</p>
 
-<blockquote>
-  <p>e a d s</p>
-</blockquote>
+<p>具体算法如下：</p>
+<ol>
+  <li>将数据集划分为测试集与训练集，并且保证其均匀分布</li>
+  <li>保存训练集数据</li>
+  <li>对每一个测试集中数据，计算其与所有的训练集之间的距离，取前K个。K值预先指定</li>
+  <li>取K个最近距离中类别最多的一项，标记类别</li>
+</ol>
 
-<p>从小到大将两个频率之和相加直到和为1</p>
+<p>K邻近算法虽然简单，但是泛化效率很高。但是，对大的数据集而言，它的效率不太让人满意。</p>
 
-<blockquote>
-  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
-</blockquote>
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong>
+</li>
+  <li>Lecture Material</li>
+  <li>liangdas,最小距离分类法介绍, http://blog.csdn.net/liangdas/article/details/17039583</li>
+  <li>51to.com, 7.6 竞争网络和竞争学习（1）, http://book.51cto.com/art/201302/380106.htm</li>
+</ol>
 
-<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
-
-<blockquote>
-  <pre><code>         1 
-         |
-      s  +  0.64
-              |
-           d  +  0.34
-                   |
-                a  +  e
-</code></pre>
-</blockquote>
-
-<p>从上到下，左边取0, 右边取1，最终编码为：</p>
-
-<blockquote>
-  <p>s 0d 10a 110e 111</p>
-</blockquote>
 </body></html>
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#Theory" title="Pages tagged Theory" class="tag"><span class="term">Theory</span></a></span>
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#Machine Learning" title="Pages tagged Machine Learning" class="tag"><span class="term">Machine Learning</span></a></span>
         
         <div class="social-share" >
   <!-- <ul class="socialcount socialcount-small inline-list"> -->
-  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
-  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
-  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
   <!-- </ul> -->
 </div><!-- /.social-share -->
 
@@ -270,7 +266,7 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io/computer%20science/physical_layer/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
       <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
@@ -280,13 +276,13 @@
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_decision_tree_&_random_forest/" title="Machine Learning Review: Decision Tree & Random Forest">Machine Learning Review: Decision Tree & Random Forest</a></h4>
+        <span>Published on January 06, 2017</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->

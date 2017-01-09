@@ -5,10 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Introduction to Information Theory &#8211; 喵窝[0]号机</title>
-<meta name="description" content="Notes on Information Theory">
+<title>俯瞰风景 &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
 
-<meta name="keywords" content="Theory">
+<meta name="keywords" content="ACG">
 
 <!-- other plugins config -->
 <!-- mathjax -->
@@ -30,16 +30,16 @@
 <!-- <meta property="og:locale" content="en_US"> -->
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Information Theory">
-<meta property="og:description" content="Notes on Information Theory">
-<meta property="og:url" content="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/">
+<meta property="og:title" content="俯瞰风景">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/">
 <meta property="og:site_name" content="喵窝[0]号机">
 
 
 
 
 
-<link rel="canonical" href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/">
+<link rel="canonical" href="http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/">
 <link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -150,10 +150,10 @@
 
 
 <div class="entry-header">
-  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49154861">偶然ではない必然 | junk [pixiv]</a></div><!-- /.image-credit -->
+  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=48899625">式 | ぬゐりゑる [pixiv]</a></div><!-- /.image-credit -->
   <div class="entry-image">
     
-    <img src="http://MeowAlienOwO.github.io/images/49154861.jpg" alt="Introduction to Information Theory">
+    <img src="http://MeowAlienOwO.github.io/images/48899625_p0.jpg" alt="俯瞰风景">
     
 
   </div><!-- /.entry-image -->
@@ -165,103 +165,72 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory">Introduction to Information Theory</a></h1>
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" rel="bookmark" title="俯瞰风景">俯瞰风景</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2015-05-14T23:23:43+08:00">May 14, 2015</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2015-03-06T22:18:16+08:00">March 06, 2015</time></span></h2>
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body>
-<p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
-
-<h1 id="section">简介</h1>
-
-<p>The fundamental problem of communication is that reproducing at onepoint either exactly or approximately a message selected at anotherpoint.</p>
-
-<h1 id="section-1">信息熵与信息</h1>
-
-<h2 id="section-2">信息冗余</h2>
+<p>我觉得空之境界是神作。我觉得空之境界是神作。因为很重要所以说了两遍。下面可能有若干剧透，不想被剧透的请手动跳转<a href="http://www.bilibili.com/video/av1005743/index_1.html#">B站空境合集</a>，弹幕质量请注意。。</p>
 
 <blockquote>
-  <p>The quick brown fox jumps over the lazy dog</p>
+  <p>那一天，选择了办公区前的大路作为归途。</p>
+
+  <p>对于自己是很鲜见的，单是心血来潮而已。</p>
 </blockquote>
 
-<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
+<p>如果要简单说起来的话，空境讲了如下几个故事：跟式姐抢男人的被干掉了，谷歌追式姐，跟式姐抢男人的被干掉了，式姐出院了，跟谷歌抢女人的挂了，式姐帮谷歌的妹(qing)妹(di)解决事件，式姐开挂，想要通吃式姐跟谷歌的男人被干掉了。嗯。</p>
 
-<h2 id="section-3">熵</h2>
-
-<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
-
-<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，或者被认为是度量信息内容的量。</p>
-
-<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，但是在实际的应用中，这往往无法实现。</p>
-
-<p>计算公式：</p>
-
-<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
-
-<h2 id="bias">偏离(bias)</h2>
-
-<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
-
-<h2 id="section-4">霍夫曼编码</h2>
-
-<h3 id="prefix-codes">前缀码(prefix codes)</h3>
-
-<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
-
-<p>霍夫曼编码是前缀码的一种。</p>
-
-<h3 id="section-5">创建霍夫曼编码</h3>
-
-<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
+<p>俯瞰风景作为空之境界的第一章，没有什么特别重要的内容，可以当作一个引子来看。不过初次看的话，可能会被画风、表现手法、蘑菇的扯淡能力以及梶浦由记那种奇异（但是神作）的音乐给吓到。故事情节相比后面各种倒叙的矛盾螺旋来说，已经算是非常简单了。巫条大楼自杀事件发生后，黑桐干也跑去调查时被巫条雾绘勾去魂魄，然后两仪式两入虎穴去找干也，最后橙子跟巫条雾绘补设定。不过这里有各种各样跟后面有关的伏笔，比如巫条雾绘什么时候喜欢上黑桐干也，两仪式的义肢，黑桐干也来伽蓝之堂的一些经过，”「」”的意义等等，看完复习的时候就好理解了。另外空境的打斗也都非常的酷炫，行云流水，比有些嘴炮秒全场的动漫甚至三次元物强多了，很值得一看。</p>
 
 <blockquote>
-  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
+  <p>在见惯的建筑群间呆呆地走着，</p>
+
+  <p>不多时有人落了下来。</p>
+
+  <p>没有太多机会听到的，啪嚓这样一声。</p>
+
+  <p>很明显是有人从楼顶落下来并死去。</p>
 </blockquote>
 
-<p>将所有的未编码符号按照出现频率升序排列：</p>
+<p>我觉得蘑菇有一种奇异的倾向——别人是用一些贴近现实的东西做比喻来说明概念，他喜欢用说明概念来比喻人物……不知道是不是错觉。贯穿全篇的概念（或者说是脑洞）是”飞翔“与”浮游“之间的区别。“飞翔”是带有目的性的逃走，而”浮游“是无目的的逃走。然而，无论是飞翔还是浮游，对于人类而言，都是属于违背常识的举动，从伊卡洛斯飞向太阳而坠落开始，飞翔就同坠落密不可分。然而，他们在坠落的一刻仍然希望飞翔，正如橙子所言，他们不是落向地面而是坠落空中。因此，作为飞翔或者浮游的具现，巫条雾绘的悲剧从一开始就避免不了。</p>
+
+<p>巫条雾绘在入院之后近似失去一切希望，然而黑桐干也每天的经过带给了她些许对生活的希望。后来，荒耶宗莲给予了她伊卡洛斯的翅膀——二重存在，使得她认为自己拥有了追寻希望的能力。然而，这种能力最终仍是错觉。且不论式姐的存在，荒耶宗莲自身也只是将巫条雾绘作为得到两仪式的工具而已。借由外物给予的力量，去追寻他人给予的希望，只不过是加速自己的灭亡罢了。</p>
 
 <blockquote>
-  <p>e a d s</p>
+  <p>朱色在柏油路上流淌开来。</p>
+
+  <p>仍保有原形的是长长的黑发。</p>
+
+  <p>其中以及纤细的，让人联想到白色的脆弱手足。</p>
+
+  <p>之后是已无容貌，破碎的面部。</p>
+
+  <p>这一连串映像，让人不禁幻想到被挟入古老的书本。</p>
+
+  <p>化为其中一页的压花。</p>
 </blockquote>
 
-<p>从小到大将两个频率之和相加直到和为1</p>
+<p>然而，无论怎么说，飞翔或是浮游，都是希望逃走的举动。因为自身被禁锢在医院内，身边亲近的人也都已经去世，也无外乎她想逃脱这个地方。包括喜欢干也，也只是逃避的一种举动。同样是被禁锢在医院内，两仪式的意识一直悬浮在根源之涡中，苏醒的代价是两仪织的消失，悲惨程度也相去不远。同样是失去了生存的实感，两仪式选择了坚强，斩杀了苏醒后因为心中的”「」”而脆弱的自己，终于寻找到人生意义，而巫条雾绘选择了无目的的浮游，等待着坠落的一刻到来。巫条雾绘无法竞争过两仪式，也就没什么奇怪了。但是，经过与两仪式的一战，她明白了所谓”如针一般，如剑一般，如雷一般贯穿我的死“，从死亡中，发现了生存的实感，也就无法再忍受生不如死地浮游着了。最后巫条雾绘选择了去尝试重现那曾经有过的生命的实感，努力去飞行，而不是呆在病床上等待着耗尽体力，无法浮游而坠落的死亡，从这种意义而言，两仪式也带给了巫条雾绘一种对于她而言的好结局吧。</p>
+
+<p>无论其当事者的决意为何，自杀只能作为自杀被接受。无论本人怎么想，从无关者的外人看来，巫条雾绘依旧选择了自杀这一种懦弱的结末。不值得夸耀，不值得贬低，正如尘埃一般，存在，但并无什么价值。</p>
 
 <blockquote>
-  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
-</blockquote>
-
-<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
-
-<blockquote>
-  <pre><code>         1 
-         |
-      s  +  0.64
-              |
-           d  +  0.34
-                   |
-                a  +  e
-</code></pre>
-</blockquote>
-
-<p>从上到下，左边取0, 右边取1，最终编码为：</p>
-
-<blockquote>
-  <p>s 0d 10a 110e 111</p>
+  <p>仰望着天空，如同眺望着不存在的幻影般回答道。“自杀没有理由。只是今天没有飞起来罢了。”</p>
 </blockquote>
 </body></html>
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#Theory" title="Pages tagged Theory" class="tag"><span class="term">Theory</span></a></span>
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#ACG" title="Pages tagged ACG" class="tag"><span class="term">ACG</span></a></span>
         
         <div class="social-share" >
   <!-- <ul class="socialcount socialcount-small inline-list"> -->
-  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
-  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
-  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
   <!-- </ul> -->
 </div><!-- /.social-share -->
 
@@ -270,7 +239,7 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io/computer%20science/physical_layer/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io/computer%20science/operating_system-_process/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
       <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>

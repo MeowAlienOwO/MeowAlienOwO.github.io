@@ -5,10 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Introduction to Information Theory &#8211; 喵窝[0]号机</title>
-<meta name="description" content="Notes on Information Theory">
+<title>MAL-下推自动机与上下文无关语言 &#8211; 喵窝[0]号机</title>
+<meta name="description" content="notes on pushdown automata and context free language">
 
-<meta name="keywords" content="Theory">
+<meta name="keywords" content="Machine & Languages">
 
 <!-- other plugins config -->
 <!-- mathjax -->
@@ -30,16 +30,16 @@
 <!-- <meta property="og:locale" content="en_US"> -->
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Information Theory">
-<meta property="og:description" content="Notes on Information Theory">
-<meta property="og:url" content="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/">
+<meta property="og:title" content="MAL-下推自动机与上下文无关语言">
+<meta property="og:description" content="notes on pushdown automata and context free language">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/">
 <meta property="og:site_name" content="喵窝[0]号机">
 
 
 
 
 
-<link rel="canonical" href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/">
+<link rel="canonical" href="http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/">
 <link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -150,10 +150,10 @@
 
 
 <div class="entry-header">
-  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49154861">偶然ではない必然 | junk [pixiv]</a></div><!-- /.image-credit -->
+  <div class="image-credit">Image source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=31958311">ハイ　ハイ　チャイナ | hounori [pixiv]</a></div><!-- /.image-credit -->
   <div class="entry-image">
     
-    <img src="http://MeowAlienOwO.github.io/images/49154861.jpg" alt="Introduction to Information Theory">
+    <img src="http://MeowAlienOwO.github.io/images/31958311.png" alt="MAL-下推自动机与上下文无关语言">
     
 
   </div><!-- /.entry-image -->
@@ -165,103 +165,130 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" rel="bookmark" title="Introduction to Information Theory">Introduction to Information Theory</a></h1>
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/" rel="bookmark" title="MAL-下推自动机与上下文无关语言">MAL-下推自动机与上下文无关语言</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2015-05-14T23:23:43+08:00">May 14, 2015</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2015-05-03T14:49:02+08:00">May 03, 2015</time></span></h2>
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body>
-<p>肯德基居然打烊……说好的24小时呢……啊啊……好想给吃撑喂食play……(另外多少弹药可以钓一个打伞的大姐姐……)</p>
+<p>考前复习+Course work复习, 下推自动机与上下文无关语言部分……土狼：people die if they are killed。</p>
 
-<h1 id="section">简介</h1>
+<p>MD还要躺着……戴了护裆都能中招真是……</p>
 
-<p>The fundamental problem of communication is that reproducing at onepoint either exactly or approximately a message selected at anotherpoint.</p>
+<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=382643&amp;page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
 
-<h1 id="section-1">信息熵与信息</h1>
+<h1 id="section">上下文无关语言</h1>
 
-<h2 id="section-2">信息冗余</h2>
+<h2 id="context-free-grammar">上下文无关文法(Context-Free Grammar)</h2>
+
+<p>上下文无关文法由一个四元组$G=(V, \Sigma, S, P)$来描述。其中：</p>
+
+<ul>
+  <li>$V$ 是变量集合，或者说非停止符号集</li>
+  <li>$\Sigma$ 是停止符号集</li>
+  <li>$S$ 是起始变量</li>
+  <li>$P$ 是语法规则集(rule/productions)，$P$中的元素通常是如下的形式：$A \to\alpha, A \in V, \alpha \in (V \cup \Sigma)$</li>
+  <li>$S \in V$, $V$ 与 $\Sigma$无交集。$V$, $S$, $P$都是有限的。</li>
+</ul>
+
+<p>我们使用如下的符号来表示一些推导规则：</p>
+
+<ul>
+  <li>$\to$ 表示在语法中的一个生成规则(production), $\Rightarrow$表示根据语法规则的一步推导(derivation)</li>
+  <li>$\alpha \Rightarrow^n \beta$ 表示$n$步推导，$\alpha \Rightarrow^*\beta$ 表示0或者多步推导。</li>
+  <li>$\Rightarrow_G$ 表示根据语法$G$的推导。</li>
+</ul>
+
+<p>$\alpha \Rightarrow \beta$ 表示存在字符串$\alpha_1, \alpha_2$, $\gamma \in (V\cup \Sigma)^*$, 以及生成规则$A \to \gamma \in P$, 使得$\alpha = \alpha_1 A\alpha_2$, $\beta = \alpha_1 \gamma \alpha_2$</p>
+
+<p>当如上的推导规则可以对于任意可能的$\alpha_1,\alpha_2$都成立时，我们认为该规则是上下文无关的(context-free)</p>
+
+<h2 id="context-free-language">上下文无关语言(Context-Free Language)</h2>
+
+<p>假设存在一个上下文无关文法(CFG)$G=(V, \Sigma, S, P)$, 由$G$生成的语言为：$ L(G) = \lbrace \chi \in \Sigma^* | S \Rightarrow_G^* \chi \rbrace $</p>
+
+<p>当存在一个语言$L$,使得$L = L(G)$, 我们可以说这个语言是上下文无关语言(Context-Free Language)。</p>
+
+<h2 id="kleene">联合，连接与Kleene星号运算</h2>
+<p>如果$L_1$, $L_2$都是定义在$\Sigma$上的上下文无关语言，那么$L_1 \cupL_2, L_1 L_2, L_1^*$都是上下文无关语言。</p>
+
+<p>令$G_1, G_2$分别表示$L_1, L_2$的语法，假设他们之间没有公共变量。$S_1,S_2$分别是起始变量。</p>
+
+<p>令$S_u, S_c, S_k$分别表示联合，连接与Kleene星号的起始变量，$G_u, G_c,G_k$表示对应的语法，我们可以创造如下规则使前述定理成立：</p>
+
+<ul>
+  <li>对于$G_u$, 向$G_1, G_2$添加规则$S_u \to S_1 | S_2$</li>
+  <li>对于$G_c$, 向$G_1, G_2$添加规则$S_c \to S_1 S_2$</li>
+  <li>对于$G_k$, 向$G_1$添加规则$S_k \to \Lambda | S_k S_1$</li>
+</ul>
+
+<h2 id="derivation-tree">派生树(Derivation Tree)与歧义</h2>
+
+<p>派生树用于表示CFG生成字符串的一般步骤。构建派生树的方法如下：</p>
+
+<ul>
+  <li>跟节点用于表示起始变量S</li>
+  <li>任何内节点(interior node)与它的子节点表示一个通过推导规则$A \to \alpha$派生产物该节点表示变量A, 而其子节点，从左至右表示在字符串$\alpha$下的符号</li>
+  <li>任何叶结点表示一个符号或者空串</li>
+  <li>最终派生的字符串从左到右读入，排除任何的空串</li>
+  <li>一个派生方法只能得到一个派生树，而一个派生树可以表示不止一种派生方法</li>
+</ul>
+
+<p>在实际应用中，我们通常使用左派生(leftmost derivation)，即对于每一步推导，我们永远对当前最左边的变量使用派生规则。</p>
+
+<p>我们有如下定理：如果G是CFG，那么对于所有的$x \in L(G)$, 我们有如下三个表述等价：</p>
+
+<ul>
+  <li>$x$ 有多于一个的派生树</li>
+  <li>$x$ 有多于一个的左派生树</li>
+  <li>$x$ 有多于一个的右派生树</li>
+</ul>
+
+<p>我们认为对于一个是CFG的G是有歧义的，当该G存在至少一个$x \in L(G)$, $x$有多于一个的派生树，或者根据如上定理，有多于一个的左派生树。</p>
+
+<p>典型例子：</p>
 
 <blockquote>
-  <p>The quick brown fox jumps over the lazy dog</p>
+  <p>if (e1) if (e2) f(); else g();</p>
 </blockquote>
 
-<p>这句句子中包含了所有的英文字母。我们可以很明显的看到其中有一些冗余字母，比如说空格之类。移除所有空格可以使得我们依然能保持原有的意思，但是移除所有的t,h,e字母则不行。这意味着，我们不能移除所有的冗余。</p>
+<p>我们可以通过引入新变量来消除歧义。</p>
 
-<h2 id="section-3">熵</h2>
+<h2 id="simplified-formsnormal-forms">简式(Simplified Forms)与范式(Normal Forms)</h2>
 
-<p>我们使用熵(Entropy)来度量某个特殊的随机变量的平均不确定性。</p>
+<h2 id="section-1">上下文无关语言的泵引理</h2>
 
-<p>在信息编码方面，熵用于度量描述一个随机变量的平均必须比特数量，或者被认为是度量信息内容的量。</p>
+<p>CFL同样有泵引理的应用。令$L$为CFL，那么必然存在一个正整数$n$,使得对于任意的$u\in L, | u | \geq n$, $u$可以被写成$u=vwxyz$, 而且满足：</p>
 
-<p>通常而言，熵可以表示表述一个随机变量所需平均比特数量的下界，但是在实际的应用中，这往往无法实现。</p>
+<ul>
+  <li>$| wy | &gt; 0$</li>
+  <li>$| wxy | \leq n$</li>
+  <li>$\forall m \geq 0, vw^mxy^mz \in L$</li>
+</ul>
 
-<p>计算公式：</p>
+<p>（证明待补充）</p>
 
-<p>$H(X) = - \Sigma_x p(x) \log_2 p(x)$</p>
+<h2 id="section-2">泵引理的应用</h2>
 
-<h2 id="bias">偏离(bias)</h2>
+<p>我们以$L = \lbrace a^nb^nc^n | n \geq 0 \rbrace$作为例子说明泵引理在证明某个语言非上下文无关中的应用。</p>
 
-<p>当随机变量存在偏离时，熵的计算公式依然成立。比如在一个有8匹马参加的比赛中，它们赢的概率分别为1/2, 1/4/, 1/8, 1/16, 1/64， 1/64。熵值为2，这意味着我们仍然可以用平均长度为2的编码方法来编码所有的信息。</p>
+<p>令$u$是一个形如$a^nb^nc^n$的字符串且$| u | \geq n$</p>
 
-<h2 id="section-4">霍夫曼编码</h2>
+<p>我们有$u=vwxyz$满足泵引理之条件。$| wy | &gt; 0$说明字符串$wy$至少有一个符号。$|wxy | \leq n$说明$wxy$至多含有两个不同的符号。假设$\sigma_1$是一个出现在$wy$中的符号，$\sigma_2$是不在$wy$中的符号。那么字符串$vw^0xy^0z$同样可以保持$u$的特性，但是显然$\sigma_1$的数目小于$n$,而$\sigma_2$的数目等于$n$，这与泵引理的第3条特性矛盾。</p>
 
-<h3 id="prefix-codes">前缀码(prefix codes)</h3>
-
-<p>对于前缀码而言，没有任何元素可以成为另一个元素的开头。这导致了其的唯一性，也就是无歧义性。</p>
-
-<p>霍夫曼编码是前缀码的一种。</p>
-
-<h3 id="section-5">创建霍夫曼编码</h3>
-
-<p>霍夫曼编码由符号的相对出现频率决定。霍夫曼算法可以保证平均符号长度的最优化。</p>
-
-<blockquote>
-  <p>例子：e 0.15, a 0.19, d 0.30, s 0.36</p>
-</blockquote>
-
-<p>将所有的未编码符号按照出现频率升序排列：</p>
-
-<blockquote>
-  <p>e a d s</p>
-</blockquote>
-
-<p>从小到大将两个频率之和相加直到和为1</p>
-
-<blockquote>
-  <p>e+a, (e+a)+d, ((e+a)+d)+s</p>
-</blockquote>
-
-<p>通过如上求和，构建霍夫曼树(可以看作构建语法树)</p>
-
-<blockquote>
-  <pre><code>         1 
-         |
-      s  +  0.64
-              |
-           d  +  0.34
-                   |
-                a  +  e
-</code></pre>
-</blockquote>
-
-<p>从上到下，左边取0, 右边取1，最终编码为：</p>
-
-<blockquote>
-  <p>s 0d 10a 110e 111</p>
-</blockquote>
 </body></html>
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#Theory" title="Pages tagged Theory" class="tag"><span class="term">Theory</span></a></span>
+        <span class="entry-tags"><a href="http://MeowAlienOwO.github.io/tags/#Machine & Languages" title="Pages tagged Machine & Languages" class="tag"><span class="term">Machine & Languages</span></a></span>
         
         <div class="social-share" >
   <!-- <ul class="socialcount socialcount-small inline-list"> -->
-  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
-  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
-  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
   <!-- </ul> -->
 </div><!-- /.social-share -->
 
@@ -270,7 +297,7 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io/computer%20science/physical_layer/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io/computer%20science/operating_system-_memory_management/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
       <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
