@@ -1,24 +1,24 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; -*- Mode: Emacs-Lisp -*- ;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; .hyde.el --- 
+;;; .hyde.el ---
 ;; Filename: .hyde.el
-;; Description: 
+;; Description:
 ;; Author: Zhang Huayan
 ;; ID number: 6511043
 ;; E-mail: zy11043@nottingham.edu.cn / MeowAlienOwO@gmail.com
-;; Version: 
+;; Version:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
-;;; Commentary: 
-;; 
+;;
+;;; Commentary:
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;;
 ;;; Change Log:
-;; Status: 
-;; Table of Contents: 
-;; 
+;; Status:
+;; Table of Contents:
+;;
 ;;     Update #: 5
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;;
 ;;; Code:
 
 ;; (setq hyde/git/remote "origin" ; The name of the remote to which we should push
