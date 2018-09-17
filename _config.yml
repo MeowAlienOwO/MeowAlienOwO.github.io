@@ -42,7 +42,7 @@ timezone:    Asia/Shanghai
 future:      true
 highlighter: pygments
 markdown:    kramdown
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-paginate
 sass:
