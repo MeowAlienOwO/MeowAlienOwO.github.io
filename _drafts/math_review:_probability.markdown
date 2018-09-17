@@ -1,4 +1,4 @@
----
+------
 layout: post
 title: "Math review: Probability"
 categories: [math]
