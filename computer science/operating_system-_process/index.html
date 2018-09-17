@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -176,7 +188,7 @@
 <html><body>
 <p>进程是一个程序运行中的实例，对进程的管理，如CPU分配，内存空间分配等等是操作系统的重要内容。主要是小学期的内容，现在来总结一下。</p>
 
-<h1 id="section">计算机多任务系统</h1>
+<h1 id="计算机多任务系统">计算机多任务系统</h1>
 <p>现在的计算机系统大部分是多任务系统(multiprogramming),可以参考<a href="http://en.wikipedia.org/wiki/Multics">MULTICS</a>:</p>
 
 <ul>
@@ -192,7 +204,7 @@
   <li>支持进程间通信</li>
 </ul>
 
-<h1 id="section-1">进程</h1>
+<h1 id="进程">进程</h1>
 
 <p>每个进程都包括：</p>
 
@@ -204,7 +216,7 @@
 
 <p>PCB保存所有有关于进程管理的信息，对于多任务系统中的上下文切换而言，PCB是必不可少的。在后面我们会讨论一下PCB的内容。</p>
 
-<h2 id="state">进程的状态(state)</h2>
+<h2 id="进程的状态state">进程的状态(state)</h2>
 <p>进程在它的生命周期中，会在不同的状态之间切换。一个常见的进程状态转换图如下：</p>
 
 <p><img src="http://MeowAlienOwO.github.io/images/process.jpg" alt="process.jpg"></p>
@@ -241,7 +253,7 @@
 
 <p>中断(interrupt)，陷阱(traps),系统调用(system call)都是在如上的状态转换的基础上实现的。</p>
 
-<h2 id="section-2">进程的创建与终止</h2>
+<h2 id="进程的创建与终止">进程的创建与终止</h2>
 
 <p>操作系统负责创建进程，如下的事件发生时可以创建进程：</p>
 
@@ -281,7 +293,7 @@
 </li>
 </ul>
 
-<h2 id="section-3">进程的实现</h2>
+<h2 id="进程的实现">进程的实现</h2>
 <p>操作系统通过<em>表</em>来维护资源的状态：</p>
 
 <ul>
@@ -293,7 +305,7 @@
 
 <p>这些表可以被交叉引用。</p>
 
-<h2 id="pcb">PCB与进程表</h2>
+<h2 id="pcb与进程表">PCB与进程表</h2>
 <p>PCB包含一些进程管理时必要的属性。通常而言，包含如下几个类别：</p>
 
 <ul>
@@ -306,7 +318,7 @@
 
 <p>进程表负责管理所有进程的PCB,当进程被中断/切换的时候，操作系统会更新进程表中的PCB信息。而在进程创建之前，进程表中会为之分配一个入口。</p>
 
-<h2 id="section-4">上下文切换</h2>
+<h2 id="上下文切换">上下文切换</h2>
 <p>上下文切换发生的时候，系统会将原来进程的状态与内容保存起来，然后读入新的进程所要执行的内容，这个读写操作会产生开销。如下的事件会触发上下文切换：</p>
 
 <ul>
@@ -315,7 +327,7 @@
   <li>系统调用，比如I/O请求</li>
 </ul>
 
-<h1 id="section-5">进程排程算法</h1>
+<h1 id="进程排程算法">进程排程算法</h1>
 
 <p>操作系统负责管理进程的排程：</p>
 
@@ -338,7 +350,7 @@
   </li>
 </ul>
 
-<h2 id="section-6">评价标准</h2>
+<h2 id="评价标准">评价标准</h2>
 
 <p>面向用户的评价标准：</p>
 
@@ -357,7 +369,7 @@
 
 <p>在下面我们主要使用平均响应时间与平均运行时间来衡量排程算法。</p>
 
-<h2 id="first-in-first-serve">先进先执行(First in first serve)</h2>
+<h2 id="先进先执行first-in-first-serve">先进先执行(First in first serve)</h2>
 <p>先进先执行是一个非抢先式算法，使用严格队列机制(strict queueing mechanism)，即其按照任务加入任务队列的顺序执行任务。</p>
 
 <ul>
@@ -367,7 +379,7 @@
 
 <p><img src="http://MeowAlienOwO.github.io/images/first-in-first-serve.jpg" alt=""></p>
 
-<h2 id="shotest-job-first">最短任务优先(Shotest job first)</h2>
+<h2 id="最短任务优先shotest-job-first">最短任务优先(Shotest job first)</h2>
 <p>最短任务优先算法同样也是一个非抢先式算法，将所有任务以所需时间排序，将耗时最小的任务首先执行。</p>
 
 <ul>
@@ -377,7 +389,7 @@
 
 <p><img src="http://MeowAlienOwO.github.io/images/shortest-first.jpg" alt=""></p>
 
-<h2 id="round-robin">循环算法(Round-Robin)</h2>
+<h2 id="循环算法round-robin">循环算法(Round-Robin)</h2>
 
 <p>循环算法是先进先执行算法的一个抢占式版本。它依然按照进程创建的顺序执行进程，但是在经过了一段时间间隔后，操作系统会强制切换到下一个进程。</p>
 
@@ -390,7 +402,7 @@
 
 <p><img src="http://MeowAlienOwO.github.io/images/round-robin.jpg" alt=""></p>
 
-<h2 id="priority-queues">优先级队列(Priority Queues)</h2>
+<h2 id="优先级队列priority-queues">优先级队列(Priority Queues)</h2>
 
 <p>优先级队列也是一个抢先式算法，它将所有的任务按照优先级排列。优先级通常存储在进程的PCB里，而且可以动态改变。</p>
 
@@ -401,7 +413,7 @@
 
 <p><img src="http://MeowAlienOwO.github.io/images/priority-queue.jpg" alt=""></p>
 
-<h1 id="threadprocess">线程(thread)与进程(process)</h1>
+<h1 id="线程thread与进程process">线程(thread)与进程(process)</h1>
 
 <p>进程包含两个基础单元：</p>
 
@@ -418,7 +430,7 @@
 
 <p>有的CPU对多线程有着硬件层面的支持。</p>
 
-<h2 id="section-7">进程与线程的区别</h2>
+<h2 id="进程与线程的区别">进程与线程的区别</h2>
 
 <p>同进程类似的，线程同样有：</p>
 
@@ -482,7 +494,7 @@
 
 <p>操作系统的线程实现通常分为用户线程，核心线程与混合线程。</p>
 
-<h2 id="section-8">用户线程</h2>
+<h2 id="用户线程">用户线程</h2>
 <p>线程管理是在用户库的协助下，在用户空间中发生的。线程管理包括：创建，摧毁，排程，线程控制块维护。</p>
 
 <p>进程通过运行时系统来管理线程表。同进程表类似，线程表用于管理线程切换并且跟踪同线程相关的信息。</p>
@@ -507,7 +519,7 @@
   <li>时钟中断不存在?(clock interrupts are non-existent)</li>
 </ul>
 
-<h2 id="section-9">核心线程</h2>
+<h2 id="核心线程">核心线程</h2>
 <p>操作系统管理线程，用户应用通过API与系统调用来控制线程。线程表保存在操作系统核心中，包括线程控制块(是进程控制块的一个子集)。线程阻塞时，操作系统会选择该进程中另外一个线程运行。</p>
 
 <p>优势：</p>
@@ -524,13 +536,13 @@
   <li>需要不断进行模式切换，会导致运行效率下降。</li>
 </ul>
 
-<h2 id="section-10">混合线程</h2>
+<h2 id="混合线程">混合线程</h2>
 
 <p>混合线程是以上两者的混合，系统线程由系统控制(数量有限),而用户应用控制用户线程</p>
 
-<h1 id="section-11">线程的排程</h1>
+<h1 id="线程的排程">线程的排程</h1>
 
-<h2 id="section-12">反馈队列算法</h2>
+<h2 id="反馈队列算法">反馈队列算法</h2>
 
 <p>进程可以按照占用资源大致被分成两类：</p>
 
@@ -566,14 +578,14 @@
 
 <p>由于物理限制的存在，并行被认为是提高计算能力的一个非常重要的手段。</p>
 
-<h2 id="section-13">排程的决定</h2>
+<h2 id="排程的决定">排程的决定</h2>
 <p>单处理器机器需要决定哪一个线程是接下来被执行的(一维)；</p>
 
 <p>相对的，多处理器机器需要决定：哪一个线程被_哪个_处理器执行，以及_何时_被执行。</p>
 
 <p>对于多用户而言，线程可以是相关的或者是非相关的。相关的线程：同一进程创建的线程，他们之间可以交互。非相关线程：属于不同的进程，很可能是被不同的用户所创建，运行不同的程序。</p>
 
-<h2 id="section-14">共享队列</h2>
+<h2 id="共享队列">共享队列</h2>
 
 <p>一个队列或者多个队列可能被所有的CPU所共享。</p>
 
@@ -582,7 +594,7 @@
   <li>坏处：会引发对队列的争夺，需要加锁；对非相关进程/线程更加有用；所有的CPU都有相同的机会，但是有些时候会有更高的优先权，而且对进程不够友善：移动到别的CPU时缓存不可用；Translation look aside buffers become invalid(?)</li>
 </ul>
 
-<h2 id="section-15">私有队列</h2>
+<h2 id="私有队列">私有队列</h2>
 <p>每个进程/线程被单个CPU所私有</p>
 
 <ul>
@@ -590,7 +602,7 @@
   <li>坏处：负载不够均衡</li>
 </ul>
 
-<h2 id="section-16">线程协作</h2>
+<h2 id="线程协作">线程协作</h2>
 <p>属于同一进程的线程被视为合作线程。他们可以互相传递消息或者共享信息。线程排程的目的是使得线程在多个CPU间同时运行。</p>
 
 <p>我们有如下方法：</p>
@@ -600,7 +612,7 @@
   <li>群排程(Gang scheduling)</li>
 </ul>
 
-<h3 id="section-17">空间分配</h3>
+<h3 id="空间分配">空间分配</h3>
 
 <p>方法：</p>
 
@@ -614,7 +626,7 @@
 
 <p>我们可以通过调整数字N来匹配不同的处理容量。</p>
 
-<h3 id="section-18">群排程</h3>
+<h3 id="群排程">群排程</h3>
 
 <p>我们做如下假定：</p>
 
@@ -637,7 +649,7 @@
 
 <p>关于反馈队列的一些讨论，<a href="http://baike.baidu.com/view/4230337.htm">百度百科</a>写的比较详细（虽然度娘的节操如浮云）</p>
 
-<h1 id="section-19">中断</h1>
+<h1 id="中断">中断</h1>
 
 <p>中断被用来临时暂停进程的正常操作</p>
 
@@ -649,7 +661,7 @@
   <li>IO完成或者错误时的IO中断</li>
 </ul>
 
-<h2 id="io">无中断情况下的IO操作</h2>
+<h2 id="无中断情况下的io操作">无中断情况下的IO操作</h2>
 
 <ul>
   <li>准备好IO设备</li>
@@ -664,7 +676,7 @@
   <li>CPU这个时候可不可以进行其他的作业？（相对而言IO操作远慢于CPU）</li>
 </ul>
 
-<h2 id="io-1">中断下的IO操作</h2>
+<h2 id="中断下的io操作">中断下的IO操作</h2>
 <p>中断使得CPU可以当IO操作发生时，空出来执行其他操作。</p>
 
 <ul>
@@ -695,7 +707,7 @@
   <li>重置程序计数器等</li>
 </ol>
 
-<h2 id="section-20">进程间通信</h2>
+<h2 id="进程间通信">进程间通信</h2>
 
 <p>进程可以是独立的，也可以是协作的，协作进程有交换信息的需求。我们有两种方法用于进程间协作：</p>
 
@@ -712,14 +724,14 @@
   </li>
 </ul>
 
-<h3 id="section-21">共享内存</h3>
+<h3 id="共享内存">共享内存</h3>
 <p>这种方法需要进程能够获得另一个进程的私有地址空间，通常而言我们可以通过重写保护边界来实现。同时，交流必须被同步，否则会出现问题。</p>
 
 <p>一旦共享空间设定，系统不需要过多干涉。但是同样有可能产生<a href="http://www.searchstorage.com.cn/whatis/word_3948.htm">竞态条件</a>。</p>
 
 <p>缓冲区可以是有界的或者是无界的。</p>
 
-<h3 id="section-22">竞态条件</h3>
+<h3 id="竞态条件">竞态条件</h3>
 
 <p>假设我们有一个操作系统连接着一个打印机。</p>
 
@@ -727,7 +739,7 @@
 
 <p>当两个进程同时将同一个文件提交至打印任务时：<img src="http://MeowAlienOwO.github.io/images/race-condition.jpg" alt="Race condition"></p>
 
-<h3 id="section-23">消息传输</h3>
+<h3 id="消息传输">消息传输</h3>
 
 <p>通过消息传输器交流，进程之间没有共享的地址空间。这种方式在分布式环境中更加有用。</p>
 
@@ -782,19 +794,19 @@
       <a href="http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(1)/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -807,7 +819,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

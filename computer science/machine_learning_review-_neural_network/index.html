@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -178,7 +190,7 @@
 
 <p>今年也请多多指教。</p>
 
-<h1 id="neural-network">神经网络（Neural Network）</h1>
+<h1 id="神经网络neural-network">神经网络（Neural Network）</h1>
 
 <p>神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。</p>
 
@@ -188,7 +200,7 @@
   <p>神经网络是由具有适应性的简单单元组成的广泛并行互联的网络，其组织能够模拟生物神经系统对真实世界作出的交互反应。</p>
 </blockquote>
 
-<h2 id="neuron-model">神经元模型(Neuron Model)</h2>
+<h2 id="神经元模型neuron-model">神经元模型(Neuron Model)</h2>
 
 <p>如上述的简单单元就是神经网络的最基本组成部分–神经元。一个神经元可以接受若干个来自其他神经元的输入信号，这些信号通过带权重的连接进行传递，总输入值与神经元的阈值进行比较，然后通过激活函数处理，形成神经元的输出。</p>
 
@@ -204,7 +216,7 @@
 
 <p>神经元具有学习功能，会根据输出值与真实值的误差对权重进行调整，从而达到泛化的目的。表示神经元的学习方式的函数叫做<strong>训练函数</strong>(training function)</p>
 
-<h2 id="perceptron">感知机（Perceptron）</h2>
+<h2 id="感知机perceptron">感知机（Perceptron）</h2>
 
 <p>感知机是一种最基本的神经网络，其包含两层神经元，输入层接受外界的信号，传递给输出神经元。输出神经元对输入的数据作加权处理，然后与阈值（threshold）做比较，判断神经元是否被激活。</p>
 
@@ -229,7 +241,7 @@ o = sign(R) = \lbrace +1; if~R > 0 \\ -1; otherwise</script>其中，阈值$\the
   <p>如果样本是线性可分的，那么感知机将会一定可以在有限的步骤内收敛到一个解。</p>
 </blockquote>
 
-<h2 id="adaptive-linear-elements">自适应线性神经元（Adaptive Linear Elements）</h2>
+<h2 id="自适应线性神经元adaptive-linear-elements">自适应线性神经元（Adaptive Linear Elements）</h2>
 
 <p>感知机由于采用了阶跃函数作为激发函数，容易出现难以收敛的情况。同时在样本集不是线性可分的情况下，感知机难以找出一个恰当的近似。为此，我们引入自适应线性神经元。</p>
 
@@ -245,7 +257,7 @@ o = sign(R) = \lbrace +1; if~R > 0 \\ -1; otherwise</script>其中，阈值$\the
 
 <p>这里常数1\2是用来处理求导后产生的常数。我们从误差函数中可以看出，如果误差函数越小，神经元就有更好的近似。</p>
 
-<h2 id="gradient-decent">梯度下降法（Gradient Decent）</h2>
+<h2 id="梯度下降法gradient-decent">梯度下降法（Gradient Decent）</h2>
 
 <p>对于自适应神经元，我们的训练目标是在样本空间中，对于给定的训练集，使其误差最小。为此，我们需要引入梯度下降法(Gradient Decent)。</p>
 
@@ -306,7 +318,7 @@ o = sign(R) = \lbrace +1; if~R > 0 \\ -1; otherwise</script>其中，阈值$\the
   <li>当误差小于某个预设值</li>
 </ol>
 
-<h2 id="section">神经网络</h2>
+<h2 id="神经网络">神经网络</h2>
 <p>由于线性神经元只能识别线性可分的情况，不能寻找非线性决策平面。于是，人们将若干神经元通过某些方式组合起来，形成神经网络。下图展示了神经网络的一种基本形式，其拓扑结构为单向向前输出的神经网络，后一层的输出是下一层的输入。</p>
 
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/300px-Colored_neural_network.svg.png" alt=""></p>
@@ -335,7 +347,7 @@ sigmoid(net(k))) = o_k(1 - o_k)</script>
 <script type="math/tex; mode=display">\frac{\partial Err}{\partial w_i} = \sum\limits_{k=1}^K x_i(k) o_k
 (o_k - d_k)(1 - o_k)</script>
 
-<h2 id="bp">BP算法</h2>
+<h2 id="bp算法">BP算法</h2>
 
 <p>我们以简单的三层神经网络（输入，隐层,输出）来讨论整个神经网络的权重更新算法：反向传播法(back propagation)</p>
 
@@ -426,20 +438,20 @@ Err}{\partial x_m} \frac{\partial x_m}{\partial w_{mn}} \\
       <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h3>
-      <p>啊……感觉要加快点节奏，不然来不及……聚类学习聚类学习(clustering)是无监督学习(unsupervised learning)的一种。训练样本的标记信息是未知的，目的是通过无监督学习的算法来揭示数据的内部联系。聚类学习的目的是，将原有的数据集合划分成若干个不相交的...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_decision_tree_&_random_forest/" title="Machine Learning Review: Decision Tree & Random Forest">Machine Learning Review: Decision Tree & Random Forest</a></h4>
-        <span>Published on January 06, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -451,7 +463,7 @@ Err}{\partial x_m} \frac{\partial x_m}{\partial w_{mn}} \\
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

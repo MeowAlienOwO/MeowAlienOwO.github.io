@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -176,35 +188,35 @@
 <html><body>
 <p>如你所见，还是复习资料……资源绝赞燃烧中，我要老李……</p>
 
-<h1 id="section">简介与服务</h1>
+<h1 id="简介与服务">简介与服务</h1>
 <p>连接层，又称为数据链路层（Data Link），或称为网络介质层（NetworkIn-terface），也就是网络的基础建设，广泛应用于通信网的安全技术中，处理通信与授权控制的核心协议。可在以太网（Ethernet）、光纤（Fiber）、无线网络（Wireless）、帧传送（Frame Relay）或点对点（PPP）物理网络中为网络层提供数据传送服务，连接层最重要的任务在于传送及接收物理层所传送的光电信号。 –度娘</p>
 
-<h2 id="section-1">连接层服务</h2>
+<h2 id="连接层服务">连接层服务</h2>
 
 <p>连接层包括如下服务：</p>
 
-<h3 id="section-2">帧与链接入口</h3>
+<h3 id="帧与链接入口">帧与链接入口</h3>
 <p>数据包被封装成帧。加入了头部(header)跟追踪部(trailer)。同时，如果是共享介质的话，还有信道入口的信息。MAC地址被用在帧头部来分别源地址与目标地址。这同IP地址不同。</p>
 
-<h3 id="relable-delivery-between-adjacent-nodes">相邻节点之间的可信传递(relable delivery between adjacent nodes)</h3>
+<h3 id="相邻节点之间的可信传递relable-delivery-between-adjacent-nodes">相邻节点之间的可信传递(relable delivery between adjacent nodes)</h3>
 <p>很少用于比特错误很少出现的链接，无线连接拥有更高的错误率。</p>
 
-<h3 id="flow-control">流控制(flow control)</h3>
+<h3 id="流控制flow-control">流控制(flow control)</h3>
 <p>决定相邻网络节点之间的传输速度</p>
 
-<h3 id="error-detection">错误检测(error detection)</h3>
+<h3 id="错误检测error-detection">错误检测(error detection)</h3>
 <p>错误由噪音与信号衰减所带来，接收方发现错误存在后或者请求重新传输，或者直接丢失帧。</p>
 
-<h3 id="error-correction">错误校正(error correction)</h3>
+<h3 id="错误校正error-correction">错误校正(error correction)</h3>
 <p>接收方收到信息并且发现错误后，直接改正错误而不是请求重新传输或者丢包。</p>
 
-<h3 id="section-3">双向传输与半双向传输</h3>
+<h3 id="双向传输与半双向传输">双向传输与半双向传输</h3>
 <p>半双向传输只能在某一时间传输一个方向，而双向传输可以同时传输两个方向</p>
 
-<h2 id="section-4">连接层实现相关</h2>
+<h2 id="连接层实现相关">连接层实现相关</h2>
 <p>连接层被每个网络主机所实现，在接收机(adaptor)，或者说网路接口卡(network interface card，NIC，网卡)或者芯片当中实现，比如以太网卡，802.11卡。以太网芯片集等等。它通过主机系统，将一些硬件，软件与固件组合起来。</p>
 
-<h3 id="section-5">信息传输流程</h3>
+<h3 id="信息传输流程">信息传输流程</h3>
 
 <p>发送者：</p>
 
@@ -220,9 +232,9 @@
   <li>解包，传递给接收的上一层处理</li>
 </ul>
 
-<h1 id="section-6">错误检测与校正</h1>
+<h1 id="错误检测与校正">错误检测与校正</h1>
 
-<h2 id="section-7">传输错误</h2>
+<h2 id="传输错误">传输错误</h2>
 
 <p>许多网络复杂度的增加由于接口的敏感性，而这些敏感性可以导致：</p>
 
@@ -231,7 +243,7 @@
   <li>出现随机数据</li>
 </ul>
 
-<h2 id="error-detection-1">错误检测(error detection)</h2>
+<h2 id="错误检测error-detection-1">错误检测(error detection)</h2>
 
 <p>发送者包含一些额外的信息来总结原来的数据信息， 接收者收到了数据以后检测这些额外的信息。之后，接收者需要决定接下来是否要进行错误校正或者请求重新传输。</p>
 
@@ -239,26 +251,26 @@
 
 <p>使用错误校验码并不是百分之百可靠的。</p>
 
-<h3 id="parity-checking">奇偶校验位(parity checking)</h3>
+<h3 id="奇偶校验位parity-checking">奇偶校验位(parity checking)</h3>
 
 <p>计算数据中1的数量，然后加入一个额外的比特位奇偶校验来进行奇偶校验。</p>
 
 <p>该方法简单，但是只能检测很少的一部分错误。我们使用校验和(checksum)与循环冗余校验码(cyclic redundancy checks)来进行检测。</p>
 
-<h3 id="checksum">校验和(checksum)</h3>
+<h3 id="校验和checksum">校验和(checksum)</h3>
 
 <p>将数据分成若干个段，视之为整数，进行加和，储存结果。通常会使用16位与32位校验和，而且通常对整个包进行校验和计算。</p>
 
 <p>校验和通常会为数据增加16或者32位，而计算负荷只是简单的加法操作。相对的，校验和有可能会存在一些未发现的错误。</p>
 
-<h3 id="cyclic-redundancy-check">循环冗余检测(cyclic redundancy check)</h3>
+<h3 id="循环冗余检测cyclic-redundancy-check">循环冗余检测(cyclic redundancy check)</h3>
 <p>循环冗余检测比校验和更加强大，可以检测更多的错误，它是基于二进制除法的。</p>
 
 <p>发送方希望发送$D$,一个长度为$d$的数据，发送与接收双方约定一个生成器$G$,其长度为$r + 1$。</p>
 
 <p>发送者在原有数据后加入一个$R$，使得$DR$恰好在二进制除法下被$G$所整除。接收者进行反向操作并且检查余数是否为0。</p>
 
-<h1 id="multiple-access-protocols">多址接入协议(Multiple Access Protocols)</h1>
+<h1 id="多址接入协议multiple-access-protocols">多址接入协议(Multiple Access Protocols)</h1>
 
 <p>解决问题：</p>
 
@@ -269,29 +281,29 @@
 
 <p>多址接入协议使用分布式算法来决定节点如何共享信道。</p>
 
-<h2 id="section-8">一个理想的协议</h2>
+<h2 id="一个理想的协议">一个理想的协议</h2>
 
 <p>假设广播信道以$R$比特率进行传输。</p>
 
 <p>理想方案是当一个节点希望传输时，它可以以$R$比特率传输。当$M$个节点希望传输时，每个节点可以以平均$R/M$的比特率传输。同时完全的去中心化：没有节点用来组织传输，不需要进行时钟同步/时间段同步等。</p>
 
-<h2 id="mac">MAC协议</h2>
+<h2 id="mac协议">MAC协议</h2>
 
-<h3 id="channel-partitioning">信道分配(channel partitioning)</h3>
+<h3 id="信道分配channel-partitioning">信道分配(channel partitioning)</h3>
 
 <p>将信道分解为小的”碎片”(pieces)，比如时间段，频率，编码等等，将每个碎片互斥地分配给节点。前述的FDM与TDM方法就属于这一种。</p>
 
-<h3 id="random-access">随机接入(random access)</h3>
+<h3 id="随机接入random-access">随机接入(random access)</h3>
 
 <p>不分解信道，允许碰撞发生，发生后从碰撞中恢复。</p>
 
-<h3 id="taking-turns">轮流(“taking turns”)</h3>
+<h3 id="轮流taking-turns">轮流(“taking turns”)</h3>
 
 <p>轮流方法指的是节点轮流占用信道，但是节点需要传输较长的信息可以使用更长的时间。从中心站点得到权限，包括令牌(token)传输。</p>
 
 <p>典型例子如蓝牙，FDDI，令牌环(token ring)等。</p>
 
-<h2 id="csmacarrier-sence-multiple-access">载波侦听多路访问：CSMA(carrier sence multiple access)</h2>
+<h2 id="载波侦听多路访问csmacarrier-sence-multiple-access">载波侦听多路访问：CSMA(carrier sence multiple access)</h2>
 
 <p>CSMA在传播之前监听：</p>
 
@@ -324,7 +336,7 @@
 
 <h3 id="csmacacollision-avoidance">CSMA/CA(collision avoidance)</h3>
 
-<h4 id="section-9">隐藏节点问题</h4>
+<h4 id="隐藏节点问题">隐藏节点问题</h4>
 
 <p>假设节点A,B,C，A与C只能向B进行信号传输。这意味着A与C不知道彼此之间的信息。当A向B发送信息时，C的侦测认为BC是空闲的，于是C也发送信息。这时，碰撞会在B节点发生，而A与C的碰撞检测全部失效。我们说这种情况下，A对C隐藏(A is hidden for C)。</p>
 
@@ -332,17 +344,17 @@
 
 <p>“虚拟载波感应”(virtual carrier sensing)：发送者询问接收者是否能”听到”别的节点发来的信息，如果是，则认为信道忙碌。</p>
 
-<h4 id="csmaca">无线局域网与CSMA/CA</h4>
+<h4 id="无线局域网与csmaca">无线局域网与CSMA/CA</h4>
 
 <p>由于无线网络的开放性，碰撞检测在这种环境下很容易失效。我们使用碰撞避免方法来处理这种情况。发送方向接收方发送一个小型的请求信息，接收方向所有的相邻节点返回一个”clear to send”信息。</p>
 
-<h1 id="local-area-network-lan">局域网(Local Area Network, LAN)</h1>
+<h1 id="局域网local-area-network-lan">局域网(Local Area Network, LAN)</h1>
 
 <p>局域网（Local Area Network，LAN）是在一个局部的地理范围内（如一个学校、工厂和机关内），一般是方圆几千米以内，将各种计算机，外部设备和数据库等互相联接起来组成的计算机通信网。 – 百度百科</p>
 
-<h2 id="section-10">寻址</h2>
+<h2 id="寻址">寻址</h2>
 
-<h3 id="mac-1">MAC地址</h3>
+<h3 id="mac地址">MAC地址</h3>
 
 <p>在局域网中使用，用于从物理上相互连接的接口得到帧。通常而言，MAC地址为48位，被烧录在NIC的ROM中，有的时候可以被软件所设置。</p>
 
@@ -352,7 +364,7 @@
 
 <p>MAC有独特性，而IP地址则是区域共享的。</p>
 
-<h2 id="ethernet">以太网(Ethernet)</h2>
+<h2 id="以太网ethernet">以太网(Ethernet)</h2>
 
 <p>以太网(Ethernet)指的是由Xerox公司创建并由Xerox、Intel和DEC公司联合开发的基带局域网规范，是当今现有局域网采用的最通用的通信协议标准。以太网络使用CSMA/CD（载波监听多路访问及冲突检测）技术，并以10M/S的速率运行在多种类型的电缆上。以太网与IEEE802.3系列标准相类似。</p>
 
@@ -360,20 +372,20 @@
 
 <p>以太网的MAC协议：无追踪的CSMA/CD，使用二进制补偿方法。</p>
 
-<h3 id="section-11">物理拓扑</h3>
+<h3 id="物理拓扑">物理拓扑</h3>
 
 <p>总线型bus:在90年代中期比较流行，所有的节点在一个碰撞域之中(可以互相碰撞)。</p>
 
 <p>星型star:现在比较常用，在中心有一个转换节点，每一个”辐条”(spoke)上运行一个独立的以太网协议，互相之间不发生碰撞。</p>
 
-<h2 id="section-12">扩展</h2>
-<h3 id="lan">LAN的距离极限</h3>
+<h2 id="扩展">扩展</h2>
+<h3 id="lan的距离极限">LAN的距离极限</h3>
 
 <p>MAC协议，比如CSMA/CD需要与导线长度成比例的时间;同时信号强度也会随着距离而衰减。</p>
 
 <p>另外，网络设计者需要在一定的成本之下，考虑容量，延迟与距离的取舍。</p>
 
-<h3 id="section-13">光纤的光学扩展</h3>
+<h3 id="光纤的光学扩展">光纤的光学扩展</h3>
 
 <p>光纤调制解调器可以在计算机与收发机之间扩展链接。</p>
 
@@ -383,7 +395,7 @@
 </code></pre>
 </blockquote>
 
-<h3 id="repeater">中继器(repeater)</h3>
+<h3 id="中继器repeater">中继器(repeater)</h3>
 
 <p>中继器将以太网段(segments)连接起来，它只放大信号强度，不关心帧信息。中继器只处理信号强度，不处理延迟。光纤调制解调器可以在中继器与长距离扩展之间使用。</p>
 
@@ -413,7 +425,7 @@
   </table>
 </blockquote>
 
-<h3 id="bridges">桥(bridges)</h3>
+<h3 id="桥bridges">桥(bridges)</h3>
 
 <p>桥可以将两个段之间连接起来，但是在帧层次使用。使用混杂模式(promiscuous，真是个好词……)并且传送所有的帧。但是，错误帧，比如噪音与碰撞，例外。</p>
 
@@ -487,7 +499,7 @@
 
 </table>
 
-<h4 id="frame-filtering">帧过滤(frame filtering)</h4>
+<h4 id="帧过滤frame-filtering">帧过滤(frame filtering)</h4>
 
 <p>只有在需要传送帧的时候才是必要的。</p>
 
@@ -500,7 +512,7 @@
 
 <p>当帧到达桥时，解压缩源地址，更新信息，并且检查目标地址用于传输。</p>
 
-<h3 id="switching">转换器(switching)</h3>
+<h3 id="转换器switching">转换器(switching)</h3>
 
 <p>一个简单的在计算机之间传送帧的电子设备。</p>
 
@@ -529,19 +541,19 @@
       <a href="http://MeowAlienOwO.github.io/computer%20science/introduction_to_information_theory/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -554,7 +566,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

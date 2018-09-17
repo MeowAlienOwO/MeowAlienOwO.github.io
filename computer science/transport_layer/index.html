@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -176,7 +188,7 @@
 <html><body>
 <p>传输层协议，看起来主要就是TCP的内容。单纵就是干！</p>
 
-<h1 id="section">简介</h1>
+<h1 id="简介">简介</h1>
 
 <p>传输层协议主要提供了不同主机上的应用程序之间的交流能力。在终端主机上运行。</p>
 
@@ -184,9 +196,9 @@
 
 <p>在因特网上，主要是TCP与UDP两种。</p>
 
-<h1 id="tcpudp">TCP与UDP</h1>
+<h1 id="tcp与udp">TCP与UDP</h1>
 
-<h2 id="user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
+<h2 id="用户数据报协议user-datagram-protocaludp">用户数据报协议(User Datagram Protocal,UDP)</h2>
 
 <p>IP上的很薄的一层。加入了校验和与包长度，用于防止包损坏；加入了源端口与目标端口，用于可能的特殊应用。</p>
 
@@ -194,13 +206,13 @@
 
 <p>组成：16比特源端口，16比特目标端口，16比特长度，16比特校验和。</p>
 
-<h2 id="transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
+<h2 id="传输控制协议transmission-control-protoacal-tcp">传输控制协议(Transmission Control Protoacal, TCP)</h2>
 
 <p>传输控制协议提供远比UDP可靠的通信手段。</p>
 
 <p>连接使用三次握手方式创建，数据被操作系统分成包并且标号，接收包的时候要返回已接收信息。连接必须被明确地关闭。</p>
 
-<h3 id="section-1">七个主要特性</h3>
+<h3 id="七个主要特性">七个主要特性</h3>
 
 <ol>
   <li>面向连接</li>
@@ -212,7 +224,7 @@
   <li>优雅的(……)关闭过程</li>
 </ol>
 
-<h3 id="section-2">建立链接</h3>
+<h3 id="建立链接">建立链接</h3>
 
 <p>使用特殊的同步(SYN)与结束(FIN)信息来打开/关闭连接，同时确认两边都接受了所有的数据。</p>
 
@@ -224,7 +236,7 @@
 
 <p>（看<a href="http://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">维基</a>吧ppt实在太坑了……）</p>
 
-<h3 id="section-3">传输信息</h3>
+<h3 id="传输信息">传输信息</h3>
 
 <p>维基的例子：</p>
 
@@ -236,7 +248,7 @@
   <li>这次第三条被成功接收，接收方可以直接确认第5条，因为4，5两条已收到。</li>
 </ol>
 
-<h3 id="section-4">关闭连接</h3>
+<h3 id="关闭连接">关闭连接</h3>
 
 <p>连接终止使用了四路握手过程（four-way handshake），在这个过程中每个终端的连接都能独立地被终止。因此，一个典型的拆接过程需要每个终端都提供一对FIN和ACK。</p>
 
@@ -248,17 +260,17 @@
 
 <p>—ACK—&gt;</p>
 
-<h1 id="tcp">TCP的可靠性机制</h1>
+<h1 id="tcp的可靠性机制">TCP的可靠性机制</h1>
 
-<h2 id="section-5">顺序</h2>
+<h2 id="顺序">顺序</h2>
 
 <p>动态路由可能会导致包并非顺序到达，TCP通过给予每个包一个序号来确保它们可以按顺序排列。这个序列号也可以用来侦测包的重复与缺失。</p>
 
-<h2 id="section-6">重新传输</h2>
+<h2 id="重新传输">重新传输</h2>
 
 <p>发送方发送某个包后开始计时，如果超过一段时间没有得到响应则重发包。有一定的尝试次数。接收方处理重复包。有的时候，在上一个会话的包会延迟抵达，而此时下一个会话如果有相同的顺序号，就会出现重复问题，解决方案是同时标记会话号。</p>
 
-<h2 id="section-7">流控制</h2>
+<h2 id="流控制">流控制</h2>
 
 <p>数据超出往往在发送方传输速度大于接收方接受速度时发生。一个简单的方法是在发送下一个之前对每个包进行接收通知(ack)，但是这个会带来带宽浪费。</p>
 
@@ -283,7 +295,7 @@
 
 <p>– 百度百科</p>
 
-<h2 id="section-8">防止拥堵</h2>
+<h2 id="防止拥堵">防止拥堵</h2>
 
 <p>转换器信号与丢包都可以认为是网络拥堵的标志。TCP通过丢包来监控网络拥堵。对于第一个丢包，TCP将发送一个小信息。如果这个信息没有丢失，数据大小加倍，以此类推，直到窗口大小的一半，停止倍增。</p>
 </body></html>
@@ -307,19 +319,19 @@
       <a href="http://MeowAlienOwO.github.io/computer%20science/network_layer/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -332,7 +344,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

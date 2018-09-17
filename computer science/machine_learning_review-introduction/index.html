@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -211,7 +223,7 @@
 <em>性能</em>：给定一组西瓜的特征，正确地挑出好瓜的概率</li>
 </ul>
 
-<h2 id="no-free-lunch-theorem">没有免费的午餐定理(No Free Lunch Theorem)</h2>
+<h2 id="没有免费的午餐定理no-free-lunch-theorem">没有免费的午餐定理(No Free Lunch Theorem)</h2>
 <p>在问题出现概率相同的情况下，总误差与学习算法无关，推理详见西瓜书。在实际中，问题并不是<em>等概率</em>出现的，也就意味着我们可以针对<em>特定问题</em>可以用机器学习方法找出一个很好的方案。</p>
 
 <h1 id="how-to-design-a-learning-system">How to design a learning system?</h1>
@@ -235,7 +247,7 @@
 
 <p>一些较小的数据集，比如说我们用过的手写识别<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>集，会有测试集与训练集的划分。但是，对于比较大的经验集，我们通常将其自身分成测试集(test set)与训练集(training set)（以及可能的验证集(verification set)）</p>
 
-<h3 id="hold-out">1.Hold-out</h3>
+<h3 id="1hold-out">1.Hold-out</h3>
 <p>西瓜书里叫做留出法，是一种基础的分类方法：</p>
 <ol>
   <li>将数据<em>随机地</em>分成训练（，开发）与测试集</li>
@@ -247,7 +259,7 @@
 
 <p>留出法的问题在于，它对原始的数据集进行了一定的操作。如果测试集太大，会导致训练集太小，得出的结果没有办法去近似在整个训练数据$D$上的结果；反之，则会导致测试集不能很好地估计训练结果。目前而言没有完美解决方案，常用的手法是训练集占比大约在三分之二至80%之间。</p>
 
-<h3 id="bootstrapping">2.Bootstrapping</h3>
+<h3 id="2bootstrapping">2.Bootstrapping</h3>
 <p>西瓜书里叫”自助法”。步骤如下：</p>
 <ol>
   <li>给定包含$m$个样本的数据集$D$</li>
@@ -261,7 +273,7 @@
 
 <p>在数据集足够大的情况下，初始数据集中大约有36.8%的数据是不会出现在集合$D’$里的。于是，我们可以使用$D’$作为训练集，$D - D’$ 作为测试集。这样做的坏处是，虽然我们的$D’$跟$D$有同样的大小，但是分布被改变了，也就会导致训练误差。</p>
 
-<h3 id="cross-validation">3.Cross Validation</h3>
+<h3 id="3cross-validation">3.Cross Validation</h3>
 <p>交叉验证法。其步骤如下：</p>
 <ol>
   <li>将数据集$D$划分成$k$个大小相等的<em>互斥</em>子集</li>
@@ -438,19 +450,19 @@
       <a href="http://MeowAlienOwO.github.io/computer%20science/linux_from_living_to_installbility/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -463,7 +475,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

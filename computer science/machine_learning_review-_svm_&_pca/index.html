@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -178,9 +190,9 @@
 
 <p>就不按照上课顺序了，从自己搞不清楚的部分写起。在考SQM之前姑且看看能不能再复习一遍决策树吧。</p>
 
-<h1 id="support-vector-machine">支持向量机 Support Vector Machine</h1>
+<h1 id="支持向量机-support-vector-machine">支持向量机 Support Vector Machine</h1>
 
-<h2 id="section">线性分类器</h2>
+<h2 id="线性分类器">线性分类器</h2>
 
 <p>分类学习的基本想法是，在训练集$D$的样本空间中，寻找到一个超平面(hyperplane)，从而将数据分成两类。感知机(perceptron)就是一个典型的线性分类器。</p>
 
@@ -190,7 +202,7 @@
 
 <p>其中，$\mathbf{w}$是权重向量，$\mathbf{x}$是特征向量。另外，在数学意义上，$\mathbf{w}$是由方程$\mathbf{w}^T\mathbf{x} + b = 0$所表示的超平面的法向量，$b$为该超平面的截距。</p>
 
-<h2 id="section-1">支持向量机</h2>
+<h2 id="支持向量机">支持向量机</h2>
 
 <p>应用线性分类器的时候，我们常常会碰到这样一种情况：</p>
 
@@ -246,7 +258,7 @@
 
 <p>于是，我们的问题转换成了一个二次规划(quadratic optimization)问题。</p>
 
-<h2 id="section-2">有约束的二次规划最优化问题，拉格朗日乘子</h2>
+<h2 id="有约束的二次规划最优化问题拉格朗日乘子">有约束的二次规划最优化问题，拉格朗日乘子</h2>
 
 <p>我们有许多程序包求解二次规划问题，通常而言不需要自己动手。但是了解一下其中的数学意义还是非常有帮助的。</p>
 
@@ -298,7 +310,7 @@ y_i f(\mathbf{x}_i) - 1 \geq 0;\\
 
 <p>这两点使得支持向量机的开销在面对大量的数据点时会变得比较糟糕。</p>
 
-<h2 id="section-3">软间隔与正则化</h2>
+<h2 id="软间隔与正则化">软间隔与正则化</h2>
 
 <p>在理想情况下，支持向量机应当能够对所有的样本正确分类；但实际上这并不一定能够做到。解决的方法是，我们“容忍”一些样本点不被正确分类，即一些样本点不满足：</p>
 
@@ -319,7 +331,7 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
 
 <p>其中，常数C可以被认为是一个用于控制过拟合与正确率之间的参数。由于每个样本都有一二对应的松弛变量，我们同样需要类似地引入另一个拉格朗日算子来化简变量。</p>
 
-<h2 id="svm">非线性SVM，核函数与升维方法</h2>
+<h2 id="非线性svm核函数与升维方法">非线性SVM，核函数与升维方法</h2>
 
 <p>我们之前讨论的SVM有一个前提：样本空间是线性可分的。但是，我们存在很多问题是<strong>线性不可分</strong>的，比如说异或。对于这种问题，我们通常将其映射到一个更高维的特征空间，使其线性可分。如果原始空间是有限维，那么一定存在一个高维特征空间，使得样本可分。</p>
 
@@ -348,7 +360,7 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
   <li>高斯核：$k(x_i, x_j) = exp(-\frac{|x_i - x_j |^2}{2\sigma})$</li>
 </ol>
 
-<h1 id="pca">主成分分析(PCA)</h1>
+<h1 id="主成分分析pca">主成分分析(PCA)</h1>
 
 <p>同升维方法相反，PCA是一种降维方法<del>二向箔</del>。比如在面部识别的时候，常用的方法是用一个遮罩(mask)对当前图像的像素进行逐一扫描。这时特征空间的维度会非常高，以至于难以处理。在这种情况下，我们需要缩减特征的数量，也就是进行降维处理。</p>
 
@@ -372,7 +384,7 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
 
 <p>两种方式都可以推出主成分分析，但是我们主要从最大可分性的角度入手。我们要使得投影点分得最开，就要让方差最大。</p>
 
-<h2 id="section-4">协方差矩阵</h2>
+<h2 id="协方差矩阵">协方差矩阵</h2>
 
 <p>在统计学上，计算不同变量之间的方差叫做<strong>协方差</strong>。假设我们有两个变量$x$，$y$，我们希望探索他们之间的相关程度：</p>
 
@@ -390,7 +402,7 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
 
 <p>在实际应用的时候，我们会先对样本矩阵进行处理：对于每一个数据，减去该列的均值。我们称这种方法为中心化处理。经过中心化处理后，不难看出，协方差矩阵是样本矩阵及其转置的乘积，再除以标量$m-1$，即样本数量。</p>
 
-<h2 id="section-5">求解转换矩阵</h2>
+<h2 id="求解转换矩阵">求解转换矩阵</h2>
 
 <p>// 这一部分主要翻译PPT,西瓜书，网上博客都各种各样的推导方法，我很好奇</p>
 
@@ -454,19 +466,19 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
       <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-introduction/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -479,7 +491,7 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

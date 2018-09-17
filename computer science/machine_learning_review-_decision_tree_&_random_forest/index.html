@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -234,7 +246,7 @@
 
 <p>我们可以很明显地看出，步骤5是决定决策树算法性能的关键。</p>
 
-<h2 id="section">信息熵</h2>
+<h2 id="信息熵">信息熵</h2>
 
 <p>我们的目标是寻找一个较好的找出最优的划分属性的方法，使得其划分后的样本能够<strong>最纯</strong>–换言之，尽可能相近的类别应该尽可能分在一起。为此，我们需要了解信息熵。</p>
 
@@ -244,7 +256,7 @@
 
 <p>当p为0的时候，信息熵为0。</p>
 
-<h2 id="id3">ID3算法与信息增益</h2>
+<h2 id="id3算法与信息增益">ID3算法与信息增益</h2>
 
 <p>但是，单单用信息熵我们是无法找到什么属性能够“最优”地划分样本集–样本往往由多个属性复合而成，我们选取划分属性的时候应该怎么做呢？ID3算法(iterative dichotomiser)引入了“信息增益”的概念。</p>
 
@@ -254,7 +266,7 @@
 
 <p>ID3算法在每次选取属性的时候，计算所有属性的增益，然后选取增益最大的一个属性进行划分，以此类推。</p>
 
-<h2 id="c45">C4.5算法与增益率</h2>
+<h2 id="c45算法与增益率">C4.5算法与增益率</h2>
 
 <p>ID3算法的问题在于，它会天然地倾向于属性多的类别。比如说，如果把编号(id)作为一类计入考虑，ID3会先划分编号–虽然划分非常纯净，但这毫无用处。为了克服这一缺点，C4.5算法引入了“增益率”(gai ratio)的概念。增益率定义为：</p>
 
@@ -266,15 +278,15 @@
 
 <p>但是实际上增益率的处理会导致偏向取值少的类别。在实际应用中，会先用启发式算法找出信息增益水平高于平均水平的属性，然后再选择高增益的属性。</p>
 
-<h2 id="section-1">过拟合</h2>
+<h2 id="过拟合">过拟合</h2>
 
 <p>决策树也会过拟合，主要的表现为分支过多，导致判断很多不必要的噪声。降低过拟合的风险的主要手段是剪枝。剪枝的手段主要有预剪枝与后剪枝两种。预剪枝指的是在构造树的过程中满足某些条件停止分支的构建，而后剪枝指构建完整的决策树后再进行剪枝。</p>
 
-<h1 id="section-2">随机森林</h1>
+<h1 id="随机森林">随机森林</h1>
 
 <p>// 注：这是根据中文网络上比较常见的随机森林与西瓜书写的，可能跟PPT有出入</p>
 
-<h2 id="section-3">集成学习</h2>
+<h2 id="集成学习">集成学习</h2>
 
 <p>集成学习(ensemble learning)是一种将多个学习器组合起来完成学习任务的方法。其一般结构为，先生成一组基<span color="black">♂</span>学习器(baselearner)，然后用某种策略组合其输出。其学习算法称作基<span color="black">♂</span>学习算法(base learning algorithm)</p>
 
@@ -291,7 +303,7 @@
 
 <p>我们首先对样本进行Bootstrap采样：给定包含$m$个样本的样本集，每次随机抽选一个，维持原有的采样集不变，重复$m$次，构建新的样本集。正如我们之前所讨论的，这个样本集大约会包含原有样本集中63.2%的样本。同样的，我们可以构建任意多个Bootstrap样本集，根据需求，我们构建$T$个样本集，每个样本集都会包含原有样本集的63.2%。我们对每个采样集训练一个学习器，然后将这些学习器进行结合。当结论不一致的时候，Bagging使用简单投票法。当得票数相等时，我们可以随机选一个，或者考察学习器投票的置信率。</p>
 
-<h2 id="section-4">随机森林算法</h2>
+<h2 id="随机森林算法">随机森林算法</h2>
 
 <p>随机森林是Bagging的一个变种。随机森林以决策树作为基学习算法，在Bagging基础上引入随机属性选择。</p>
 
@@ -326,22 +338,22 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_svm_&_pca/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io/machine%20learning/2016-12-31-machine_learning_review-_svm_&_pca/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -354,7 +366,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

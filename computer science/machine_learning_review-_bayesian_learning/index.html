@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -176,10 +188,10 @@
 <html><body>
 <p>死亡冲师匠失败(艸□`..)但是还是姑且把这个当成攒人品吧……</p>
 
-<h1 id="section">贝叶斯分类器</h1>
-<h2 id="section-1">数学准备</h2>
+<h1 id="贝叶斯分类器">贝叶斯分类器</h1>
+<h2 id="数学准备">数学准备</h2>
 <p>主要用到概率论的一些知识，简要地复习一下。</p>
-<h3 id="section-2">条件概率</h3>
+<h3 id="条件概率">条件概率</h3>
 <p>条件概率指的是在事件$B$发生的情况下，事件$A$发生的概率。数学符号记为$P(A | B)$</p>
 
 <p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082502.jpg" alt=""></p>
@@ -201,7 +213,7 @@
 <script type="math/tex; mode=display">P(A \| B)P(B) = P(B \| A )P(A)</script>
 
 <p>这就是条件概率公式。</p>
-<h3 id="section-3">全概率公式</h3>
+<h3 id="全概率公式">全概率公式</h3>
 
 <p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082504.jpg" alt=""></p>
 
@@ -217,7 +229,7 @@
 
 <script type="math/tex; mode=display">P(B) = P(B \| A)P(A) + P(B \| \not A) P(\not A)</script>
 
-<h3 id="section-4">贝叶斯推断</h3>
+<h3 id="贝叶斯推断">贝叶斯推断</h3>
 
 <p>对条件概率公式变形，我们有如下形式:</p>
 
@@ -237,7 +249,7 @@
   <p>P(我们预计是甜的情况下真的是甜的) = P(我们预计是甜的) × P(真的是甜的情况下且我们预计是甜的) / P(真的是甜的)</p>
 </blockquote>
 
-<h3 id="section-5">例子：假阳性问题</h3>
+<h3 id="例子假阳性问题">例子：假阳性问题</h3>
 <p>医学上的假阳性问题是一个很经典的例子，可以用来解释条件概率与贝叶斯定理。假定某种疾病发生的概率是1%，现在有一种准确率为99%的检查手段可以检测病情，即患者有病的情况下，检测为阳性的概率为99%。但是，这种手段的误报率是5%，即患者如果没有病，它有5%的概率呈现阳性。现在有一个病人的检验结果为阳性，求其得病的概率？</p>
 
 <p>我们的先验概率，即疾病发生的概率是1%。我们要计算的是：“在检测为阳性的情况下患者患病的概率”，即后验概率。根据贝叶斯定理，我们有：</p>
@@ -250,7 +262,7 @@
 
 <p>则我们可以计算出，患者被检测出阳性的总概率大致为5.94%，从而，患者检测为阳性的情况下患病率大致为16.7%。这是一个反直觉的结论，即检测结果为阳性也只能说明检测对象有大约百分之十七的概率患病。如果发病率更低，检测结果的效果更差，大家不妨试一试。</p>
 
-<h2 id="section-6">贝叶斯分类器的原理</h2>
+<h2 id="贝叶斯分类器的原理">贝叶斯分类器的原理</h2>
 
 <p>将贝叶斯定理与分类器的原理进行结合，我们就得到了贝叶斯分类器。其原理可以简单地叙述如下：</p>
 
@@ -263,7 +275,7 @@
 <script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i \| \mathbf{x}) \\
 ~~= argmax_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}</script>
 
-<h2 id="mlemap">极大似然估计（MLE）与极大后验概率（MAP）</h2>
+<h2 id="极大似然估计mle与极大后验概率map">极大似然估计（MLE）与极大后验概率（MAP）</h2>
 
 <p>由上式我们可以看出，样本的发生概率$P(\mathbf{x})$对于给定的数据集是一个常数。但是，对于如何处理分子项$P(d_i)P(\mathbf{x} | d_i)$而言，根据不同的视角而言会有不同的结论。</p>
 
@@ -279,7 +291,7 @@
 
 <p>根据贝叶斯学派的观点，先验概率的选取会对结果造成影响，在现实世界中，这也意味着之前的认知会对之后的估计造成影响，这里不展开。</p>
 
-<h2 id="section-7">朴素贝叶斯分类器</h2>
+<h2 id="朴素贝叶斯分类器">朴素贝叶斯分类器</h2>
 
 <p>基于贝叶斯公式估计后验概率的时候，由于样本的属性向量$\mathbf{x}$会随着属性的不同而不同，在属性很多的情况下会是一个天文数字。这导致了两个问题：在计算的时候出现组合爆炸；在泛化的时候又过于稀疏，难以估计广泛情况。为了避开这个障碍，朴素贝叶斯分类器采用了“属性条件独立性假设”(attributeconditional independence assumption)，即假设所有的属性对结果的影响是独立的。</p>
 
@@ -296,7 +308,7 @@
 
 <p>其中，$|D_c|$指的是该类别的样本总量，$|D|$是样本总量，$p$是<strong>该类别</strong>的先验概率，$m$是等效样本的大小(equivalent sample size)。这里，$m$可以取正的任意值。在样本量足够大的情况下，取一个较小的m不会对最终结果有很大的影响。</p>
 
-<h1 id="section-8">思想及其应用</h1>
+<h1 id="思想及其应用">思想及其应用</h1>
 
 <p>在Paul Graham的《黑客与画家》一书中，使用了朴素贝叶斯分类器来分辨垃圾邮件，具体操作是抽取关键词，并且计算关键词出现与邮件为垃圾邮件的概率。朴素贝叶斯分类器的效率极高，在这方面的应用往往有99%以上的正确率。</p>
 
@@ -332,23 +344,23 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_decision_tree_&_random_forest/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io/machine%20learning/2017-01-06-machine_learning_review-_decision_tree_&_random_forest/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_decision_tree_&_random_forest/" title="Machine Learning Review: Decision Tree & Random Forest">Machine Learning Review: Decision Tree & Random Forest</a></h4>
-        <span>Published on January 06, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
+        <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -360,7 +372,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

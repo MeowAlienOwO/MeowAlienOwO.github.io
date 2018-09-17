@@ -141,6 +141,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/math/">
+				    math (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -178,9 +190,9 @@
 
 <p>这个照旧是网络的笔记……John个大坑比……</p>
 
-<h1 id="section">网络基础</h1>
+<h1 id="网络基础">网络基础</h1>
 
-<h2 id="network">何为网络(Network)</h2>
+<h2 id="何为网络network">何为网络(Network)</h2>
 
 <p>网络是在节点之间传输数据的一种结构。</p>
 
@@ -199,11 +211,11 @@
 
 <p>互联网：网络的网络，由协议与标准来定义信息的传输。</p>
 
-<h2 id="protocals">互联网协议(protocals)</h2>
+<h2 id="互联网协议protocals">互联网协议(protocals)</h2>
 
 <p>互联网协议控制网络信息的发送与接受。协议定义了网络实体之间的信息传输<em>格式</em>，<em>顺序</em>与对信息传输的<em>行动</em>。</p>
 
-<h2 id="host">主机(host)</h2>
+<h2 id="主机host">主机(host)</h2>
 
 <p>主机以包(packets)的形式传输信息。算法如下：</p>
 
@@ -217,7 +229,7 @@
 
 <p>$time\ need\ to\ transmit\ L\ bit\ packet\ into\ link = \frac{L(bits)}{R(bits/sec)}$</p>
 
-<h2 id="physical-media">物理媒体(Physical Media)</h2>
+<h2 id="物理媒体physical-media">物理媒体(Physical Media)</h2>
 
 <p>比特(bit)：在发送者与接收者之间传输</p>
 
@@ -227,11 +239,11 @@
 
 <p>无导向媒体(unguided media)：信号可以自由传播。比如广播。</p>
 
-<h2 id="network-core">网络核心(network core)</h2>
+<h2 id="网络核心network-core">网络核心(network core)</h2>
 
 <p>网络核心由一些互相链接的路由器所构成。当主机将应用层的信息转换成包后，将其传输至网络，交给路由器处理，路由器将收到的包传到下一个路由器。每个包的传输都使用全部的带宽。</p>
 
-<h2 id="section-1">网络结构</h2>
+<h2 id="网络结构">网络结构</h2>
 
 <p>终端系统通过网络服务提供商(Internet Serveice Providers)连接到网络。所有的ISP必须互相之间链接，这样才能做到路由器之间的通讯。</p>
 
@@ -246,7 +258,7 @@
   <li>入口ISP</li>
 </ol>
 
-<h2 id="package-switching">封包交换/分组交换(Package switching)</h2>
+<h2 id="封包交换分组交换package-switching">封包交换/分组交换(Package switching)</h2>
 
 <p>分组是由一块用户数据和必要的地址和管理信息组成，保证网络能够将数据传递到目标。类似于从邮局发送的包裹上注明的地址一样,只有提供给网络这些信息，网络（邮局）才能把分组（包裹）往正确的地址传送。</p>
 
@@ -256,7 +268,7 @@
 
 <p>存储与传输(store-and-forward)：整个包必须在传输到下一个连接之前到达一个路由器。终端-终端延迟在理想状况下为$2L / R$。</p>
 
-<h3 id="section-2">队列与丢包</h3>
+<h3 id="队列与丢包">队列与丢包</h3>
 
 <p>如果路由器的包到达速率超过了其传输速率，那么会发生两种情况：</p>
 
@@ -265,35 +277,35 @@
   <li>当队列存储容量满了以后，包会丢失(dropped)</li>
 </ul>
 
-<h3 id="section-3">两个关键的的网络核心功能</h3>
+<h3 id="两个关键的的网络核心功能">两个关键的的网络核心功能</h3>
 
 <p>路由(routing):决定包的源地址路由器</p>
 
 <p>传输(forwarding):将包从路由的输入转换到正确的输出</p>
 
-<h3 id="circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
+<h3 id="另一种核心电路交换circuit-switchingaohu">另一种核心：电路交换(circuit switchingaohu)</h3>
 
 <p>根据<a href="http://zh.wikipedia.org/wiki/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2" title="电路交换">维基百科</a>的解释，电路交换是在两个通信终端之间建立起一个连接，双方通过这条通道进行信息的交换。这个连接一直保留到双方的通信结束，在通信结束之前，连接将始终被占用。这种方式常用在传统的电话网络中。</p>
 
-<h4 id="fdmtdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
+<h4 id="电路交换的频分多路复用fdm与时分多路复用tdm">电路交换的频分多路复用(FDM)与时分多路复用(TDM)</h4>
 
 <p>频分多路复用(Frequency-division multiplexing)指的是将不同的信息编码至不同的频率段，从而使得同时可以有多个用户进行通信的技术。频分多路复用在现代的通信中应用相对较少</p>
 
 <p>时分多路复用(Time-Division Multiplexing)指的是将时间域分成固定的小段，每个小段分配给某个固定的用户进行通信的技术。典型应用有GSM。</p>
 
-<h3 id="vs-">封包交换 vs 电路交换</h3>
+<h3 id="封包交换-vs-电路交换">封包交换 vs 电路交换</h3>
 
 <p>电路交换的最大缺陷是能够服务的用户数量有限，而封包交换往往可以服务更广的用户。</p>
 
 <p>封包交换的优势在于可以共享通信资源以及更加简单(不需要初始化连接)。但是，封包交换同样存在着延迟与丢包的问题，在需要可信的数据传输的时候，这种方式并不是最好选择。</p>
 
-<h3 id="section-4">丢包与延迟的来源</h3>
+<h3 id="丢包与延迟的来源">丢包与延迟的来源</h3>
 
-<h4 id="section-5">丢包</h4>
+<h4 id="丢包">丢包</h4>
 
 <p>路由器使用队列来储存包的请求，当接受速率大于传输速率时，包会被储存进路由器的队列中。当队列容量满时，这时候便无法接受数据包，造成丢包。</p>
 
-<h4 id="section-6">延迟</h4>
+<h4 id="延迟">延迟</h4>
 
 <p>对于单路由节点而言，延迟的来源有四个：</p>
 
@@ -308,9 +320,9 @@
 
 <p>$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$</p>
 
-<h2 id="section-7">层级</h2>
+<h2 id="层级">层级</h2>
 
-<h3 id="section-8">网络协议层级栈</h3>
+<h3 id="网络协议层级栈">网络协议层级栈</h3>
 
 <ol>
   <li>应用层(application)：支持网络应用，如FTP, SMTP, HTTP等</li>
@@ -320,7 +332,7 @@
   <li>物理层(physical)：二进制数据</li>
 </ol>
 
-<h3 id="isoosi">ISO/OSI七层模型</h3>
+<h3 id="isoosi七层模型">ISO/OSI七层模型</h3>
 
 <p>在网络协议层级的应用层与传输层之间加入了表示层与会话层。</p>
 
@@ -352,19 +364,19 @@
       <a href="http://MeowAlienOwO.github.io/computer%20science/machine_and_their_language(2)/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h3>
-      <p>呼……终于到最后一篇了，也是开学学的内容。今年也请多多指教。# 神经网络（Neural Network）神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括现在火的深度学习，其基础也是神经网络。神经网络的定义（来自西瓜书，引用T.Kohonen）：> 神经...&hellip; <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">Math review: Probability</a></h3>
+      <p>Gintama is ended. I'm waiting for it's restart date.) I have now went to University of Edinburgh for postgraduate study, major in MSc Art...&hellip; <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
-        <span>Published on January 08, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">Machine Learning Review: Bayesian Learning</a></h4>
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">Machine Learning Review: K-means & KNN</a></h4>
         <span>Published on January 08, 2017</span>
       </div><!-- /.list-item -->
     
@@ -377,7 +389,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 
