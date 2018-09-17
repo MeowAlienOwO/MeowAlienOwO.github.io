@@ -6,11 +6,11 @@ deploy:
 	jekyll build --incremental --trace --verbose
 	git add -A
 	git commit -m "update source"
-	cp -r _site/ ../tmp/
+	cp -r _site/ ../tmp/_site
 	git checkout master 
 	rm -r ./*
-	cp -r ../tmp/_site/* ./
-	rm -r ../tmp/
+	cp -r /tmp/_site/* ./
+	rm -r /tmp/_site/
 	git add -A
 	git commit -m "update page info"
 	echo "deploy finished"
