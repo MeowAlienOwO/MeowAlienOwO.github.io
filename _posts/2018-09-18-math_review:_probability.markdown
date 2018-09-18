@@ -4,7 +4,7 @@ title: "Math review: Probability"
 categories: [math]
 tags: [math, probability, machine learning]
 image: 
-  feature: https://i.pximg.net/img-master/img/2016/02/01/02/11/53/55022382_p0_master1200.jpg
+  feature: http://og78s5hbx.bkt.clouddn.com/55022382_p0_master1200.jpg
   credit: Log | MIKI努力画
   creditlink: https://www.pixiv.net/member_illust.php?mode=medium&illust_id=55022382
 comments: 
