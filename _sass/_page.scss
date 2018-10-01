@@ -17,7 +17,6 @@ body {
 .entry-content {
 	@include font-size(18);
         font-family: Verdana, "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", STXihei, sans-serif;
-        
 	// Dotted line underlines for links
 	p > a,
 	li > a {
@@ -117,8 +116,8 @@ div.entry-content > h1 h2 h3 h4 h5 h6{
 	// height: 200%;
 	// width:100%;
 	height:100%;
-	//min-height: 645px;
-    min-height: 30%;
+	// min-height: 645px;
+  min-height: 60vh;
 	// min-height:600px;
 	overflow: hidden;
 	&:after {
@@ -131,15 +130,15 @@ div.entry-content > h1 h2 h3 h4 h5 h6{
 		background-color: rgba($base-color,0.3);
 	}
 	img {
-		//position: absolute; 
-		position: relative;
-		top: 0; 
-		left: 0; 
-		right: 0; 
-		bottom: 0; 
+		position: absolute; 
+		//position: relative;
+		// top: 0; 
+		// left: 0; 
+		// right: 0; 
+		// bottom: 0; 
 		margin: auto; 
-		min-width: 50%;
-		min-height: 30%; // match .entry-image min-height
+		min-width: 100%;
+		min-height: 60vh; // match .entry-image min-height
 		
 	}
 }
