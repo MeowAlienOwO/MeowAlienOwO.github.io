@@ -48,7 +48,7 @@ In this series I will write:
 
 1. Mathematic basis of machine learning. Including probability, linear algebra, calculus, statitistics and basic algorithms. I'll try my best to do the proving and mathematic reasoning.
 2. Machine learning methods in detail. I'll recall what I have learned during undergraduate, and all the knowledge I gained not only here but also many other resources of machine learning. Including Coursera classes, books, blogs and many other machine learning related medias.
-3. Pratical cases of machine learning. Here will mostly concentrate on NLP stuff but if possible, also some other tasks including image processing, etc.
+3. Pratical cases of machine learning. Here will mostly concentrate on NLP stuff but if possible, also some other tasks including image processing, etc. Most  of them will contain programming.
 4. Mathematical practice for other topics, like computer graphics, if I have time.
 
 
