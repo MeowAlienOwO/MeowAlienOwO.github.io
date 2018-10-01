@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Machine Learning series -- Introduction"
-categories: ['Machine Learning', 'Math']
+categories: ['ML', 'category']
 tags: []
 image: 
   feature: http://og78s5hbx.bkt.clouddn.com/39496577_p0.jpg
@@ -69,7 +69,13 @@ To be continued.
 To be continued.
 
 
+# Reference
 
+
+# music
+<audio controls="controls" autoplay playsinline="" webkit-playsinline="">
+  <source src="http://www.170mv.com/kw/other.web.ra01.sycdn.kuwo.cn/resource/n3/2011/06/10/418067833.mp3" type="audio/mpeg">
+</audio>
 
 
 
