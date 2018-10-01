@@ -12,8 +12,12 @@
 
 <!-- other plugins config -->
 <!-- mathjax -->
-<script type="text/javascript"
-	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- script type="text/javascript"
+	   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js"></script> -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
 </script>
@@ -143,13 +147,13 @@
 				
 				<li>
 				  <a href="/categories/Machine Learning/">
-				    Machine Learning (2)
+				    Machine Learning (3)
 				  </a>
 				</li>
 				
 				<li>
-				  <a href="/categories/math/">
-				    math (1)
+				  <a href="/categories/Math/">
+				    Math (1)
 				  </a>
 				</li>
 				
@@ -181,39 +185,83 @@
   <header>
     
       <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" title="Math review: Probability">
+        <a href="http://MeowAlienOwO.github.io/machine%20learning/math/math-notes-introduction/" title="Machine Learning series -- Introduction">
             
-            <img src="http://og78s5hbx.bkt.clouddn.com/55022382_p0_master1200.jpg" alt="Math review: Probability">
+            <img src="http://og78s5hbx.bkt.clouddn.com/39496577_p0.jpg" alt="Machine Learning series -- Introduction">
             
         </a>
       </div><!-- /.entry-image -->
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2018-09-18T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/">September 18, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2018-10-01T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io/machine%20learning/math/math-notes-introduction/">October 01, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/math/math_review-_probability/" rel="bookmark" title="Math review: Probability" itemprop="url">Math review: Probability</a></h1>
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/math/math-notes-introduction/" rel="bookmark" title="Machine Learning series -- Introduction" itemprop="url">Machine Learning series -- Introduction</a></h1>
     
   </header>
   <div class="entry-content">
-    <!-- <p>Gintama is ended. I’m waiting for it’s restart date.)</p>
+    <!-- <p>いつまでもあると思うな、親と金と若さと部屋とTシャツと私とあなたとアニメ銀魂。</p>
 
-<p>I have now went to University of Edinburgh for postgraduate study, major in MSc Artificial Intelligence. After 1 Year of working in Shanghai, I’ve nearly totally forgot all the mathematic knowledge gathered both inside and outside the university which I spend on my undergraduate study. From now on I’ll write blog for mathematic and ML related lecture note or related knowledge in this blog in English. Such blog have saved my study during undergraduate, hope this will work again in my postgraduate study.</p>
+<p>Gintama is one of my favorite anime/manga, which was ended in <em>Jump</em>. The ending is soooooo… Gorilla. Thanks for accompany for years, although later I did not watch it much.</p>
 
-<h1 id="probability">Probability</h1>
+<p><img src="http://og78s5hbx.bkt.clouddn.com/q5iRnqKWlJ6dqKQ.jpg" /></p>
 
-<h2 id="definition">Definition</h2>
-<p>To be Continued =&gt;</p>
+<p>↑Above are some useless words.</p>
 
-<h1 id="reference">Reference</h1>
+<p>↓Below are real blog article.</p>
+
+<p>This series of article is aiming to review/preview the mathematic which is necessary for machine learning courses, including MLPR class in UoE and Machine Learning by Andrew Ng, which is held in Coursera.</p>
+
+<h1 id="motivation">Motivation</h1>
+
+<p>I’ve been to Edinburgh for almost one month. As a MSc AI student, I’ve chosen a class called Machine Learning and Pattern Recognization.
+Math reasoning and application in the class are quite hard for me, hence I need to make more effort to recall and study necessary mathematic tools.
+As for the reason why I did not gather enough math ability for machine learning, well, one of the reason was I spent whole year working for a start-up company.
+The works there was mainly aims on application and dealing with lots of – sometimes even silly – requirements and management problems.
+The other reason, that I <strong>MUST</strong> critisize, is we did not have <strong>enough</strong> mathematic training during undergraduate period.
+As computer student, we don’t have class on linear algebra, probability, and we only have some very basic calculus which was taught in first year. 
+It is really ridiculus to those student graduated from chinese university education background. 
+Amoung my classmates there are lot of people came from mathematic/physics background. So it is really challenging to catch up the fast-pace classes.</p>
+
+<p>Writing blogs was one of my best learning approach, that’s why I write this series of article. On the otherhand, it is also a good practice of time management and English writing. The blog is also inspired by <a href="https://tony4ai.com">tony4ai</a>, which helped me a lot at the very beginning of this semester.</p>
+
+<p>The mountain is there, stop half way will gain nothing. The only way to success is to reach the top.</p>
+
+<p>As the beginning says, there is nothing can last forever, including your parents, money, room, T-shirt, me, you, and anime Gintama.</p>
+
+<p>And also past success and pride.</p>
+
+<h1 id="content">Content</h1>
+
+<p>In this series I will write:</p>
 
 <ol>
-  <li>S. Tan, Machine Learning &amp; Computer Vision(blog, Chinese), https://www.tony4ai.com</li>
+  <li>Mathematic basis of machine learning. Including probability, linear algebra, calculus, statitistics and basic algorithms. I’ll try my best to do the proving and mathematic reasoning.</li>
+  <li>Machine learning methods in detail. I’ll recall what I have learned during undergraduate, and all the knowledge I gained not only here but also many other resources of machine learning. Including Coursera classes, books, blogs and many other machine learning related medias.</li>
+  <li>Pratical cases of machine learning. Here will mostly concentrate on NLP stuff but if possible, also some other tasks including image processing, etc. Most  of them will contain programming.</li>
+  <li>Mathematical practice for other topics, like computer graphics, if I have time.</li>
 </ol>
+
+<h1 id="main-category">Main Category</h1>
+
+<h2 id="math">Math</h2>
+
+<h2 id="machine-learning">Machine learning</h2>
+
+<p>To be continued.</p>
+
+<h2 id="practical-cases-for-ml">Practical Cases for ML</h2>
+
+<p>To be continued.</p>
+
+<h2 id="mathematical-practice">Mathematical Practice</h2>
+
+<p>To be continued.</p>
+
  -->
     
-        <p>Gintama is ended. I’m waiting for it’s restart date.)</p>
+        <p>いつまでもあると思うな、親と金と若さと部屋とTシャツと私とあなたとアニメ銀魂。</p>
 
 
     
