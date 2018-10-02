@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Machine Learning series -- Introduction &#8211; 喵窝[0]号机</title>
+<title>Machine Learning: Linear Regression &#8211; 喵窝[0]号机</title>
 <meta name="description" content="一个伪装成技术博客的吐槽网站。">
 
 <meta name="keywords" content="">
@@ -34,16 +34,16 @@
 <!-- <meta property="og:locale" content="en_US"> -->
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning series -- Introduction">
+<meta property="og:title" content="Machine Learning: Linear Regression">
 <meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
-<meta property="og:url" content="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/">
 <meta property="og:site_name" content="喵窝[0]号机">
 
 
 
 
 
-<link rel="canonical" href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/">
+<link rel="canonical" href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/">
 <link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -178,10 +178,10 @@
 
 
 <div class="entry-header">
-  <div class="image-credit">Image source: <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=39496577v">烏鴨 | 背中合わせに</a></div><!-- /.image-credit -->
+  <div class="image-credit">Image source: <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=60323285">和武はざの | シールダー</a></div><!-- /.image-credit -->
   <div class="entry-image">
     
-    <img src="http://og78s5hbx.bkt.clouddn.com/39496577_p0.jpg" alt="Machine Learning series -- Introduction">
+    <img src="http://og78s5hbx.bkt.clouddn.com/60323285_p0.jpg" alt="Machine Learning: Linear Regression">
     
 
   </div><!-- /.entry-image -->
@@ -193,76 +193,113 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" rel="bookmark" title="Machine Learning series -- Introduction">Machine Learning series -- Introduction</a></h1>
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" rel="bookmark" title="Machine Learning: Linear Regression">Machine Learning: Linear Regression</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2018-10-01T00:00:00+08:00">October 01, 2018</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2018-10-02T00:00:00+08:00">October 02, 2018</time></span></h2>
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body>
-<p>いつまでもあると思うな、親と金と若さと部屋とTシャツと私とあなたとアニメ銀魂。</p>
+<p>Linear regression is one of the oldest method for statistics, also regarded as an guide algorithm for machine learning.</p>
 
-<p>Gintama is one of my favorite anime/manga, which was ended in <em>Jump</em>. The ending is soooooo… Gorilla. Thanks for accompany for years, although later I did not watch it much.</p>
+<p>In this article, I will follow what I’ve learned in MLPR, with content talking about the algorithm itself, regularization, logistics regression (sigmoid function), Raditional Basis Function(RBF). Besides, I’ll talk about some topic that we will come through all algoritms: overfitting, measure of performance.</p>
 
-<p><img src="http://og78s5hbx.bkt.clouddn.com/q5iRnqKWlJ6dqKQ.jpg"></p>
+<h3 id="music">music</h3>
+<p><del>Finally I got somewhere to make audio for the blog ;P</del></p>
+<audio controls=""><source src="http://mp3.flash127.com/music/47306.mp3" type="audio/mpeg"></source>您的浏览器不支持音频格式</audio>
 
-<p>↑Above are some useless words.</p>
+<p><em>脱獄　Datsugoku</em></p>
 
-<p>↓Below are real blog article.</p>
+<p><code>Producer</code>: Neru(押入p)</p>
 
-<p>This series of article is aiming to review/preview the mathematic which is necessary for machine learning courses, including MLPR class in UoE and Machine Learning by Andrew Ng, which is held in Coursera.</p>
+<p><code>Origin Vocaloid</code>: 鏡音りん Kagamine Rin</p>
 
-<h1 id="motivation">Motivation</h1>
+<p><code>Singer</code>: まふまふ　mafumafu</p>
 
-<p>I’ve been to Edinburgh for almost one month. As a MSc AI student, I’ve chosen a class called Machine Learning and Pattern Recognization.Math reasoning and application in the class are quite hard for me, hence I need to make more effort to recall and study necessary mathematic tools.As for the reason why I did not gather enough math ability for machine learning, well, one of the reason was I spent whole year working for a start-up company.The works there was mainly aims on application and dealing with lots of – sometimes even silly – requirements and management problems.The other reason, that I <strong>MUST</strong> critisize, is we did not have <strong>enough</strong> mathematic training during undergraduate period.As computer student, we don’t have class on linear algebra, probability, and we only have some very basic calculus which was taught in first year. It is really ridiculus to those student graduated from chinese university education background. Amoung my classmates there are lot of people came from mathematic/physics background. So it is really challenging to catch up the fast-pace classes.</p>
+<p style="color: orange">エンジンがヒートして　機体がどうしたって</p>
 
-<p>Writing blogs was one of my best learning approach, that’s why I write this series of article. On the otherhand, it is also a good practice of time management and English writing. The blog is also inspired by <a href="https://tony4ai.com">tony4ai</a>, which helped me a lot at the very beginning of this semester.</p>
+<p style="color: orange">気にもしない程に　トリップしてしまう大空は偉大さ</p>
 
-<p>The mountain is there, stop half way will gain nothing. The only way to success is to reach the top.</p>
-
-<p>As the beginning says, there is nothing can last forever, including your parents, money, room, T-shirt, me, you, and anime Gintama.</p>
-
-<p>And also past success and pride.</p>
-
-<h1 id="content">Content</h1>
-
-<p>In this series I will write:</p>
+<h1 id="introduction">Introduction</h1>
+<p>Linear regression is a typical regression task and supervised learning method. According to Andrew Ng, there we have 2 definitions:</p>
 
 <ol>
-  <li>Mathematic basis of machine learning. Including probability, linear algebra, calculus, statitistics and basic algorithms. I’ll try my best to do the proving and mathematic reasoning.</li>
-  <li>Machine learning methods in detail. I’ll recall what I have learned during undergraduate, and all the knowledge I gained not only here but also many other resources of machine learning. Including Coursera classes, books, blogs and many other machine learning related medias.</li>
-  <li>Pratical cases of machine learning. Here will mostly concentrate on NLP stuff but if possible, also some other tasks including image processing, etc. Most  of them will contain programming.</li>
-  <li>Mathematical practice for other topics, like computer graphics, if I have time.</li>
+  <li>
+<strong>Supervised Learning</strong>: Give the dataset of right answers, the system is used to make more “correct” answers</li>
+  <li>
+<strong>Regression</strong>: Predict <em>continuous</em> value output</li>
 </ol>
 
-<h1 id="machine-learning-introduction">Machine Learning Introduction</h1>
+<p>Example: Given a set of past house price, trying to predict the price in future.</p>
 
-<p>To be continued.(JOJO Pose!)</p>
+<h2 id="main-task">Main task</h2>
 
-<h1 id="main-category">Main Category</h1>
+<p>Linear regression is a system that predict the relations, and assume them as linear, with input data $\mathbf{x}$ and the result data $y$. Here, $\mathbf{x}$ is a row vector: $\mathbf{x}_d = [ x_1, x_2, x_3 … x_d]^T$.We have a learning function $f$ which gives a predicted value $f(\mathbf{x})$. Since we predict that $\mathbf{x}$ and $\mathbf{y}$ has linear relationship, we have:</p>
 
-<h2 id="math">Math</h2>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+f(\mathbf{x}) &= (w_1 x_1 + w_2 x_2 + ... + w_d x_d) + b \\
 
-<h2 id="machine-learning">Machine learning</h2>
+&= \mathbf{w}^T\mathbf{x} + b \\
+&= [\mathbf{w} \ b]^T [\mathbf{x} \ 1] \\
+&= \mathbf{w}'^T \mathbf{x}'
 
-<p>To be continued.</p>
+\end{aligned} %]]></script>
 
-<h2 id="practical-cases-for-ml">Practical Cases for ML</h2>
+<p>Consider the input dataset of size $n$, we could re-organize our input and output data into more general matrix form:</p>
 
-<p>To be continued.</p>
+<script type="math/tex; mode=display">\mathbf{y} = [y_1\ y_2\ ...\ y_n]^T \\
+ 
+ \mathbf{x} = [\mathbf{x}_1^T\ \mathbf{x}_2^T\ ...\ \mathbf{x}_n^T]^T</script>
 
-<h2 id="mathematical-practice">Mathematical Practice</h2>
+<p>we can extend our predict function into:</p>
 
-<p>To be continued.</p>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+
+\mathbf{f} &= \begin{bmatrix}
+
+                  f(\mathbf{x}_1) \\
+                  f(\mathbf{x}_2) \\
+                  ... \\
+                  f(\mathbf{x}_n)
+                  \end{bmatrix}
+              &= \mathbf{w}^T\mathbf{x}
+
+\end{aligned} %]]></script>
+
+<p>Where $\mathbf{w}$ is a $1 * (m+1)$ matrix, $\mathbf{x}$ is a $(m +1) * n$ matrix, $m$ is the number of features, $n$ is the number of dataset.</p>
+
+<h2 id="cost-function">Cost function</h2>
+
+<p>The task is to find a “best” linear function that could predict the future value. The question here is: how can we found the “best” linear function?To solve this problem, we need to define a cost function (or error function) and minimize it. Here the cost is defined as the bias between predicted value and target value. It is very natural that we use the Euclid distance between predition and target value as the “cost” or “error” we want:</p>
+
+<script type="math/tex; mode=display">Cost(n) = | y^n - f(\mathbf{x}^(n)) |^2</script>
+
+<p>If we look at the whole feature space, we could extend the function into:</p>
+
+<script type="math/tex; mode=display">Cost(\mathbf{x}) = (\mathbf{y} - f(\mathbf{x}))^T(\mathbf{y} - f(\mathbf{x}))</script>
+
+<p>By simple linear algebra, we could easily tell that the square of a column vector, as matrix, is the transpose of vetor times itself.</p>
+
+<p>Consider a dataset with $N$ data, we could extend the cost function into a more general mode:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+  Cost(\mathbf{x}) &= \sum_{i=1}^{n} |y^{i} - f(\mathbf{x}_{i})|^2 \\
+                   &= (\mathbf{y} - \mathbf{f})^T(\mathbf{y} - \mathbf{f})
+  
+
+\end{align} %]]></script>
 
 <h1 id="reference">Reference</h1>
 
-<h1 id="music">music</h1>
-<audio controls="controls" autoplay="" playsinline="" webkit-playsinline="">
-  <source src="http://www.170mv.com/kw/other.web.ra01.sycdn.kuwo.cn/resource/n3/2011/06/10/418067833.mp3" type="audio/mpeg"></source>
-</audio>
+<ol>
+  <li>
+<a href="https://www.coursera.org/learn/machine-learning">Machine Learning online course</a> , Andrew Ng.</li>
+</ol>
 
 </body></html>
 
@@ -271,9 +308,9 @@
         
         <div class="social-share" >
   <!-- <ul class="socialcount socialcount-small inline-list"> -->
-  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
-  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
-  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
   <!-- </ul> -->
 </div><!-- /.social-share -->
 
@@ -282,11 +319,11 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" class="read-more-btn">Read More</a>
+      <a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Machine Learning: Linear Regression">Machine Learning: Linear Regression</a></h3>
-      <p>Linear regression is one of the oldest method for statistics, also regarded as an guide algorithm for machine learning.In this article, I...&hellip; <a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Machine Learning series -- Introduction">Machine Learning series -- Introduction</a></h3>
+      <p>いつまでもあると思うな、親と金と若さと部屋とTシャツと私とあなたとアニメ銀魂。Gintama is one of my favorite anime/manga, which was ended in Jump. The ending is soooooo… Gorilla...&hellip; <a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
