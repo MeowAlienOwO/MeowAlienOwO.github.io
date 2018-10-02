@@ -51,6 +51,10 @@ In this series I will write:
 3. Pratical cases of machine learning. Here will mostly concentrate on NLP stuff but if possible, also some other tasks including image processing, etc. Most  of them will contain programming.
 4. Mathematical practice for other topics, like computer graphics, if I have time.
 
+# Machine Learning Introduction
+
+To be continued.(JOJO Pose!)
+
 
 # Main Category
 
