@@ -338,7 +338,9 @@ $$
 
 <h2 id="回报">回报</h2>
 
-<p>我们定义__回报__ (return)为奖励信号序列$R_{t}, R_{t+1}, R_{t+2}…$的一个函数，通过最大化该函数来实现我们的目标。最简单的回报函数就是线性加和：<script type="math/tex">G_t = R_{t+1} + R_{t+2} + ... + R_{T} = R_{t+1} + G_{t+1}</script></p>
+<p>我们定义 <strong>回报</strong> (return)为奖励信号序列$R_{t}, R_{t+1}, R_{t+2}…$的一个函数，通过最大化该函数来实现我们的目标。最简单的回报函数就是线性加和：</p>
+
+<script type="math/tex; mode=display">G_t = R_{t+1} + R_{t+2} + ... + R_{T} = R_{t+1} + G_{t+1}</script>
 
 <p>其中$T$是中止时间。以上的定义在有限步骤的情况下是成立的，但是在连续(非停止)情况下，我们可以使用一个衰减概率来控制我们求和的范围:<script type="math/tex">G_{t} = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k R_{t+1+k}</script></p>
 
@@ -382,7 +384,7 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
 
 <ol>
   <li>$v_\pi(s) = v_{*}(s) = \max_{\pi’}v_{\pi’}(s)$</li>
-  <li>$q_\pi(s, a) = q_{*}(s, a) = \max_{\pi’}q_{\pi’}(s, a)$</li>
+  <li>$q_\pi(s, a) = q_{*}(s, a) = \max_{\pi’} q_{\pi’}(s, a)$</li>
 </ol>
 
 <p>在最优策略下，我们可以用最优的动作来替代策略下的条件分布：</p>
@@ -410,14 +412,7 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
   </li>
 </ol>
 
-<table>
-  <tbody>
-    <tr>
-      <td>对于有限的MDP与non-terminate episode而言，每个策略$\pi$都会遍历状态空间，空间中的每个状态理想情况下都会被访问无限次。我们定义时间趋于无穷时，状态的分布为平稳状态分布$P_\pi(s) = Pr{S_t = s,</td>
-      <td>A_0, …, A_{t-1} \sim \pi }$。 此时，我们使用平均奖励(average reward)来评价策略的价值:</td>
-    </tr>
-  </tbody>
-</table>
+<p>对于有限的MDP与non-terminate episode而言，每个策略$\pi$都会遍历状态空间，空间中的每个状态理想情况下都会被访问无限次。我们定义时间趋于无穷时，状态的分布为平稳状态分布$P_\pi(s) = Pr{S_t = s, |A_0, …, A_{t-1} \sim \pi }$。 此时，我们使用平均奖励(average reward)来评价策略的价值:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \being{aligned}
