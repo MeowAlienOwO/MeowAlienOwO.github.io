@@ -229,7 +229,7 @@ $$
 
 在最优策略下，我们可以用最优的动作来替代策略下的条件分布：
 
-$$v_{*}(s) = \max_{a} \sum_{s', r} p(s', r\|s, a)[r + \gamma v_{*}(s')]$$
+$$v_{*}(s) = \max_{a} \sum_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]$$
 
 $$q_{*}(s, a) = \sum_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]$$
 
@@ -238,10 +238,11 @@ $$q_{*}(s, a) = \sum_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]$$
 此时，我们使用平均奖励(average reward)来评价策略的价值:
 
 $$
-\being{aligned}
+\begin{aligned}
 
-r(\pi) &= \lim_{h \rightarrow \infty} \frac{1}{h} \sum_{t=1}^{h} \mathbb{E}[R_t \| S_0, A_0, ...]
-       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a\|s) \sum_{s', r} p(s', r|s, a) r
+r(\pi) &= \lim_{h \rightarrow \infty} \frac{1}{h} \sum_{t=1}^{h} \mathbb{E}[R_t | S_0, A_0, ...]
+
+       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r} p(s', r\|s, a) r
 
 \end{aligned}
 $$
