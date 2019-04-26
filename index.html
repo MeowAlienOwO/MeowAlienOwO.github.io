@@ -419,24 +419,10 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
 
 <ol>
   <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>$v_{*}(s) = \max_{a} \sum_{s’, r} p(s’, r</td>
-          <td>s, a)[r + \gamma v_{*}(s’)]$</td>
-        </tr>
-      </tbody>
-    </table>
+    <script type="math/tex; mode=display">v_{*}(s) = \max\_{a} \sum\_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]</script>
   </li>
   <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>$q_{*}(s, a) = \sum_{s’, r} p(s’, r</td>
-          <td>s, a)[r + \gamma \max_{a’} q_{*}(s’, a)]$</td>
-        </tr>
-      </tbody>
-    </table>
+    <script type="math/tex; mode=display">q_{*}(s, a) = \sum\_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]</script>
   </li>
 </ol>
 
