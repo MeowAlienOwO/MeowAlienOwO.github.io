@@ -284,7 +284,7 @@ $$
 上确界的动作选取法如下：
 
 </code></pre>
-<p>A_t = 1. a if N_t(a) = 0,      2. argmax[Q_t(a) + c Sqrt(log(t)/ N_t(a))]```其中，平凡根项是对不确定性或者说方差的一个度量。c 是一个可控制的常量，用于控制不确定性影响的大小。</p>
+<p>A_t = 1. a if N_t(a) = 0,      2. argmax[Q_t(a) + c Sqrt(log(t)/ N_t(a))]``**其中，平凡根项是对不确定性或者说方差的一个度量。c 是一个可控制的常量，用于控制不确定性影响的大小。</p>
 
 <p>UCB 一般而言有更好的性能，但是对于非平稳过程的处理不像e-greedy那么简单。</p>
 
@@ -329,7 +329,8 @@ $$
 
 <h2 id="目标与奖励">目标与奖励</h2>
 
-<p>如前面所述，强化学习的目标实际上是尽可能多的提升累计奖励(cumulative return)。这个目标建立在__奖励假设__ (reward hypothesis)上：</p>
+<p>如前面所述，强化学习的目标实际上是尽可能多的提升累计奖励(cumulative return)。这个目标建立在<strong>奖励假设</strong> (reward hypothesis)上：</p>
+
 <blockquote>
   <p>强化学习目标是最大化标量奖励信号的累计期望</p>
 </blockquote>
@@ -416,8 +417,8 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
 
 <script type="math/tex; mode=display">% <![CDATA[
 \being{aligned}
-r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0,, ...]
-&= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
+r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0, ...]
+       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
 \end{aligned} %]]></script>
 
 <p>最大化在平稳状态分布下的回报等同于最大化平均奖励。</p>
