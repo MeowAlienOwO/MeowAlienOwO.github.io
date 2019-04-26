@@ -95,7 +95,7 @@ $$
 ```
 A_t = 1. a if N_t(a) = 0,
       2. argmax[Q_t(a) + c Sqrt(log(t)/ N_t(a))]
-```
+``**
 其中，平凡根项是对不确定性或者说方差的一个度量。c 是一个可控制的常量，用于控制不确定性影响的大小。
 
 UCB 一般而言有更好的性能，但是对于非平稳过程的处理不像e-greedy那么简单。
@@ -154,7 +154,8 @@ MDP可以被表示成一个有限状态自动机， 见 Sutton书Example 3.3
 
 ## 目标与奖励
 
-如前面所述，强化学习的目标实际上是尽可能多的提升累计奖励(cumulative return)。这个目标建立在__奖励假设__ (reward hypothesis)上：
+如前面所述，强化学习的目标实际上是尽可能多的提升累计奖励(cumulative return)。这个目标建立在**奖励假设** (reward hypothesis)上：
+
 > 强化学习目标是最大化标量奖励信号的累计期望
 
 根据这个假设，我们认为奖励信号实际上定义了我们的目标。奖励信号不说明如何实现目标，但是如果奖励信号设计的好，我们的学习将会提速。
@@ -162,7 +163,7 @@ MDP可以被表示成一个有限状态自动机， 见 Sutton书Example 3.3
 
 ## 回报
 
-我们定义 __回报__ (return)为奖励信号序列$R_{t}, R_{t+1}, R_{t+2}...$的一个函数，通过最大化该函数来实现我们的目标。最简单的回报函数就是线性加和：
+我们定义 **回报** (return)为奖励信号序列$R_{t}, R_{t+1}, R_{t+2}...$的一个函数，通过最大化该函数来实现我们的目标。最简单的回报函数就是线性加和：
 
 $$
 G_t = R_{t+1} + R_{t+2} + ... + R_{T} = R_{t+1} + G_{t+1}
@@ -237,8 +238,8 @@ $$
 
 $$
 \being{aligned}
-r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0,, ...]
-&= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
+r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0, ...]
+       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
 \end{aligned}
 $$
 
