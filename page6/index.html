@@ -18,10 +18,10 @@
 <!-- <script type="text/javascript" async
      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
      </script> -->
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
-</script>
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
+     <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+     </script> -->
 
 <!-- Share.js -->
 <!-- <link href="/assets/css/share.min.css" rel="stylesheet"> -->
@@ -170,6 +170,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/machine learning/">
+				    machine learning (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/RL/">
+				    RL (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -194,6 +206,181 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/computer%20science/physical_layer/" title="Physical Layer">
+            
+            <img src="http://MeowAlienOwO.github.io/images/49604772.jpg" alt="Physical Layer">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-14T20:15:47+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/physical_layer/">May 14, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/physical_layer/" rel="bookmark" title="Physical Layer" itemprop="url">Physical Layer</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>第二篇……不要怂就是干…… おかわり！</p>
+
+<h1 id="简介">简介</h1>
+<p>物理层定义了电子，时间以及其接口的二进制数据通过信道以信号形式传输的方法。
+物理层是网络的基础，其属性，比如流量，延迟与错误率决定了网络的性能。
+由于物理极限的存在，网络传输数据的量是有极限的。</p>
+
+<p>两个重要概念：</p>
+
+<ul>
+  <li>数字模块化(digital modulation)：模拟信号(analog signals)与数字信号(digital bits)之间是如何
+转化的</li>
+  <li>多路传输方案(multiplexing schemes)：探索如何将多个会话同时在一个传输中介中传输，同时不互相影响。</li>
+</ul>
+
+<h2 id="数据传输的一般过程">数据传输的一般过程</h2>
+
+<ol>
+  <li>数据分割，封装成数据包</li>
+  <li>数据包转化成二进制流</li>
+  <li>二进制流转换成数字信号</li>
+  <li>数字信号通过相关元件转化成模拟信号</li>
+  <li>模拟信号进入网络传输</li>
+</ol>
+
+<h1 id="传输介质">传输介质</h1>
+
+<ul>
+  <li>非屏蔽双绞线(Unshielded twisted pair)：最便宜普遍的传输介质，有不同的规格，最多在100米的距离上起作用。
+两条铜导线以一定规格相互缠绕，双方的电磁辐射会互相抵消。</li>
+  <li>同轴电缆(coaxial cable)：从内到外由铜芯(copper core)，绝缘材料(insulating material)，编织外导电体(braided outer conductor),保护塑料层(protective plastic covering)组成。</li>
+  <li>光纤(fiber optics)：应用全反射传输信息的方法。内部由两层玻璃构成，外层是塑料包裹。</li>
+</ul>
+
+<h2 id="传输模型">传输模型</h2>
+
+<ul>
+  <li>单向传输(simplex transmission)：数据只能向一个方向传输</li>
+  <li>半双向传输(half-duplex transmission)：数据在一个确定的时间点上只能向某一方传输，不过可以实现双向的信息传输。</li>
+  <li>双向传输(duplex transmission)：数据可以同时双向传输</li>
+</ul>
+
+<h2 id="长距离传输">长距离传输</h2>
+<p>导线电阻导致信号丢失，从而不能进行长距离传输。
+持续的振荡信号往往比其他信号传输的更远。</p>
+
+<h1 id="调制">调制</h1>
+
+<p>调制技术是将数字信号编码为模拟信号的方法。主要有调幅(amplitude modulation,AM)，调频(frequency modulation)，调相(phase modulation)三种方法。
+所有这三种方法都需要载波信号(carrier signal)，载波信号使用一个频率来传输数据。</p>
+
+<p>调幅指改变模拟信号的振幅，调频指改变模拟信号的频率，调相(?)指改变模拟信号的相位从而传输信息。</p>
+
+<h2 id="猫modem">猫(MODEM)</h2>
+
+<p>猫，或曰调制解调器，用于调制数字信号为模拟信号，或者将模拟信号解调制为数字信号。双向传输需要两边都有猫。</p>
+
+<h1 id="线路码line-code">线路码(line code)</h1>
+<p>线路码（英语：Line code），有时也称传输码。为了便于数字信号传输，将原始的数据码进行一定的修改就得到了线路码。举例来说，当原始数据中存在长时间连续的1或0时，接收方便很难得知每一位信号的时长，也可能误以为信号传输终结而中断通信。线路码还可增加纠错功能，适应信道的特性。常见的线路码包括AMI码、HDB3码等。</p>
+
+<h2 id="时钟恢复与不归零编码">时钟恢复与不归零编码</h2>
+
+<p>时钟恢复通常在不归零编码中使用，不归零编码详见<a href="http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%AD%B8%E9%9B%B6">这里</a>(为何只要一半带宽？)
+以下是介绍：</p>
+
+<h3 id="nrz">NRZ</h3>
+<p>在电信学中，不归零编码 (non-return-to-zero line code, NRZ) 指的是一种二进制的讯号代码，在这种传输方式中，1 和 0 都分别由不同的电子显著状态来表现，除此之外，没有中性状态、亦没有其他种状态。这种脉冲的能量比归零代码要来得密集，但它传输时是不停歇的，这代表同步信号必须在此代码之外独自传输。</p>
+
+<p>在给定一个信号频率的情况下（比如说位元率），NRZ 代码只需要曼彻斯特代码 (Manchester code) 的一半带宽。</p>
+
+<p>当用于异步传输时，由于缺少中性状态，必须依靠其他种机制，来达成在同步传输中使用时钟侦测错误的资料回复工作。</p>
+
+<p>NRZ-Level 本身并非一种同步系统，而更是一种编码方式，因为它可用于同步环境、或异步环境中，也就是不管有没有明确的时钟讯号，都可以运作。所以，讨论 NRZ-Level 编码是否在时钟“跳动 (clock-edge)”或“跳动之间 (between clock-edge)”并非必要的，因为每一个讯号一定都是以给定的时脉来传输的，这就暗示了讯号内在的时脉。真正的问题是，能否在接收端以当初取样时的同样频率重绘该讯号。</p>
+
+<p>然而，由于 NRZ 讯号的脉冲与时钟是一致的，这就很容易看出 NRZ-Level 和其他编码方式的不同，例如前面提到的曼彻斯特代码，它需要明确的时脉资讯（即 N
+RZ 和时钟的 XOR 值），还能看出与 NRZ-Mark 和 NRZ-Inverted 等编码的不同。</p>
+
+<p>NRZ的一个常见编码：1 0 1 0 -&gt; H L H L(1 -&gt; 高电平， 0 -&gt; 低电平)</p>
+<h3 id="nrzi">NRZI</h3>
+<p>一改变：“1”为物理电平上的改变。“0”为没有改变。</p>
+
+<p>零改变：“0”为物理电平上的改变。“1”为没有改变。</p>
+
+<p>改变发生在当下位元的时钟脉冲前缘。</p>
+
+<p>但是，NRZI 会有长串的 0或1 位元出现，导致时脉回复有困难，可以使用一些编码技巧（例如游长限制）来解决。曼彻斯特代码永远有时脉信号，但传输效率比 NRZI 低。</p>
+
+<p>NRZI 编码被用于磁带的录音、CD的刻录和标准 USB 的传讯。</p>
+
+<p>常见的NRZI编码: 0101 -&gt; H HLLH （高电平为基准，第一个为0表示电平不改变，第二个为1表示改变电平为低，第三个0表示电平不变仍为低，第四个1表示电平改变为高，计算方式为之前电平与当前的XOR）</p>
+
+<h3 id="时钟恢复clock-recovery">时钟恢复(clock recovery)</h3>
+<p>我们通常使用接收方与传输方所约定的时钟频率来进行时间同步，从而确定何时对电压进行采样。
+简单的来说，所谓时钟恢复就是：根据参考时钟，从数据信号把时钟信号提取出来。相对应的，在信道上只传输串行数据，在信道上并没有时钟信号。数据接收端接收串行数据并进行时钟恢复。–<a href="http://baike.baidu.com/view/3871116.htm">百度百科</a></p>
+
+<h2 id="曼彻斯特编码manchest-encoding">曼彻斯特编码(Manchest Encoding)</h2>
+
+<p>0表示低电平到高电平，1表示高电平到低电平。传输每一个比特简化了时钟恢复，但是同样效率不高–传输数量与传输速度都需要倍增才能达到不归零编码的效果。
+好处是可以使用电平的跳变来同步时钟。更多信息见<a href="http://en.wikipedia.org/wiki/Manchester_coed">维基百科</a>，那个例子图很好。</p>
+
+<p>计算曼彻斯特编码时，要使用时钟比特位与编码比特位异或。</p>
+
+<p>曼彻斯特编码的例子：</p>
+
+<p>0101 -&gt; H LH HL LH HL</p>
+
+<p>以太网使用曼彻斯特编码。</p>
+
+<h2 id="波特率baud-rate">波特率(Baud Rate)</h2>
+
+<p>在电子通信领域，波特率（Baud）即调制速率，指的是有效数据信号调制载波的速率，即单位时间内载波调制状态变化的次数。它是对符号传输速率的一种度量，1波特即指每秒传输1个符号，而通过不同的调制方式，可以在一个码元符号上负载多个bit位信息。–<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E7%89%B9%E7%8E%87">维基百科</a></p>
+
+<h2 id="帧错误framing-error">帧错误(framing error)</h2>
+
+<p>当收发双方以不同的波特率进行通信时，容易出现帧错误的现象。</p>
+
+<h1 id="数据传输极限">数据传输极限</h1>
+
+<h2 id="nyquist-sampling-theroem">Nyquist Sampling Theroem</h2>
+
+<p>一个无噪声的(noiseless/error-free)的介质的最大传输速率：</p>
+
+<ul>
+  <li>$D$：数据比率(bit)每秒，bps</li>
+  <li>$B$：带宽(hz)</li>
+</ul>
+
+<p>对于使用二进制信号的方案而言，</p>
+
+<p>$Data\ Rate = D = 2B$</p>
+
+<p>对于使用K阶信号的方案而言，</p>
+
+<p>$D = 2B\log_2 K$</p>
+
+<h2 id="shannons-theorem">Shannon’s Theorem</h2>
+
+<p>这个定理针对的是有噪声介质。</p>
+
+<p>信噪比(signal to noise ration)是信号长度与噪声长度之比$S / N$。
+信噪比通常用分贝(decibels,db)来表示。$1db = 10 \log_{10} S/N$。</p>
+
+<p>对于有噪声介质的最大数据率为:</p>
+
+<p>$D = B \log_2(1 + S / N)$</p>
+
+ -->
+    
+        <p>第二篇……不要怂就是干…… おかわり！</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -1169,7 +1356,7 @@ CPU使用率下降会导致多任务程度上升，而多任务程度上升会�
 
 <p>到官网下载源码包，然后make&amp;&amp;make install</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">hg clone https://hg.libsdl.org/SDL SDL</span>
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span></span><span class="go">hg clone https://hg.libsdl.org/SDL SDL</span>
 <span class="go">cd SDL</span>
 <span class="go">mkdir build</span>
 <span class="go">cd build</span>
@@ -1238,93 +1425,6 @@ display support.</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" title="俯瞰风景">
-            
-            <img src="http://MeowAlienOwO.github.io/images/48899625_p0.jpg" alt="俯瞰风景">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-06T22:18:16+08:00"><a href="http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/">March 06, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/life/%E4%BF%AF%E7%9E%B0%E9%A3%8E%E6%99%AF/" rel="bookmark" title="俯瞰风景" itemprop="url">俯瞰风景</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>我觉得空之境界是神作。我觉得空之境界是神作。因为很重要所以说了两遍。下面可能有若干剧透，
-不想被剧透的请手动跳转<a href="http://www.bilibili.com/video/av1005743/index_1.html#">B站空境合集</a>，弹幕质量请注意。。</p>
-
-<blockquote>
-  <p>那一天，选择了办公区前的大路作为归途。</p>
-
-  <p>对于自己是很鲜见的，单是心血来潮而已。</p>
-</blockquote>
-
-<p>如果要简单说起来的话，空境讲了如下几个故事：跟式姐抢男人的被干掉了，谷歌追式姐，
-跟式姐抢男人的被干掉了，式姐出院了，跟谷歌抢女人的挂了，式姐帮谷歌的妹(qing)妹(di)解决事件，
-式姐开挂，想要通吃式姐跟谷歌的男人被干掉了。嗯。</p>
-
-<p>俯瞰风景作为空之境界的第一章，没有什么特别重要的内容，可以当作一个引子来看。不过初次看的话，
-可能会被画风、表现手法、蘑菇的扯淡能力以及梶浦由记那种奇异（但是神作）的音乐给吓到。
-故事情节相比后面各种倒叙的矛盾螺旋来说，已经算是非常简单了。巫条大楼自杀事件发生后，黑桐干也跑去调查时被巫条雾绘勾去魂魄，然后两仪式两入虎穴去找干也，最后橙子跟巫条雾绘补设定。不过这里有各种各样跟后面有关的伏笔，
-比如巫条雾绘什么时候喜欢上黑桐干也，两仪式的义肢，黑桐干也来伽蓝之堂的一些经过，”「」”的意义等等，
-看完复习的时候就好理解了。另外空境的打斗也都非常的酷炫，行云流水，比有些嘴炮秒全场的动漫甚至三次元物强多了，很值得一看。</p>
-
-<blockquote>
-  <p>在见惯的建筑群间呆呆地走着，</p>
-
-  <p>不多时有人落了下来。</p>
-
-  <p>没有太多机会听到的，啪嚓这样一声。</p>
-
-  <p>很明显是有人从楼顶落下来并死去。</p>
-</blockquote>
-
-<p>我觉得蘑菇有一种奇异的倾向——别人是用一些贴近现实的东西做比喻来说明概念，他喜欢用说明概念来比喻人物……不知道是不是错觉。
-贯穿全篇的概念（或者说是脑洞）是”飞翔“与”浮游“之间的区别。“飞翔”是带有目的性的逃走，而”浮游“是无目的的逃走。
-然而，无论是飞翔还是浮游，对于人类而言，都是属于违背常识的举动，从伊卡洛斯飞向太阳而坠落开始，飞翔就同坠落密不可分。然而，他们在坠落的一刻仍然希望飞翔，正如橙子所言，他们不是落向地面而是坠落空中。因此，作为飞翔或者浮游的具现，巫条雾绘的悲剧从一开始就避免不了。</p>
-
-<p>巫条雾绘在入院之后近似失去一切希望，然而黑桐干也每天的经过带给了她些许对生活的希望。后来，荒耶宗莲给予了她伊卡洛斯的翅膀——二重存在，使得她认为自己拥有了追寻希望的能力。然而，这种能力最终仍是错觉。且不论式姐的存在，荒耶宗莲自身也只是将巫条雾绘作为得到两仪式的工具而已。借由外物给予的力量，去追寻他人给予的希望，只不过是加速自己的灭亡罢了。</p>
-
-<blockquote>
-  <p>朱色在柏油路上流淌开来。</p>
-
-  <p>仍保有原形的是长长的黑发。</p>
-
-  <p>其中以及纤细的，让人联想到白色的脆弱手足。</p>
-
-  <p>之后是已无容貌，破碎的面部。</p>
-
-  <p>这一连串映像，让人不禁幻想到被挟入古老的书本。</p>
-
-  <p>化为其中一页的压花。</p>
-</blockquote>
-
-<p>然而，无论怎么说，飞翔或是浮游，都是希望逃走的举动。因为自身被禁锢在医院内，身边亲近的人也都已经去世，也无外乎她想逃脱这个地方。包括喜欢干也，也只是逃避的一种举动。同样是被禁锢在医院内，两仪式的意识一直悬浮在根源之涡中，苏醒的代价是两仪织的消失，悲惨程度也相去不远。同样是失去了生存的实感，两仪式选择了坚强，斩杀了苏醒后因为心中的”「」”而脆弱的自己，终于寻找到人生意义，而巫条雾绘选择了无目的的浮游，等待着坠落的一刻到来。巫条雾绘无法竞争过两仪式，也就没什么奇怪了。但是，经过与两仪式的一战，她明白了所谓”如针一般，如剑一般，如雷一般贯穿我的死“，从死亡中，发现了生存的实感，也就无法再忍受生不如死地浮游着了。最后巫条雾绘选择了去尝试重现那曾经有过的生命的实感，努力去飞行，而不是呆在病床上等待着耗尽体力，无法浮游而坠落的死亡，从这种意义而言，两仪式也带给了巫条雾绘一种对于她而言的好结局吧。</p>
-
-<p>无论其当事者的决意为何，自杀只能作为自杀被接受。无论本人怎么想，从无关者的外人看来，巫条雾绘依旧选择了自杀这一种懦弱的结末。不值得夸耀，不值得贬低，正如尘埃一般，存在，但并无什么价值。</p>
-
-<blockquote>
-  <p>仰望着天空，如同眺望着不存在的幻影般回答道。
-“自杀没有理由。只是今天没有飞起来罢了。”</p>
-</blockquote>
- -->
-    
-        <p>我觉得空之境界是神作。我觉得空之境界是神作。因为很重要所以说了两遍。下面可能有若干剧透，
-不想被剧透的请手动跳转<a href="http://www.bilibili.com/video/av1005743/index_1.html#">B站空境合集</a>，弹幕质量请注意。。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -1385,7 +1485,8 @@ display support.</p>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2019 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+
   </footer>
 </div><!-- /.footer-wrapper -->
 
@@ -1403,7 +1504,7 @@ display support.</p>
 -->
 <script type="text/javascript"
         async
-        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js">
+        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -1439,9 +1540,9 @@ code.has-jax {
 
 
 
-<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
 <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
 <!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js" async></script> -->
 
 

@@ -1,0 +1,581 @@
+<!doctype html lang="zh">
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>强化学习导论（一） &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
+
+<meta name="keywords" content="">
+
+<!-- other plugins config -->
+<!-- mathjax -->
+<!-- script type="text/javascript"
+	   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js"></script> -->
+<!-- <script type="text/javascript" async
+     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script> -->
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
+     <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+     </script> -->
+
+<!-- Share.js -->
+<!-- <link href="/assets/css/share.min.css" rel="stylesheet"> -->
+<!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js"></script> -->
+<!-- end of plugins -->
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Open Graph -->
+<!-- <meta property="og:locale" content="en_US"> -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习导论（一）">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/">
+<meta property="og:site_name" content="喵窝[0]号机">
+
+
+
+
+
+<link rel="canonical" href="http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/">
+<link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+<!--
+     <link href="//fonts.useso.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css"> -->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://MeowAlienOwO.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://MeowAlienOwO.github.io/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://MeowAlienOwO.github.io/images/avatar.png" alt="死鱼眼的喵星人 photo" class="author-photo">
+					<h4>死鱼眼的喵星人</h4>
+					<p>烈風？いいえ、知らない子ですね。（もぐもぐ</p>
+
+				</li>
+				<li><a href="http://MeowAlienOwO.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:meowalienowo@outlook.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				<li>
+					<a href="http://github.com/https://github.com/MeowAlienOwO"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://MeowAlienOwO.github.io/posts/">All Posts</a></li>
+				<li><a href="http://MeowAlienOwO.github.io/tags/">All Tags</a></li>
+				
+				<li>
+				  <a href="/categories/Life/">
+				    Life (7)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Computer Science/">
+				    Computer Science (19)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Software Engineering/">
+				    Software Engineering (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Japanese/">
+				    Japanese (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/ML/">
+				    ML (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/category/">
+				    category (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/algorithm/">
+				    algorithm (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/machine learning/">
+				    machine learning (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/RL/">
+				    RL (1)
+				  </a>
+				</li>
+				
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/" rel="bookmark" title="强化学习导论（一）">强化学习导论（一）</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2019-04-27T00:00:00+08:00">April 27, 2019</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>强化学习导论的学习内容, 包含上课内容与其他自己找的资料，主要是复习用</p>
+
+<h1 id="什么是强化学习">什么是强化学习</h1>
+
+<blockquote>
+  <p>通过与环境的持续交互学习，从而解决序列性的决策问题。</p>
+</blockquote>
+
+<p>强化学习是机器学习的一个分支，其特点为：</p>
+<ol>
+  <li>没有监督数据，只有奖励信号</li>
+  <li>奖励信号不一定是实时的</li>
+  <li>行为与环境交互 影响数据</li>
+  <li>时间是一个重要因素 &lt;- ?</li>
+</ol>
+
+<p>我们定义智能体(agent) 作为强化学习的主体，其能通过动作(action)与环境(environment)交互，从而获取奖励信号(reward)，或者说反馈。智能体在环境中进行序列性的决策，从而提高累计奖励(accumulate reward)</p>
+
+<h2 id="强化学习的一些挑战">强化学习的一些挑战</h2>
+
+<ol>
+  <li>环境未知：有的时候我们无法解析地，或者无法有足够的数据来对环境的状态与奖励进行建模</li>
+  <li>探索-采集(exploration-exploitation) 问题：我们需要平衡探索（通过交互获取更多的环境信息）与采集（e.g.贪婪获取更优的奖励）</li>
+  <li>延迟奖励：有些奖励同历史动作相关联</li>
+</ol>
+
+<h1 id="多臂赌博机-multi-armed-bandit-problem">多臂赌博机 Multi-Armed bandit problem</h1>
+
+<p>多臂赌博机问题是一个最基本的强化学习问题：给定$k$个赌博机，每个时刻$t$可以选择一个赌博机进行操作，从而获取一个标量奖励。每一个赌博机的奖赏分布都是独立的不同分布。获取的奖励$R_t$是一个随机变量。我们定义$q_{*}(a)$为进行动作$a$的奖励期望：</p>
+
+<script type="math/tex; mode=display">q_{*} = \mathbb{E}[R_t|A_t = a]</script>
+
+<p>为了求得该期望我们可以进行动作价值估计: $Q_t(a) = q_{*}(a)$。最基本的估计使用如下公式:</p>
+
+<script type="math/tex; mode=display">Q_t(a) = \frac{1}{N_t(a)}\sum_{\tau=1}^{t-1}R_{\tau}[A_{\tau}= a]_1</script>
+
+<p>即选取动作$a$的时候，采样的相对应的奖励的平均值。我们可以将$Q$写成递归形式来方便之后的讨论：</p>
+
+<script type="math/tex; mode=display">Q_{n+1} = Q_n + \frac{1}{n}[R_n - Q_n]</script>
+
+<p>根据我们的估计期望$Q$，我们有贪婪算法$A_t^{*} = \arg\max_a Q_t(a)$来选取最佳的动作。根据动作是否贪婪，我们可以将动作分成两部分：</p>
+<ol>
+  <li>贪婪动作-&gt;采集</li>
+  <li>非贪婪动作-&gt; 探索    <h2 id="epsilon-greedy">$\epsilon$-greedy</h2>
+    <p>为了平衡搜索与采集，我们给定一个探索概率$\epsilon$, 即每次选取动作的时候我们有概率$\epsilon$随机选取概率，反之则采取贪婪算法。易得在该条件下，我们有$1-\epsilon + \frac{\epsilon}{|\mathcal{A}|}$的概率来选择贪婪动作。$\epsilon$ 用于调整探索与采集的平衡。</p>
+  </li>
+</ol>
+
+<h2 id="强化学习的一般更新规则">强化学习的一般更新规则</h2>
+
+<p>根据上述的递归形式，我们不假证明地给出一般的更新规则：</p>
+
+<p>NewEstimate &lt;- OldEstimate + StepSize[Target - OldEstimate]</p>
+
+<p>其中，Target并不固定为单纯的奖励信号。</p>
+
+<h2 id="多臂赌博机算法">多臂赌博机算法</h2>
+<h3 id="e-greedy-单多臂赌博机算法">e-greedy 单多臂赌博机算法</h3>
+<pre><code>init, for a = 1 to k:
+  Q(a) &lt;- 0
+  N(a) &lt;- 0
+loop forever:
+  A &lt;- 1. argmax_a Q(a) 1 - $\epsilon$
+       2. random a      $\epsilon$
+  R &lt;- bandit(A)
+  N(A) &lt;- N(A) + 1
+  Q(A) &lt;- Q(A) + \frac{1}{N(A)}[R - Q(A)]
+`****
+### 非平稳过程
+我们之前假设动作价值是不变的，但是在实际中，动作价值可能会随着时间的改变而改变(non-stationary)。在这种情况下，我们不能采样求平均，而是需要用step-size parameter 来控制取一段时间的平均
+$$
+Q_{n+1} = Q_n + \alpha[R_n - Q_n], \alpha \in (0, 1]
+$$
+
+### UCB
+上确界动作选取(upper confidence bound, UCB法不对动作价值进行估计，而是估计动作价值的**上确界**来进行动作选取。该方法的好处是，将不确定性也一并纳入估计。
+上确界的动作选取法如下：
+
+</code></pre>
+<p>A_t = 1. a if N_t(a) = 0,      2. argmax[Q_t(a) + c Sqrt(log(t)/ N_t(a))]```其中，平凡根项是对不确定性或者说方差的一个度量。c 是一个可控制的常量，用于控制不确定性影响的大小。</p>
+
+<p>UCB 一般而言有更好的性能，但是对于非平稳过程的处理不像e-greedy那么简单。</p>
+
+<h3 id="gradient-bandit">Gradient bandit</h3>
+
+<p>梯度法是一种不通过直接估计动作价值$Q$，而是直接优化动作选取的策略(policy)的强化学习方法。</p>
+
+<p>我们定义$\pi_t(a)$ 为时刻$t$的动作选取策略。$\pi_t(a)$是关于当前状态动作选取概率的分布，我们可以用随机梯度上升法来优化（前提是：策略是一个可微分的函数）。</p>
+
+<p>定义策略为softmax函数:</p>
+
+<script type="math/tex; mode=display">\pi_t(a) = \frac{e^{H_t(a)}}{\sum_{b=1}^{k} e^{H_t(b)}}</script>
+
+<p>其中$H_t(a)$ 定义为对动作的偏好度(preference)，从而影响动作的概率。根据softmax函数的导数我们有:</p>
+
+<script type="math/tex; mode=display">H_{t+1}(a) = H_t(a) + \alpha(R_t - avg R)([a = A_t] - \pi_t(a))</script>
+
+<h1 id="markov决策过程">Markov决策过程</h1>
+
+<p>我们把交互的环境看作是一个马尔科夫链：时刻$t+1$的状态与奖励仅与前一个时刻$t$的状态与采取的动作有关。据此定义马尔科夫决策过程(Markov Decision Process, MDP):</p>
+<ol>
+  <li>状态空间$\mathcal{S}$</li>
+  <li>动作空间$\mathcal{A}$</li>
+  <li>奖励空间$\mathcal{R}$</li>
+</ol>
+
+<script type="math/tex; mode=display">Pr\{S_{t+1}, R_{t+1} | S_t, A_t, S_{t-1}, A_{t-1},...S_0, A_0\} = Pr\{S_{t+1}, R_{t+1} | S_t, A_t\}</script>
+
+<p>MDP是有限的当且仅当$\mathcal{S}$, $\mathcal{A}$, $\mathcal{R}$ 是有限的。</p>
+
+<h2 id="环境动态">环境动态</h2>
+
+<p>我们定义函数$p:: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{S} \times \mathcal{R}$为MDP的环境动态(Environment Dynamic)。这个函数实际上定义为状态$s’$, 奖励$r$在给定状态$s$, 采取的动作$a$的条件概率分布，即MDP的状态之间是如何转化的。<script type="math/tex">p(s', r|s, a) = Pr{S_{t+1}=s', R_{t+1}=r | S_t = s, A_t = a}</script></p>
+
+<p>根据动态函数p, 奖励$r$的边缘概率即为状态$s’$的概率分布<script type="math/tex">p(s'|s, a) = \sum_{r\in \mathcal{R}} p(s', r|s, a)</script></p>
+
+<p>我们定义函数$r:: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{R}$ 为给定状态$s$, 动作$a$下的奖励期望:</p>
+
+<script type="math/tex; mode=display">r(s, a) = \mathcal{E}[R_{t+1} | S_t = s, A_t = a] = \sum_{r\in\mathcal{R}} r\sum_{s'\in S} p(s', r| s, a)</script>
+
+<p>MDP可以被表示成一个有限状态自动机， 见 Sutton书Example 3.3</p>
+
+<h2 id="目标与奖励">目标与奖励</h2>
+
+<p>如前面所述，强化学习的目标实际上是尽可能多的提升累计奖励(cumulative return)。这个目标建立在__奖励假设__ (reward hypothesis)上：</p>
+<blockquote>
+  <p>强化学习目标是最大化标量奖励信号的累计期望</p>
+</blockquote>
+
+<p>根据这个假设，我们认为奖励信号实际上定义了我们的目标。奖励信号不说明如何实现目标，但是如果奖励信号设计的好，我们的学习将会提速。奖励信号与状态空间的设计都被认为是RL中的“工程”部分。</p>
+
+<h2 id="回报">回报</h2>
+
+<p>我们定义__回报__ (return)为奖励信号序列$R_{t}, R_{t+1}, R_{t+2}…$的一个函数，通过最大化该函数来实现我们的目标。最简单的回报函数就是线性加和：<script type="math/tex">G_t = R_{t+1} + R_{t+2} + ... + R_{T} = R_{t+1} + G_{t+1}</script></p>
+
+<p>其中$T$是中止时间。以上的定义在有限步骤的情况下是成立的，但是在连续(非停止)情况下，我们可以使用一个衰减概率来控制我们求和的范围:<script type="math/tex">G_{t} = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k R_{t+1+k}</script></p>
+
+<p>当$\gamma &lt; 1$, 求和有上界:</p>
+
+<script type="math/tex; mode=display">\sum_{k=0}^{\infty} \gamma^k R_{t+1+k} \leq r_{\max} \sum_{k=0}^{\infty}\gamma^k = r_{\max} \frac{1}{1-\gamma}</script>
+
+<h2 id="价值函数">价值函数</h2>
+
+<p>给定策略$\pi$, 我们可以计算在该策略下，每一个状态的价值$v_{\pi}(s)$:<script type="math/tex">v_{\pi}(s) \circeq \mathbb{E}_{\pi}[G_t | S_t = s] = \mathbb{E}_\pi[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1}| S_t = s]</script>同理，我们可以计算给定状态的动作价值$q_\pi$:<script type="math/tex">q_{\pi}(s, a) \circeq \mathbb{E}_{\pi}[G_t| S_t = s, A_t = a] = \mathbb{E}_{\pi}[\sum_{k=0}^{\infty}\gamma^k R_{t+k+1} | S_t = s, A_t = a]</script></p>
+
+<p>(PPT此处有一个直接求序列空间价值函数的东西，感觉没什么用就不写了，基本就是对每一个可能序列的概率进行求和，一个序列的概率是p函数与$\pi$函数的累乘)</p>
+
+<h2 id="bellman方程">Bellman方程</h2>
+
+<p>根据Markov性质，下一时刻的状态-奖励对由且仅由这一时刻的状态与采取的动作决定，也就是说我们可以递归地更新我们的价值函数。我们将价值函数写成递归的形式:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+v_\pi(s) & \circeq \mathbb{E}_\pi[G_t | S_t = s] \\
+         & = \mathbb{E}_\pi[R_{t+1} + \gamma G_{t+1} | S_t = s]\\
+         & = \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a)[r + \gamma \mathbb{E}_\pi[G_{t+1} | S_{t+1}=s']]\\
+         & = \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a)[r + \gamma v_\pi(s') ]
+\end{aligned} %]]></script>
+
+<p>同理，我们可以写出动作价值函数的递归形式:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
+            & = \sum_{s', r} p(s', r | s, a)[r + \gamma v_\pi(s')]
+\end{aligned} %]]></script>
+
+<p>以上两个函数被称为贝尔曼方程(bellman equation)</p>
+
+<h3 id="最优策略贝尔曼方程">最优策略贝尔曼方程</h3>
+
+<p>我们用价值函数(期望)比较两个策略的好坏：当且仅当策略$\pi$每一个状态的期望价值都不低于另一个策略$\pi’$时，我们可以认为$\pi$有着更优的表现。如果存在一个策略，其对于所有可能的策略都是更优的，我们称该策略为最优策略(optimal policy)</p>
+
+<p>一个策略$\pi$是最优的，当：</p>
+
+<ol>
+  <li>$v_\pi(s) = v_{*}(s) = \max_{\pi’}v_{\pi’}(s)$</li>
+  <li>$q_\pi(s, a) = q_{*}(s, a) = \max_{\pi’}q_{\pi’}(s, a)$</li>
+</ol>
+
+<p>在最优策略下，我们可以用最优的动作来替代策略下的条件分布：</p>
+
+<ol>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$v_{*}(s) = \max_a \sum_{s’, r} p(s’, r</td>
+          <td>s, a)[r + \gamma v_{*}(s’)]$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$q_{*}(s, a) = \sum_{s’, r} p(s’, r</td>
+          <td>s, a)[r + \gamma \max_{a’} q_{*}(s’, a)]$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<table>
+  <tbody>
+    <tr>
+      <td>对于有限的MDP与non-terminate episode而言，每个策略$\pi$都会遍历状态空间，空间中的每个状态理想情况下都会被访问无限次。我们定义时间趋于无穷时，状态的分布为平稳状态分布$P_\pi(s) = Pr{S_t = s,</td>
+      <td>A_0, …, A_{t-1} \sim \pi }$。 此时，我们使用平均奖励(average reward)来评价策略的价值:</td>
+    </tr>
+  </tbody>
+</table>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\being{aligned}
+r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0,, ...]
+&= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
+\end{aligned} %]]></script>
+
+<p>最大化在平稳状态分布下的回报等同于最大化平均奖励。</p>
+
+<h1 id="ref">Ref</h1>
+
+<ol>
+  <li>https://zhuanlan.zhihu.com/p/28084904</li>
+  <li>Sutton, An Introduction To Reinforcement Learning</li>
+</ol>
+</body></html>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share" >
+  <!-- <ul class="socialcount socialcount-small inline-list"> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!-- </ul> -->
+</div><!-- /.social-share -->
+
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Machine Learning: Linear Regression">Machine Learning: Linear Regression</a></h3>
+      <p>Linear regression is one of the oldest method for statistics, also regarded as an guide algorithm for machine learning.In this article, I...&hellip; <a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Machine Learning series -- Introduction">Machine Learning series -- Introduction</a></h4>
+        <span>Published on October 01, 2018</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
+        <span>Published on January 09, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<!-- <script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script> -->
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script> -->
+<!-- <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {
+     inlineMath: [['$', '$'], [ '\\(', '\\)']],
+     displayMath: [['$$', '$$']]
+     }});
+     </script>
+-->
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+<link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js" async></script> -->
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'meowalienowogithubio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<script>
+ var _config = {
+     title: '强化学习导论（一）',
+     image: ''
+ }
+
+ socialShare('.social-share', _config)
+</script>
+
+
+
+</body>
+
+</html>

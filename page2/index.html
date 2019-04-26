@@ -18,10 +18,10 @@
 <!-- <script type="text/javascript" async
      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
      </script> -->
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
-</script>
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
+     <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+     </script> -->
 
 <!-- Share.js -->
 <!-- <link href="/assets/css/share.min.css" rel="stylesheet"> -->
@@ -170,6 +170,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/machine learning/">
+				    machine learning (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/RL/">
+				    RL (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -194,6 +206,223 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/60680252.jpg" alt="Machine Learning Review: Bayesian Learning">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2017-01-08T15:02:38+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/">January 08, 2017</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" rel="bookmark" title="Machine Learning Review: Bayesian Learning" itemprop="url">Machine Learning Review: Bayesian Learning</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>死亡冲师匠失败(艸□`..)但是还是姑且把这个当成攒人品吧……</p>
+
+<h1 id="贝叶斯分类器">贝叶斯分类器</h1>
+<h2 id="数学准备">数学准备</h2>
+<p>主要用到概率论的一些知识，简要地复习一下。</p>
+<h3 id="条件概率">条件概率</h3>
+<p>条件概率指的是在事件$B$发生的情况下，事件$A$发生的概率。数学符号记为
+$P(A | B)$</p>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082502.jpg" alt="" /></p>
+
+<p>显然，如果要计算在事件$B$发生的情况下$A$发生的概率，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B) = \frac{P(A \cap B)}{P(B)}</script>
+
+<p>那么，我们可以很容易得出：</p>
+
+<script type="math/tex; mode=display">P(A \cap B) = P(A \| B)P(B)</script>
+
+<p>同理，将事件换个位置我们有：</p>
+
+<script type="math/tex; mode=display">P(A\cap B) = P(B \| A)P(A)</script>
+
+<p>那么，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B)P(B) = P(B \| A )P(A)</script>
+
+<p>这就是条件概率公式。</p>
+<h3 id="全概率公式">全概率公式</h3>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/bg2011082504.jpg" alt="" /></p>
+
+<p>假定我们有样本空间$S$与事件$A$，事件$A$与事件$\not A$构成了整个样本空
+间。我们引入事件$B$，那么有：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B\|A)P(A) + P(B\| \not A)P(\not A)</script>
+
+<p>证明：
+由于$A$与$\not A$之和为整个样本空间，对于事件B我们有:</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \cap A) + P(B \cap \not A)</script>
+
+<p>根据条件概率，我们有：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \| A)P(A) + P(B \| \not A) P(\not A)</script>
+
+<h3 id="贝叶斯推断">贝叶斯推断</h3>
+
+<p>对条件概率公式变形，我们有如下形式:</p>
+
+<script type="math/tex; mode=display">P(A \| B) = P(A)\frac{P(B \| A)}{P(B)}</script>
+
+<p>我们把$P(A)$看作是<strong>先验概率</strong>（即我们在观察样本之前对事件$A$发生概率的估
+计），$P(A|B)$是<strong>后验概率</strong>（即事件$B$发生的情况下，事件$A$发生的概率），
+而$P(B |A) / P(B)$被称作<strong>似然度</strong>（likelyhood）。那么，我们的条件概
+率公式就可以被认为是：</p>
+
+<blockquote>
+  <p>后验概率 = 先验概率 × 似然度</p>
+</blockquote>
+
+<p>这就是贝叶斯推断的意义。</p>
+
+<p>用西瓜做比喻。假设我们从一堆西瓜中挑出了若干个，
+那么根据贝叶斯公式，我们认为：</p>
+
+<blockquote>
+  <p>P(我们预计是甜的情况下真的是甜的) = P(我们预计是甜的) × P(真的是甜
+的情况下且我们预计是甜的) / P(真的是甜的)</p>
+</blockquote>
+
+<h3 id="例子假阳性问题">例子：假阳性问题</h3>
+<p>医学上的假阳性问题是一个很经典的例子，可以用来解释条件概率与贝叶斯定理。
+假定某种疾病发生的概率是1%，现在有一种准确率为99%的检查手段可以检测病
+情，即患者有病的情况下，检测为阳性的概率为99%。但是，这种手段的误报率
+是5%，即患者如果没有病，它有5%的概率呈现阳性。现在有一个病人的检验结果
+为阳性，求其得病的概率？</p>
+
+<p>我们的先验概率，即疾病发生的概率是1%。我们要计算的是：“在检测为阳性的
+情况下患者患病的概率”，即后验概率。根据贝叶斯定理，我们有：</p>
+
+<script type="math/tex; mode=display">P(A \| B) = P(A)\frac{P(B \| A)}{P(B)}</script>
+
+<p>其中$P(A)$为先验概率，$P(B | A)$是在患者患病的情况下的检测成功率。
+$P(B)$是患者被检测出阳性的总概率。对于未知的$P(B)$，我们可以用全概率公
+式求解：</p>
+
+<script type="math/tex; mode=display">P(B) = P(B \| A) * P(A) + P(B \| \not A) * P(\not A)</script>
+
+<p>则我们可以计算出，患者被检测出阳性的总概率大致为5.94%，从而，患者检测
+为阳性的情况下患病率大致为16.7%。这是一个反直觉的结论，即检测结果为阳
+性也只能说明检测对象有大约百分之十七的概率患病。如果发病率更低，检测结
+果的效果更差，大家不妨试一试。</p>
+
+<h2 id="贝叶斯分类器的原理">贝叶斯分类器的原理</h2>
+
+<p>将贝叶斯定理与分类器的原理进行结合，我们就得到了贝叶斯分类器。其原理可
+以简单地叙述如下：</p>
+
+<blockquote>
+  <p>给定一个包含若干个属性${x_1, x_2,…,x_m}$的样本，在已知所有相关概率的情况下，在类别空间
+$D = {d_1,d_2,…,d_n}$上寻找最大可能的概率。</p>
+</blockquote>
+
+<p>我们先根据某些原则（过去的经验，某些性质比较好的点，等等）给出一个概率
+的先验分布，我们的目的是最大化我们的后验概率(即，在样本发生的情况下，
+其可以被分为某类的概率)。因此，贝叶斯分类器的数学形式可以表达如下：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i \| \mathbf{x}) \\
+~~= argmax_{d_i \in D} P(d_i) \frac{P(\mathbf{x} \| d_i)}{P(\mathbf{x})}</script>
+
+<h2 id="极大似然估计mle与极大后验概率map">极大似然估计（MLE）与极大后验概率（MAP）</h2>
+
+<p>由上式我们可以看出，样本的发生概率$P(\mathbf{x})$对于给定的数据集是一
+个常数。但是，对于如何处理分子项$P(d_i)P(\mathbf{x} | d_i)$而言，根据
+不同的视角而言会有不同的结论。</p>
+
+<p>目前，概率学界大致有两种看法：频率主义认为，虽然频率的分布是未知的，但
+是在实际上是一个确定的值；但是贝叶斯学派认为，频率的分布也是一个未知的
+随机变量。</p>
+
+<p>根据频率主义学派的观点，我们有极大似然估计(maximum likelihood
+estimation)方法。频率学派认为，样本的分布是确定的，这意味着如果样本满
+足独立同分布条件（虽然是什么我不清楚），先验概率
+$P(d_i)$这一项在实际上是常数。我们在做计算的时候，只需要考虑似然度
+$P(\mathbf{x} | d_i)$这一项即可。根据极大似然估计，我们可以将贝叶斯分
+类器转化为：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(\mathbf{x} \| d_i)</script>
+
+<p>贝叶斯学派认为，样本的分布是不确定的，先验概率也是随机变量之一，于是，
+$P(d_i)$项不为常数，在求最大值时无法约去。我们把这种处理方式称为极大后
+验概率(maximum posteriori)。这时，贝叶斯分类器转化为：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} P(d_i)P(\mathbf{x} \| d_i)</script>
+
+<p>根据贝叶斯学派的观点，先验概率的选取会对结果造成影响，在现实世界中，这
+也意味着之前的认知会对之后的估计造成影响，这里不展开。</p>
+
+<h2 id="朴素贝叶斯分类器">朴素贝叶斯分类器</h2>
+
+<p>基于贝叶斯公式估计后验概率的时候，由于样本的属性向量$\mathbf{x}$会随着
+属性的不同而不同，在属性很多的情况下会是一个天文数字。这导致了两个问题：
+在计算的时候出现组合爆炸；在泛化的时候又过于稀疏，难以估计广泛情况。为
+了避开这个障碍，朴素贝叶斯分类器采用了“属性条件独立性假设”(attribute
+conditional independence assumption)，即假设所有的属性对结果的影响是独
+立的。</p>
+
+<p>根据属性条件独立性假设，我们可以将贝叶斯分类器重写为：</p>
+
+<script type="math/tex; mode=display">Y = argmax_{d_i \in D} \frac{P(d_i)}{P(\mathbf{x})}
+\prod_{j=1}^{m} P(x_j \| d_i)</script>
+
+<p>由于对于所有的属性$P(\mathbf{x})$均为常数，我们可以将其约去。先验概率
+的选取需要考虑问题的性质，如果我们可以很有信心地得出先验概率，则用已经
+确定的先验概率。否则，我们可以对样本集进行统计，或者使用正态分布等。
+特征是连续值的情况下，通常假设其服从于高斯分布（正态分布）。</p>
+
+<p>当连乘式中出现某个属性没有出现，即其概率为0的情况，无论其他属性有多高
+的可能性，其总概率为0，而这是我们不想看到的。其解决方法是m-估计(m-estimation):</p>
+
+<script type="math/tex; mode=display">\frac{\|D_c\| + m\|D_c\|p}{\|D\| + m}</script>
+
+<p>其中，$|D_c|$指的是该类别的样本总量，$|D|$是样本总量，$p$是<strong>该类
+别</strong>的先验概率，$m$是等效样本的大小(equivalent sample size)。这里，$m$
+可以取正的任意值。在样本量足够大的情况下，取一个较小的m不会对最终结果
+有很大的影响。</p>
+
+<h1 id="思想及其应用">思想及其应用</h1>
+
+<p>在Paul Graham的《黑客与画家》一书中，使用了朴素贝叶斯分类器来分辨垃圾
+邮件，具体操作是抽取关键词，并且计算关键词出现与邮件为垃圾邮件的概率。
+朴素贝叶斯分类器的效率极高，在这方面的应用往往有99%以上的正确率。</p>
+
+<p>另外，朴素贝叶斯的基本思想–将属性分开来独立地看待，也是在自然语言处理
+方面很有用的隐马尔科夫模型的基本假设。</p>
+
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material</li>
+  <li>阮一峰，贝叶斯推断及其互联网应用（一）：定理简介，http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_one.html</li>
+  <li>阮一峰，贝叶斯推断及其互联网应用（二）：过滤垃圾邮件，http://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_two.html</li>
+  <li>冰枫的随笔， 贝叶斯方法的m-估计，http://blog.csdn.net/cyningsun/article/details/8671975</li>
+  <li>张洋,算法杂货铺——分类算法之朴素贝叶斯分类(Naive Bayesian classification),http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html</li>
+</ol>
+
+ -->
+    
+        <p>死亡冲师匠失败(艸□`..)但是还是姑且把这个当成攒人品吧……</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -1177,329 +1406,6 @@ $A=XX^T$进行特征值分解，我们得到：</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-introduction/" title="Machine Learning Review:Introduction">
-            
-            <img src="http://og78s5hbx.bkt.clouddn.com/60095827_p0.jpg" alt="Machine Learning Review:Introduction">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-12-29T19:20:50+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-introduction/">December 29, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-introduction/" rel="bookmark" title="Machine Learning Review:Introduction" itemprop="url">Machine Learning Review:Introduction</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>本学期机器学习的一个复习，还是跟大三下一样会写一个系列，就当为GRE跟师
-匠攒人品了。</p>
-
-<p>// 话说就课了一个礼拜的夜宵钱就出了总司什么情况……不会败人品吧……</p>
-
-<h1 id="what-is-machine-learning">What is Machine Learning?</h1>
-<p>在西瓜书里，给出了这么一个定义：</p>
-
-<blockquote>
-  <p>机器学习是这样一门学科：它致力于研究如何通过计算的手段，利用<strong>经验</strong>来<strong>改
-善</strong>系统自身的性能。</p>
-</blockquote>
-
-<p>Mitchell’s formal definition:</p>
-
-<blockquote>
-  <p>A computer program is said to learn from experience $E$ with respect
-to some class of tasks $T$ and performance measure $P$, if its
-performance at tasks in $T$, as measured by $P$, improves with
-experience $E$.</p>
-</blockquote>
-
-<p>我们可以总结出三条要点：</p>
-<ol>
-  <li>有一个确定的<em>任务</em></li>
-  <li>根据过去的<em>经验</em></li>
-  <li><em>性能</em>需要提高</li>
-</ol>
-
-<p>拿西瓜书里的西瓜做个例子（我也蛮喜欢吃西瓜的）：</p>
-<ul>
-  <li><em>任务</em>：(根据西瓜的特征)挑一个好瓜</li>
-  <li><em>经验</em>：过去挑西瓜的经验，比如说声音闷的是好瓜之类</li>
-  <li><em>性能</em>：给定一组西瓜的特征，正确地挑出好瓜的概率</li>
-</ul>
-
-<h2 id="没有免费的午餐定理no-free-lunch-theorem">没有免费的午餐定理(No Free Lunch Theorem)</h2>
-<p>在问题出现概率相同的情况下，总误差与学习算法无关，推理详见西瓜书。
-在实际中，问题并不是<em>等概率</em>出现的，也就意味着我们可以针对<em>特定问题</em>可
-以用机器学习方法找出一个很好的方案。</p>
-
-<h1 id="how-to-design-a-learning-system">How to design a learning system?</h1>
-
-<p>以神经网络识别手写数字为例：</p>
-<ol>
-  <li>确定问题，没有确定问题学习什么呢- -</li>
-  <li>寻找经验（训练集）</li>
-  <li>将经验中的<em>特征数据</em>用向量表示，比如将手写数字识别的图片转换成向量：$X = transform(Image)$</li>
-  <li>用向量表示经验中的<em>目标数据</em>$D$，然后将两者结合成为一个二元组来形式化
-地表示经验：$E = (X, D)$</li>
-  <li>寻找一个学习算法$F(W, X)$, 其中$W$ 是学
-习算法的参数，或者说权重。用$M$来表示性能量度算法，$P$表示性能，我们有：
-$E = (X, D)$
-$F(W, X) = D’$
-$P = M(D, D’)$</li>
-  <li>调整$W$,使得获得更好的$P$</li>
-  <li>调整好参数后，就可以系统拿去应用了。</li>
-</ol>
-
-<h1 id="how-to-evaluate-learning-algorithm">How to evaluate learning algorithm</h1>
-
-<p>在这一部分，我们会大致了解一下如何评价学习算法的表现。</p>
-
-<h2 id="data-split">Data Split</h2>
-
-<p>一些较小的数据集，比如说我们用过的手写识
-别<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>集，会有测试集与训练集的划
-分。但是，对于比较大的经验集，我们通常将其自身分成测试集(test set)
-与训练集(training set)（以及可能的验证集(verification set)）</p>
-
-<h3 id="1hold-out">1.Hold-out</h3>
-<p>西瓜书里叫做留出法，是一种基础的分类方法：</p>
-<ol>
-  <li>将数据<em>随机地</em>分成训练（，开发）与测试集</li>
-  <li>在训练/测试的时候，不要用全部数据</li>
-  <li>对很大的数据集来说比较有用</li>
-</ol>
-
-<p>随机性的划分主要是为了保持数据分布的一致性，否则容易产生偏差。</p>
-
-<p>留出法的问题在于，它对原始的数据集进行了一定的操作。如果测试集太大，会
-导致训练集太小，得出的结果没有办法去近似在整个训练数据$D$上的结果；反
-之，则会导致测试集不能很好地估计训练结果。目前而言没有完美解决方案，常
-用的手法是训练集占比大约在三分之二至80%之间。</p>
-
-<h3 id="2bootstrapping">2.Bootstrapping</h3>
-<p>西瓜书里叫”自助法”。步骤如下：</p>
-<ol>
-  <li>给定包含$m$个样本的数据集$D$</li>
-  <li>构建测试集$D’$：每次从$D$中随机挑选一个数据，复制到$D’$中</li>
-  <li>重复步骤2$m$次，我们就能得到集$D’$（注：这是极限情况）</li>
-</ol>
-
-<p>对于某个特定的样本来说，在这$m$次采样中始终不被采到的概率为
-$(1-\frac{1}{m})^m$，取极限有:</p>
-
-<p>$\lim_{n \to \infty}(1 - \frac{1}{m}) = \frac{1}{e} = 36.8%$</p>
-
-<p>在数据集足够大的情况下，初始数据集中大约有36.8%的数据是不会出现在集合
-$D’$里的。于是，我们可以使用$D’$作为训练集，$D - D’$ 作为测试集。这样
-做的坏处是，虽然我们的$D’$跟$D$有同样的大小，但是分布被改变了，也就会
-导致训练误差。</p>
-
-<h3 id="3cross-validation">3.Cross Validation</h3>
-<p>交叉验证法。其步骤如下：</p>
-<ol>
-  <li>将数据集$D$划分成$k$个大小相等的<em>互斥</em>子集</li>
-  <li>每次使用一个子集作为测试集，剩下的子集的合集作为训练集</li>
-  <li>我们因而获得了$k$组测试/训练集，最终返回其结果的均值。</li>
-</ol>
-
-<p>一般而言，我们在使用交叉验证的时候$k$值取10。在极限的情况下，$k$与数据
-集的数据数量$m$相等，即每个子集有且仅有一个样本。这种情况叫做留一法
-(Leave-One-Out), 好处是非常接近用整个数据集$D$训练的结果，坏处是计算开
-销太过巨大，而且这还是不考虑“没有免费午餐定理”的情况下。</p>
-
-<h2 id="measuring-performance">Measuring Performance</h2>
-
-<h3 id="overfitting--underfitting">Overfitting &amp; Underfitting</h3>
-
-<p>过拟合与欠拟合。</p>
-
-<p>定义错误率为分类错误的样本数占总数的比例：$E = a / m$</p>
-
-<p>我们同样可以定义精度：$(1 - a / m) * 100%$</p>
-
-<p>更一般地，定义误差为“学习器的实际输出”与样本的真实输出之间的差异。学
-习器在<em>训练集</em>上的误差称作”训练误差”(training error)，在<em>测试集</em>上的误
-差称作”泛化误差”(generalization error)。
-我们的目标是，获得一个<em>泛化误差</em>较小的学习器，但是我们并不能事先知道新
-的样本长什么样。在实际操作中，我们采取的策略是使得经验误差最小化。但是，
-我们很可能得到这样一种学习器：经验误差很小，但是在测试集上表现不佳。这
-种情况，我们称作”过拟合”(overfitting)。与之相对，是“欠拟合”(underfitting).</p>
-
-<p><img src="http://og78s5hbx.bkt.clouddn.com/1341814477_1796.jpg" alt="Stanford_Machine_Learning" />
-<em>Overfitting</em> Source: Stanford Machine Learning</p>
-
-<p>过拟合的本质，是学习器在训练集上学习得“太好了”，以至于没有办法对一个
-更加泛化的数据集做出正确的反应。</p>
-
-<p>由于我们通过学习器拟合的函数往往是多项式函数，而机器学习所解决的现实问
-题往往是NP难或者以上，因此，只要我们认为$P \neq NP$，那么过拟合就<em>无法
-避免</em>。我们所能做的，是尽量减少泛化误差。</p>
-
-<p>通常有这么几个原因导致明显的过拟合：</p>
-<ol>
-  <li>学习过程太长了！</li>
-  <li>训练集不能较好地反映所有的情况，这是大多数场合出现过拟合的原因</li>
-  <li>模型参数被调整到训练集中无效信息的部分–同目标函数根本没有正式关系
-(这段不太理解：Model parameters are adjusted to uninformative
-features in the training set that have no causal relation to the
-true underlying target function!)</li>
-</ol>
-
-<h3 id="f1-measure">F1 Measure</h3>
-
-<p>对于二分类问题（分类只有正反两类），我们可以根据其真实类别与学习器预测的类别组合划分为：</p>
-
-<ol>
-  <li>真正例(TP)：真实为正，预测为正</li>
-  <li>假正例(FP)：真实为反，预测为正</li>
-  <li>真反例(TN)：真实为反，预测为反</li>
-  <li>假反例(FN): 真实为正，预测为反</li>
-</ol>
-
-<p>显然，我们有：</p>
-
-<ol>
-  <li>$TP + FP + TN + FN$ = 样本总数</li>
-  <li>$TP + TN$ = 预测正确的数量</li>
-  <li>$TP + FP$ = 预测结果为正的数量</li>
-  <li>$TP + FN$ = 实际结果为正的数量</li>
-</ol>
-
-<p>…等等。</p>
-
-<p>定义<em>查准率</em>(precision, 或者也叫准确率):</p>
-
-<p>$P = \frac{TP}{TP + FP}$</p>
-
-<p>意义为正确地分类为正占预测分类为正的百分比。</p>
-
-<p>定义<em>查全率</em>(recall, 或者也叫召回率)：</p>
-
-<p>$P = \frac{TP}{TP + FN}$</p>
-
-<p>意义为正确地分类为正占真实分类为正的百分比。</p>
-
-<p>查准率跟查全率是一对相对的度量。我们拿挑瓜做一个直观的理解：</p>
-
-<p>小明（你可以把小明看做学习器）去挑瓜，瓜有甜的跟不甜的两种类型。小明不
-是天才，不能百分之百地挑出所有的甜瓜。那么，我们就有四种情况对应上面的
-四个数据：</p>
-<ol>
-  <li>小明觉得是甜的瓜，实际上是甜的瓜 -&gt; TP</li>
-  <li>小明觉得是甜的瓜，实际上是不甜的瓜 -&gt; FP</li>
-  <li>小明觉得是不甜的瓜（不挑），实际上是甜的瓜 -&gt; FN</li>
-  <li>小明觉得是不甜的瓜，实际上是不甜的瓜 -&gt; TN</li>
-</ol>
-
-<p>如果小明希望能够尽可能地挑出甜的瓜，即，尽量使挑到的瓜都是甜的，那么小
-明可以做的事情是：尽量少挑瓜！在这种情况下，小明挑出来的瓜(TP + FP)会
-很少，但是小明会对挑出瓜的甜度很有信心(极端情况下，小明只挑一个有把握
-的甜瓜：查准率100%)。当然，另一个方面就是小明尽可能挑出更多的瓜，这种
-情况下查全率会很高，但是甜的瓜有多少就是一个问题了。</p>
-
-<p>我们衡量一个学习器的好坏，要综合查准率跟查重率两方面考虑。比如说，小刚
-说他比小明更会挑瓜，理由是他挑的瓜是甜的概率大-&gt;你要考虑小刚是不是只挑
-很少的有把握的瓜的那种类型。但是，如果小红说她比小明更会挑瓜，理由是小
-红能够挑出更多的瓜，而且小红能挑中好瓜的概率还比小明高-&gt;那这毫无疑问是
-小红比较强。</p>
-
-<p>但是，我们不能保证相比较的情况都像小明跟小红那样无可争议。因此，我们需
-要一个另外的度量来衡量两个人挑瓜的能力。我们可以使用平衡点（Break-Even
-Point），定义为查全率与查准率相等时的值；当然我们还有更好的：F度量(F-measure)</p>
-
-<p>$F_{\beta} = \frac{(1 + \beta^2) \times P \times R}{\beta^2 + R}$</p>
-
-<p>这里，我们用$\beta$来控制查全率与查准率的权重。在某些时候我们希望查全
-率高一点，某些时候希望查准率高一点。当$\beta$取1的时候，即为查全率与查
-准率有同样的权重的时候。我们称这样的F度量为F1度量（F1-measure）。</p>
-
-<p>在本质上，F度量的倒数是查全率与查准率的调和平均数：</p>
-
-<p>$\frac{1}{F_{\beta}} = \frac{1}{1 + \beta^2} (\frac{1}{P} + \frac{\beta^2}{R})$</p>
-
-<p>我们可以容易看出，当$\beta$值小于1的时候，查准率有更大的权重；而当
-$\beta$大于1的时候，查全率有更大的权重。</p>
-
-<h3 id="rocreceiver-operator-characteristic-curve">ROC(Receiver Operator Characteristic) Curve</h3>
-
-<p>很多学习器是为测试样本产生一个预测值，并且将之与一个分类阈值
-(threshold)比较，如果大于则为正，反之则为反。</p>
-
-<p>我们可以根据这个预测值将样本排序，例如将“最可能”为正的值排在前面，
-“最不可能”为正的放在后面。我们可以根据情况来选择不同的阈值，但是如何
-衡量排序本身的质量好坏，我们需要别的工具。</p>
-
-<p>ROC曲线取“真正例率”与“假正例率”两个重要量的值，分别以他们为纵，横坐标作图。</p>
-
-<p>定义真正例率（TPR）：</p>
-
-<p>$TPR = \frac{TP}{TP + FN}$</p>
-
-<p>定义假正例率（FPR）：</p>
-
-<p>$FPR = \frac{FP}{FP + TN}$</p>
-
-<p>ROC曲线为以TPR为纵轴，FPR为横轴的曲线</p>
-
-<p>$TPR = ROC(FPR)$</p>
-
-<p>坐标轴的对角线表示随机猜测的模型，点(0, 1)表示的是将所有正例排在反例之
-前的理想模型。</p>
-
-<p>ROC曲线下面包覆的面积即为AUC(Area Under ROC),经常被用作衡量学习器好坏
-的一个度量。求AUC可以简单地对ROC进行加和或者求积分。</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Roccurves.png" alt="ROC_curve" />
-<em>By BOR at the English language Wikipedia, CC BY-SA 3.0</em></p>
-
-<h3 id="confusion-matrix">Confusion Matrix</h3>
-<p>混淆矩阵。这是一个很好用的可视化工具来判断是不是正确分类，比如西瓜：</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">真实情况\预测结果</th>
-      <th style="text-align: center">正</th>
-      <th style="text-align: center">反</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">正</td>
-      <td style="text-align: center">TP</td>
-      <td style="text-align: center">FN</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">反</td>
-      <td style="text-align: center">FP</td>
-      <td style="text-align: center">TN</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="references">References</h1>
-<ol>
-  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
-  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
-  <li>Lecture Material Topic 1, Topic 2, Topic 8</li>
-</ol>
-
- -->
-    
-        <p>本学期机器学习的一个复习，还是跟大三下一样会写一个系列，就当为GRE跟师
-匠攒人品了。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -1560,7 +1466,8 @@ $\beta$大于1的时候，查全率有更大的权重。</p>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2019 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+
   </footer>
 </div><!-- /.footer-wrapper -->
 
@@ -1578,7 +1485,7 @@ $\beta$大于1的时候，查全率有更大的权重。</p>
 -->
 <script type="text/javascript"
         async
-        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js">
+        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -1614,9 +1521,9 @@ code.has-jax {
 
 
 
-<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
 <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
 <!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js" async></script> -->
 
 

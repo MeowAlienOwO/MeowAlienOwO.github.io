@@ -18,10 +18,10 @@
 <!-- <script type="text/javascript" async
      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
      </script> -->
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
-</script>
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
+     <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+     </script> -->
 
 <!-- Share.js -->
 <!-- <link href="/assets/css/share.min.css" rel="stylesheet"> -->
@@ -170,6 +170,18 @@
 				  </a>
 				</li>
 				
+				<li>
+				  <a href="/categories/machine learning/">
+				    machine learning (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/RL/">
+				    RL (1)
+				  </a>
+				</li>
+				
 			</ul>
 		</li>
 		
@@ -252,7 +264,7 @@
   <li>登录进去之后，如果是图形界面打开Terminal。执行命令：</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">pwd</span></code></pre></figure>
 
 <p>我们可以获取到当前的工作目录。比如，<code>/home/your-user-name</code>。在学校的机子上，一般第一个工作目录就是你的家目录，所有的文件都得存放在这个目录下面。</p>
 
@@ -260,59 +272,59 @@
   <li>让我们创建一个文件夹：</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir my-directory</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>mkdir my-directory</code></pre></figure>
 
 <p>执行命令，就可以创建一个名为<code>my-directory</code>的文件夹。接下来，我们要在这个文件夹里进行我们的编程任务。</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd </span>my-directory</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">cd</span> my-directory</code></pre></figure>
 
 <p>这个命令可以将你的工作目录转换到<code>my-directory</code>下面。我们理所当然的知道，我们新建的目录应当是空的。但是，当我们执行命令<code>ls</code>来查看目录下的文件时：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ls -al</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>ls -al</code></pre></figure>
 
 <p>我们会看到如下输出：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">~/my-directory<span class="nv">$ </span>ls -al
-总用量 8
-drwxr-xr-x  <span class="m">2</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> 00:53 .
-drwx------ <span class="m">55</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> 00:53 ..</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>~/my-directory$ ls -al
+总用量 <span class="m">8</span>
+drwxr-xr-x  <span class="m">2</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> <span class="m">00</span>:53 .
+drwx------ <span class="m">55</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> <span class="m">00</span>:53 ..</code></pre></figure>
 
 <p>那这里的两个文件是怎么回事呢？这里的一个点<code>.</code>表示的是你的当前目录，而两个点<code>..</code>表示的是上级目录。如果我们想要回到家目录，我们可以执行：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ..</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">cd</span> ..</code></pre></figure>
 
 <p>而我们要是想执行某个文件，我们可以:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">./your-program <span class="c"># 在linux下通常可执行文件没有后缀</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>./your-program <span class="c1"># 在linux下通常可执行文件没有后缀</span></code></pre></figure>
 
 <p>4.接下来，我们创建一个文件：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">touch program.c
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>touch program.c
 ls -al</code></pre></figure>
 
 <p>我们可以看到输出增加了 program.c,说明文件已经创建成功。接下来，打开这个文件，我们就可以进行编辑了。</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">gedit program.c <span class="c"># 图形界面</span>
-emacs program.c <span class="c"># 命令行，或者</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>gedit program.c <span class="c1"># 图形界面</span>
+emacs program.c <span class="c1"># 命令行，或者</span>
 vim program.c</code></pre></figure>
 
 <ol>
   <li>写完程序以后，我们要将C源文件编译成可执行文件。</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">gcc program.c -o program <span class="c"># 编译</span>
-./program <span class="c"># 执行</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>gcc program.c -o program <span class="c1"># 编译</span>
+./program <span class="c1"># 执行</span></code></pre></figure>
 
 <p>但是，我们每次都要开两个东西：一个是gedit, 一个是terminal，出现编译错误得自己手动去找，不是很累吗？在emacs中，我们有命令：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">Alt+x compile <span class="c"># 之后在下面的小窗口中，会有编译命令，改成：</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Alt+x compile <span class="c1"># 之后在下面的小窗口中，会有编译命令，改成：</span>
 gcc program.c -o program</code></pre></figure>
 
 <p><img src="http://og78s5hbx.bkt.clouddn.com/compile.jpg" alt=""></p>
 
 <p>然后，我们就可以直接使用快捷键：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">Ctrl+<span class="sb">`</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Ctrl+<span class="sb">`</span></code></pre></figure>
 
 <p><img src="http://og78s5hbx.bkt.clouddn.com/compile-error.jpg" alt=""></p>
 
@@ -320,18 +332,18 @@ gcc program.c -o program</code></pre></figure>
 
 <p>我们再进行ls:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"> <span class="nv">$ </span>ls -al
-总用量 24
-drwxr-xr-x  <span class="m">2</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> 01:33 .
-drwx------ <span class="m">55</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> 01:33 ..
--rwxr-xr-x  <span class="m">1</span> meow meow <span class="m">8392</span> Nov  <span class="m">7</span> 01:33 program
--rw-r--r--  <span class="m">1</span> meow meow   <span class="m">80</span> Nov  <span class="m">7</span> 01:33 program.c</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span> $ ls -al
+总用量 <span class="m">24</span>
+drwxr-xr-x  <span class="m">2</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> <span class="m">01</span>:33 .
+drwx------ <span class="m">55</span> meow meow <span class="m">4096</span> Nov  <span class="m">7</span> <span class="m">01</span>:33 ..
+-rwxr-xr-x  <span class="m">1</span> meow meow <span class="m">8392</span> Nov  <span class="m">7</span> <span class="m">01</span>:33 program
+-rw-r--r--  <span class="m">1</span> meow meow   <span class="m">80</span> Nov  <span class="m">7</span> <span class="m">01</span>:33 program.c</code></pre></figure>
 
 <p>我们可以很清晰地看到，我们的program是有执行权限的。我们改变它的权限，让其不能被执行：`</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">chmod a-x program <span class="c"># 或者，二进制方式</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>chmod a-x program <span class="c1"># 或者，二进制方式</span>
 
-chmod 644
+chmod <span class="m">644</span>
 
 ls -al
 
@@ -341,28 +353,28 @@ ls -al
 
 <p>以上的步骤基本能保证完成编辑+编译工作，也意味着你可以在linux环境中生存下来了。当然，为了能够真正地在linux中存活，你还需要一些别的命令，以及学习能力与搜索技巧。我们来总结一下生存所必须的linux命令：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span>          <span class="c"># 当前工作目录的绝对路径，从/开始</span>
-<span class="nb">cd</span>           <span class="c"># 切换目录</span>
-<span class="nb">cd</span> ..        <span class="c"># 返回上一级</span>
-<span class="nb">cd</span> ~         <span class="c"># 返回用户的家目录。关于家目录的概念请自行查证</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">pwd</span>          <span class="c1"># 当前工作目录的绝对路径，从/开始</span>
+<span class="nb">cd</span>           <span class="c1"># 切换目录</span>
+<span class="nb">cd</span> ..        <span class="c1"># 返回上一级</span>
+<span class="nb">cd</span> ~         <span class="c1"># 返回用户的家目录。关于家目录的概念请自行查证</span>
 
-mkdir        <span class="c"># 创建目录</span>
-touch        <span class="c"># 创建一个空文件</span>
+mkdir        <span class="c1"># 创建目录</span>
+touch        <span class="c1"># 创建一个空文件</span>
 
-ls           <span class="c"># 列出当前工作目录下的所有文件与目录</span>
-             <span class="c"># -a 指包含隐藏文件，-l 指打印出文件的权限，所有者等信息。</span>
+ls           <span class="c1"># 列出当前工作目录下的所有文件与目录</span>
+             <span class="c1"># -a 指包含隐藏文件，-l 指打印出文件的权限，所有者等信息。</span>
 
-gedit        <span class="c"># 一个图形界面下的文本编辑器</span>
-emacs        <span class="c"># 一个文本编辑器，有图形界面以及命令行</span>
-vim          <span class="c"># 另一个文本编辑器，图形界面版本是gvim，操作的方法对初学者比较复杂</span>
-             <span class="c"># hjkl控制光标上下左右移动，:w是写入，:q是退出，:e是打开文件，要输</span>
-             <span class="c"># 入文字需要先按i键进入编辑模式，回到命令模式需要Esc</span>
+gedit        <span class="c1"># 一个图形界面下的文本编辑器</span>
+emacs        <span class="c1"># 一个文本编辑器，有图形界面以及命令行</span>
+vim          <span class="c1"># 另一个文本编辑器，图形界面版本是gvim，操作的方法对初学者比较复杂</span>
+             <span class="c1"># hjkl控制光标上下左右移动，:w是写入，:q是退出，:e是打开文件，要输</span>
+             <span class="c1"># 入文字需要先按i键进入编辑模式，回到命令模式需要Esc</span>
 
-gcc          <span class="c"># GNU C Compiler的缩写。是linux下自带的C语言编译器，</span>
-             <span class="c"># -o用于指定输出文件名</span>
+gcc          <span class="c1"># GNU C Compiler的缩写。是linux下自带的C语言编译器，</span>
+             <span class="c1"># -o用于指定输出文件名</span>
 
-man          <span class="c">#查看帮助</span>
---help 或 -h <span class="c"># 许多命令可以通过追加这两个flag获得一些常用的用法以及解释</span></code></pre></figure>
+man          <span class="c1">#查看帮助</span>
+--help 或 -h <span class="c1"># 许多命令可以通过追加这两个flag获得一些常用的用法以及解释</span></code></pre></figure>
 
 <h1 id="2我原以为你身为汉朝老臣">2.我原以为你身为汉朝老臣</h1>
 
@@ -546,7 +558,7 @@ man          <span class="c">#查看帮助</span>
 
 <p>在linux世界中，最常用的一条安装命令：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">apt-get install ...</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>apt-get install ...</code></pre></figure>
 
 <p>包管理器不仅存在与linux系统下。许多高级编程语言也有自己的包管理器，比如说python有pip，ruby有gem，nodejs有npm，等等。甚至前端也有bower这样的包管理器方便引用js依赖。</p>
 
@@ -554,14 +566,14 @@ man          <span class="c">#查看帮助</span>
 
 <p>在安装软件的时候，如果我们单纯的用<code>apt-get</code>这样的命令，我们很容易就会碰到:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">错误：非 root <span class="o">(</span>根用户<span class="o">)</span> 无法执行指定操作。</code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>错误：非 root <span class="o">(</span>根用户<span class="o">)</span> 无法执行指定操作。</code></pre></figure>
 
 <p>这是因为我们没有root用户的权限。那么，难道跟手机一样，linux也要root一下才可以吗？</p>
 
 <p>在linux下，提供了两条命令：</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">su root <span class="c"># 切换到root用户</span>
-sudo <span class="c">#临时获取root权限运行命令</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>su root <span class="c1"># 切换到root用户</span>
+sudo <span class="c1">#临时获取root权限运行命令</span></code></pre></figure>
 
 <p>由于root用户同windows下的管理员类似，没有root的权限就无法对系统的关键位置进行读写。我们在安装软件，或者对关键位置进行操作的时候，必须使用root用户操作。这也带来了很大的风险–万一手贱呢？曾经有软件就因为在root权限下<code>rm -rf /</code>闹了个大笑话–从根目录起，干干净净地删了整个系统。</p>
 
@@ -907,20 +919,20 @@ sudo <span class="c">#临时获取root权限运行命令</span></code></pre></fi
       <a href="http://MeowAlienOwO.github.io/life/%E4%BD%9C%E6%AD%BB%E7%AC%AC%E5%9B%9B%E5%91%A8/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Machine Learning: Linear Regression">Machine Learning: Linear Regression</a></h3>
-      <p>Linear regression is one of the oldest method for statistics, also regarded as an guide algorithm for machine learning.In this article, I...&hellip; <a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/">Continue reading</a></p>
+      <h3><a href="http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/" title="强化学习导论（一）">强化学习导论（一）</a></h3>
+      <p>强化学习导论的学习内容, 包含上课内容与其他自己找的资料，主要是复习用# 什么是强化学习> 通过与环境的持续交互学习，从而解决序列性的决策问题。强化学习是机器学习的一个分支，其特点为：1. 没有监督数据，只有奖励信号2. 奖励信号不一定是实时的3. 行为与环境交互 影响数据...&hellip; <a href="http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Machine Learning series -- Introduction">Machine Learning series -- Introduction</a></h4>
-        <span>Published on October 01, 2018</span>
+        <h4><a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Machine Learning: Linear Regression">Machine Learning: Linear Regression</a></h4>
+        <span>Published on October 02, 2018</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">Machine Learning Review: Neural Network</a></h4>
-        <span>Published on January 09, 2017</span>
+        <h4><a href="http://MeowAlienOwO.github.io/ml/category/math-notes-introduction/" title="Machine Learning series -- Introduction">Machine Learning series -- Introduction</a></h4>
+        <span>Published on October 01, 2018</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -932,7 +944,8 @@ sudo <span class="c">#临时获取root权限运行命令</span></code></pre></fi
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2018 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2019 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+
   </footer>
 </div><!-- /.footer-wrapper -->
 
@@ -950,7 +963,7 @@ sudo <span class="c">#临时获取root权限运行命令</span></code></pre></fi
 -->
 <script type="text/javascript"
         async
-        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js">
+        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -986,9 +999,9 @@ code.has-jax {
 
 
 
-<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
 <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
 <!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js" async></script> -->
 
 
