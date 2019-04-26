@@ -417,7 +417,7 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
 
 <p>在最优策略下，我们可以用最优的动作来替代策略下的条件分布：</p>
 
-<script type="math/tex; mode=display">v_{*}(s) = \max_{a} \sum_{s', r} p(s', r\|s, a)[r + \gamma v_{*}(s')]</script>
+<script type="math/tex; mode=display">v_{*}(s) = \max_{a} \sum_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]</script>
 
 <script type="math/tex; mode=display">q_{*}(s, a) = \sum_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]</script>
 
@@ -426,10 +426,11 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
 此时，我们使用平均奖励(average reward)来评价策略的价值:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
-\being{aligned}
+\begin{aligned}
 
-r(\pi) &= \lim_{h \rightarrow \infty} \frac{1}{h} \sum_{t=1}^{h} \mathbb{E}[R_t \| S_0, A_0, ...]
-       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a\|s) \sum_{s', r} p(s', r|s, a) r
+r(\pi) &= \lim_{h \rightarrow \infty} \frac{1}{h} \sum_{t=1}^{h} \mathbb{E}[R_t | S_0, A_0, ...]
+
+       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r} p(s', r\|s, a) r
 
 \end{aligned} %]]></script>
 
