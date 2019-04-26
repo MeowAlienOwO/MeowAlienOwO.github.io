@@ -229,7 +229,7 @@ $$
 
 在最优策略下，我们可以用最优的动作来替代策略下的条件分布：
 
-1. $v_{*}(s) = \max_a \sum_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]$
+1. $v_{*}(s) = \max_{a} \sum_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]$
 2. $q_{*}(s, a) = \sum_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]$
 
 对于有限的MDP与non-terminate episode而言，每个策略$\pi$都会遍历状态空间，空间中的每个状态理想情况下都会被访问无限次。
@@ -238,8 +238,10 @@ $$
 
 $$
 \being{aligned}
+
 r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0, ...]
        &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
+
 \end{aligned}
 $$
 
