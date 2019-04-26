@@ -417,18 +417,9 @@ q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
 
 <p>在最优策略下，我们可以用最优的动作来替代策略下的条件分布：</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$$v_{*}(s) = \max_{a} \sum_{s’, r} p(s’, r</td>
-      <td>s, a)[r + \gamma v_{*}(s’)]$$</td>
-    </tr>
-    <tr>
-      <td>$$q_{*}(s, a) = \sum_{s’, r} p(s’, r</td>
-      <td>s, a)[r + \gamma \max_{a’} q_{*}(s’, a)]$$</td>
-    </tr>
-  </tbody>
-</table>
+<script type="math/tex; mode=display">v_{*}(s) = \max_{a} \sum_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]</script>
+
+<script type="math/tex; mode=display">q_{*}(s, a) = \sum_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]</script>
 
 <p>对于有限的MDP与non-terminate episode而言，每个策略$\pi$都会遍历状态空间，空间中的每个状态理想情况下都会被访问无限次。
 我们定义时间趋于无穷时，状态的分布为平稳状态分布$P_\pi(s) = Pr{S_t = s, |A_0, …, A_{t-1} \sim \pi }$。 
