@@ -239,8 +239,8 @@ $$
 $$
 \being{aligned}
 
-r(\pi) &= \lim_{h\rightarrow \infty}\frac{1}{h}\sum_{t=1}^{h}\mathbb{E}[R_t | S_0, A_0, ...]
-       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r}p(s', r|s, a)r
+r(\pi) &= \lim_{h \rightarrow \infty} \frac{1}{h} \sum_{t=1}^{h} \mathbb{E}[R_t | S_0, A_0, ...]
+       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r} p(s', r|s, a) r
 
 \end{aligned}
 $$
