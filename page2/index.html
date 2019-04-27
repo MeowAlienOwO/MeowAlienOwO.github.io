@@ -210,6 +210,125 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/56118124.jpg" alt="Machine Learning Review: K-means & KNN">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2017-01-08T23:09:34+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/">January 08, 2017</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" rel="bookmark" title="Machine Learning Review: K-means & KNN" itemprop="url">Machine Learning Review: K-means & KNN</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>啊……感觉要加快点节奏，不然来不及……</p>
+
+<h1 id="聚类学习">聚类学习</h1>
+<p>聚类学习(clustering)是无监督学习(unsupervised learning)的一种。训练样
+本的标记信息是未知的，目的是通过无监督学习的算法来揭示数据的内部联系。
+聚类学习的目的是，将原有的数据集合划分成若干个不相交的子集。每个子集被
+称为一个簇(cluster)。但是，这些簇对于聚类算法而言具体代表什么意义是未
+知的，需要使用者去标记。</p>
+
+<h2 id="k-means">K-Means</h2>
+
+<p>K-Means是一个典型的聚类学习算法。给定样本集$D = {x_1, x_2,…,x_m}$，
+K-Means的目标是产生k个簇$C = {C_1, C_2,…,C_k}$，使得其平方误差最小：</p>
+
+<script type="math/tex; mode=display">E = \sum\limits_{i=1}^{k}\sum\limits_{x \in C_i} \|\mathbf{x} - \mu_i\|^2</script>
+
+<p>其中，$\mu$是划分为该簇的向量的均值，类似物理学中的质心。</p>
+
+<p>K-means的算法可以大致描述如下：</p>
+
+<ol>
+  <li>随机选取k个初始均值向量$\mu_1,\mu_2,…,\mu_k$，用来表示簇的中心</li>
+  <li>对于所有样本，根据样本数据与均值向量之间的距离$dst = $|\mathbf{x} - \mu$|$,将样
+本划分至最近的簇中</li>
+  <li>划分完后，对于所有的簇，根据现有的样本，重新计算其均值向量并且更新。</li>
+  <li>重复步骤2,3，直到所有的均值向量不变或者变动范围小于某个阈值</li>
+</ol>
+
+<p>K-Means可以看做是不断地更新质心的过程。</p>
+
+<h2 id="对距离的处理">对距离的处理</h2>
+
+<p>K-Means处理距离的时候常使用闵可夫斯基距离(Minkowski distance)。</p>
+
+<script type="math/tex; mode=display">dst_mk(\mathbf{x_i}, \mathbf{x_j}) = (\sum\limits_{u=1}^{n}\|x_{iu} - x_{ju}\|^p)^{\frac{1}{p}}</script>
+
+<p>在p值取2的时候，闵可夫斯基距离就是普通的欧几里得距离(Euclidean
+distance)：
+<script type="math/tex">dst_eu(\mathbf{x_i}, \mathbf{x_j}) =
+\sqrt{\sum\limits_{u=1}^{n}\|x_{iu} - x_{ju}\|^2}</script></p>
+
+<p>p值取1的时候，闵可夫斯基距离变成曼哈顿距离。</p>
+
+<h1 id="竞争学习">竞争学习</h1>
+<h2 id="竞争神经网络competitive-network">竞争神经网络(Competitive Network)</h2>
+
+<p>竞争神经网络是无监督学习的一种，即训练集中的样本没有给出最终的分类结果。
+神经网络同样也可以用于无监督学习。其处理方式为增加了一道”竞争”机制。</p>
+
+<p>竞争学习的神经网络通常只有两层：输入层与单层输出节点，输出神经元与输入
+节点完全相连。</p>
+
+<p>对于每次输入，只有一个输出神经元会被激活并更新权重。竞争神经网络采取
+“赢家通吃”的方法来决定，即只有输出值最大的神经元得到激活并且更新权重。如果下一次
+有相近的输入，那么该神经元也会有更大的概率被激活。</p>
+
+<h2 id="最小距离分类minimun-distance-classifier">最小距离分类(minimun distance classifier)</h2>
+
+<p>最小距离首先计算每一个已知类别的平均点，然后对于新的样本，分别计算其到
+类别平均点的距离，选取距离最近的那个类别进行分类并且更新平均点。</p>
+
+<h1 id="k邻近算法">K邻近算法</h1>
+
+<p>K邻近算法(K-nearest neighbour)是一个简单的分类算法。其具体思想是，将样
+本同训练集中的元素进行一一比较，取前k个最近的元素，选取这$k$个中最多的
+类别进行分类。</p>
+
+<p>K邻近算法没有学习过程，被称之为懒惰学习。</p>
+
+<p>具体算法如下：</p>
+<ol>
+  <li>将数据集划分为测试集与训练集，并且保证其均匀分布</li>
+  <li>保存训练集数据</li>
+  <li>对每一个测试集中数据，计算其与所有的训练集之间的距离，取前K个。K值
+预先指定</li>
+  <li>取K个最近距离中类别最多的一项，标记类别</li>
+</ol>
+
+<p>K邻近算法虽然简单，但是泛化效率很高。但是，对大的数据集而言，它的效率
+不太让人满意。</p>
+
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material</li>
+  <li>liangdas,最小距离分类法介绍, http://blog.csdn.net/liangdas/article/details/17039583</li>
+  <li>51to.com, 7.6 竞争网络和竞争学习（1）, http://book.51cto.com/art/201302/380106.htm</li>
+</ol>
+
+ -->
+    
+        <p>啊……感觉要加快点节奏，不然来不及……</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_bayesian_learning/" title="Machine Learning Review: Bayesian Learning">
             
             <img src="http://og78s5hbx.bkt.clouddn.com/60680252.jpg" alt="Machine Learning Review: Bayesian Learning">
@@ -1042,361 +1161,6 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
   <li>July(2012) 支持向量机通俗导论，http://blog.csdn.net/v_july_v/article/details/7624837</li>
 </ol>
 
- -->
-    
-        <p>新年快乐，跨年也是元气满满地在机房～</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_svm_&_pca/" title="Machine Learning Review: SVM & PCA">
-            
-            <img src="http://og78s5hbx.bkt.clouddn.com/60319234_p0.jpg" alt="Machine Learning Review: SVM & PCA">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-12-31T14:23:05+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_svm_&_pca/">December 31, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_svm_&_pca/" rel="bookmark" title="Machine Learning Review: SVM & PCA" itemprop="url">Machine Learning Review: SVM & PCA</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>新年快乐，跨年也是元气满满地在机房～</p>
-
-<p>就不按照上课顺序了，从自己搞不清楚的部分写起。在考SQM之前姑且看看能不
-能再复习一遍决策树吧。</p>
-
-<h1 id="支持向量机-support-vector-machine">支持向量机 Support Vector Machine</h1>
-
-<h2 id="线性分类器">线性分类器</h2>
-
-<p>分类学习的基本想法是，在训练集$D$的样本空间中，寻找到一个超平面
-(hyperplane)，从而将数据分成两类。感知机(perceptron)就是一个典型的线性
-分类器。</p>
-
-<p>线性分类器的一般方程可以表示如下：</p>
-
-<p>$\mathbf{w}^T\mathbf{x} + b = 0$</p>
-
-<p>其中，$\mathbf{w}$是权重向量，$\mathbf{x}$是特征向量。另外，在数学意义上，
-$\mathbf{w}$是由方程$\mathbf{w}^T\mathbf{x} + b = 0$所表示的超平面的法向量，
-$b$为该超平面的截距。</p>
-
-<h2 id="支持向量机">支持向量机</h2>
-
-<p>应用线性分类器的时候，我们常常会碰到这样一种情况：</p>
-
-<p><img src="https://computersciencesource.files.wordpress.com/2010/01/svmafter_thumb.png?w=230&amp;h=240" alt="best-svm" /></p>
-
-<p>线性分类器可能的取值在<strong>训练</strong>集上不止一个，那么我们如何寻找<strong>最优</strong>的
-线性分类器呢？</p>
-
-<p>注意到样本空间中任意一点$x$到超平面的距离为：</p>
-
-<p>$r = \frac{|\mathbf{w}^T\mathbf{x} + b|}{||w||}$</p>
-
-<p>复习一下解析几何：</p>
-
-<p>在二维情况下的情形是点到直线的距离:</p>
-
-<p>$r = \frac{ax + by +c}{\sqrt{a^2 + b^2}}$</p>
-
-<p>三维情况下点到平面的距离：</p>
-
-<p>$r = \frac{Ax +By + Cz + D}{\sqrt{A^2 + B^2 + C^2}}$</p>
-
-<p>我们不难推广到高维，其中$||w||$表示向量的模。</p>
-
-<p>另外，我们还有一个关于距离的定义：</p>
-
-<blockquote>
-  <p>两个非空集合间的距离为两者内各自的点之间的距离之下确界。</p>
-</blockquote>
-
-<p>将直线看做点集，点看做只有一个元素的点集，就是点与直线的距离公式。同样，
-我们可以将其应用于直线与直线，直线与平面…
-这个定义在测试中的基于距离的自适应测试（DART）以及KNN算法里都有应用。</p>
-
-<p>距离超平面最近的样本点为<strong>支持向量</strong>(support vector)。假定超平面可以将训练样本正确分类，
-那么我们可以得到：对分类结果有明显影响的是<strong>支持向量</strong>，而样本中其他的
-样本点可以忽略不计。定义<strong>间距</strong>(margin)为两个分别在超平面不同边的支持向量到超
-平面的距离之和，那么，为了寻找一个<strong>最好</strong>的超平面，我们需要找到有<strong>最大</strong>间
-距的超平面。</p>
-
-<p>如果我们令样本分成两类$y = {-1, 1}$,我们可以得到：</p>
-
-<p>$\mathbf{w}^T\mathbf{x}_i + b \geq \rho / 2, if y_i \geq 1$</p>
-
-<p>$\mathbf{w}^T\mathbf{x}_i + b \leq - \rho / 2, if y_i \leq -1$</p>
-
-<p>其中$\rho$为间距。由于在这种情况下，支持向量到超平面的距离可以表示为：</p>
-
-<p>$r = \frac{|(\mathbf{w}^T\mathbf{x}) + b|}{||\mathbf{w}||}$</p>
-
-<p>我们可以得到：</p>
-
-<p>$\rho = 2r = \frac{2}{||\mathbf{w}||}$</p>
-
-<p>于是我们的问题便可以转化为：求取超平面的法向量$\mathbf{w}$的模
-的最小值，且使得所有的样本$(\mathbf{x}_i, y_i)$有
-$y_i{\mathbf{w}^T\mathbf{x}_i + b &gt; 1}$。这就是支持向量机的基本模式:</p>
-
-<p>$min_{w,b}\frac{1}{2}||w||^2$</p>
-
-<p>$s.t. y_i(\mathbf{w}^T\mathbf{x}_i+b) \geq 1, i=1,2,…,m$</p>
-
-<p>于是，我们的问题转换成了一个二次规划(quadratic optimization)问题。</p>
-
-<h2 id="有约束的二次规划最优化问题拉格朗日乘子">有约束的二次规划最优化问题，拉格朗日乘子</h2>
-
-<p>我们有许多程序包求解二次规划问题，通常而言不需要自己动手。但是了解一下
-其中的数学意义还是非常有帮助的。</p>
-
-<p>常用的解二次规划的方法之一，是应
-用<a href="https://en.wikipedia.org/wiki/Lagrange_multiplier">拉格朗日乘子</a>
-(Lagrange Multiplier)。</p>
-
-<p>首先我们来看一下二次规划问题的几何意义。</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lagrange_multiplier.png" alt="" /></p>
-
-<p>我们有约束条件$g(x,y) = c$，在图中表示成一条曲线；二次函数$f(x,y)$如
-图，描述了一个曲面。假设这个曲面是一座山，约束条件的曲线是我们可以沿着
-走的路，我们的目的就变成了：在这条路上，我们要走到最高的地方。图中的圆
-圈表示二次函数的<a href="https://en.wikipedia.org/wiki/Level_set">水平集</a>（可
-以直观地理解为等高线）。在<strong>有解</strong>的情况下，二次曲面与约束曲线会有交点。</p>
-
-<p>我们可以容易看出，在（局部）最优的情况下,$f(x, y)$与$g(x,y)$的交点有且
-仅有一个，即二者的<strong>切线</strong>相互平行。由于切线与梯度是垂直的，我们可以得
-到：在最优点的情况下，二者的<strong>梯度</strong>相互平行。</p>
-
-<p>我们引入一个未知标量–拉格朗日乘子$\alpha$。构建函数：</p>
-
-<script type="math/tex; mode=display">L(\mathbf{w}, b, \mathbf{a}) = 
-\frac{1}{2}\|\mathbf{w}\|^2 +\sum\limits_{i=1}^{m}\alpha_i(1 -
-y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
-
-<p>令函数$L$对$\mathbf{w}$与$b$的偏导数为0：</p>
-
-<script type="math/tex; mode=display">\mathbf{w} = \sum\limits_{i=1}{m}\alpha_i y_i \mathbf{x}_i\\
-0 = \sum\limits_{i=1}^{m}\alpha_i y_i</script>
-
-<p>将上述两式代入原来的函数$L$得到函数$L’$:</p>
-
-<script type="math/tex; mode=display">L' = \sum\limits_{i=1}^{m} - \frac{1}{2}
-\sum\limits_{i=1}^{m}\sum\limits_{j=1}{m} \alpha_i \alpha_j y_i y_j
-\mathbf{x}_i \mathbf{x}_j</script>
-
-<p>从而，问题也转换成了原问题的拉格朗日对偶问题(Lagrange dual problem)：
-求$\alpha$,使得函数$L’$有最大值，并且符合约束条件$\sum\alpha_i y_i = 0$
-另外，我们还需要该函数满足KKT条件：</p>
-
-<script type="math/tex; mode=display">\alpha_i \geq 0; \\
-y_i f(\mathbf{x}_i) - 1 \geq 0;\\
-\alpha_i(y_i f(x_i) -1) = 0.</script>
-
-<p>解出该二次规划后，我们可以得到模型：</p>
-
-<script type="math/tex; mode=display">f(x) = \mathbf{w}^T\mathbf{x} + b \\
-= \sum\limits_{i=1}^{m}\alpha_i y_i \mathbf{x}_i^T \mathbf{x} + b</script>
-
-<p>其中，每一个非零的$\alpha_i$都对应一个支持向量$x_i$。</p>
-
-<p>对于支持向量机的开销，我们要记住以下几点：</p>
-<ol>
-  <li>我们要计算支持向量与所有测试点$x$的内积</li>
-  <li>我们要计算所有的样本点$x$的模</li>
-</ol>
-
-<p>这两点使得支持向量机的开销在面对大量的数据点时会变得比较糟糕。</p>
-
-<h2 id="软间隔与正则化">软间隔与正则化</h2>
-
-<p>在理想情况下，支持向量机应当能够对所有的样本正确分类；但实际上这并不一
-定能够做到。解决的方法是，我们“容忍”一些样本点不被正确分类，即一些样
-本点不满足：</p>
-
-<script type="math/tex; mode=display">y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1</script>
-
-<p>将原来的优化目标重写为：</p>
-
-<script type="math/tex; mode=display">\min\limits_{\mathbf{x}, b} \frac{1}{2} \|\mathbf{w}\|^2 +
-C\sum\limits_{i=1}^{m}lost(y_i (\mathbf{w}^T \mathbf{x}_i + b) - 1)</script>
-
-<p>其中，$lost$ 是一个损失函数，有多种定义。如果采用hinge损失，即将损
-失函数定义为：
-<script type="math/tex">lost_{hinge}(z) = max(0, 1-z)</script>
-<img src="http://www.csuldw.com/assets/articleImg/4DFDU.png" alt="多种损失函数" /></p>
-
-<p>引入松弛变量$\xi$(slack vairable),我们可以将其改写为：</p>
-
-<script type="math/tex; mode=display">L(\mathbf{w}) = \mathbf{w}^T\mathbf{w} + C\sum\xi_{i} \\
-y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi{i}, \xi_i \geq 0</script>
-
-<p>其中，常数C可以被认为是一个用于控制过拟合与正确率之间的参数。由于每个
-样本都有一二对应的松弛变量，我们同样需要类似地引入另一个拉格朗日算子来
-化简变量。</p>
-
-<h2 id="非线性svm核函数与升维方法">非线性SVM，核函数与升维方法</h2>
-
-<p>我们之前讨论的SVM有一个前提：样本空间是线性可分的。但是，我们存在很多
-问题是<strong>线性不可分</strong>的，比如说异或。对于这种问题，我们通常将其映射到一
-个更高维的特征空间，使其线性可分。如果原始空间是有限维，那么一定存在一
-个高维特征空间，使得样本可分。</p>
-
-<p><img src="http://img.my.csdn.net/uploads/201304/03/1364952814_3505.gif" alt="" /></p>
-
-<p>注意到线性分类器依赖于向量的内积：$K(\mathbf{x}_i, \mathbf{x}_j)$，我
-们有升维变换
-$\varphi\mathbf{x}\rightarrow\varphi(\mathbf{x}_i)^T\varphi(\mathbf{x}_j)$
-。由于升维后的特征空间维数可能很高，我们直接计算这个升维变换会变得比较
-困难。</p>
-
-<p><strong>核函数</strong>(kernel function)是一个等价于
-$\varphi(\mathbf{x_i})^T\varphi(\mathbf{x_j})$ 的函数。通过直接应用核
-函数，我们就不需要去计算高维乃至无穷维特征的内积。核函数隐式地将低维空
-间的点映射到高维空间，就不需要显式地计算高维空间的内积了。</p>
-
-<p>如果我们知道映射$\varphi$的具体形式，我们就可以很容易地找到核函数。但
-是，我们常常不知道具体的映射方式。同时，单纯地用原始的映射构造高维空间
-有可能导致维数爆炸（比如July在他的文章里写的，两个同心圆分布+噪声的数
-据的映射有可能是2维到5维，维度更高的会更加糟糕）。</p>
-
-<p>我们有如下定理：</p>
-
-<blockquote>
-  <p>令$\chi$为输入空间，$k$是定义在$\chi * \chi$上的对称函数，则函数$k$
-是核函数，当且仅当对于任意数据$D = {x_1, x_2,…,x_m}$, 核矩阵
-(kernel matrix)总是半正定(semi-positive)的。</p>
-</blockquote>
-
-<p>(矩阵见PPT)</p>
-
-<p>也就是说，只要一个对称函数所对应的核矩阵半正定，它就能作为核函数使用。</p>
-
-<p>一些常见的核函数：</p>
-<ol>
-  <li>线性核：$k(x_i, x_j) = x_i^T x_j$</li>
-  <li>多项式核：$k(x_i, x_j) = (x_i^Tx_j)^d$</li>
-  <li>高斯核：$k(x_i, x_j) = exp(-\frac{|x_i - x_j |^2}{2\sigma})$</li>
-</ol>
-
-<h1 id="主成分分析pca">主成分分析(PCA)</h1>
-
-<p>同升维方法相反，PCA是一种降维方法<del>二向箔</del>。比如在面部识别的时
-候，常用的方法是用一个遮罩(mask)对当前图像的像素进行逐一扫描。这时特征
-空间的维度会非常高，以至于难以处理。在这种情况下，我们需要缩减特征的数
-量，也就是进行降维处理。</p>
-
-<p>复习一下矩阵，我们要将一个高维向量(N维)缩减成低维(n维)：</p>
-
-<script type="math/tex; mode=display">Y = AX</script>
-
-<p>其中$Y$是转换后的低维向量，$A$是n*N转换矩阵。</p>
-
-<p>PCA的数学定义：</p>
-
-<blockquote>
-  <p>一个正交化线性变换，将数据变换到一个新的坐标系统中，使得这个数据的任
-何投影的第一大方差在第一个坐标（第一主成分）上，第二大方差在第二个坐
-标（第二主成分）上…</p>
-</blockquote>
-
-<p>我们可以想象一个超平面，在这个超平面上，样本的投影能分开，这样，我们就
-只需要关心超平面上的样本就行了–这意味着，我们不需要处理更高维的样本空
-间了。于是，我们关心两个性质：</p>
-<ol>
-  <li>最近重构性：所有的样本点尽量靠近超平面</li>
-  <li>最大可分性：样本点在这个超平面上的投影尽可能分开</li>
-</ol>
-
-<p>两种方式都可以推出主成分分析，但是我们主要从最大可分性的角度入手。我们
-要使得投影点分得最开，就要让方差最大。</p>
-
-<h2 id="协方差矩阵">协方差矩阵</h2>
-
-<p>在统计学上，计算不同变量之间的方差叫做<strong>协方差</strong>。假设我们有两个变量
-$x$，$y$，我们希望探索他们之间的相关程度：</p>
-
-<script type="math/tex; mode=display">cov(x, y) = \frac{\sum\limits_{i=1}^{n}(x_i - \overline{x})(y_i -
-\overline{y})}{n - 1}</script>
-
-<p>容易看出，方差就是协方差的一种特殊形式。</p>
-
-<p>对于一个m*n的样本矩阵$M$，每行为一个样本，每列为一个维度，我们定义协方差矩
-阵$C$，使得矩阵中一个元素$C_{ij}$有：</p>
-
-<script type="math/tex; mode=display">C_{ij} = cov(M_{:,i}, M_{:,j}) \\
-= \frac{\sum(M_{:,i} - \overline{M_{:,i}})(M_{:,j} - \overline{M_{:,j}})}{m - 1}</script>
-
-<p>特别注明一下，协方差矩阵计算的是<strong>维度</strong>之间的协方差，不是单个数据的。</p>
-
-<p>在实际应用的时候，我们会先对样本矩阵进行处理：对于每一个数据，减去该
-列的均值。我们称这种方法为中心化处理。经过中心化处理后，不难看出，协方
-差矩阵是样本矩阵及其转置的乘积，再除以标量$m-1$，即样本数量。</p>
-
-<h2 id="求解转换矩阵">求解转换矩阵</h2>
-
-<p>// 这一部分主要翻译PPT,西瓜书，网上博客都各种各样的推导方法，我很好奇</p>
-
-<p>// <del>好骑</del></p>
-
-<p>我们可以看出，如果我们想尽量的让维度之间无关（分得更开），我们应该将矩
-阵的协方差部分（非对角线部分）尽量为0，为此，我们需要将协方差矩阵<strong>对
-角化</strong>（注，这里对为什么要对角化以及特征值的意义很模糊……有懂的人教教
-我）</p>
-
-<p>令$P$表示转换矩阵，推导如下：</p>
-
-<script type="math/tex; mode=display">S_y = \frac{1}{n - 1} YY^T = \frac{1}{n-1}(PX)(PX)^T \\
-    = \frac{1}{n-1}P X X^T P^T \\
-    = \frac{1}{n-1}P (X X^T) P^T \\
-    = \frac{1}{n-1}P A P^T \\
-    where A = XX^T</script>
-
-<p>这里，我们要让最终转换后的协方差矩阵成为<strong>对角矩阵</strong>，即各个维度之
-间协方差为0。</p>
-
-<p>考
-虑<a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">特征值分解</a>矩
-阵：$A = P’DP’^T$，我们可以发现，中间的$D$显然是一个对角矩阵。将
-$A=XX^T$进行特征值分解，我们得到：</p>
-
-<script type="math/tex; mode=display">S_y = \frac{1}{n-1} PP'DP'^TP^T</script>
-
-<p>显然，当$P = P’^T$的时候，我们有$S_y = \frac{1}{n-1}D$。鉴于我们在做PCA的时候认为所有的基础向量都是正交的
-(PCA assumes all basis vectors are orthonormal)，我们的结果是，问题转换
-成了求矩阵$P’^T$。于是，PCA的步骤如下：</p>
-
-<ol>
-  <li>将样本矩阵中心化</li>
-  <li>计算样本的协方差矩阵$XX^T$</li>
-  <li>对$XX^T$做特征值分解</li>
-  <li>取若干个最大的特征值所对应的特征向量，组成转换矩阵。其他特征值小的
-被认为不是“主成分”，被丢弃。</li>
-</ol>
-
-<h1 id="reference">Reference</h1>
-<ol>
-  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
-  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
-  <li>Lecture Material</li>
-  <li>知乎 “拉格朗日乘子法如何理解？”，https://www.zhihu.com/question/38586401</li>
-  <li>July(2012) 支持向量机通俗导论，http://blog.csdn.net/v_july_v/article/details/7624837</li>
-  <li>D.W’s Notes, 机器学习-损失函数，http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/</li>
-  <li>古剑寒 PCA详解，https://my.oschina.net/gujianhan/blog/225241</li>
-  <li>进击的马斯特 再谈协方差矩阵之主成分分析http://pinkyjie.com/2011/02/24/covariance-pca/</li>
-</ol>
  -->
     
         <p>新年快乐，跨年也是元气满满地在机房～</p>
