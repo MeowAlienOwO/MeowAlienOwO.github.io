@@ -287,8 +287,8 @@ G_{t:t+n} = \sum_{k=1}^{n}\gamma^{k-1}R_{t+k} + \gamma^n V_{t+n-1}(S_{t+n})
 $$
 
 在n-step TD的情况下，我们需要使用重要性系数来修正我们的off-policy算法的价值估计。
-$$
 
+$$
 Q_{t+n}(S_t, A_t) = Q_{t+n-1}(S_t, A_t) + \alpha \rho_{t+1:t+n}[G_{t:t+n} - Q_{t+n-1}(S_t, A_t)]
 
 \rho_{t:h} = \prod_{k=t}^{\min(h,T-1)} \frac{\pi(A_k|S_k)}{u(A_k|S_k)}
