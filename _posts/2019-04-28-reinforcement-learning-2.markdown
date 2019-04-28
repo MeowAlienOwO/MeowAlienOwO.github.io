@@ -63,6 +63,7 @@ TODO: 收敛性证明
 后者可以通过期望式展开成序列形式为：$\leq \mathbb{E}[R_{t+1} + \gamma v_\pi(S_{t+1})|S_t = s] \leq \mathbb{E}_{\pi'}[R_t+1 + \gamma q_\pi(S_{t+1}, \pi'(S_{t+1}| S_t = s))]$
 TODO: 详细证明
 
+
 策略优化算法如下：
 
 ```
@@ -133,7 +134,7 @@ $$
 
 我们这里给出first-visit 的算法：
 
-$$
+```
 Init:
   pi := policy to be evaluated
   V := arbitrarily init
@@ -145,7 +146,7 @@ Repeat forever:
     G := return following first occurence of s
     Append G to Returns[s]
     V[s] := average(Return[s])
-$$
+```
 
 蒙特卡洛法同样可以对动作价值进行估计：
 $$
@@ -173,8 +174,8 @@ Repeat forever:
     Append G to Returns(s, a)
     Q(s, a) := average(Returns(s, a))
   For each s in episode:
-    pi[s] <- argmax_a Q(s, a**
-`****
+    pi[s] <- argmax_a Q(s, a]
+```
 
 单纯的贪婪会使得更新参数变得很慢--很可能陷入某个局部最优然后不断强化，忽视探索其他动作，我们通常使用e-soft 策略来保证探索。e-greedy不改变期望。
 
