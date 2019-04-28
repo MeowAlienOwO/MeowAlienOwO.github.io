@@ -327,7 +327,7 @@ Repeat
 
 <p>我们这里给出first-visit 的算法：</p>
 
-<script type="math/tex; mode=display">Init:
+<pre><code>Init:
   pi := policy to be evaluated
   V := arbitrarily init
   Returns[s] := [] for all s in S
@@ -337,7 +337,8 @@ Repeat forever:
   for each state s in episode:
     G := return following first occurence of s
     Append G to Returns[s]
-    V[s] := average(Return[s])</script>
+    V[s] := average(Return[s])
+</code></pre>
 
 <p>蒙特卡洛法同样可以对动作价值进行估计：<script type="math/tex">q_\pi(s, a) \circeq \mathbb{E}[G_t | S_t = s, A_t = a]</script></p>
 
@@ -359,76 +360,98 @@ Repeat forever:
     Append G to Returns(s, a)
     Q(s, a) := average(Returns(s, a))
   For each s in episode:
-    pi[s] &lt;- argmax_a Q(s, a**
-`****
-
-单纯的贪婪会使得更新参数变得很慢--很可能陷入某个局部最优然后不断强化，忽视探索其他动作，我们通常使用e-soft 策略来保证探索。e-greedy不改变期望。
-
-
-## Off-policy 蒙特卡洛
-
-estimate的时候的策略$$ 与目标策略$pi$ 不完全相等时，我们称该方法为off-policy方法。
-
-使用蒙特卡洛法时，对于off-policy方法，我们的estimate期望将不基于目标Policy, 而是基于我们的估计策略的policy.
-在这种情况下，我们可以将整个采样过程看做一个重要性采样，采样的分布是基于估计策略$u$的分布。
-我们需要用**重要性系数**来修正期望：
-
-$$
-\rho_{t:T} = \prod_{k=t}^{T-1}\frac{\pi(A_k|S_k)}{u(A_k)|S_k}
-$$
-
-在重要性系数修正下：
-
-$$
-\mathbb{E}[\rho_{t:T}G_t|S_t = s] = v_\pi(s)
-$$
-
-由于重要性采样会导致方差存在上升至无限大的可能性(将重要性采样看做是在某一区间特别密集地取值)，我们还需要对采样的平均长度进行修正：
-
-$$
-\eta^{-1} = \sum_{t_i in \Epsilon(s)}\rho_{t:T}
-$$
-
-# 时间差分算法(Temporal-Difference)
-
-最基本的时间差分算法(TD(0))可以看做每次仅仅往前方看一步进行evaluation。由于这种情况下我们没有办法获得整个序列的回报，我们用当前估计的期望来作为我们的Target。
-
-## TD Evaluation 
-
-最基础的TD Evaluation 算法(TD(0))如下，可以看出同MC方法相比，TD(0)最重要的改变是将更新公式中的累计回报换成了当前的奖励信号与当前估计的下一状态的期望之和:
-
+    pi[s] &lt;- argmax_a Q(s, a]
 </code></pre>
-<p>input policy pistep size 0 &lt; alpha &lt;= 1init V[s] for all s in S, arbitrarily except V(terminal) = 0</p>
 
-<p>for each episode:  init S  for each step in episode:    A := action from pi(S)    take action, observe R, S’    V[s] := V[s] + alpha[R + gamma * V[S’] - V[S]]    S := S’  until S is terminal</p>
-<pre><code>
+<p>单纯的贪婪会使得更新参数变得很慢–很可能陷入某个局部最优然后不断强化，忽视探索其他动作，我们通常使用e-soft 策略来保证探索。e-greedy不改变期望。</p>
 
-TD算法的好处：首先，每次都要进行更新，避免了蒙特卡洛法需要迭代完整的一个episode再进行更新的问题，其次，需要的计算力与空间更少
+<h2 id="off-policy-蒙特卡洛">Off-policy 蒙特卡洛</h2>
 
-## TD Control
-根据是否on-policy, 我们可以将TD Control 分成两种算法:
-1. SARSA: on-policy control
-2. Q-learning: off-policy control
+<p>estimate的时候的策略$$ 与目标策略$pi$ 不完全相等时，我们称该方法为off-policy方法。</p>
 
-### SARSA
+<p>使用蒙特卡洛法时，对于off-policy方法，我们的estimate期望将不基于目标Policy, 而是基于我们的估计策略的policy.在这种情况下，我们可以将整个采样过程看做一个重要性采样，采样的分布是基于估计策略$u$的分布。我们需要用<strong>重要性系数</strong>来修正期望：</p>
 
-我们给出SARSA算法如下
+<script type="math/tex; mode=display">\rho_{t:T} = \prod_{k=t}^{T-1}\frac{\pi(A_k|S_k)}{u(A_k)|S_k}</script>
 
+<p>在重要性系数修正下：</p>
+
+<script type="math/tex; mode=display">\mathbb{E}[\rho_{t:T}G_t|S_t = s] = v_\pi(s)</script>
+
+<p>由于重要性采样会导致方差存在上升至无限大的可能性(将重要性采样看做是在某一区间特别密集地取值)，我们还需要对采样的平均长度进行修正：</p>
+
+<script type="math/tex; mode=display">\eta^{-1} = \sum_{t_i in \Epsilon(s)}\rho_{t:T}</script>
+
+<h1 id="时间差分算法temporal-difference">时间差分算法(Temporal-Difference)</h1>
+
+<p>最基本的时间差分算法(TD(0))可以看做每次仅仅往前方看一步进行evaluation。由于这种情况下我们没有办法获得整个序列的回报，我们用当前估计的期望来作为我们的Target。</p>
+
+<h2 id="td-evaluation">TD Evaluation</h2>
+
+<p>最基础的TD Evaluation 算法(TD(0))如下，可以看出同MC方法相比，TD(0)最重要的改变是将更新公式中的累计回报换成了当前的奖励信号与当前估计的下一状态的期望之和:</p>
+
+<pre><code>input policy pi
+step size 0 &lt; alpha &lt;= 1
+init V[s] for all s in S, arbitrarily except V(terminal) = 0
+
+for each episode:
+  init S
+  for each step in episode:
+    A := action from pi(S)
+    take action, observe R, S'
+    V[s] := V[s] + alpha[R + gamma * V[S'] - V[S]]
+    S := S'
+  until S is terminal
 </code></pre>
-<p>Init   Q[s, a] for s in S, a in A, arbitrarily, Q[terminate, :] = 0</p>
 
-<p>Repeat for each episode  Init S  Choose A from S using policy derived from Q  Repeat for each step in episode    Take action A, observe R, S’    Choose A’ fomr S’ using policy    Q[S, A] := Q[S, A] + alpha[R + gamma * Q[S’, A’] - Q[S, A]]    S := S’    A := A  Until S is terminal</p>
-<pre><code>
-SARSA有一种变种：不使用`Q[S', A]` 来进行更新，而是使用下一步状态的期望`sum_a (pi(S')Q(S', a))`来进行更新，其思路主要是通过期望计算来降低方差，从而提升学习效率。
+<p>TD算法的好处：首先，每次都要进行更新，避免了蒙特卡洛法需要迭代完整的一个episode再进行更新的问题，其次，需要的计算力与空间更少</p>
 
-### Q-learning 
+<h2 id="td-control">TD Control</h2>
+<p>根据是否on-policy, 我们可以将TD Control 分成两种算法:</p>
+<ol>
+  <li>SARSA: on-policy control</li>
+  <li>Q-learning: off-policy control</li>
+</ol>
 
-Q-learning 使用 算法如下：
+<h3 id="sarsa">SARSA</h3>
 
+<p>我们给出SARSA算法如下</p>
+
+<pre><code>Init 
+  Q[s, a] for s in S, a in A, arbitrarily, Q[terminate, :] = 0
+
+Repeat for each episode
+  Init S
+  Choose A from S using policy derived from Q
+  Repeat for each step in episode
+    Take action A, observe R, S'
+    Choose A' fomr S' using policy
+    Q[S, A] := Q[S, A] + alpha[R + gamma * Q[S', A'] - Q[S, A]]
+    S := S'
+    A := A
+  Until S is terminal
 </code></pre>
-<p>Init   Q[s, a] for s in S, a in A, arbitrarily, Q[terminate, :] = 0</p>
 
-<p>Repeat for each episode  Init S  Choose A from S using policy derived from Q  Repeat for each step in episode    Take action A, observe R, S’    Choose A’ fomr S’ using policy    Q[S, A] := Q[S, A] + alpha[R + gamma * max_a (Q[S’]) - Q[S, A]]    S := S’  Until S is terminal```注意，同MC Off-policy相比，这个方法不需要重要性系数。其原因是动作a此处是确定的(argmax(Q[S]))，而非随机变量。</p>
+<p>SARSA有一种变种：不使用<code>Q[S', A]</code> 来进行更新，而是使用下一步状态的期望<code>sum_a (pi(S')Q(S', a))</code>来进行更新，其思路主要是通过期望计算来降低方差，从而提升学习效率。</p>
+
+<h3 id="q-learning">Q-learning</h3>
+
+<p>Q-learning 使用 算法如下：</p>
+
+<pre><code>Init 
+  Q[s, a] for s in S, a in A, arbitrarily, Q[terminate, :] = 0
+
+
+Repeat for each episode
+  Init S
+  Choose A from S using policy derived from Q
+  Repeat for each step in episode
+    Take action A, observe R, S'
+    Choose A' fomr S' using policy
+    Q[S, A] := Q[S, A] + alpha[R + gamma * max_a (Q[S']) - Q[S, A]]
+    S := S'
+  Until S is terminal
+</code></pre>
+<p>注意，同MC Off-policy相比，这个方法不需要重要性系数。其原因是动作a此处是确定的(argmax(Q[S]))，而非随机变量。</p>
 
 <h2 id="n-step-td">N-Step TD</h2>
 
