@@ -210,6 +210,467 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2019-04-29T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io/reinforcement-learning-3/">April 29, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/reinforcement-learning-3/" rel="bookmark" title="强化学习（三）" itemprop="url">强化学习（三）</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>强化学习导论第三部分，planning, value function approximation, eligibility traces, policy gradient methods</p>
+
+<h1 id="planning">Planning</h1>
+
+<p>之前我们涉及到的强化学习方法中，DP是在$p$函数已知的情况下，其余的MC，TD都是通过统计方法来近似价值函数的期望，不需要一个先验的模型(model-free)。但是，在
+许多情况下，我们有很多对模型的先验知识，如果抛弃这些先验知识可能会使得训练时间过长从而不实际。我们通过引入一个包含先验知识的模型来解决这个问题。</p>
+
+<p>我们定义<code>计划</code>(planning)为使用模型，进行一系列动作规划的过程，根据这个定义，动态规划就是一种计划，因为其使用了$p$函数来描述环境模型。</p>
+
+<p>对于模型而言有两种主要的分类：</p>
+<ol>
+  <li>分布模型(distributional model): 解析地表示出给定的分布函数$p$</li>
+  <li>模拟模型(simulation model): 生成一系列从模型的分布中采样的数据</li>
+</ol>
+
+<p>实际而言，很多问题的分布模型很复杂或者无法用解析方法表示，在这种情况下，我们选用模拟模型。</p>
+
+<h2 id="dyna-q">Dyna-Q</h2>
+<p>Dyna-Q 算法是一种将planning 与 learning结合起来的算法。其具体流程如下：</p>
+
+<pre><code>Init
+  Q(s, a), Model(s, a) for s in S, a in A
+
+Repeat forever:
+  S := current state
+  A := e-greedy(S, Q)
+  Execute action A, observe R, S'
+
+  # this step is direct RL:
+  Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S',a)) - Q(S, A)]
+
+  # learning model
+  Model(S, A).update(R, S') 
+
+  # use model planning
+  Repeat n times:
+    S := random previously observed state
+    A := random action previously taken in S
+    R, S' := Model(S, A)
+    Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S', A)) - Q(S, A)]
+
+</code></pre>
+
+<p>Dyna-Q 算法的关键步骤大致分为三步：第一步，正常的通过RL方法更新动作价值函数$Q$；第二步，根据历史的经验，更新模型，这里单纯地记忆当前的模型的下一步的反馈；第三步，将过去的经验中，已经经历过的(s,a)对提取出来，使用模型计算该(s, a)对的下一状态与奖励，然后更新$Q$函数。</p>
+
+<p>这里，我们重复一下模型，价值函数，策略之间的关系:</p>
+<ol>
+  <li>通过价值函数与策略我们可以生成当前需要进行的动作</li>
+  <li>在环境中执行动作(action)我们可以得到经验(experience)</li>
+  <li>我们可以通过经验来优化我们的价值函数，或者策略</li>
+  <li>经验同样地可以被用来进行模型的学习(model learning)</li>
+  <li>根据学习后的模型，通过计划，我们同样可以得到价值函数或者策略</li>
+</ol>
+
+<p><img src="/images/3-planning-learning-relation.png" alt="" /></p>
+
+<p>Dyna-Q 相比普通的Q-learning，其提升在于: Q-learning一开始只会对经验过的policy进行更新；但是Dyna-Q利用的planning,可以继续生成一系列模拟的经验，从而有着更好的更新覆盖率。如果用机器人走迷宫的例子来说，第一个episode，只有终点的奖励，Q-learning只会更新终点前一格的价值；但是另一方面，通过planning，我们可以生成一系列的(s, a)对，从而对前面若干步的格子的价值函数进行更新。</p>
+
+<p>另一方面，模型有可能是错的：环境可能改变，先验的知识也不一定符合现状。环境变化有两种可能性：一种是，环境变“坏”了，即我们当前的策略在新的环境下没有办法获取或者只能获取低水平的奖励；第二种是，环境变“好”了，我们的解依然能够获取同样水平的奖励，但是存在一个更优的解。在环境变坏的情况下，通过planning我们一般不能得到最优的policy，但是通过不断的exploit，模型能够发现这个这个解不是最优，从而慢慢找到更新的解。但是在环境变好的情况下，模型很难去发现更优的解法，而是会陷入在原有的策略中不断exploit。为了解决这个问题，我们需要平衡探索与exploit。</p>
+
+<p>Dyna-Q+是一个变种的Dyna-Q算法。在这个算法中，我们用$R + k\sqrt{\tau}$来代替奖励信号，其中$\tau$是一个衡量上一次访问该状态距今的时间，$k$是控制平衡的系数。这种做法能够赋予那些长时间未访问的状态更高权重，从而让模型能够更新那些很久都没有访问过的状态的价值。</p>
+
+<p>另一种Dyna-Q的变种Prioritized Sweeping Dyna-Q考虑从模型中选取状态的随机性问题。随机性容易产生很多无效的(s, a)对，在遍历这些状态的时候，我们的价值实际上不更新。换而言之，虽然planning扩展了更新价值的范围，但是这些扩展的范围仍旧局限在终点附近。对于每一步，我们将[Target-OldEstimate]这一项作为优先级，将我们的历史经验存储在优先级队列之中。选取模型的时候，我们从优先级队列中选取，并且将新生成的(s, a)对重新按照优先级放入优先级队列中。优先级系数有一个截断阈值$\theta$来控制。这种算法有着更优的模型收敛速度。</p>
+
+<h2 id="rollout-planning">Rollout Planning</h2>
+<p>Dyna-Q的模型重用了历史经验，而rollout planning使用模型来模拟将来的轨迹(trajectory)。每个轨迹从当前状态出发来</p>
+
+<p>我们给出前向更新的rollout算法：</p>
+<pre><code>Input 
+  Model for simulation
+
+Init Q(s, a) for all s, a
+
+for t = (0, ...) do:
+  S_t := current state
+  for n times(n rollouts) do
+    S := S_t
+    while s non-terminal/within fixed length do:
+      action A based on Q(S,:), with exploration # i.e. e-greedy
+      (R, S') sample from Model(S, A)
+      Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S', a)) - Q(S, A)]
+      S := S'
+
+  Select action A_t greedly from Q(S_t, :)
+</code></pre>
+
+<p>这种算法下，如果模型是正确的且满足每个状态访问无限次，该算法能够学习到最优策略，反之如果模型不正确，则无法得到最优解。</p>
+
+<p>我们给出反向更新的rollout算法，这个算法的目的是更好的利用奖励</p>
+
+<pre><code>Input 
+  Model for simulation
+
+Init 
+  Q(s, a) for all s, a
+  trace = [], stack
+
+for t = (0, ...) do:
+  S_t := current state
+  for n times(n rollouts) do
+    S := S_t
+    # rollout
+    while s non-terminal/within fixed length do:
+      action A based on Q(S,:), with exploration # i.e. e-greedy
+      (R, S') sample from Model(S, A)
+      trace.push(S,A,R,S')
+      S := S'
+
+    # backprop
+    while trace != [] do:
+      (S,A,R,S') := trace.pop()
+      Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S', a)) - Q(S, A)]
+
+
+  Select action A_t greedly from Q(S_t, :)
+</code></pre>
+
+<p>在走迷宫问题上，前向传播可以看做是这一次的奖励更新奖励点前最后一个状态与上一次的奖励更新前面所有状态的复合，而反向传播会直接用当前的奖励更新所有的状态。在这个意义上，反向传播有着较正向传播稍快的学习速度。</p>
+
+<h2 id="monte-carlo-tree-search-蒙特卡洛树搜索">Monte-Carlo Tree Search 蒙特卡洛树搜索</h2>
+
+<p>蒙特卡洛树搜索(MCTS)是一种更加通用，高效的rollout planner。
+对于每一个状态，MCTS都被用于动作的选取。每次执行MCTS都是一个迭代过程，这个迭代过程模拟从当前状态触发到终止状态的轨迹/衰减率限制。
+MCTS的核心是通过不断拓展当前状态的一部分在早期模拟中获得高回报(high evaluation)的轨迹，来集中在多个模拟上(原文比较难懂)
+MCTS不保存从一个动作选取到下一个的近似价值函数或者策略。</p>
+
+<p>自己的理解：MCTS存储一个部分的(partial)$Q$函数，每次MCTS会从最可能的那一个节点进行扩展。</p>
+
+<p><img src="/images/MCTS.jpg" alt="" /></p>
+
+<p>MCTS根据模拟的输出结果构造搜索树，由以下四个主要步骤组成：</p>
+<ol>
+  <li>选择(selection): 从根节点开始，递归的选择最优的子节点直到叶节点(不同于终止状态)</li>
+  <li>扩展(expansion): 如果选择的节点不是终止状态，则对这个节点进行扩展，创建这个节点的一个或者多个子节点</li>
+  <li>模拟(simulation): 选取上步创建的一个子节点，从子节点开始使用默认的策略(default policy)来模拟，直到终止状态</li>
+  <li>反向传播(back propagation):用模拟的输出结果，更新从根节点到扩展的子节点的价值</li>
+</ol>
+
+<p>一般的MCTS算法如下：</p>
+
+<pre><code>Init
+  S_0: init state 
+  DefaultPolicy: default policy 
+  Q: {v_0: S_0} MCTS tree with root node S_0
+
+S := S_0
+Repeat :
+  v := node in Q s.t. state(v) = S
+  while computationally possible:
+    v_t := TreePolicy(v_0) # best polict by tree
+    delta := DefaultPolicy(state(v_t))
+    Backprop(v_t, delta)
+  action A is BestChild(v_0)
+  
+</code></pre>
+
+<p>在模拟这一部分，我们使用的是一个不同于Tree policy的策略。这个策略可以是最简单地随机策略，也可以使用一些启发式搜索或者多重模拟的平均。</p>
+
+<h3 id="upper-confidence-bounds-for-treesuct-上确界树">Upper Confidence Bounds for Trees(UCT) 上确界树</h3>
+<p>如果我们将选择步骤的每一层都看做多臂赌博机问题，我们可以选用不同的方法来平衡探索与收益。
+UCT使用UCB来进行每一个子节点的选择。在这里，UCB公式可以写成如下形式:</p>
+
+<script type="math/tex; mode=display">v_i + C \sqrt{\frac{\log N}{n_i}}</script>
+
+<p>其中$v_i$是节点的估计价值，$n_i$是节点被访问的次数，$N$是父节点被访问的次数，$C$是平衡系数。</p>
+
+<h2 id="在线离线学习">在线/离线学习</h2>
+
+<p>RL同样有在线学习与离线学习两种。</p>
+
+<p>在线学习:</p>
+<ol>
+  <li>在真正的游戏执行之前，用MDP找到最优策略</li>
+  <li>策略是完备的：对所有可能的状态,都能够找到最优策略</li>
+  <li>Use as much time as needed to find policy
+Dyna-Q, DP
+离线学习:</li>
+  <li>在游戏中使用MDP寻找最优策略</li>
+  <li>策略是不完备的：仅对当前的状态寻找最优策略</li>
+  <li>有限的时间（e.g.下棋读秒）</li>
+</ol>
+
+<h1 id="value-function-approximation">Value Function Approximation</h1>
+
+<p>对于非常巨大的状态空间而言，直接存储价值表是不现实的，我们自然就会想到使用一个函数$\hat{v}<em>\pi$来近似$v</em>\pi$，这样我们可以在有限的内存下仍然能够处理巨大的状态空间。
+另一个问题是，相比较于状态空间，能获取的样本只是其中很小的一个部分，因此遍历所有的状态是不可能的。由这两个问题，我们引出近似价值函数。</p>
+
+<p>我们的目标是，使用参数化的函数来近似价值表:</p>
+
+<script type="math/tex; mode=display">\hat{v}(s, \mathbf{w}) \simeq v_\pi(s)
+\hat{q}{s, a, \mathbf{w}} \simeq q_\pi(s, a)</script>
+
+<p>这带来两个好处：</p>
+<ol>
+  <li>参数的数量一般而言远小于状态空间的大小</li>
+  <li>泛化能力，一个参数的变化可以对应若干对应的状态/动作价值的变化</li>
+</ol>
+
+<p>价值函数的学习一般而言通过有监督学习，我们使用一个状态-价值对来训练我们的函数：(S, U)</p>
+<ol>
+  <li>MC: U = G</li>
+  <li>TD(0): U = R + gamma * v(S’, wt)</li>
+  <li>n-step TD: U = R + … + gamma^n-1 Rn + gamma^n v(Sn, wn-1)</li>
+</ol>
+
+<p>这种方法一般而言能够进行增量更新，以及能够处理噪音。</p>
+
+<p>我们一般采取均方误差来作为我们的损失函数。</p>
+
+<p>在损失函数可导的情况下，我们采用随机梯度下降来增量学习参数$w$
+<script type="math/tex">\mathbf{w}_{t+1} = \mathbf{w}_t - \frac{1}{2}\alpha \nabla J(\mathbf{w}_t) = \mathbf{w}_t + \alpha [U_t - \hat{v}(S_t, \mathbf{w}_t) \nabla\hat{v}(S_t, ]\mathbf{w}_t)]</script></p>
+
+<p>对于MC而言，$\mathbb{E}[U|S]$是一个对$v_\pi$的无偏估计，我们可以放心使用；但是对于TD而言，由于其为bootstrap方法，$U$是一个有偏估计。
+在这种情况下，我们使用半梯度(semi-gradient)。之所以叫半梯度是因为$U=R+\gamma\hat{v}(S,\mathbb{w})$跟$w$有关：</p>
+
+<pre><code>Input:
+  pi: policy 
+  v_hat: differenciable function , v_hat(terminal, :) = 0
+  alpha: step size 
+  w: weights, arbitrarily init
+
+loop for each episode:
+  init S
+  for each step in episode:
+    A chosen from pi(S)
+    take action A, observe R, S'
+    w := w + alpha[R+gamma v_hat(S', w) - v_hat(S, w)] d(v_hat(S,w))/dw
+    S := S'
+  until S terminal
+  
+</code></pre>
+<p>在线性的情况下，只有一个最优：</p>
+<ul>
+  <li>MC收敛至全局最优</li>
+  <li>TD收敛至接近全局最优的不动点</li>
+</ul>
+
+<p>我们通过coarse/tile coding 来抽取特征：
+粗编码(coarse)将整个状态空间划分为重叠的若干子空间，每一个空间内的点点亮当前的子空间，并且同时点亮同该空间互相重叠的子空间–邻域，
+在粗编码的情况下，我们可以仅仅对在状态空间内相邻的状态值进行更新。
+片编码(tile)对状态点附近的一个方形区域进行切割，然后将该区域上下左右平移得到新的领域。</p>
+
+<h2 id="控制问题">控制问题</h2>
+<p>同状态价值相似，我们可以直接写出动作价值的梯度表示，从而实现控制。在线性函数下，我们有:</p>
+
+<ol>
+  <li>SARSA: U = R + gamma q(S, A, w)</li>
+  <li>Q-learning: U = R + gamma max_a q(S, a, w)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Expected SARSA: U = R + gamma sum_a \pi(a</td>
+          <td>S) q(S, a, w)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<h1 id="eligibility-trace-资格迹">Eligibility Trace 资格迹</h1>
+
+<p>资格迹可以看做是另外一种MC/TD的插值方式。
+在n-step中，我们逐步计算n步的奖励，之后的奖励用现在的v值近似。
+n-step 存在的问题是：更新需要等待n步，有时太长了。
+我们可以换一种思路：对不同的n的G值做加权平均，可以保证其价值函数的收敛性。</p>
+
+<h2 id="tdlambda">TD(lambda)</h2>
+
+<p>TD(lambda)的基本思路是：对从当前时刻开始的所有G进行加权求和，使用一个指数权重来控制从当前时刻开始每一个时刻$t+k$的期望，我们称这个期望为lambda-return。</p>
+
+<script type="math/tex; mode=display">G_t^{\lambda} = (1-\lambda)\sum_{n=1}^{\infty}\lambda^{n-1}G_{t:t+n}</script>
+
+<p>这个公式可以写成如下形式，以方便我们观察Termination：</p>
+
+<script type="math/tex; mode=display">G_t^\lambda = (1-\lambda)\sum_{n=1}^{T-t-1}\lambda^{n-1}G_{t:t+n} + \lambda^{T-t-1}G_t</script>
+
+<p>我们可以认为这个式子截断了n步以后的情形，以后项来代替截断后的期望。可以看出，lambda项等于0的时候相当于TD(0), 等于1的时候相当于MC方法。
+线下的lambda-return算法的更新公式为：$\alpha[G_t^\lambda-\hat{v}(S_t,\mathbb{w_t})]\nabla\hat{v}(S_t,\mathbb{w}_t)$</p>
+
+<h3 id="前向与后向解释">前向与后向解释</h3>
+<p>TD(lambda)的前向视角就是lambda-return的视角：向前看若干步，然后进行lambda加权平均。</p>
+<blockquote>
+  <p>对于每个访问到的state，我们都是从它开始向前看所有的未来reward，并决定如何结合这些reward来更新当前的state。每次我们更新完当前state，我们就到下一个state，永不再回头关心前面的state</p>
+</blockquote>
+
+<p>我们来更形象地表述一下后向视角的过程：每次在当前访问的状态得到一个误差量的时候，这个误差量都会根据之前每个状态的资格迹来分配当前误差。这就像是一个小人，拿着当前的误差，然后对准前面的状态们按比例扔回去。
+TD(λ)的后向视角非常有意义，因为它在概念上和计算上都是可行而且简单的。具体来说，前向视角只提供了一个非常好但却无法直接实现的思路，因为它在每一个timestep都需要用到很多步之后的信息，这在工程上很不高效。而后向视角恰恰解决了这个问题，采用一种带有明确因果性的递增机制来实现TD(λ)，最终的效果是在on-line case和前向视角近似，在off-line case和前向视角精确一致。</p>
+
+<h2 id="资格迹">资格迹</h2>
+<p>引入一个同每个状态都相关的变量$z$，在每一个episode的时候初始化为0，以$\gamma\lambda$为衰减率，对每一个时刻的梯度进行加权:</p>
+
+<script type="math/tex; mode=display">\mathbb{z}_{-1}=0</script>
+
+<script type="math/tex; mode=display">\mathbb{z}_t = \gamma\lambda\mathbb{z}_{t-1} + \nabla \hat{v}(S_t, \mathbb{w}_t)</script>
+
+<p>资格迹可以看做对权重更新的平滑：当参数更新时，其与历史累计的更新幅度加载一起；当没有激活参数的更新时，之前的更新会慢慢回落至0。
+从另一种角度看，当资格迹不作用于参数化函数时，可以看做一个梯度恒为定值的函数。</p>
+
+<p>根据前述的半梯度TD，我们引入Semi-Gradient TD(lambda)算法：</p>
+<pre><code>for each episode:
+  Init S
+  z := 0
+  for each step in episode:
+    A chosen by pi
+    take action A, observe R, S'
+    z := gamma * lambda * z + dv(S,w)/dw
+    delta := R + gamma * v(S', w) - v(S, w)
+    w := w + alpha * z *delta
+    S := S'
+  until S terminal
+</code></pre>
+<p>其中， lambda称为衰减率。</p>
+
+<h3 id="online算法">Online算法</h3>
+
+<p>在线的lambda-return算法实际上使用截断的lambda-return：
+<script type="math/tex">G_{t:h}^\lambda = (1-\lambda)\sum_{n=1}^{h-t-1}\lambda^{n-1}G_{t:t+n} + \lambda^{h-t-1}G_{t:h}</script>
+这个算法可以看做是长度为定值的lambda-return算法，我们将整个轨迹在h处截断，后面的概率使用截断后一个时间点的期望$\lambda^{h-1}G_{t:h}$来替代</p>
+
+<h1 id="policy-gradient">Policy Gradient</h1>
+
+<p>同Value Approximation 类似，Policy Gradient 将策略参数化，从而学习到更优的策略。
+<script type="math/tex">\pi(a|s, \theta) = Pr{A_t = a| S_t = s, \theta_t = \theta}</script></p>
+
+<p>Policy Gradient的优点:</p>
+<ol>
+  <li>更容易收敛到局部最优</li>
+  <li>在高维与连续的动作空间有更好的表现</li>
+  <li>可以学习到随机策略</li>
+</ol>
+
+<p>对于离散的动作空间，我们通常使用softmax来描述动作的概率；而对于连续的动作空间，可以使用高斯分布来描述。</p>
+
+<p>我们优化的目标可以是初状态的价值期望：
+<script type="math/tex">J(\theta) \circeq v_\pi_\theta(S_0)</script>
+或者，如果是连续性的任务，可以优化平均奖励：
+<script type="math/tex">J(\theta) \circeq \sum_s P_\pi(s) \sum_{a}\pi(a|s, \theta)\sum_{s', r}p(s',r|s,a)r</script></p>
+
+<h2 id="策略梯度定理">策略梯度定理</h2>
+
+<p>对于任意的可微策略$\pi$，策略梯度为
+<script type="math/tex">\nabla J(\theta) = \sum_s d_\pi(s) \sum_a q_\pi(s, a) \nabla \pi(a|s, \theta)</script>
+其中，$d_\pi(s)$是在策略$\pi$下的on-policy分布。</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>对于初始状态而言我们有：$d_\pi(s)=\sum_{t=0}^{\infty}\gamma^t Pr{S_t=s</td>
+          <td>s_0, \pi}$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>对于平均回报我们有：$d_\pi(s) = \lim_{t\rightarrow \infty} Pr{S_t = s</td>
+          <td>\pi}$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>我们在这里不需要推导环境的动态函数$p$。</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{aligned}
+\nabla J(\theta) &= \sum_s d_\pi(s) \sum_a q_\pi(s, a) \nabla \pi(a|s, \theta) \\
+                 &= \mathbb{E}_\pi[\sum_a q_\pi(s, a) \nabla \pi(a|s, \theta)] \\ 
+                 &= \mathbb{E}_\pi[\sum_a \pi(a|s, \theta) q_\pi(s, a) \frac{\nabla \pi(a|s, \theta)}{\pi(a|s, \theta)} ]_\\
+                 &= \mathbb{E}_\pi[q_\pi(S_t, A_t)\nabla \ln(\pi(A_t|S_t, \theta))]
+\end{aligned} %]]></script>
+注意此处对不同的时刻取期望值，我们的更新迭代公式可以写成：</p>
+
+<script type="math/tex; mode=display">\theta_{t+1} = \theta_{t} + \alpha(q_\pi(S_t, A_t)\nabla \ln\pi(A_t|S_t, \theta))</script>
+
+<p>在这里，我们有两个任务要完成：</p>
+<ol>
+  <li>计算或者近似策略函数的导数</li>
+  <li>近似策略$q$</li>
+</ol>
+
+<p>为了避免选择无法反应状态之间的量级差异，我们有时会将其与baseline进行比较，在这里我们有：</p>
+
+<script type="math/tex; mode=display">(q_\pi(S_t, A_t) - b(S_t))\nabla \ln \pi(A_t|S_t, \theta)</script>
+
+<p>这个baseline 不会改变期望，但是可以降低方差。</p>
+
+<p>我们给出基于策略梯度定理与baseline的蒙特卡洛更新算法:</p>
+
+<pre><code>Var:
+  pi(a|s, theta): differenciable policy
+  v(s, w): differenciable state-value function
+  a_t, a_w: step size parameters, greater than 0
+
+init policy parameter and state-value weights randomly
+
+for each episode(forever):
+  generate episode by pi
+  for each step in episode:
+    G := sum_(k=t+1:T)(gamma^k R_k)
+    delta = G - v(S_t, w)
+    w := w + a_w * delta * dv(S_t, w)/dw
+    theta := theta + a_t * gamma^t * delta * d(ln(pi(A_t|S_t, theta)))/dtheta
+</code></pre>
+
+<h2 id="actor-critic-methods">Actor-Critic Methods</h2>
+<p>上述基本算法由于采用了蒙特卡洛法，同样会有蒙特卡洛法的问题：直到一个episode完了才能进行更新，导致学习很慢。
+这里，我们使用同样的将蒙特卡洛换成TD的思路，给出Actor-Critic 方法。</p>
+
+<script type="math/tex; mode=display">\theta_{t+1} = \theta_{t} + \alpha [R_t + \gamma v(S_{t+1}, w) - v(S_t, w)]\nabla \ln\pi(A_t|S_t, \theta)</script>
+
+<p>具体算法如下：</p>
+
+<pre><code>Var:
+  pi(a|s, theta): differenciable policy
+  v(s, w): differenciable state-value function
+  a_t, a_w: step size parameters, greater than 0
+
+init policy parameter and state-value weights randomly
+
+for each episode:
+  Init S
+  I := 1
+  for each step in episode:
+    A from pi
+    take action A, observe S', R
+    delta := R + gamma * v(S', w) - v(S, w)
+    w := w + a_w * delta * dv(S, w)/dw
+    theta := theta + alpha * delta * I * d(ln(pi(A|S, theta)))/dtheta
+    I := gamma I
+    S := S'
+  until S terminate
+
+</code></pre>
+
+ -->
+    
+        <p>强化学习导论第三部分，planning, value function approximation, eligibility traces, policy gradient methods</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2019-04-28T00:00:00+08:00"><a href="http://MeowAlienOwO.github.io/reinforcement-learning-2/">April 28, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
       
     </div><!-- /.entry-meta -->
@@ -971,312 +1432,6 @@ Amoung my classmates there are lot of people came from mathematic/physics backgr
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">
-            
-            <img src="http://og78s5hbx.bkt.clouddn.com/60827595.jpg" alt="Machine Learning Review: Neural Network">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2017-01-09T18:36:10+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">January 09, 2017</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" rel="bookmark" title="Machine Learning Review: Neural Network" itemprop="url">Machine Learning Review: Neural Network</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>呼……终于到最后一篇了，也是开学学的内容。</p>
-
-<p>今年也请多多指教。</p>
-
-<h1 id="神经网络neural-network">神经网络（Neural Network）</h1>
-
-<p>神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括
-现在火的深度学习，其基础也是神经网络。</p>
-
-<p>神经网络的定义（来自西瓜书，引用T.Kohonen）：</p>
-
-<blockquote>
-  <p>神经网络是由具有适应性的简单单元组成的广泛并行互联的网络，其组织能
-够模拟生物神经系统对真实世界作出的交互反应。</p>
-</blockquote>
-
-<h2 id="神经元模型neuron-model">神经元模型(Neuron Model)</h2>
-
-<p>如上述的简单单元就是神经网络的最基本组成部分–神经元。一个神经元可以接
-受若干个来自其他神经元的输入信号，这些信号通过带权重的连接进行传递，总
-输入值与神经元的阈值进行比较，然后通过激活函数处理，形成神经元的输出。</p>
-
-<p>神经元的数学形式可以表示如下：</p>
-
-<script type="math/tex; mode=display">y = f(\sum\limits_{i=1}^{n}w_ix_i - \theta)</script>
-
-<p>其中，$f$表示激活函数，$w_i$表示权重，$x_i$表示属性值，$\theta$表示阈
-值。</p>
-
-<p>一种比较基本的激活函数是<strong>阶跃函数</strong>（signal function），即等于或超过阈值则为1，反之为0。
-但是这个函数不方便求导与计算误差，我们在实际中比较常见的函数有sigmoid
-函数：</p>
-
-<script type="math/tex; mode=display">sigmoid(x) = \frac{1}{1 + e^{-x}}</script>
-
-<p>神经元具有学习功能，会根据输出值与真实值的误差对权重进行调整，从而达到
-泛化的目的。表示神经元的学习方式的函数叫做<strong>训练函数</strong>(training function)</p>
-
-<h2 id="感知机perceptron">感知机（Perceptron）</h2>
-
-<p>感知机是一种最基本的神经网络，其包含两层神经元，输入层接受外界的信号，
-传递给输出神经元。输出神经元对输入的数据作加权处理，然后与阈值
-（threshold）做比较，判断神经元是否被激活。</p>
-
-<p>感知机可以被认为是一种线性分类器，即在样本空间中寻找一个超平面，使得样
-本能够分布在超平面的两端。这需要我们的样本是<strong>线性可分</strong>的。这也是我们
-对应用感知机场景的一个基本假设。例如，XOR问题就不是线性可分的，因此无
-法应用感知机。</p>
-
-<p>感知机会根据输出值与目标分类值之间的误差更新权重，这就是感知机的**学习
-**过程。</p>
-
-<p>基本的感知机表示如下：</p>
-
-<p><script type="math/tex">R = \theta + \sum\limits_{i=1}{m}w_ix_i \\
-o = sign(R) = \lbrace +1; if~R > 0 \\ -1; otherwise</script>
-其中，阈值$\theta$可以看做一个输入值恒为-1（或者-1）的”哑节点”（dummy
-node），那么感知机的表达方式就可以统一为权重的学习。</p>
-
-<p>感知机的训练函数为：</p>
-
-<script type="math/tex; mode=display">w_i \gets w_i + \eta (d - o) x_i, i = 1,2,...,n</script>
-
-<p>其中，$w_i$表示权重，$\eta$表示学习率。学习率是一个常数，用于控制学习
-的速度。太低会导致学习过程缓慢，太高则有可能导致学习失败：感知机无法收
-敛到一个比较适当的区间。$d$表示类别的值，$o$表示感知机的输出，我们也可
-以将$d - o$统一成为误差。</p>
-
-<p>我们不加证明地给出收敛性定理：</p>
-
-<blockquote>
-  <p>如果样本是线性可分的，那么感知机将会一定可以在有限的步骤内收敛到一个
-解。</p>
-</blockquote>
-
-<h2 id="自适应线性神经元adaptive-linear-elements">自适应线性神经元（Adaptive Linear Elements）</h2>
-
-<p>感知机由于采用了阶跃函数作为激发函数，容易出现难以收敛的情况。同时在
-样本集不是线性可分的情况下，感知机难以找出一个恰当的近似。为此，我们引
-入自适应线性神经元。</p>
-
-<p>简单地说，自适应线性神经元取消了阶跃函数，直接以输入的加权求和（包括阈
-值，或者说哑输入）作为输出值。</p>
-
-<script type="math/tex; mode=display">o = \theta + \sum\limits_{i=1}{n} w_i x_i</script>
-
-<p>我们的误差函数也需要从原来的简单相减进行改变：</p>
-
-<script type="math/tex; mode=display">Err(W) = \frac{1}{2} \sum\limits_{k = 1}^{K}(d_k - o_k)^2</script>
-
-<p>其中，k用于表示第k个训练样本，$d_k$表示样本的目标分类，$o_k$表示输出值。</p>
-
-<p>这里常数1\2是用来处理求导后产生的常数。我们从误差函数中可以看出，如果
-误差函数越小，神经元就有更好的近似。</p>
-
-<h2 id="梯度下降法gradient-decent">梯度下降法（Gradient Decent）</h2>
-
-<p>对于自适应神经元，我们的训练目标是在样本空间中，对于给定的训练集，使其
-误差最小。为此，我们需要引入梯度下降法(Gradient Decent)。</p>
-
-<p>在高维的情况下，同斜率等效的一阶导数称作<a href="https://en.wikipedia.org/wiki/Gradient">梯度</a>(gradient)。我们知道，二维
-的情况下函数的极小值是“山谷”的位置，即斜率为0且左右领域函数值皆大于
-极小值。推广至高维，高维函数的极小值同样是梯度为0的点。
-我们如果要使误差向极小值移动，我们需要判定其移动方向。在二维的情况下，
-我们选取<strong>斜率减小</strong>的方向，即函数值减小的防线。</p>
-
-<p>同样的，我们在高维需要选取<strong>梯度减小</strong>的方向。对于权重的某个取值
-$\mathbf{w}$，我们可以求其梯度：</p>
-
-<script type="math/tex; mode=display">\nabla F(w_1, w_2,...,w_m)</script>
-
-<p>符号$\nabla$是一个用来表示向量微分的算子。为了更新权重，我们更加关注的
-是，权重向量在某一维度上的<strong>分量</strong>的改变趋势。为此，我们需要求取函数在
-某一维度上的导数，即为<a href="https://en.wikipedia.org/wiki/Partial_derivative">偏导数</a>：</p>
-
-<script type="math/tex; mode=display">\frac{\partial}{\partial{w = w_i}} Err(w)</script>
-
-<p>梯度可以写作:</p>
-
-<script type="math/tex; mode=display">\nabla Err(\mathbf{w}) = [ \frac{\partial}{\partial{w_1}}, \frac{\partial}{\partial{w_2}},...,\frac{\partial}{\partial{w_m}}]</script>
-
-<p>对于单个分量$w_i$而言，我们的训练函数改写如下：</p>
-
-<script type="math/tex; mode=display">w_i \gets w_i - \eta \frac{\partial E}{\partial{w_j}}</script>
-
-<p>因此，我们需要计算误差函数的偏导数。对于有K个样本的训练集，求总的
-偏导数：</p>
-
-<script type="math/tex; mode=display">\frac{\partial Err}{\partial w_i} = \frac{\partial}{\partial w_i}\frac{1}{2}\sum\limits_{k=1}^{m}
- (\mathbf{d} - \mathbf{o})^2</script>
-
-<p>提取常数项</p>
-
-<script type="math/tex; mode=display">= \frac{1}{2} \frac{\partial}{\partial w_i} \sum\limits_{k=1}^K
-(\mathbf{d} - \mathbf{o})^2</script>
-
-<p>提取和式</p>
-
-<script type="math/tex; mode=display">= \frac{1}{2} \sum\limits_{k=1}^K \frac{\partial}{\partial w_i}
-(\mathbf{d} - \mathbf{o})^2\\</script>
-
-<p>考虑到$(\mathbf{d} - \mathbf{o})^2$是关于$w_i$的函数，应用链式法则并消去常数项</p>
-
-<script type="math/tex; mode=display">= \sum\limits{k=1}^K (\mathbf{d} - \mathbf{o})
-\frac{\partial}{\partial{w_i}} (\mathbf{d} - \mathbf{o})</script>
-
-<p>接下来，求$\mathbf{d} - \mathbf{o}$的偏导数。我们可以很容易地看出，这是一个线性函数，这意
-味着其他分量的导数为0（参考偏导数定义），有作用的只有$w_ix_i$这一项。保留符号，我们有</p>
-
-<script type="math/tex; mode=display">= -\sum\limits{k=1}^K(\mathbf{d} - \mathbf{o})x_i(k)</script>
-
-<p>于是我们的训练函数更改为：</p>
-
-<script type="math/tex; mode=display">w_i \gets w_i + \eta \sum\limits_{k=1}{K}(\mathbf{d} - \mathbf{o}) x_i(k)</script>
-
-<p>这被称为Delta法则(Delta Rule)</p>
-
-<p>我们同样可以迭代求梯度，区别在于不是一次求取所有训练集的误差与更新值，
-而是每次计算一个训练样本。但是，这两者实际的结果会有所差异。
-每次训练的时候，我们迭代所有的训练样本一次，称作一个epoch。每次迭代样
-本的排序一般而言会改变。</p>
-
-<p>在满足以下两个条件之一的时候，停止训练：</p>
-
-<ol>
-  <li>当预设的epoch数量运行完毕时</li>
-  <li>当误差小于某个预设值</li>
-</ol>
-
-<h2 id="神经网络">神经网络</h2>
-<p>由于线性神经元只能识别线性可分的情况，不能寻找非线性决策平面。于是，人
-们将若干神经元通过某些方式组合起来，形成神经网络。
-下图展示了神经网络的一种基本形式，其拓扑结构为单向向前输出的神经网
-络，后一层的输出是下一层的输入。</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/300px-Colored_neural_network.svg.png" alt="" /></p>
-
-<p>在神经网络中，激发函数一般使用sigmoid函数。它有一个很好的数学性质：</p>
-
-<script type="math/tex; mode=display">f'(x) = f(x)(1 - f(x))</script>
-
-<p>应用sigmoid函数计算偏导数如下：</p>
-
-<script type="math/tex; mode=display">\frac{\partial}{\partial w_i} Err(w) = -\sum\limits_{k=1}^K (d_k - o_k)
-\frac{\partial}{\partial w_i}sigmoid(net(\mathbf{w}\mathbf{x}))</script>
-
-<p>其中$net(k)$是神经网络的对样本k的输出，即权重与输入的加权求和式。原来
-的函数无法一步求导到位，应用
-链式法则拆成两个变量相同的函数：</p>
-
-<script type="math/tex; mode=display">\frac{\partial}{\partial w_i} sigmoid(net(k)) = \frac{\partial
-o_k}{\partial net(k)} \frac{\partial sum(k)}{w_i}</script>
-
-<p>根据sigmoid函数的特征，我们有</p>
-
-<script type="math/tex; mode=display">\frac{\partial sigmoid(net(k)}{\partial sum(k)} = sigmoid(sum(k))(1 -
-sigmoid(net(k))) = o_k(1 - o_k)</script>
-
-<p>则我们的偏导数为：</p>
-
-<script type="math/tex; mode=display">\frac{\partial Err}{\partial w_i} = \sum\limits_{k=1}^K x_i(k) o_k
-(o_k - d_k)(1 - o_k)</script>
-
-<h2 id="bp算法">BP算法</h2>
-
-<p>我们以简单的三层神经网络（输入，隐层,输出）来讨论整个神经网络的权重更
-新算法：反向传播法(back propagation)</p>
-
-<p>BP算法大致可以描述如下：</p>
-<ol>
-  <li>输入训练样本，计算其误差</li>
-  <li>根据误差，计算梯度，更新权重</li>
-  <li>根据上一步的梯度改变值，计算上一层的权重改变量，更新权重</li>
-  <li>重复直到获得满意成果或者epoch用完</li>
-</ol>
-
-<p>考虑步骤2,3，我们不难发现，在应用上面的偏导数的前提下，需要知道如何**
-递归地**求取前面层级的权重更新量。</p>
-
-<p>我们记</p>
-
-<script type="math/tex; mode=display">\delta = - \frac{\partial Err}{\partial o} \frac{\partial o}{net}= o (o - d)(1 - o)</script>
-
-<p>其中$net$表示该神经元的输入，即上一层的输出向量与权重的加权。</p>
-
-<p>令输出层的某个神经元为l,隐层的某个神经元为m,输入层某个神经元为n。
-则，对于连接输出层与隐层的权重$w_{lm}$个，我们的更新公式可以写成:</p>
-
-<script type="math/tex; mode=display">w_{lm} = w_{lm} + \eta \delta_l x_m</script>
-
-<p>其中$\delta_l$是根据输出神经元l计算的值；$x_m$指的是输入向量的值。</p>
-
-<p>连接输入层与隐层的权重的更新公式表示如下:</p>
-
-<script type="math/tex; mode=display">w_{mn} = w_{mn} - \eta \Delta w_{mn}\\
- = w_{mn} - \eta \frac{\partial Err}{\partial w_{mn}}\\</script>
-
-<p>注意到$x_m$是隐层的输入也是输入层的输出，用链式法则拆分偏导数：</p>
-
-<script type="math/tex; mode=display">- \frac{\partial Err}{\partial w_{mn}} = - \frac{\partial
-Err}{\partial x_m} \frac{\partial x_m}{\partial w_{mn}} \\
-= - \frac{\partial Err}{\partial x_m} \frac{\partial x_m}{w_{mn}}</script>
-
-<p>使用sigmoid函数的特性，有</p>
-
-<script type="math/tex; mode=display">= -\frac{\partial Err}{\partial x_m} x_m(1 - x_m)</script>
-
-<p>对于前面部分的偏导数，我们有</p>
-
-<script type="math/tex; mode=display">- \frac{\partial Err}{\partial x_m} = -\sum\limits_{i = 1}^{l}
-\frac{\partial Err}{\partial net} \frac{\partial net}{\partial x_m}\\
-= \sum\limits_{i=1}{l} w_{im}g_{i}</script>
-
-<p>于是输入层的更新函数就为：</p>
-
-<script type="math/tex; mode=display">w_{mn} \gets w_mn - \eta x_m(1-x_m)\sum\limits_{i=1}^l w_{im}g_{i} x_n</script>
-
-<p>注：此处限于本人数学水平，对为何要求和没有很好的理解，只能模糊地认
-为需要汇总所有的输出层的改变量，方向大致是全微分但是还是没能很好理解，
-待有识之士指导。</p>
-
-<p>以下是一个演示图：</p>
-
-<p><img src="http://og78s5hbx.bkt.clouddn.com/08135834-8e9b8ff2212545c0aeb1d68103ef3d64.gif" alt="" /></p>
-
-<h1 id="reference">Reference</h1>
-<ol>
-  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
-  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
-  <li>Lecture Material</li>
-  <li>郭兰哲，BP算法，https://jlunevermore.github.io/2016/06/25/10.BP%E7%AE%97%E6%B3%95/</li>
-  <li>daniel-D’s blog，BP算法之一种直观的解释 http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html</li>
-  <li>
-    <p>daniel-D’s blog，BP算法之向后传导 http://www.cnblogs.com/daniel-D/archive/2013/06/06/3121742.html</p>
-  </li>
-  <li>大量的网络资料（记不清了- -）</li>
-</ol>
- -->
-    
-        <p>呼……终于到最后一篇了，也是开学学的内容。</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -1322,6 +1477,12 @@ Err}{\partial x_m} \frac{\partial x_m}{\partial w_{mn}} \\
       <li>
         
           <a href="http://MeowAlienOwO.github.io/page7">7</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://MeowAlienOwO.github.io/page8">8</a>
         
       </li>
     

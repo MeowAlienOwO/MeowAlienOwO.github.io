@@ -1,0 +1,764 @@
+<!doctype html lang="zh">
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>强化学习（三） &#8211; 喵窝[0]号机</title>
+<meta name="description" content="一个伪装成技术博客的吐槽网站。">
+
+<meta name="keywords" content="">
+
+<!-- other plugins config -->
+<!-- mathjax -->
+<!-- script type="text/javascript"
+	   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js"></script> -->
+<!-- <script type="text/javascript" async
+     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script> -->
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script>
+     <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], [ '\\(', '\\)']]}});
+     </script> -->
+
+<!-- Share.js -->
+<!-- <link href="/assets/css/share.min.css" rel="stylesheet"> -->
+<!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js"></script> -->
+<!-- end of plugins -->
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<!-- Open Graph -->
+<!-- <meta property="og:locale" content="en_US"> -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习（三）">
+<meta property="og:description" content="一个伪装成技术博客的吐槽网站。">
+<meta property="og:url" content="http://MeowAlienOwO.github.io/reinforcement-learning-3/">
+<meta property="og:site_name" content="喵窝[0]号机">
+
+
+
+
+
+<link rel="canonical" href="http://MeowAlienOwO.github.io/reinforcement-learning-3/">
+<link href="http://MeowAlienOwO.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="喵窝[0]号机 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://MeowAlienOwO.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+<!--
+     <link href="//fonts.useso.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css"> -->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://MeowAlienOwO.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://MeowAlienOwO.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://MeowAlienOwO.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://MeowAlienOwO.github.io/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://MeowAlienOwO.github.io/images/avatar.png" alt="死鱼眼的喵星人 photo" class="author-photo">
+					<h4>死鱼眼的喵星人</h4>
+					<p>烈風？いいえ、知らない子ですね。（もぐもぐ</p>
+
+				</li>
+				<li><a href="http://MeowAlienOwO.github.io/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:meowalienowo@outlook.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				<li>
+					<a href="http://github.com/https://github.com/MeowAlienOwO"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://MeowAlienOwO.github.io/posts/">All Posts</a></li>
+				<li><a href="http://MeowAlienOwO.github.io/tags/">All Tags</a></li>
+				
+				<li>
+				  <a href="/categories/Life/">
+				    Life (7)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Computer Science/">
+				    Computer Science (19)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Software Engineering/">
+				    Software Engineering (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Japanese/">
+				    Japanese (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/Machine Learning/">
+				    Machine Learning (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/ML/">
+				    ML (2)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/category/">
+				    category (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/algorithm/">
+				    algorithm (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/machine learning/">
+				    machine learning (1)
+				  </a>
+				</li>
+				
+				<li>
+				  <a href="/categories/RL/">
+				    RL (1)
+				  </a>
+				</li>
+				
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/reinforcement-learning-3/" rel="bookmark" title="强化学习（三）">强化学习（三）</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2019-04-29T00:00:00+08:00">April 29, 2019</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>强化学习导论第三部分，planning, value function approximation, eligibility traces, policy gradient methods</p>
+
+<h1 id="planning">Planning</h1>
+
+<p>之前我们涉及到的强化学习方法中，DP是在$p$函数已知的情况下，其余的MC，TD都是通过统计方法来近似价值函数的期望，不需要一个先验的模型(model-free)。但是，在许多情况下，我们有很多对模型的先验知识，如果抛弃这些先验知识可能会使得训练时间过长从而不实际。我们通过引入一个包含先验知识的模型来解决这个问题。</p>
+
+<p>我们定义<code>计划</code>(planning)为使用模型，进行一系列动作规划的过程，根据这个定义，动态规划就是一种计划，因为其使用了$p$函数来描述环境模型。</p>
+
+<p>对于模型而言有两种主要的分类：</p>
+<ol>
+  <li>分布模型(distributional model): 解析地表示出给定的分布函数$p$</li>
+  <li>模拟模型(simulation model): 生成一系列从模型的分布中采样的数据</li>
+</ol>
+
+<p>实际而言，很多问题的分布模型很复杂或者无法用解析方法表示，在这种情况下，我们选用模拟模型。</p>
+
+<h2 id="dyna-q">Dyna-Q</h2>
+<p>Dyna-Q 算法是一种将planning 与 learning结合起来的算法。其具体流程如下：</p>
+
+<pre><code>Init
+  Q(s, a), Model(s, a) for s in S, a in A
+
+Repeat forever:
+  S := current state
+  A := e-greedy(S, Q)
+  Execute action A, observe R, S'
+
+  # this step is direct RL:
+  Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S',a)) - Q(S, A)]
+
+  # learning model
+  Model(S, A).update(R, S') 
+
+  # use model planning
+  Repeat n times:
+    S := random previously observed state
+    A := random action previously taken in S
+    R, S' := Model(S, A)
+    Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S', A)) - Q(S, A)]
+
+</code></pre>
+
+<p>Dyna-Q 算法的关键步骤大致分为三步：第一步，正常的通过RL方法更新动作价值函数$Q$；第二步，根据历史的经验，更新模型，这里单纯地记忆当前的模型的下一步的反馈；第三步，将过去的经验中，已经经历过的(s,a)对提取出来，使用模型计算该(s, a)对的下一状态与奖励，然后更新$Q$函数。</p>
+
+<p>这里，我们重复一下模型，价值函数，策略之间的关系:</p>
+<ol>
+  <li>通过价值函数与策略我们可以生成当前需要进行的动作</li>
+  <li>在环境中执行动作(action)我们可以得到经验(experience)</li>
+  <li>我们可以通过经验来优化我们的价值函数，或者策略</li>
+  <li>经验同样地可以被用来进行模型的学习(model learning)</li>
+  <li>根据学习后的模型，通过计划，我们同样可以得到价值函数或者策略</li>
+</ol>
+
+<p><img src="/images/3-planning-learning-relation.png" alt=""></p>
+
+<p>Dyna-Q 相比普通的Q-learning，其提升在于: Q-learning一开始只会对经验过的policy进行更新；但是Dyna-Q利用的planning,可以继续生成一系列模拟的经验，从而有着更好的更新覆盖率。如果用机器人走迷宫的例子来说，第一个episode，只有终点的奖励，Q-learning只会更新终点前一格的价值；但是另一方面，通过planning，我们可以生成一系列的(s, a)对，从而对前面若干步的格子的价值函数进行更新。</p>
+
+<p>另一方面，模型有可能是错的：环境可能改变，先验的知识也不一定符合现状。环境变化有两种可能性：一种是，环境变“坏”了，即我们当前的策略在新的环境下没有办法获取或者只能获取低水平的奖励；第二种是，环境变“好”了，我们的解依然能够获取同样水平的奖励，但是存在一个更优的解。在环境变坏的情况下，通过planning我们一般不能得到最优的policy，但是通过不断的exploit，模型能够发现这个这个解不是最优，从而慢慢找到更新的解。但是在环境变好的情况下，模型很难去发现更优的解法，而是会陷入在原有的策略中不断exploit。为了解决这个问题，我们需要平衡探索与exploit。</p>
+
+<p>Dyna-Q+是一个变种的Dyna-Q算法。在这个算法中，我们用$R + k\sqrt{\tau}$来代替奖励信号，其中$\tau$是一个衡量上一次访问该状态距今的时间，$k$是控制平衡的系数。这种做法能够赋予那些长时间未访问的状态更高权重，从而让模型能够更新那些很久都没有访问过的状态的价值。</p>
+
+<p>另一种Dyna-Q的变种Prioritized Sweeping Dyna-Q考虑从模型中选取状态的随机性问题。随机性容易产生很多无效的(s, a)对，在遍历这些状态的时候，我们的价值实际上不更新。换而言之，虽然planning扩展了更新价值的范围，但是这些扩展的范围仍旧局限在终点附近。对于每一步，我们将[Target-OldEstimate]这一项作为优先级，将我们的历史经验存储在优先级队列之中。选取模型的时候，我们从优先级队列中选取，并且将新生成的(s, a)对重新按照优先级放入优先级队列中。优先级系数有一个截断阈值$\theta$来控制。这种算法有着更优的模型收敛速度。</p>
+
+<h2 id="rollout-planning">Rollout Planning</h2>
+<p>Dyna-Q的模型重用了历史经验，而rollout planning使用模型来模拟将来的轨迹(trajectory)。每个轨迹从当前状态出发来</p>
+
+<p>我们给出前向更新的rollout算法：</p>
+<pre><code>Input 
+  Model for simulation
+
+Init Q(s, a) for all s, a
+
+for t = (0, ...) do:
+  S_t := current state
+  for n times(n rollouts) do
+    S := S_t
+    while s non-terminal/within fixed length do:
+      action A based on Q(S,:), with exploration # i.e. e-greedy
+      (R, S') sample from Model(S, A)
+      Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S', a)) - Q(S, A)]
+      S := S'
+
+  Select action A_t greedly from Q(S_t, :)
+</code></pre>
+
+<p>这种算法下，如果模型是正确的且满足每个状态访问无限次，该算法能够学习到最优策略，反之如果模型不正确，则无法得到最优解。</p>
+
+<p>我们给出反向更新的rollout算法，这个算法的目的是更好的利用奖励</p>
+
+<pre><code>Input 
+  Model for simulation
+
+Init 
+  Q(s, a) for all s, a
+  trace = [], stack
+
+for t = (0, ...) do:
+  S_t := current state
+  for n times(n rollouts) do
+    S := S_t
+    # rollout
+    while s non-terminal/within fixed length do:
+      action A based on Q(S,:), with exploration # i.e. e-greedy
+      (R, S') sample from Model(S, A)
+      trace.push(S,A,R,S')
+      S := S'
+
+    # backprop
+    while trace != [] do:
+      (S,A,R,S') := trace.pop()
+      Q(S, A) := Q(S, A) + alpha[R + gamma * max_a(Q(S', a)) - Q(S, A)]
+
+
+  Select action A_t greedly from Q(S_t, :)
+</code></pre>
+
+<p>在走迷宫问题上，前向传播可以看做是这一次的奖励更新奖励点前最后一个状态与上一次的奖励更新前面所有状态的复合，而反向传播会直接用当前的奖励更新所有的状态。在这个意义上，反向传播有着较正向传播稍快的学习速度。</p>
+
+<h2 id="monte-carlo-tree-search-蒙特卡洛树搜索">Monte-Carlo Tree Search 蒙特卡洛树搜索</h2>
+
+<p>蒙特卡洛树搜索(MCTS)是一种更加通用，高效的rollout planner。对于每一个状态，MCTS都被用于动作的选取。每次执行MCTS都是一个迭代过程，这个迭代过程模拟从当前状态触发到终止状态的轨迹/衰减率限制。MCTS的核心是通过不断拓展当前状态的一部分在早期模拟中获得高回报(high evaluation)的轨迹，来集中在多个模拟上(原文比较难懂)MCTS不保存从一个动作选取到下一个的近似价值函数或者策略。</p>
+
+<p>自己的理解：MCTS存储一个部分的(partial)$Q$函数，每次MCTS会从最可能的那一个节点进行扩展。</p>
+
+<p><img src="/images/MCTS.jpg" alt=""></p>
+
+<p>MCTS根据模拟的输出结果构造搜索树，由以下四个主要步骤组成：</p>
+<ol>
+  <li>选择(selection): 从根节点开始，递归的选择最优的子节点直到叶节点(不同于终止状态)</li>
+  <li>扩展(expansion): 如果选择的节点不是终止状态，则对这个节点进行扩展，创建这个节点的一个或者多个子节点</li>
+  <li>模拟(simulation): 选取上步创建的一个子节点，从子节点开始使用默认的策略(default policy)来模拟，直到终止状态</li>
+  <li>反向传播(back propagation):用模拟的输出结果，更新从根节点到扩展的子节点的价值</li>
+</ol>
+
+<p>一般的MCTS算法如下：</p>
+
+<pre><code>Init
+  S_0: init state 
+  DefaultPolicy: default policy 
+  Q: {v_0: S_0} MCTS tree with root node S_0
+
+S := S_0
+Repeat :
+  v := node in Q s.t. state(v) = S
+  while computationally possible:
+    v_t := TreePolicy(v_0) # best polict by tree
+    delta := DefaultPolicy(state(v_t))
+    Backprop(v_t, delta)
+  action A is BestChild(v_0)
+  
+</code></pre>
+
+<p>在模拟这一部分，我们使用的是一个不同于Tree policy的策略。这个策略可以是最简单地随机策略，也可以使用一些启发式搜索或者多重模拟的平均。</p>
+
+<h3 id="upper-confidence-bounds-for-treesuct-上确界树">Upper Confidence Bounds for Trees(UCT) 上确界树</h3>
+<p>如果我们将选择步骤的每一层都看做多臂赌博机问题，我们可以选用不同的方法来平衡探索与收益。UCT使用UCB来进行每一个子节点的选择。在这里，UCB公式可以写成如下形式:</p>
+
+<script type="math/tex; mode=display">v_i + C \sqrt{\frac{\log N}{n_i}}</script>
+
+<p>其中$v_i$是节点的估计价值，$n_i$是节点被访问的次数，$N$是父节点被访问的次数，$C$是平衡系数。</p>
+
+<h2 id="在线离线学习">在线/离线学习</h2>
+
+<p>RL同样有在线学习与离线学习两种。</p>
+
+<p>在线学习:</p>
+<ol>
+  <li>在真正的游戏执行之前，用MDP找到最优策略</li>
+  <li>策略是完备的：对所有可能的状态,都能够找到最优策略</li>
+  <li>Use as much time as needed to find policyDyna-Q, DP离线学习:</li>
+  <li>在游戏中使用MDP寻找最优策略</li>
+  <li>策略是不完备的：仅对当前的状态寻找最优策略</li>
+  <li>有限的时间（e.g.下棋读秒）</li>
+</ol>
+
+<h1 id="value-function-approximation">Value Function Approximation</h1>
+
+<p>对于非常巨大的状态空间而言，直接存储价值表是不现实的，我们自然就会想到使用一个函数$\hat{v}<em>\pi$来近似$v</em>\pi$，这样我们可以在有限的内存下仍然能够处理巨大的状态空间。另一个问题是，相比较于状态空间，能获取的样本只是其中很小的一个部分，因此遍历所有的状态是不可能的。由这两个问题，我们引出近似价值函数。</p>
+
+<p>我们的目标是，使用参数化的函数来近似价值表:</p>
+
+<script type="math/tex; mode=display">\hat{v}(s, \mathbf{w}) \simeq v_\pi(s)
+\hat{q}{s, a, \mathbf{w}} \simeq q_\pi(s, a)</script>
+
+<p>这带来两个好处：</p>
+<ol>
+  <li>参数的数量一般而言远小于状态空间的大小</li>
+  <li>泛化能力，一个参数的变化可以对应若干对应的状态/动作价值的变化</li>
+</ol>
+
+<p>价值函数的学习一般而言通过有监督学习，我们使用一个状态-价值对来训练我们的函数：(S, U)</p>
+<ol>
+  <li>MC: U = G</li>
+  <li>TD(0): U = R + gamma * v(S’, wt)</li>
+  <li>n-step TD: U = R + … + gamma^n-1 Rn + gamma^n v(Sn, wn-1)</li>
+</ol>
+
+<p>这种方法一般而言能够进行增量更新，以及能够处理噪音。</p>
+
+<p>我们一般采取均方误差来作为我们的损失函数。</p>
+
+<p>在损失函数可导的情况下，我们采用随机梯度下降来增量学习参数$w$<script type="math/tex">\mathbf{w}_{t+1} = \mathbf{w}_t - \frac{1}{2}\alpha \nabla J(\mathbf{w}_t) = \mathbf{w}_t + \alpha [U_t - \hat{v}(S_t, \mathbf{w}_t) \nabla\hat{v}(S_t, ]\mathbf{w}_t)]</script></p>
+
+<p>对于MC而言，$\mathbb{E}[U|S]$是一个对$v_\pi$的无偏估计，我们可以放心使用；但是对于TD而言，由于其为bootstrap方法，$U$是一个有偏估计。在这种情况下，我们使用半梯度(semi-gradient)。之所以叫半梯度是因为$U=R+\gamma\hat{v}(S,\mathbb{w})$跟$w$有关：</p>
+
+<pre><code>Input:
+  pi: policy 
+  v_hat: differenciable function , v_hat(terminal, :) = 0
+  alpha: step size 
+  w: weights, arbitrarily init
+
+loop for each episode:
+  init S
+  for each step in episode:
+    A chosen from pi(S)
+    take action A, observe R, S'
+    w := w + alpha[R+gamma v_hat(S', w) - v_hat(S, w)] d(v_hat(S,w))/dw
+    S := S'
+  until S terminal
+  
+</code></pre>
+<p>在线性的情况下，只有一个最优：</p>
+<ul>
+  <li>MC收敛至全局最优</li>
+  <li>TD收敛至接近全局最优的不动点</li>
+</ul>
+
+<p>我们通过coarse/tile coding 来抽取特征：粗编码(coarse)将整个状态空间划分为重叠的若干子空间，每一个空间内的点点亮当前的子空间，并且同时点亮同该空间互相重叠的子空间–邻域，在粗编码的情况下，我们可以仅仅对在状态空间内相邻的状态值进行更新。片编码(tile)对状态点附近的一个方形区域进行切割，然后将该区域上下左右平移得到新的领域。</p>
+
+<h2 id="控制问题">控制问题</h2>
+<p>同状态价值相似，我们可以直接写出动作价值的梯度表示，从而实现控制。在线性函数下，我们有:</p>
+
+<ol>
+  <li>SARSA: U = R + gamma q(S, A, w)</li>
+  <li>Q-learning: U = R + gamma max_a q(S, a, w)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Expected SARSA: U = R + gamma sum_a \pi(a</td>
+          <td>S) q(S, a, w)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<h1 id="eligibility-trace-资格迹">Eligibility Trace 资格迹</h1>
+
+<p>资格迹可以看做是另外一种MC/TD的插值方式。在n-step中，我们逐步计算n步的奖励，之后的奖励用现在的v值近似。n-step 存在的问题是：更新需要等待n步，有时太长了。我们可以换一种思路：对不同的n的G值做加权平均，可以保证其价值函数的收敛性。</p>
+
+<h2 id="tdlambda">TD(lambda)</h2>
+
+<p>TD(lambda)的基本思路是：对从当前时刻开始的所有G进行加权求和，使用一个指数权重来控制从当前时刻开始每一个时刻$t+k$的期望，我们称这个期望为lambda-return。</p>
+
+<script type="math/tex; mode=display">G_t^{\lambda} = (1-\lambda)\sum_{n=1}^{\infty}\lambda^{n-1}G_{t:t+n}</script>
+
+<p>这个公式可以写成如下形式，以方便我们观察Termination：</p>
+
+<script type="math/tex; mode=display">G_t^\lambda = (1-\lambda)\sum_{n=1}^{T-t-1}\lambda^{n-1}G_{t:t+n} + \lambda^{T-t-1}G_t</script>
+
+<p>我们可以认为这个式子截断了n步以后的情形，以后项来代替截断后的期望。可以看出，lambda项等于0的时候相当于TD(0), 等于1的时候相当于MC方法。线下的lambda-return算法的更新公式为：$\alpha[G_t^\lambda-\hat{v}(S_t,\mathbb{w_t})]\nabla\hat{v}(S_t,\mathbb{w}_t)$</p>
+
+<h3 id="前向与后向解释">前向与后向解释</h3>
+<p>TD(lambda)的前向视角就是lambda-return的视角：向前看若干步，然后进行lambda加权平均。</p>
+<blockquote>
+  <p>对于每个访问到的state，我们都是从它开始向前看所有的未来reward，并决定如何结合这些reward来更新当前的state。每次我们更新完当前state，我们就到下一个state，永不再回头关心前面的state</p>
+</blockquote>
+
+<p>我们来更形象地表述一下后向视角的过程：每次在当前访问的状态得到一个误差量的时候，这个误差量都会根据之前每个状态的资格迹来分配当前误差。这就像是一个小人，拿着当前的误差，然后对准前面的状态们按比例扔回去。TD(λ)的后向视角非常有意义，因为它在概念上和计算上都是可行而且简单的。具体来说，前向视角只提供了一个非常好但却无法直接实现的思路，因为它在每一个timestep都需要用到很多步之后的信息，这在工程上很不高效。而后向视角恰恰解决了这个问题，采用一种带有明确因果性的递增机制来实现TD(λ)，最终的效果是在on-line case和前向视角近似，在off-line case和前向视角精确一致。</p>
+
+<h2 id="资格迹">资格迹</h2>
+<p>引入一个同每个状态都相关的变量$z$，在每一个episode的时候初始化为0，以$\gamma\lambda$为衰减率，对每一个时刻的梯度进行加权:</p>
+
+<script type="math/tex; mode=display">\mathbb{z}_{-1}=0</script>
+
+<script type="math/tex; mode=display">\mathbb{z}_t = \gamma\lambda\mathbb{z}_{t-1} + \nabla \hat{v}(S_t, \mathbb{w}_t)</script>
+
+<p>资格迹可以看做对权重更新的平滑：当参数更新时，其与历史累计的更新幅度加载一起；当没有激活参数的更新时，之前的更新会慢慢回落至0。从另一种角度看，当资格迹不作用于参数化函数时，可以看做一个梯度恒为定值的函数。</p>
+
+<p>根据前述的半梯度TD，我们引入Semi-Gradient TD(lambda)算法：</p>
+<pre><code>for each episode:
+  Init S
+  z := 0
+  for each step in episode:
+    A chosen by pi
+    take action A, observe R, S'
+    z := gamma * lambda * z + dv(S,w)/dw
+    delta := R + gamma * v(S', w) - v(S, w)
+    w := w + alpha * z *delta
+    S := S'
+  until S terminal
+</code></pre>
+<p>其中， lambda称为衰减率。</p>
+
+<h3 id="online算法">Online算法</h3>
+
+<p>在线的lambda-return算法实际上使用截断的lambda-return：<script type="math/tex">G_{t:h}^\lambda = (1-\lambda)\sum_{n=1}^{h-t-1}\lambda^{n-1}G_{t:t+n} + \lambda^{h-t-1}G_{t:h}</script>这个算法可以看做是长度为定值的lambda-return算法，我们将整个轨迹在h处截断，后面的概率使用截断后一个时间点的期望$\lambda^{h-1}G_{t:h}$来替代</p>
+
+<h1 id="policy-gradient">Policy Gradient</h1>
+
+<p>同Value Approximation 类似，Policy Gradient 将策略参数化，从而学习到更优的策略。<script type="math/tex">\pi(a|s, \theta) = Pr{A_t = a| S_t = s, \theta_t = \theta}</script></p>
+
+<p>Policy Gradient的优点:</p>
+<ol>
+  <li>更容易收敛到局部最优</li>
+  <li>在高维与连续的动作空间有更好的表现</li>
+  <li>可以学习到随机策略</li>
+</ol>
+
+<p>对于离散的动作空间，我们通常使用softmax来描述动作的概率；而对于连续的动作空间，可以使用高斯分布来描述。</p>
+
+<p>我们优化的目标可以是初状态的价值期望：<script type="math/tex">J(\theta) \circeq v_\pi_\theta(S_0)</script>或者，如果是连续性的任务，可以优化平均奖励：<script type="math/tex">J(\theta) \circeq \sum_s P_\pi(s) \sum_{a}\pi(a|s, \theta)\sum_{s', r}p(s',r|s,a)r</script></p>
+
+<h2 id="策略梯度定理">策略梯度定理</h2>
+
+<p>对于任意的可微策略$\pi$，策略梯度为<script type="math/tex">\nabla J(\theta) = \sum_s d_\pi(s) \sum_a q_\pi(s, a) \nabla \pi(a|s, \theta)</script>其中，$d_\pi(s)$是在策略$\pi$下的on-policy分布。</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>对于初始状态而言我们有：$d_\pi(s)=\sum_{t=0}^{\infty}\gamma^t Pr{S_t=s</td>
+          <td>s_0, \pi}$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>对于平均回报我们有：$d_\pi(s) = \lim_{t\rightarrow \infty} Pr{S_t = s</td>
+          <td>\pi}$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>我们在这里不需要推导环境的动态函数$p$。</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{aligned}
+\nabla J(\theta) &= \sum_s d_\pi(s) \sum_a q_\pi(s, a) \nabla \pi(a|s, \theta) \\
+                 &= \mathbb{E}_\pi[\sum_a q_\pi(s, a) \nabla \pi(a|s, \theta)] \\ 
+                 &= \mathbb{E}_\pi[\sum_a \pi(a|s, \theta) q_\pi(s, a) \frac{\nabla \pi(a|s, \theta)}{\pi(a|s, \theta)} ]_\\
+                 &= \mathbb{E}_\pi[q_\pi(S_t, A_t)\nabla \ln(\pi(A_t|S_t, \theta))]
+\end{aligned} %]]></script>注意此处对不同的时刻取期望值，我们的更新迭代公式可以写成：</p>
+
+<script type="math/tex; mode=display">\theta_{t+1} = \theta_{t} + \alpha(q_\pi(S_t, A_t)\nabla \ln\pi(A_t|S_t, \theta))</script>
+
+<p>在这里，我们有两个任务要完成：</p>
+<ol>
+  <li>计算或者近似策略函数的导数</li>
+  <li>近似策略$q$</li>
+</ol>
+
+<p>为了避免选择无法反应状态之间的量级差异，我们有时会将其与baseline进行比较，在这里我们有：</p>
+
+<script type="math/tex; mode=display">(q_\pi(S_t, A_t) - b(S_t))\nabla \ln \pi(A_t|S_t, \theta)</script>
+
+<p>这个baseline 不会改变期望，但是可以降低方差。</p>
+
+<p>我们给出基于策略梯度定理与baseline的蒙特卡洛更新算法:</p>
+
+<pre><code>Var:
+  pi(a|s, theta): differenciable policy
+  v(s, w): differenciable state-value function
+  a_t, a_w: step size parameters, greater than 0
+
+init policy parameter and state-value weights randomly
+
+for each episode(forever):
+  generate episode by pi
+  for each step in episode:
+    G := sum_(k=t+1:T)(gamma^k R_k)
+    delta = G - v(S_t, w)
+    w := w + a_w * delta * dv(S_t, w)/dw
+    theta := theta + a_t * gamma^t * delta * d(ln(pi(A_t|S_t, theta)))/dtheta
+</code></pre>
+
+<h2 id="actor-critic-methods">Actor-Critic Methods</h2>
+<p>上述基本算法由于采用了蒙特卡洛法，同样会有蒙特卡洛法的问题：直到一个episode完了才能进行更新，导致学习很慢。这里，我们使用同样的将蒙特卡洛换成TD的思路，给出Actor-Critic 方法。</p>
+
+<script type="math/tex; mode=display">\theta_{t+1} = \theta_{t} + \alpha [R_t + \gamma v(S_{t+1}, w) - v(S_t, w)]\nabla \ln\pi(A_t|S_t, \theta)</script>
+
+<p>具体算法如下：</p>
+
+<pre><code>Var:
+  pi(a|s, theta): differenciable policy
+  v(s, w): differenciable state-value function
+  a_t, a_w: step size parameters, greater than 0
+
+init policy parameter and state-value weights randomly
+
+for each episode:
+  Init S
+  I := 1
+  for each step in episode:
+    A from pi
+    take action A, observe S', R
+    delta := R + gamma * v(S', w) - v(S, w)
+    w := w + a_w * delta * dv(S, w)/dw
+    theta := theta + alpha * delta * I * d(ln(pi(A|S, theta)))/dtheta
+    I := gamma I
+    S := S'
+  until S terminate
+
+</code></pre>
+
+</body></html>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share" >
+  <!-- <ul class="socialcount socialcount-small inline-list"> -->
+  <!--   <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://MeowAlienOwO.github.io/reinforcement-learning-3/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li> -->
+  <!--   <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://MeowAlienOwO.github.io/reinforcement-learning-3/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li> -->
+  <!--   <li class="googleplus"><a href="https://plus.google.com/share?url=http://MeowAlienOwO.github.io/reinforcement-learning-3/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li> -->
+  <!-- </ul> -->
+</div><!-- /.social-share -->
+
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://MeowAlienOwO.github.io/reinforcement-learning-2/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://MeowAlienOwO.github.io/reinforcement-learning-2/" title="强化学习（二）：动态规划，蒙特卡洛法，时间差分">强化学习（二）：动态规划，蒙特卡洛法，时间差分</a></h3>
+      <p>强化学习第二部分动态规划动态规划的基本思路是：将问题划分为可存储的子优化问题，通过解决子问题来最终解决父问题。在强化学习中，由于MDP的贝尔曼方程的存在，我们可以很容易地将问题递归表示。策略迭代基本的动态规划算法为策略迭代。策略迭代分为两大部分：  对策略的价值估计  对策...&hellip; <a href="http://MeowAlienOwO.github.io/reinforcement-learning-2/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io/machine%20learning/rl/reinforcement_learning/" title="强化学习导论（一）">强化学习导论（一）</a></h4>
+        <span>Published on April 27, 2019</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://MeowAlienOwO.github.io/ml/algorithm/machine_learning-_linear_regression/" title="Machine Learning: Linear Regression">Machine Learning: Linear Regression</a></h4>
+        <span>Published on October 02, 2018</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 死鱼眼的喵星人. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<!-- <script>window.jQuery || document.write('<script src="http://MeowAlienOwO.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script> -->
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/latest.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script> -->
+<!-- <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax: {
+     inlineMath: [['$', '$'], [ '\\(', '\\)']],
+     displayMath: [['$$', '$$']]
+     }});
+     </script>
+-->
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+<link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+<script src="http://MeowAlienOwO.github.io/assets/js/scripts.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/js/vendor/share.min.js" async></script> -->
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'meowalienowogithubio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<script>
+ var _config = {
+     title: '强化学习（三）',
+     image: ''
+ }
+
+ socialShare('.social-share', _config)
+</script>
+
+
+
+</body>
+
+</html>

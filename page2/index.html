@@ -210,6 +210,312 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" title="Machine Learning Review: Neural Network">
+            
+            <img src="http://og78s5hbx.bkt.clouddn.com/60827595.jpg" alt="Machine Learning Review: Neural Network">
+            
+        </a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2017-01-09T18:36:10+08:00"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/">January 09, 2017</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_neural_network/" rel="bookmark" title="Machine Learning Review: Neural Network" itemprop="url">Machine Learning Review: Neural Network</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <!-- <p>呼……终于到最后一篇了，也是开学学的内容。</p>
+
+<p>今年也请多多指教。</p>
+
+<h1 id="神经网络neural-network">神经网络（Neural Network）</h1>
+
+<p>神经网络是一种很古老，但是到现在依然有很广泛的用途的机器学习算法。包括
+现在火的深度学习，其基础也是神经网络。</p>
+
+<p>神经网络的定义（来自西瓜书，引用T.Kohonen）：</p>
+
+<blockquote>
+  <p>神经网络是由具有适应性的简单单元组成的广泛并行互联的网络，其组织能
+够模拟生物神经系统对真实世界作出的交互反应。</p>
+</blockquote>
+
+<h2 id="神经元模型neuron-model">神经元模型(Neuron Model)</h2>
+
+<p>如上述的简单单元就是神经网络的最基本组成部分–神经元。一个神经元可以接
+受若干个来自其他神经元的输入信号，这些信号通过带权重的连接进行传递，总
+输入值与神经元的阈值进行比较，然后通过激活函数处理，形成神经元的输出。</p>
+
+<p>神经元的数学形式可以表示如下：</p>
+
+<script type="math/tex; mode=display">y = f(\sum\limits_{i=1}^{n}w_ix_i - \theta)</script>
+
+<p>其中，$f$表示激活函数，$w_i$表示权重，$x_i$表示属性值，$\theta$表示阈
+值。</p>
+
+<p>一种比较基本的激活函数是<strong>阶跃函数</strong>（signal function），即等于或超过阈值则为1，反之为0。
+但是这个函数不方便求导与计算误差，我们在实际中比较常见的函数有sigmoid
+函数：</p>
+
+<script type="math/tex; mode=display">sigmoid(x) = \frac{1}{1 + e^{-x}}</script>
+
+<p>神经元具有学习功能，会根据输出值与真实值的误差对权重进行调整，从而达到
+泛化的目的。表示神经元的学习方式的函数叫做<strong>训练函数</strong>(training function)</p>
+
+<h2 id="感知机perceptron">感知机（Perceptron）</h2>
+
+<p>感知机是一种最基本的神经网络，其包含两层神经元，输入层接受外界的信号，
+传递给输出神经元。输出神经元对输入的数据作加权处理，然后与阈值
+（threshold）做比较，判断神经元是否被激活。</p>
+
+<p>感知机可以被认为是一种线性分类器，即在样本空间中寻找一个超平面，使得样
+本能够分布在超平面的两端。这需要我们的样本是<strong>线性可分</strong>的。这也是我们
+对应用感知机场景的一个基本假设。例如，XOR问题就不是线性可分的，因此无
+法应用感知机。</p>
+
+<p>感知机会根据输出值与目标分类值之间的误差更新权重，这就是感知机的**学习
+**过程。</p>
+
+<p>基本的感知机表示如下：</p>
+
+<p><script type="math/tex">R = \theta + \sum\limits_{i=1}{m}w_ix_i \\
+o = sign(R) = \lbrace +1; if~R > 0 \\ -1; otherwise</script>
+其中，阈值$\theta$可以看做一个输入值恒为-1（或者-1）的”哑节点”（dummy
+node），那么感知机的表达方式就可以统一为权重的学习。</p>
+
+<p>感知机的训练函数为：</p>
+
+<script type="math/tex; mode=display">w_i \gets w_i + \eta (d - o) x_i, i = 1,2,...,n</script>
+
+<p>其中，$w_i$表示权重，$\eta$表示学习率。学习率是一个常数，用于控制学习
+的速度。太低会导致学习过程缓慢，太高则有可能导致学习失败：感知机无法收
+敛到一个比较适当的区间。$d$表示类别的值，$o$表示感知机的输出，我们也可
+以将$d - o$统一成为误差。</p>
+
+<p>我们不加证明地给出收敛性定理：</p>
+
+<blockquote>
+  <p>如果样本是线性可分的，那么感知机将会一定可以在有限的步骤内收敛到一个
+解。</p>
+</blockquote>
+
+<h2 id="自适应线性神经元adaptive-linear-elements">自适应线性神经元（Adaptive Linear Elements）</h2>
+
+<p>感知机由于采用了阶跃函数作为激发函数，容易出现难以收敛的情况。同时在
+样本集不是线性可分的情况下，感知机难以找出一个恰当的近似。为此，我们引
+入自适应线性神经元。</p>
+
+<p>简单地说，自适应线性神经元取消了阶跃函数，直接以输入的加权求和（包括阈
+值，或者说哑输入）作为输出值。</p>
+
+<script type="math/tex; mode=display">o = \theta + \sum\limits_{i=1}{n} w_i x_i</script>
+
+<p>我们的误差函数也需要从原来的简单相减进行改变：</p>
+
+<script type="math/tex; mode=display">Err(W) = \frac{1}{2} \sum\limits_{k = 1}^{K}(d_k - o_k)^2</script>
+
+<p>其中，k用于表示第k个训练样本，$d_k$表示样本的目标分类，$o_k$表示输出值。</p>
+
+<p>这里常数1\2是用来处理求导后产生的常数。我们从误差函数中可以看出，如果
+误差函数越小，神经元就有更好的近似。</p>
+
+<h2 id="梯度下降法gradient-decent">梯度下降法（Gradient Decent）</h2>
+
+<p>对于自适应神经元，我们的训练目标是在样本空间中，对于给定的训练集，使其
+误差最小。为此，我们需要引入梯度下降法(Gradient Decent)。</p>
+
+<p>在高维的情况下，同斜率等效的一阶导数称作<a href="https://en.wikipedia.org/wiki/Gradient">梯度</a>(gradient)。我们知道，二维
+的情况下函数的极小值是“山谷”的位置，即斜率为0且左右领域函数值皆大于
+极小值。推广至高维，高维函数的极小值同样是梯度为0的点。
+我们如果要使误差向极小值移动，我们需要判定其移动方向。在二维的情况下，
+我们选取<strong>斜率减小</strong>的方向，即函数值减小的防线。</p>
+
+<p>同样的，我们在高维需要选取<strong>梯度减小</strong>的方向。对于权重的某个取值
+$\mathbf{w}$，我们可以求其梯度：</p>
+
+<script type="math/tex; mode=display">\nabla F(w_1, w_2,...,w_m)</script>
+
+<p>符号$\nabla$是一个用来表示向量微分的算子。为了更新权重，我们更加关注的
+是，权重向量在某一维度上的<strong>分量</strong>的改变趋势。为此，我们需要求取函数在
+某一维度上的导数，即为<a href="https://en.wikipedia.org/wiki/Partial_derivative">偏导数</a>：</p>
+
+<script type="math/tex; mode=display">\frac{\partial}{\partial{w = w_i}} Err(w)</script>
+
+<p>梯度可以写作:</p>
+
+<script type="math/tex; mode=display">\nabla Err(\mathbf{w}) = [ \frac{\partial}{\partial{w_1}}, \frac{\partial}{\partial{w_2}},...,\frac{\partial}{\partial{w_m}}]</script>
+
+<p>对于单个分量$w_i$而言，我们的训练函数改写如下：</p>
+
+<script type="math/tex; mode=display">w_i \gets w_i - \eta \frac{\partial E}{\partial{w_j}}</script>
+
+<p>因此，我们需要计算误差函数的偏导数。对于有K个样本的训练集，求总的
+偏导数：</p>
+
+<script type="math/tex; mode=display">\frac{\partial Err}{\partial w_i} = \frac{\partial}{\partial w_i}\frac{1}{2}\sum\limits_{k=1}^{m}
+ (\mathbf{d} - \mathbf{o})^2</script>
+
+<p>提取常数项</p>
+
+<script type="math/tex; mode=display">= \frac{1}{2} \frac{\partial}{\partial w_i} \sum\limits_{k=1}^K
+(\mathbf{d} - \mathbf{o})^2</script>
+
+<p>提取和式</p>
+
+<script type="math/tex; mode=display">= \frac{1}{2} \sum\limits_{k=1}^K \frac{\partial}{\partial w_i}
+(\mathbf{d} - \mathbf{o})^2\\</script>
+
+<p>考虑到$(\mathbf{d} - \mathbf{o})^2$是关于$w_i$的函数，应用链式法则并消去常数项</p>
+
+<script type="math/tex; mode=display">= \sum\limits{k=1}^K (\mathbf{d} - \mathbf{o})
+\frac{\partial}{\partial{w_i}} (\mathbf{d} - \mathbf{o})</script>
+
+<p>接下来，求$\mathbf{d} - \mathbf{o}$的偏导数。我们可以很容易地看出，这是一个线性函数，这意
+味着其他分量的导数为0（参考偏导数定义），有作用的只有$w_ix_i$这一项。保留符号，我们有</p>
+
+<script type="math/tex; mode=display">= -\sum\limits{k=1}^K(\mathbf{d} - \mathbf{o})x_i(k)</script>
+
+<p>于是我们的训练函数更改为：</p>
+
+<script type="math/tex; mode=display">w_i \gets w_i + \eta \sum\limits_{k=1}{K}(\mathbf{d} - \mathbf{o}) x_i(k)</script>
+
+<p>这被称为Delta法则(Delta Rule)</p>
+
+<p>我们同样可以迭代求梯度，区别在于不是一次求取所有训练集的误差与更新值，
+而是每次计算一个训练样本。但是，这两者实际的结果会有所差异。
+每次训练的时候，我们迭代所有的训练样本一次，称作一个epoch。每次迭代样
+本的排序一般而言会改变。</p>
+
+<p>在满足以下两个条件之一的时候，停止训练：</p>
+
+<ol>
+  <li>当预设的epoch数量运行完毕时</li>
+  <li>当误差小于某个预设值</li>
+</ol>
+
+<h2 id="神经网络">神经网络</h2>
+<p>由于线性神经元只能识别线性可分的情况，不能寻找非线性决策平面。于是，人
+们将若干神经元通过某些方式组合起来，形成神经网络。
+下图展示了神经网络的一种基本形式，其拓扑结构为单向向前输出的神经网
+络，后一层的输出是下一层的输入。</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/300px-Colored_neural_network.svg.png" alt="" /></p>
+
+<p>在神经网络中，激发函数一般使用sigmoid函数。它有一个很好的数学性质：</p>
+
+<script type="math/tex; mode=display">f'(x) = f(x)(1 - f(x))</script>
+
+<p>应用sigmoid函数计算偏导数如下：</p>
+
+<script type="math/tex; mode=display">\frac{\partial}{\partial w_i} Err(w) = -\sum\limits_{k=1}^K (d_k - o_k)
+\frac{\partial}{\partial w_i}sigmoid(net(\mathbf{w}\mathbf{x}))</script>
+
+<p>其中$net(k)$是神经网络的对样本k的输出，即权重与输入的加权求和式。原来
+的函数无法一步求导到位，应用
+链式法则拆成两个变量相同的函数：</p>
+
+<script type="math/tex; mode=display">\frac{\partial}{\partial w_i} sigmoid(net(k)) = \frac{\partial
+o_k}{\partial net(k)} \frac{\partial sum(k)}{w_i}</script>
+
+<p>根据sigmoid函数的特征，我们有</p>
+
+<script type="math/tex; mode=display">\frac{\partial sigmoid(net(k)}{\partial sum(k)} = sigmoid(sum(k))(1 -
+sigmoid(net(k))) = o_k(1 - o_k)</script>
+
+<p>则我们的偏导数为：</p>
+
+<script type="math/tex; mode=display">\frac{\partial Err}{\partial w_i} = \sum\limits_{k=1}^K x_i(k) o_k
+(o_k - d_k)(1 - o_k)</script>
+
+<h2 id="bp算法">BP算法</h2>
+
+<p>我们以简单的三层神经网络（输入，隐层,输出）来讨论整个神经网络的权重更
+新算法：反向传播法(back propagation)</p>
+
+<p>BP算法大致可以描述如下：</p>
+<ol>
+  <li>输入训练样本，计算其误差</li>
+  <li>根据误差，计算梯度，更新权重</li>
+  <li>根据上一步的梯度改变值，计算上一层的权重改变量，更新权重</li>
+  <li>重复直到获得满意成果或者epoch用完</li>
+</ol>
+
+<p>考虑步骤2,3，我们不难发现，在应用上面的偏导数的前提下，需要知道如何**
+递归地**求取前面层级的权重更新量。</p>
+
+<p>我们记</p>
+
+<script type="math/tex; mode=display">\delta = - \frac{\partial Err}{\partial o} \frac{\partial o}{net}= o (o - d)(1 - o)</script>
+
+<p>其中$net$表示该神经元的输入，即上一层的输出向量与权重的加权。</p>
+
+<p>令输出层的某个神经元为l,隐层的某个神经元为m,输入层某个神经元为n。
+则，对于连接输出层与隐层的权重$w_{lm}$个，我们的更新公式可以写成:</p>
+
+<script type="math/tex; mode=display">w_{lm} = w_{lm} + \eta \delta_l x_m</script>
+
+<p>其中$\delta_l$是根据输出神经元l计算的值；$x_m$指的是输入向量的值。</p>
+
+<p>连接输入层与隐层的权重的更新公式表示如下:</p>
+
+<script type="math/tex; mode=display">w_{mn} = w_{mn} - \eta \Delta w_{mn}\\
+ = w_{mn} - \eta \frac{\partial Err}{\partial w_{mn}}\\</script>
+
+<p>注意到$x_m$是隐层的输入也是输入层的输出，用链式法则拆分偏导数：</p>
+
+<script type="math/tex; mode=display">- \frac{\partial Err}{\partial w_{mn}} = - \frac{\partial
+Err}{\partial x_m} \frac{\partial x_m}{\partial w_{mn}} \\
+= - \frac{\partial Err}{\partial x_m} \frac{\partial x_m}{w_{mn}}</script>
+
+<p>使用sigmoid函数的特性，有</p>
+
+<script type="math/tex; mode=display">= -\frac{\partial Err}{\partial x_m} x_m(1 - x_m)</script>
+
+<p>对于前面部分的偏导数，我们有</p>
+
+<script type="math/tex; mode=display">- \frac{\partial Err}{\partial x_m} = -\sum\limits_{i = 1}^{l}
+\frac{\partial Err}{\partial net} \frac{\partial net}{\partial x_m}\\
+= \sum\limits_{i=1}{l} w_{im}g_{i}</script>
+
+<p>于是输入层的更新函数就为：</p>
+
+<script type="math/tex; mode=display">w_{mn} \gets w_mn - \eta x_m(1-x_m)\sum\limits_{i=1}^l w_{im}g_{i} x_n</script>
+
+<p>注：此处限于本人数学水平，对为何要求和没有很好的理解，只能模糊地认
+为需要汇总所有的输出层的改变量，方向大致是全微分但是还是没能很好理解，
+待有识之士指导。</p>
+
+<p>以下是一个演示图：</p>
+
+<p><img src="http://og78s5hbx.bkt.clouddn.com/08135834-8e9b8ff2212545c0aeb1d68103ef3d64.gif" alt="" /></p>
+
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
+  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
+  <li>Lecture Material</li>
+  <li>郭兰哲，BP算法，https://jlunevermore.github.io/2016/06/25/10.BP%E7%AE%97%E6%B3%95/</li>
+  <li>daniel-D’s blog，BP算法之一种直观的解释 http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html</li>
+  <li>
+    <p>daniel-D’s blog，BP算法之向后传导 http://www.cnblogs.com/daniel-D/archive/2013/06/06/3121742.html</p>
+  </li>
+  <li>大量的网络资料（记不清了- -）</li>
+</ol>
+ -->
+    
+        <p>呼……终于到最后一篇了，也是开学学的内容。</p>
+
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="http://MeowAlienOwO.github.io/computer%20science/machine_learning_review-_k-means_&_knn/" title="Machine Learning Review: K-means & KNN">
             
             <img src="http://og78s5hbx.bkt.clouddn.com/56118124.jpg" alt="Machine Learning Review: K-means & KNN">
@@ -957,219 +1263,6 @@ http://www.cnblogs.com/leoo2sk/archive/2010/09/19/decision-tree.html</li>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="http://MeowAlienOwO.github.io/machine%20learning/2016-12-31-machine_learning_review-_svm_&_pca/" title="Machine Learning Review: SVM & PCA">
-            
-            <img src="http://og78s5hbx.bkt.clouddn.com/60095827_p0.jpg" alt="Machine Learning Review: SVM & PCA">
-            
-        </a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-12-31T14:23:05+08:00"><a href="http://MeowAlienOwO.github.io/machine%20learning/2016-12-31-machine_learning_review-_svm_&_pca/">December 31, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="http://MeowAlienOwO.github.io/about/" title="About 死鱼眼的喵星人">死鱼眼的喵星人</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://MeowAlienOwO.github.io/machine%20learning/2016-12-31-machine_learning_review-_svm_&_pca/" rel="bookmark" title="Machine Learning Review: SVM & PCA" itemprop="url">Machine Learning Review: SVM & PCA</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <!-- <p>新年快乐，跨年也是元气满满地在机房～</p>
-
-<p>就不按照上课顺序了，从自己搞不清楚的部分写起。在考SQM之前姑且看看能不
-能再复习一遍决策树吧。</p>
-
-<h1 id="支持向量机-support-vector-machine">支持向量机 Support Vector Machine</h1>
-
-<h2 id="线性分类器">线性分类器</h2>
-
-<p>分类学习的基本想法是，在训练集$D$的样本空间中，寻找到一个超平面
-(hyperplane)，从而将数据分成两类。感知机(perceptron)就是一个典型的线性
-分类器。</p>
-
-<p>线性分类器的一般方程可以表示如下：</p>
-
-<p>$\mathbf{w}^T\mathbf{x} + b = 0$</p>
-
-<p>其中，$\mathbf{w}$是权重向量，$\mathbf{x}$是特征向量。另外，在数学意义上，
-$\mathbf{w}$是由方程$\mathbf{w}^T\mathbf{x} + b = 0$所表示的超平面的法向量，
-$b$为该超平面的截距。</p>
-
-<h2 id="支持向量机">支持向量机</h2>
-
-<p>应用线性分类器的时候，我们常常会碰到这样一种情况：</p>
-
-<p><img src="https://computersciencesource.files.wordpress.com/2010/01/svmafter_thumb.png?w=230&amp;h=240" alt="best-svm" /></p>
-
-<p>线性分类器可能的取值在<strong>训练</strong>集上不止一个，那么我们如何寻找__最优__的
-线性分类器呢？</p>
-
-<p>注意到样本空间中任意一点$x$到超平面的距离为：</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$r = \frac{</td>
-      <td>\mathbf{w}^T\mathbf{x} + b</td>
-      <td>}{</td>
-      <td> </td>
-      <td>w</td>
-      <td> </td>
-      <td>}$</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>复习一下解析几何：</p>
-
-<p>在二维情况下的情形是点到直线的距离:</p>
-
-<p>$r = \frac{ax + by +c}{\sqrt{a^2 + b^2}}$</p>
-
-<p>三维情况下点到平面的距离：</p>
-
-<p>$r = \frac{Ax +By + Cz + D}{\sqrt{A^2 + B^2 + C^2}}$</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>我们不难推广到高维，其中$</td>
-      <td> </td>
-      <td>w</td>
-      <td> </td>
-      <td>$表示向量的模。</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>另外，我们还有一个关于距离的定义：</p>
-
-<blockquote>
-  <p>两个非空集合间的距离为两者内各自的点之间的距离之下确界。</p>
-</blockquote>
-
-<p>将直线看做点集，点看做只有一个元素的点集，就是点与直线的距离公式。同样，
-我们可以将其应用于直线与直线，直线与平面…
-这个定义在测试中的基于距离的自适应测试（DART）以及KNN算法里都有应用。</p>
-
-<p>距离超平面最近的样本点为__支持向量__(support vector)。假定超平面可以将训练样本正确分类，
-那么我们可以得到：对分类结果有明显影响的是__支持向量__，而样本中其他的
-样本点可以忽略不计。定义__间距__(margin)为两个分别在超平面不同边的支持向量到超
-平面的距离之和，那么，为了寻找一个__最好__的超平面，我们需要找到有__最大__间
-距的超平面。</p>
-
-<p>如果我们令样本分成两类$y = {-1, 1}$,我们可以得到：</p>
-
-<p>$\mathbf{w}^T\mathbf{x}_i + b \geq \rho / 2, if y_i \geq 1$</p>
-
-<p>$\mathbf{w}^T\mathbf{x}_i + b \leq - \rho / 2, if y_i \leq -1$</p>
-
-<p>其中$\rho$为间距。由于在这种情况下，支持向量到超平面的距离可以表示为：</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$r = \frac{</td>
-      <td>(\mathbf{w}^T\mathbf{x}) + b</td>
-      <td>}{</td>
-      <td> </td>
-      <td>\mathbf{w}</td>
-      <td> </td>
-      <td>}$</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>我们可以得到：</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$\rho = 2r = \frac{2}{</td>
-      <td> </td>
-      <td>\mathbf{w}</td>
-      <td> </td>
-      <td>}$</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>于是我们的问题便可以转化为：求取超平面的法向量$\mathbf{w}$的模
-的最小值，且使得所有的样本$(\mathbf{x}_i, y_i)$有
-$y_i{\mathbf{w}^T\mathbf{x}_i + b &gt; 1}$。这就是支持向量机的基本模式:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$min_{w,b}\frac{1}{2}</td>
-      <td> </td>
-      <td>w</td>
-      <td> </td>
-      <td>^2$</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>$s.t. y_i(\mathbf{w}^T\mathbf{x}_i+b) \geq 1, i=1,2,…,m$</p>
-
-<p>于是，我们的问题转换成了一个二次规划(quadratic optimization)问题。</p>
-
-<h2 id="有约束的二次规划最优化问题拉格朗日乘子">有约束的二次规划最优化问题，拉格朗日乘子</h2>
-
-<p>我们有许多程序包求解二次规划问题，通常而言不需要自己动手。但是了解一下
-其中的数学意义还是非常有帮助的。</p>
-
-<p>常用的解二次规划的方法之一，是应
-用<a href="https://en.wikipedia.org/wiki/Lagrange_multiplier">拉格朗日乘子</a>
-(Lagrange Multiplier)。</p>
-
-<p>首先我们来看一下二次规划问题的几何意义。</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lagrange_multiplier.png" alt="" /></p>
-
-<p>我们有约束条件$g(x,y) = c$，在图中表示成一条曲线；二次函数$f(x,y)$如
-图，描述了一个曲面。假设这个曲面是一座山，约束条件的曲线是我们可以沿着
-走的路，我们的目的就变成了：在这条路上，我们要走到最高的地方。图中的圆
-圈表示二次函数的<a href="https://en.wikipedia.org/wiki/Level_set">水平集</a>（可
-以直观地理解为等高线）。在__有解__的情况下，二次曲面与约束曲线会有交点。</p>
-
-<p>我们可以容易看出，在（局部）最优的情况下,$f(x, y)$与$g(x,y)$的交点有且
-仅有一个，即二者的__切线__相互平行。由于切线与梯度是垂直的，我们可以得
-到：在最优点的情况下，二者的__梯度__相互平行。</p>
-
-<p>我们引入一个未知标量–拉格朗日乘子$\alpha$。构建函数：</p>
-
-<script type="math/tex; mode=display">L(\mathbf{w}, b, \mathbf{a}) = 
-\frac{1}{2}||\mathbf{w}||^2 +\sum\limits_{i=1}{m}\alpha_i(1 -
-y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
-
-<p>令函数$L$对$\mathbf{w}$与$b$的偏导数为0：</p>
-
-<script type="math/tex; mode=display"></script>
-
-<p>$$</p>
-
-<h1 id="reference">Reference</h1>
-<ol>
-  <li>周志华(2015) 《机器学习》（西瓜书）, 2016年1月第一版</li>
-  <li>M.Bishop(2006), <strong>Pattern Recognition and Machine Learning</strong></li>
-  <li>Lecture Material</li>
-  <li>知乎 “拉格朗日乘子法如何理解？”，https://www.zhihu.com/question/38586401</li>
-  <li>July(2012) 支持向量机通俗导论，http://blog.csdn.net/v_july_v/article/details/7624837</li>
-</ol>
-
- -->
-    
-        <p>新年快乐，跨年也是元气满满地在机房～</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -1217,6 +1310,12 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b))</script>
       <li>
         
           <a href="http://MeowAlienOwO.github.io/page7">7</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://MeowAlienOwO.github.io/page8">8</a>
         
       </li>
     
