@@ -1,0 +1,3 @@
+[submodule "themes/sprinter"]
+	path = themes/sprinter
+	url = git@github.com:MeowAlienOwO/hexo-theme-sprinter.git
