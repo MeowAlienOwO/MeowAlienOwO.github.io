@@ -1,0 +1,8 @@
+.card {
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: 1px 1px 5px 1px #ccc;
+}
+.container {
+  padding: 2rem 1rem;
+}

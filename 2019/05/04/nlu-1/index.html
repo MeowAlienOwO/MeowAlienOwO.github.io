@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><title>复习NLU:Introduction, Language Model [ the Garden of Sinners ]</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"><meta name="robot" content="index,follow"><meta name="format-detection" content="telephone=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/sprinter.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1464257_drr710yuepc.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css"><link rel="stylesheet" href="/thirdparty/highlightjs/styles/atelier-dune-light.css"></head><body><div class="wrap"><header><div class="avatar"><div class="avatar-black"></div><img class="avatar-img" src="/images/avatar.png"></div><div class="mobile-dropdown"><div class="author"><h1 class="author-name">MeowAlien喵星人</h1><div class="author-keywords"><span>Machine Learning</span><span>ACG</span><span>Kyokushin</span></div></div><div class="motto"> <h3>——式。我一生都不会放开你</h3></div><nav><ul class="menu"><li><a class="index-menu-link" href="/about">About</a></li><li><a class="index-menu-link" href="/resume">Resume</a></li><li><a class="index-menu-link" href="/archives">Archives</a></li></ul></nav><div class="social"><a class="social-icon social-icon-color-github" href="https://github.com/MeowAlienOwO"><i class="iconfont icon-github"></i></a><a class="social-icon social-icon-color-weibo" href="https://www.weibo.com/u/3027659753/home?wvr=5"><i class="iconfont icon-weibo"></i></a><a class="social-icon social-icon-color-mail" href="mailto:meowalienowo@outlook.com"><i class="iconfont icon-mail"></i></a><a class="social-icon social-icon-color-bilibili" href="https://space.bilibili.com/1374912"><i class="iconfont icon-bilibili"></i></a></div></div></header><div class="content"><div class="card" id="post"><div class="post-title"><h1 id="title">复习NLU:Introduction, Language Model</h1><time id="date" datetime="2019-05-04T13:13:03.000Z">2019年05月04日</time></div><article class="md-article container"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Natural Language Understanding:</p>
+<blockquote>
+<p>Any computational problem that input is natural language, output is structured information of a computer can store/execute</p>
+</blockquote>
+<h2 id="Computational-Linguists-with-Deep-Learning"><a href="#Computational-Linguists-with-Deep-Learning" class="headerlink" title="Computational Linguists with Deep Learning"></a>Computational Linguists with Deep Learning</h2><blockquote>
+<p>“Although current deep learning research tends to claim to<br>encompass NLP, I’m (1) much less convinced about the strength of the results, compared<br>to the results in, say, vision; (2) much less convinced in the case of NLP than, say, vision,<br>the way to go is to couple huge amounts of data with black-box learning architectures.”<br>Michael Jordan</p>
+</blockquote>
+<p>目前而言，深度学习在比较 high-level 的 NLP 任务中，没有能够如同在视觉领域一样大幅度减小错误率(e.g. 25-50%)，而且似乎只有在相对纯粹的信号处理中，应用深度学习能够大幅度提高性能。    </p>
+<h2 id="Language-Model"><a href="#Language-Model" class="headerlink" title="Language Model:"></a>Language Model:</h2><p>我们把语言模型认为是一种关于字符串的概率模型：</p>
+<ol>
+<li>语音识别：给定语音信号为条件</li>
+<li>机器翻译：给定另一种语言</li>
+<li>自动补全：给定一句话的前面若干词<br>…</li>
+</ol>
+<blockquote>
+<p>给定一个有限的词汇表$V$, 我们定义一个概率分布：<script type="math/tex">V^*\rightarrow\mathbb{R}_{+}</script></p>
+</blockquote>
+<ol>
+<li>What is sample space? <script type="math/tex">V*</script></li>
+<li>What might be some useful random variables? sentence, i.e. sequence of words, each word is variable</li>
+<li>What constrains must <script type="math/tex">P</script> satisfy? sequence of words &lt;= product of prob of each word ,non-negative,sum to 1</li>
+</ol>
+<h3 id="N-gram-Model"><a href="#N-gram-Model" class="headerlink" title="N-gram Model"></a>N-gram Model</h3><p>我们令<script type="math/tex">w</script>为一个单词序列（句子），<script type="math/tex">|w|=n</script>表示这个序列的长度，<script type="math/tex">w_i</script> 表示第 i 个单词。这个序列的概率可以被<br>定义为(<script type="math/tex">W_i</script>表示单词在位置i处的随机变量)：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+P(w) &= P(w_1, w_2, ... w_{n}) \\
+     &= P(W_1 =w_1) \times \\
+     &~~~P(W_2 = w_2|W_1 = w_1) \times\\
+     &~~~ ...\\
+     &~~~ P(W_n = w_n|W_{n-1}=w_{n-1}...)\\
+     &= \prod_{i=1}^{n}P(W_i = w_i|W_{i-1}=w_{i-1}, W_{i-2}=w_{i-2}...W_1=w_1)\\
+     &= \prod_{i=1}^{n}P(w_i|w_{i-1},w_{i-2}...w_1)\\
+\end{align}</script><p>这个式子使用条件概率定义了一个在无限空间上的联合分布，可以取的句子长度为任意值，但是我们仍然可以用条件概率来定义这个分布，每一个都有着有限的采样空间。</p>
+<p>n-gram 模型是基于马尔科夫假设定义的语言模型：它假定在 i 处的单词的概率分布仅由之前的 n 个单词所决定：</p>
+<script type="math/tex; mode=display">
+P(w_i|w_{i-1}, w_{i-2} ... w_1) = P(w_i|w_{i-1}, w_{i-2} ... w_{i-n})</script><p>我们可以使用计数的方式来估计 n-gram 模型的分布：</p>
+<script type="math/tex; mode=display">
+P(w_i | w_{i-1}, w_{i-2} ... w_{i-n}) = \frac{C(w_{i-n},...w_{i-1}, w_i)}{C(w_i)}</script><p>由于单词的分布往往有着长尾特性，我们使用加一平滑 (add-one smoothing) 或者加<script type="math/tex">\alpha</script>平滑 (add-alpha smooting) 来处理计数，来保证所有的样本空间上的概率都不为0:</p>
+<script type="math/tex; mode=display">
+P(w_i | w_{i-1}, w_{i-2} ... w_{i-n}) = \frac{C(w_{i-n},...w_{i-1}, w_i) + \alpha}{C(w_i) + \alpha|V|}</script><p>其中当平滑系数<script type="math/tex">\alpha</script>取1的时候，为加一平滑。我们通常取一个相对数量级比较小的平滑系数来处理。其他的处理方法还有插值法等，暂时不讨论。</p>
+<p>当我们有了一个语言模型后，我们可以根据之前的序列，使用最大似然(maximum likelihood)来推断下一个单词出现的概率:</p>
+<script type="math/tex; mode=display">
+\hat{w}_{k+1} = \underset{w_{k+1}}{\operatorname{argmax}}P{w_{k+1}|w_1 ... w_k}</script><h3 id="Language-Model-in-translation"><a href="#Language-Model-in-translation" class="headerlink" title="Language Model in translation"></a>Language Model in translation</h3><p>n-gram 模型尽管是一种经典的语言模型，在翻译上，它不起作用:</p>
+<p>给定英文序列<script type="math/tex">e =e_1,e_2...e_n</script>，预测中文序列<script type="math/tex">f=f_1,f_2...f_m</script>, 我们会发现 n-gram 模型会遗忘以前的内容，但是这些内容很显然对翻译是非常重要的。就算我们将序列穿插：<script type="math/tex">w = f_1 e_1 f_2 e_2 ...</script>， 仍然有两个问题：1. 语言的顺序不一定一一对应 2. 长度未必相等。为了解决这个问题，人们提出了<strong>对齐模型</strong> (word alignment model)</p>
+<h4 id="IBM-Model-1"><a href="#IBM-Model-1" class="headerlink" title="IBM Model 1"></a>IBM Model 1</h4><script type="math/tex; mode=display">
+p(f, a|e) = p(I|J) \prod_{i=1}^{I} p(a_i | J) p(f_i |e_{a_i})</script><p>其中，f 表示目标语言，e 表示源语言， a 表示目标语言对应的对齐目标， I 表示目标语言句子的长度， J 表示源语言的句子长度。我们可以将其看做一个零阶的 HMM 模型:<script type="math/tex">p(a_i|J)</script> 可以看做是状态转换概率，<script type="math/tex">p(f_i|e_{a_i})</script> 可以看做是触发概率，由于模型的转换概率不基于历史记忆(前一个状态)，这个马尔科夫链是0阶的。这个模型基于如下假设：</p>
+<ol>
+<li>目标句中，每个单词都由原句的某个单词产生</li>
+<li>对应关系作为隐变量 (latent variable)</li>
+<li>给定对齐 a，翻译的决策是独立的</li>
+</ol>
+<p>注意这里我们对对齐的定义为：一个向量存储了位置的对应关系。对齐有如下几种关系：</p>
+<ol>
+<li>Reorder 顺序不同</li>
+<li>Word dropping 某些单词不翻译</li>
+<li>Word Insertion 原句中需要一个 null token 来表示目标句中不存在的对应单词的情况</li>
+<li>one-to-many 一个单词对应多个目标单词</li>
+<li>many-to-one 一个目标单词对应多个源单词</li>
+</ol>
+<p>举个例子：</p>
+<blockquote>
+<p>虽然 北 风 呼啸，但 天空 仍然 十分 清澈。<br>However, the sky remained clear under the strong north wind.</p>
+</blockquote>
+<p>(However-虽然， “,” - “,”， the-天空， sky-天空， remained-仍然, clear-(十分，清澈)， under-null， the-null， strong-呼啸， north-北， wind-风， “.”-“。”)</p>
+<p>对齐向量为：(1, 5, 7, 7, 8, (9, 10), 0, 0, 4, 3, 2, 11)</p>
+<p>我们模型的参数为：任意一组源语言-目标语言单词对的概率, 比如说<script type="math/tex">p(north|北)</script>，其期望一般用”北”与”north”对齐的次数与”北”与所有单词的对其次数的比值来表示。</p>
+<p>我们可以用 EM 算法来训练对齐模型：</p>
+<ol>
+<li>随机初始化模型的参数</li>
+<li>使用现有的参数计算每种对齐的概率 </li>
+<li>使用期望，通过MLE计算新的参数</li>
+<li>迭代以上两步直至收敛</li>
+</ol>
+<p>举例：</p>
+<ol>
+<li>大 房子 - big house</li>
+<li>清理 房子 - cleaning house</li>
+</ol>
+<p>我们首先用均匀分布初始化参数，即源语言-目标语言对概率:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大</th>
+<th>房子</th>
+<th>清理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>big</td>
+<td>1/3</td>
+<td>1/3</td>
+<td>1/3</td>
+</tr>
+<tr>
+<td>house</td>
+<td>1/3</td>
+<td>1/3</td>
+<td>1/3</td>
+</tr>
+<tr>
+<td>cleaning</td>
+<td>1/3</td>
+<td>1/3</td>
+<td>1/3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>第一步E计算对齐的概率：</p>
+<ol>
+<li>大-big, 房子-house: 1/3 × 1/3 = 1/9</li>
+<li>大-house, 房子-big： 1/3 × 1/3 = 1/9</li>
+<li>清理-cleaning, 房子-house: 1/3 × 1/3  = 1/9</li>
+<li>清理-house, 房子-cleaning: 1/3 × 1/3 = 1/9</li>
+</ol>
+<p>这一步，我们可以看出每种对齐的概率都是相等的1/2</p>
+<p>第一步M, 我们需要根据给定的数据来计算参数矩阵。<br>首先，我们根据数据与对齐概率，计算每个单词对的期望</p>
+<script type="math/tex; mode=display">
+\begin{align}
+p(f_i|e_i) &= \frac{\sum_a p(a|f, e) * C(f_i, e_i)}{\sum_a p(a|f, e) C(f_i, \cdot)} \\
+ &= \frac{\mathbb{E}[C(f_i, e_i)]}{\mathbb{E}[C(f_i, \cdot)]} 
+\end{align}</script><p>归一化后我们得到</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大</th>
+<th>房子</th>
+<th>清理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>big</td>
+<td>1/2</td>
+<td>1/2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>house</td>
+<td>1/4</td>
+<td>1/2</td>
+<td>1/4</td>
+</tr>
+<tr>
+<td>cleaning</td>
+<td>0</td>
+<td>1/2</td>
+<td>1/2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>第二步，我们使用上一步得到的矩阵进行进一步的E:</p>
+<ol>
+<li>大-big, 房子-house: 1/2 × 1/2 = 1/4 =&gt; 2/3</li>
+<li>大-house, 房子-big： 1/4 × 1/2 = 1/8 =&gt; 1/3</li>
+<li>清理-cleaning, 房子-house: 1/2 × 1/2  = 1/4 =&gt; 2/3</li>
+<li>清理-house, 房子-cleaning: 1/4 × 1/2 = 1/8 =&gt; 1/3</li>
+</ol>
+<p>然后进行M：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大</th>
+<th>房子</th>
+<th>清理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>big</td>
+<td>2/3</td>
+<td>1/3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>house</td>
+<td>1/6</td>
+<td>2/3</td>
+<td>1/6</td>
+</tr>
+<tr>
+<td>cleaning</td>
+<td>0</td>
+<td>1/3</td>
+<td>2/3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可以看出， 大-big， 房子-house, 清理-cleaning 的概率是递增的，也就是最后会收敛到三个1</p>
+<h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="http://www.shuang0420.com/2017/05/01/NLP%20%E7%AC%94%E8%AE%B0%20-%20Machine%20Translation/" target="_blank" rel="noopener">http://www.shuang0420.com/2017/05/01/NLP%20%E7%AC%94%E8%AE%B0%20-%20Machine%20Translation/</a></p>
+</article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/nlu/"><span class="tag">nlu</span></a></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><!-- script.--><script>configMath()</script><script id="MathJax-script" src="//cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="/thirdparty/highlightjs/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>

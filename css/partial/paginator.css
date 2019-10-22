@@ -1,0 +1,34 @@
+#paginator {
+  max-width: 60%;
+  margin: 0.5rem auto;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+#paginator .page-number {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  margin: 0 0.5rem;
+}
+#paginator a.page-number {
+  text-decoration: none;
+  background: #ccc;
+  color: black;
+}
+#paginator span.page-number {
+  background: #cc3333;
+  color: #ccc;
+}
+#paginator .extend {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  margin: 0 1rem;
+  background: #003366;
+  color: #ccc;
+}
+#paginator .next,
+#paginator prev {
+  text-transform: capitalize;
+}

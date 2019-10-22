@@ -1,0 +1,226 @@
+/**
+ * Copyright (C) 2013-2018 Zeno Zeng and contributors
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+@font-face {
+  font-family: 'Cux';
+  src: url('/font/CuxhavenTimes.ttf') format('truetype');
+  font-weight: 400;
+  font-style: style;
+}
+@font-face {
+  font-family: 'Aihara';
+  src: url('/font/AiharaHudemojiKaisho3.ttf') format('truetype');
+  font-weight: 400;
+  font-style: style;
+}
+@font-face {
+  font-family: 'Kouzan';
+  src: url('/font/Kouzan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: style;
+}
+@font-face {
+  font-family: 'Naga';
+  src: url('/font/nagayama_kai08.otf') format('opentype');
+  font-weight: normal;
+  font-style: style;
+}
+@font-face {
+  font-family: 'Nordic';
+  src: url('/font/NordicAlternativeRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: style;
+}
+@font-face {
+  font-family: 'OneDay';
+  src: url('/font/ONEDAY.ttf') format('truetype');
+  font-weight: normal;
+  font-style: style;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Libre Baskerville'), local('LibreBaskerville-Regular'), url(https://fonts.gstatic.com/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxY.ttf) format('truetype');
+}
+#post {
+  width: 85%;
+  margin: 2rem auto;
+}
+#post .post-cover {
+  width: 100%;
+  font-size: 14px;
+}
+#post .post-title {
+  width: 90%;
+  margin: 0 auto;
+  padding: 3rem 0 1rem;
+  border-bottom: #ccc 1px solid;
+}
+#post .post-title h1#title {
+  width: 100%;
+  display: block;
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+#post .post-title time#date {
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  color: #666;
+  font-weight: 300;
+  text-align: center;
+}
+#post .post-footer {
+  border-top: #ccc 1px solid;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+#post .post-footer .tags {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+}
+#post .post-footer .tags .tag {
+  background: #CC9999;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 0.5rem;
+}
+.md-article {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #333;
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+@media screen and (max-width: 600px) {
+  .md-article {
+    font-size: 14px;
+  }
+}
+.md-article p {
+  line-height: 1.8em;
+  text-align: justify;
+  text-justify: ideographic;
+}
+.md-article p code {
+  display: inline-block;
+  background: #eee;
+  color: black;
+  padding: 0 0.3em;
+  margin: 0 0.2em;
+  border-radius: 5px;
+  font-family: 'Source Code Pro', 'Consolas', 'Courier New', 'Menlo', monospace;
+}
+.md-article h1 {
+  font-size: 28px;
+}
+.md-article h2 {
+  font-size: 26px;
+}
+.md-article h3 {
+  font-size: 24px;
+}
+.md-article h4 {
+  font-size: 22px;
+}
+.md-article h5 {
+  font-size: 20px;
+}
+.md-article h6 {
+  font-size: 18px;
+}
+.md-article h1,
+.md-article h2,
+.md-article h3,
+.md-article h4,
+.md-article h5,
+.md-article h6 {
+  color: #333;
+}
+.md-article h1:before,
+.md-article h2:before,
+.md-article h3:before,
+.md-article h4:before,
+.md-article h5:before,
+.md-article h6:before {
+  content: '# ';
+  color: #999;
+}
+.md-article a {
+  color: #cc3333;
+  text-decoration: none;
+}
+.md-article a:hover {
+  text-decoration: underline;
+}
+.md-article pre {
+  padding: 0.8rem;
+  border-radius: 5px;
+}
+.md-article blockquote p {
+  display: inline-block;
+  border-left: #cc3333 0.5em solid;
+  padding: 0 0.5em;
+  color: #999;
+}
+.md-article hr {
+  border-bottom: none;
+  border-top: #ccc 1px dashed;
+  margin: 8px 0 8px;
+}
+.md-article img {
+  max-width: 100%;
+  margin: 1rem auto;
+}
+.md-article em {
+  color: #999;
+}
+.md-article strong {
+  color: black;
+}
+.md-article .table-container > table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5em auto;
+}
+.md-article .table-container > table th,
+.md-article .table-container > table td {
+  padding: 0.2em 0.6em;
+}
+.md-article .table-container > table thead {
+  color: #cc3333;
+}
+.md-article .table-container > table tr:nth-child(even) {
+  background: #eee;
+}
+.md-article .table-container > table,
+.md-article .table-container > table td,
+.md-article .table-container > table th {
+  border: #ccc 1px solid;
+  text-align: left;
+}
+.md-article ul li {
+  list-style: circle;
+  margin: default;
+}

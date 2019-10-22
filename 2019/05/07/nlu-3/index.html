@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><title>复习NLU: Seq2seq模型, Evaluation, Attention [ the Garden of Sinners ]</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"><meta name="robot" content="index,follow"><meta name="format-detection" content="telephone=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/sprinter.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1464257_drr710yuepc.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css"><link rel="stylesheet" href="/thirdparty/highlightjs/styles/atelier-dune-light.css"></head><body><div class="wrap"><header><div class="avatar"><div class="avatar-black"></div><img class="avatar-img" src="/images/avatar.png"></div><div class="mobile-dropdown"><div class="author"><h1 class="author-name">MeowAlien喵星人</h1><div class="author-keywords"><span>Machine Learning</span><span>ACG</span><span>Kyokushin</span></div></div><div class="motto"> <h3>——式。我一生都不会放开你</h3></div><nav><ul class="menu"><li><a class="index-menu-link" href="/about">About</a></li><li><a class="index-menu-link" href="/resume">Resume</a></li><li><a class="index-menu-link" href="/archives">Archives</a></li></ul></nav><div class="social"><a class="social-icon social-icon-color-github" href="https://github.com/MeowAlienOwO"><i class="iconfont icon-github"></i></a><a class="social-icon social-icon-color-weibo" href="https://www.weibo.com/u/3027659753/home?wvr=5"><i class="iconfont icon-weibo"></i></a><a class="social-icon social-icon-color-mail" href="mailto:meowalienowo@outlook.com"><i class="iconfont icon-mail"></i></a><a class="social-icon social-icon-color-bilibili" href="https://space.bilibili.com/1374912"><i class="iconfont icon-bilibili"></i></a></div></div></header><div class="content"><div class="card" id="post"><div class="post-title"><h1 id="title">复习NLU: Seq2seq模型, Evaluation, Attention</h1><time id="date" datetime="2019-05-06T23:45:30.000Z">2019年05月07日</time></div><article class="md-article container"><h1 id="Sequence-to-Sequence-Model"><a href="#Sequence-to-Sequence-Model" class="headerlink" title="Sequence-to-Sequence Model"></a>Sequence-to-Sequence Model</h1><p>首先我们来看一下语言模型与翻译模型的区别：语言模型是给定前面的序列，求解当前单词的概率分布；而翻译模型则不然，翻译模型是给定源语言序列，求解目标语言序列。如果用语言模型的方法对翻译模型建模如下：</p>
+<script type="math/tex; mode=display">
+p(T|S) = \prod_{i=1}^T p(y_i|y_1, ... y_{i-1},x_1, ... x_m)</script><p>会碰到这些问题：</p>
+<ol>
+<li>我们不关心源语言单词的概率</li>
+<li>源语言与目标语言的词汇表不同，或者有不同的结构</li>
+</ol>
+<p>因此，比起用一个 RNN 建模源语言-目标语言序列，我们通常选用两个 RNN 来对源语言与目标语言分别建模。</p>
+<h2 id="Encoder-decoder-模型"><a href="#Encoder-decoder-模型" class="headerlink" title="Encoder-decoder 模型"></a>Encoder-decoder 模型</h2><p><img src="/images/encoder-decoder.png" alt></p>
+<p>模型分成 encoder 与 decoder 两个部分。首先是 encoder, 他的目的是对源语言句子进行建模。encoder 的输出可以看做是源语言句子的 “摘要”，这个“摘要”我们使用一个中间向量来进行表示。在对多语言进行学习的情况下，这个向量代表着语言无关的语义。在 decoder 端，中间向量作为decoder的第一个输入，用于生成第一个单词；之后使用前面单元生成的词汇与历史信息作为输入，递归的生成整个句子。</p>
+<p>使用中间向量来连接 encoder 与 decoder 会出现问题：随着句子长度的增加，固定长度的中间向量表现会变差，一种解决方法是将句子倒过来处理；但是更加有效的优化方法是引入注意力机制（attention）。</p>
+<p>注意力机制的作用方式如下：我们使用一层前馈网络来计算源句中每一个单词的权重，然后将每一步 encoder 的输出加权形成一个新的输入向量。对于 decoder 的每一个单词，注意力权重都不同，这样一来我们就可以将源句中的信息分配给比较适合的单词。</p>
+<p>注意力机制带来了一个副产物：通过注意力，我们可以某种程度上完成词对齐的工作，但是由于信息流同样递归地流动，实际上不保证注意力机制能够完全替代词对齐。</p>
+<p>注意力模型不仅限于处理 NLP 任务，对于视觉任务，e.g. 语义识别等也有一席之地。</p>
+<p>Encoder-decoder 模型常见的应用有：</p>
+<ol>
+<li>给翻译打分: 计算目标句的概率</li>
+<li>机器翻译</li>
+</ol>
+<h2 id="decoding-的一些技术"><a href="#decoding-的一些技术" class="headerlink" title="decoding 的一些技术"></a>decoding 的一些技术</h2><p>机器翻译实际上可以看做如下行为：在所有可能的目标语言句空间中，寻找出一个最合适，即概率最高的句子。但是，实际上我们不可能对如此庞大的空间进行搜索，所以我们在 decoding 的时候要采取若干近似手段。</p>
+<p>其一，我们可以用从概率分布中采样，或者贪婪的选择当前概率最高的单词，直到生成完结符号。这种方法一般而言不会是最优解。<br>其二，我们使用束搜索 (beam search)来提升准确率。给定一个 beam size，我们每次搜索的时候，保留一定数量的候选单词，这些单词有着较高的评分或者概率，然后对于每一个候选词汇，我们都往后生成一系列的搜索束，直到搜索序列的长度到达 beam size， 贪婪地选择总体概率最高的序列，重复该过程直到结束。<br>其三，我们可以用 ensemble 的方式：训练若干个模型，然后在 decoding 的时候，通过投票的方式来选出最佳的翻译。基本的方法是平均(log)概率。一般而言，这些模型共享目标词汇表，以及历史的解码信息，但是训练的方式与网络架构都可以不同。</p>
+<h1 id="NMT-的评价方法"><a href="#NMT-的评价方法" class="headerlink" title="NMT 的评价方法"></a>NMT 的评价方法</h1><p>NMT 质量的评价方法可以大致分为主观与客观两种。</p>
+<p>Metrics:</p>
+<ol>
+<li>Adequacy: 翻译的句子是否与原句的意思相近？</li>
+<li>Fluency: 翻译的句子在目标语言中是否通顺？</li>
+</ol>
+<p>Kappa 系数：</p>
+<script type="math/tex; mode=display">
+K = \frac{p(A) - p(E)}{1 - p(E)}</script><p>p(A) 指评价者评价的概率， p(E)指随机评价的概率</p>
+<p>提高一致性的方法还有：<br>将准确与流畅的评价分开，正则化分数，用一些 trick 将不靠谱的受试者剔除</p>
+<p>其他需要评价的一些 criteria:</p>
+<ol>
+<li>speed </li>
+<li>size</li>
+<li>integration</li>
+<li>customization </li>
+</ol>
+<h2 id="自动评价"><a href="#自动评价" class="headerlink" title="自动评价"></a>自动评价</h2><ul>
+<li>目标：程序来评价翻译的质量</li>
+<li>好处：成本低，易于调整，一致性好</li>
+<li>基本操作：<ul>
+<li>给定机翻输出</li>
+<li>给定人类翻译</li>
+<li>目标：比较两者相似度</li>
+</ul>
+</li>
+</ul>
+<p>precision(correct/output-length), recall(correct/reference-length), f-measure</p>
+<p>word error rate: 最小编辑距离除以总长度</p>
+<p>BLEU:</p>
+<p>n-gram 覆盖率，计算长度为 1-4 的 ngram 的 precision。<br>首先，计算一个对过短翻译的惩罚：</p>
+<p>BP = min(1, exp(1 - ref-length/out-length))</p>
+<p>然后计算BLEU：</p>
+<script type="math/tex; mode=display">
+BLEU = BP(\prod_{i=1}^4 precision_i)^{1/4}</script><p>如果没有 4-gram 能够匹配， BLEU 的值为0。一般而言, BLEU 是计算整个语料库的。</p>
+<p>BLEU 同样可以用于计算有多个 reference 的翻译来测试 variability (多样性？)<br>n-grams 可以匹配任意的 reference, 但是计算的时候用最接近的 ref-length 做计算。</p>
+<p>Meteor: 给予词干，同义词一定的分数，paraphrase 的使用也有分。</p>
+<p>对 Metrics 的一些批评：</p>
+<ol>
+<li>无视相关的词</li>
+<li>通常在本地水平测试，对更加广义的语法不加以考虑</li>
+<li>分数可解释性不强</li>
+<li>有的时候人工翻译会得到一个较低的 BLEU 分数</li>
+</ol>
+<p>对 Metrics 的评价体系：<br>与人工判断作比较，计算相关性</p>
+<h1 id="Attention-的一些变种"><a href="#Attention-的一些变种" class="headerlink" title="Attention 的一些变种"></a>Attention 的一些变种</h1><p>首先，我们看一下多种的计算 attention 分数的方法(Luong et al., 2015)：</p>
+<ol>
+<li><script type="math/tex">h_t^T h_s</script> 点乘法计算分数</li>
+<li><script type="math/tex">h_t^T W_a h_s</script> 一般形式</li>
+<li><script type="math/tex">v_a^T tanh(W_a[h_t;h_s])</script> 向量拼接的形式：将源语言的输出向量 <script type="math/tex">h_t</script> 与上一个翻译的单词拼接起来</li>
+</ol>
+<h2 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h2><p>我们还可以把之前的决策纳入考虑(dl4mt-tutorial)：</p>
+<ul>
+<li><script type="math/tex; mode=display">s' = GRU_A(s_{i-1}, y_{i-1})</script></li>
+<li><script type="math/tex; mode=display">c_i = ATT(C, s')</script></li>
+<li><script type="math/tex; mode=display">s_i = GRU_B(c_i, s')</script></li>
+</ul>
+<p>其主要思路是：之前的 Attention 模型只与隐层 s 相关，但是真正决策的单词也会影响之后的概率。</p>
+<h2 id="Guided-Alignment-Training-chen-et-al-2016"><a href="#Guided-Alignment-Training-chen-et-al-2016" class="headerlink" title="Guided Alignment Training(chen et.al., 2016)"></a>Guided Alignment Training(chen et.al., 2016)</h2><p>基本思路:</p>
+<ol>
+<li>使用外部的工具创建词对齐向量(word alignment)</li>
+<li>如果多个源单词对应一个目标单词，需要进行正则化，以使得<script type="math/tex">\sum_j A_{ij} = 1</script></li>
+<li>对训练时的目标函数作如下更改：<script type="math/tex">H(A, \alpha)=-\frac{1}{T_y} \sum_{i=1}^{T_y}\sum_{j=1}^{T_x} A_{ij}log\alpha_{ij}</script>。该函数的目的有二：一，同之前一样最小化交叉熵；二，最小化注意力向量与外部的词对齐向量之间的差异</li>
+</ol>
+<h2 id="Incorporating-Structural-Alignment-Biases-Cohn-et-al-2016"><a href="#Incorporating-Structural-Alignment-Biases-Cohn-et-al-2016" class="headerlink" title="Incorporating Structural Alignment Biases(Cohn et.al.,2016)"></a>Incorporating Structural Alignment Biases(Cohn et.al.,2016)</h2><p>通过统计词对齐算法，我们发现对齐本身会有一定的偏差(bias)。</p>
+<ol>
+<li>position bias: 相关的位置对对齐提供了大量的信息</li>
+<li>fertility/coverage: (生育/覆盖) 一些词会在目标句中生成多个词来保证所有的源单词都会被覆盖到</li>
+<li>bilingual symmetry: 双语对称性, 互为源语言与目标语言的两种语言，词对齐是对称的</li>
+</ol>
+<p>针对 position bias, 我们需要在创建注意力模型的时候输入位置信息。对于非递归架构来说这种方法更加有效(CNN?)<br>position encoding 的方法也有各式各样的。</p>
+<p>针对 fertility/coverage， 我们的想法是对于目标语言，同样有 <script type="math/tex">\sum_i^{T_y}\alpha_{ij} \simeq 1</script>，即同注意力的 softmax 类似，同一源单词的注意力权重在目标句上的和应当近似于1。因此，我们可以用这样的正则项来作为训练的目标函数:<script type="math/tex">\sum_j^{T_x}(1-\sum_i^{T_y}\alpha_{ij})^2</script>。这种优化方法由于有一个预先假设，但是在实际情况中这种假设不一定成立，一种更加 general 的方式是，使用一个神经网络来学习单词的”生育”: <script type="math/tex">f_j = N\delta(W_jh_j)</script>，然后用 fertility 项来替代原式中的 1。</p>
+<p>针对 bilingual symmetry, 我们在训练的时候可以添加一项路径奖励，来奖励那些能够生成具有对称性的注意力。</p>
+</article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/nlu/"><span class="tag">nlu</span></a></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><!-- script.--><script>configMath()</script><script id="MathJax-script" src="//cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="/thirdparty/highlightjs/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>
