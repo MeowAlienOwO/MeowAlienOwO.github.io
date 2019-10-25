@@ -82,9 +82,9 @@
 </ol>
 <p>结果如下：</p>
 <ol>
-<li>青绿，蜷缩，浊响(均无泛化的情况下，有唯一正例)</li>
-<li>青绿，蜷缩，*；青绿，*，浊响；*，蜷缩，浊响(一个泛化)</li>
-<li>青绿，*, *；*, 蜷缩, *；*, *, 浊响(两个泛化)</li>
+<li><code>青绿，蜷缩，浊响</code>(均无泛化的情况下，有唯一正例)</li>
+<li><code>青绿，蜷缩，\*</code>；<code>青绿，\*，浊响</code>；<code>\*，蜷缩，浊响</code>(一个泛化)</li>
+<li><code>青绿，\*, \*</code>；<code>\*, 蜷缩, \*</code>；<code>\*, \*, 浊响</code>(两个泛化)</li>
 </ol>
 <p>排除空集（有正例）与全部泛化（有反例）</p>
 <blockquote>
@@ -283,12 +283,13 @@ FPR = \frac{FP}{FP+TN} \\
 P = \frac{TP}{TP+FP} \\
 R = \frac{TP}{TP+FN} \\</script><p>显然，TPR = R</p>
 <blockquote>
-<p>证明式 2.22<br>数学玩法参考<a href="https://zhuanlan.zhihu.com/p/42435889" target="_blank" rel="noopener">这里</a></p>
+<p>证明式 2.22</p>
 </blockquote>
+<p>数学玩法参考<a href="https://zhuanlan.zhihu.com/p/42435889" target="_blank" rel="noopener">这里</a></p>
 <p>我们要证明的是：</p>
 <script type="math/tex; mode=display">
 \mathcal{l}_{rank} = \frac{1}{m^+m^-} \sum_{\mathbf{x}^+\in D^+}\sum{\mathbf{x}^-\in D^-} (\mathbb{I}(f(\mathbf{x}^+)< f(\mathbf{x}^-))+ \frac{1}{2}\mathbb{I}(f(\mathbf{x}^+) = f(\mathbf{x}^-))) \\ 
-AUC = 1 - \mathcal{l}_{rank}</script><p><a href="https://blog.csdn.net/icefire_tyh/article/details/52065867" target="_blank" rel="noopener">这里</a></p>
+AUC = 1 - \mathcal{l}_{rank}</script><p><a href="https://blog.csdn.net/icefire_tyh/article/details/52065867" target="_blank" rel="noopener">这里</a>有比较详细的说明。</p>
 <!-- 借用一下 ROC 曲线的图片： -->
 <p><img src="/images/roc-ml.jpg" alt="ROC_curve"></p>
 <p>如图，横轴纵轴分别被分割为<script type="math/tex">1/m^-</script>，<script type="math/tex">1/m^+</script>的小条，划分出每个小块面积为<script type="math/tex">1/m^-1/m^+</script>都代表一对样本对(a, b)。当<script type="math/tex">f(a) > f(b)</script>且a为正例，b为反例的时候，这个方块在ROC曲线下方；当两者相等，则用一个占一半面积的三角形替代。于是损失函数等同于在上方的方块数+一半的边界三角形数乘以单位面积，即为ROC曲线上方的面积。</p>
