@@ -62,9 +62,9 @@
       <category term="note" scheme="http://MeowAlienOwO.github.io/categories/note/"/>
     
     
-      <category term="ml" scheme="http://MeowAlienOwO.github.io/tags/ml/"/>
-    
       <category term="nlu" scheme="http://MeowAlienOwO.github.io/tags/nlu/"/>
+    
+      <category term="ml" scheme="http://MeowAlienOwO.github.io/tags/ml/"/>
     
   </entry>
   
