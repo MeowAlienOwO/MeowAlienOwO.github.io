@@ -21,6 +21,6 @@
     "hexo-server": "^0.3.3"
   },
   "scripts": {
-    "dev": "hexo s -p 4000 -o"
+    "dev": "hexo s -p 4000 --draft"
   }
 }
