@@ -165,7 +165,7 @@
   text-align: justify;
   text-justify: ideographic;
 }
-.md-article p code {
+.md-article code {
   display: inline-block;
   background: #eee;
   color: black;
@@ -220,6 +220,10 @@
   padding: 0.8rem;
   border-radius: 5px;
 }
+.md-article blockquote {
+  width: 90%;
+  margin: 1em auto;
+}
 .md-article blockquote p {
   display: inline-block;
   border-left: #cc3333 0.5em solid;
@@ -243,7 +247,8 @@
 }
 .md-article .table-container > table {
   border-collapse: collapse;
-  width: 100%;
+  max-width: 100%;
+  min-width: 50%;
   margin: 0.5em auto;
 }
 .md-article .table-container > table th,
@@ -265,6 +270,55 @@
 .md-article ul li {
   list-style: circle;
   margin: default;
+}
+button {
+  padding: 0.5rem 1.5rem;
+  background: #003366;
+  border-radius: 5px;
+  border: #ccc 1px solid;
+  color: #ccc;
+  opacity: 0.7;
+}
+button:hover {
+  opacity: 1;
+}
+.share {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em 0;
+}
+#page {
+  width: 85%;
+  margin: 2rem auto;
+}
+#page .page-cover {
+  width: 100%;
+  font-size: 14px;
+}
+#page .page-title {
+  width: 90%;
+  margin: 0 auto;
+  padding: 3rem 0 1rem;
+  border-bottom: #ccc 1px solid;
+}
+#page .page-title h1#title {
+  width: 100%;
+  display: block;
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+#page .page-title time#date {
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  color: #666;
+  font-weight: 300;
+  text-align: center;
 }
 .social-icon-color-acfun {
   background-color: #f5b74b !important;
