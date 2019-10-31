@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><title>强化学习导论（一） [ the Garden of Sinners ]</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"><meta name="robot" content="index,follow"><meta name="format-detection" content="telephone=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/sprinter.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1464257_drr710yuepc.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css"><link rel="stylesheet" href="/thirdparty/highlightjs/styles/atelier-dune-light.css"><link rel="stylesheet" href="/thirdparty/sharejs/dist/css/share.min.css"></head><body><div class="wrap"><header><div class="avatar"><div class="avatar-black"></div><img class="avatar-img" src="/images/avatar.png"></div><div class="mobile-dropdown"><div class="author"><h1 class="author-name">MeowAlien喵星人</h1><div class="author-keywords"><span>Machine Learning</span><span>ACG</span><span>Kyokushin</span></div></div><div class="motto"> <h3>——式。我一生都不会原谅你</h3></div><nav><ul class="menu"><li><a class="index-menu-link" href="/about">About</a></li><li><a class="index-menu-link" href="https://github.com/MeowAlienOwO/CV">Resume</a></li><li><a class="index-menu-link" href="/archives">Archives</a></li></ul></nav><div class="social"><a class="social-icon social-icon-color-github" href="https://github.com/MeowAlienOwO"><i class="iconfont icon-github"></i></a><a class="social-icon social-icon-color-weibo" href="https://www.weibo.com/u/3027659753/home?wvr=5"><i class="iconfont icon-weibo"></i></a><a class="social-icon social-icon-color-mail" href="mailto:meowalienowo@outlook.com"><i class="iconfont icon-mail"></i></a><a class="social-icon social-icon-color-bilibili" href="https://space.bilibili.com/1374912"><i class="iconfont icon-bilibili"></i></a></div></div></header><div class="content"><div class="card" id="post"><div class="post-title"><h1 id="title">强化学习导论（一）</h1><time id="date" datetime="2019-10-30T16:00:00.000Z">2019年10月31日</time></div><article class="md-article container"><p>强化学习导论的学习内容, 包含上课内容与其他自己找的资料，主要是复习用，基本可以看做是 ppt + sutton 书的一些翻译+笔记</p>
+<a id="more"></a>
+<h1 id="什么是强化学习"><a href="#什么是强化学习" class="headerlink" title="什么是强化学习"></a>什么是强化学习</h1><blockquote>
+<p>通过与环境的持续交互学习，从而解决序列性的决策问题。</p>
+</blockquote>
+<p>强化学习是机器学习的一个分支，其特点为：</p>
+<ol>
+<li>没有监督数据，只有奖励信号</li>
+<li>奖励信号不一定是实时的</li>
+<li>行为与环境交互 影响数据</li>
+<li>时间是一个重要因素 &lt;- ?</li>
+</ol>
+<p>我们定义智能体(agent) 作为强化学习的主体，其能通过动作(action)与环境(environment)交互，从而获取奖励信号(reward)，或者说反馈。<br>智能体在环境中进行序列性的决策，从而提高累计奖励(accumulate reward)</p>
+<h2 id="强化学习的一些挑战"><a href="#强化学习的一些挑战" class="headerlink" title="强化学习的一些挑战"></a>强化学习的一些挑战</h2><ol>
+<li>环境未知：有的时候我们无法解析地，或者无法有足够的数据来对环境的状态与奖励进行建模</li>
+<li>探索-采集(exploration-exploitation) 问题：我们需要平衡探索（通过交互获取更多的环境信息）与采集（e.g.贪婪获取更优的奖励）</li>
+<li>延迟奖励：有些奖励同历史动作相关联</li>
+</ol>
+<h1 id="多臂赌博机-Multi-Armed-bandit-problem"><a href="#多臂赌博机-Multi-Armed-bandit-problem" class="headerlink" title="多臂赌博机 Multi-Armed bandit problem"></a>多臂赌博机 Multi-Armed bandit problem</h1><p>多臂赌博机问题是一个最基本的强化学习问题：给定$k$个赌博机，每个时刻$t$可以选择一个赌博机进行操作，从而获取一个标量奖励。每一个赌博机的奖赏分布都是独立的不同分布。<br>获取的奖励$R_t$是一个随机变量。我们定义$q_{*}(a)$为进行动作$a$的奖励期望：</p>
+<script type="math/tex; mode=display">
+q_{*} = \mathbb{E}[R_t|A_t = a]</script><p>为了求得该期望我们可以进行动作价值估计: $Q_t(a) = q_{*}(a)$。最基本的估计使用如下公式:</p>
+<script type="math/tex; mode=display">
+Q_t(a) = \frac{1}{N_t(a)}\sum_{\tau=1}^{t-1}R_{\tau}[A_{\tau}= a]_1</script><p>即选取动作$a$的时候，采样的相对应的奖励的平均值。我们可以将$Q$写成递归形式来方便之后的讨论：</p>
+<script type="math/tex; mode=display">
+Q_{n+1} = Q_n + \frac{1}{n}[R_n - Q_n]</script><p>根据我们的估计期望$Q$，我们有贪婪算法$A_t^{*} = \arg\max_a Q_t(a)$来选取最佳的动作。根据动作是否贪婪，我们可以将动作分成两部分：</p>
+<ol>
+<li>贪婪动作-&gt;采集</li>
+<li>非贪婪动作-&gt; 探索</li>
+</ol>
+<h2 id="epsilon-greedy"><a href="#epsilon-greedy" class="headerlink" title="$\epsilon$-greedy"></a>$\epsilon$-greedy</h2><p>为了平衡搜索与采集，我们给定一个探索概率$\epsilon$, 即每次选取动作的时候我们有概率$\epsilon$随机选取概率，反之则采取贪婪算法。易得在该条件下，我们有$1-\epsilon + \frac{\epsilon}{|\mathcal{A}|}$的概率来选择贪婪动作。$\epsilon$ 用于调整探索与采集的平衡。</p>
+<h2 id="强化学习的一般更新规则"><a href="#强化学习的一般更新规则" class="headerlink" title="强化学习的一般更新规则"></a>强化学习的一般更新规则</h2><p>根据上述的递归形式，我们不假证明地给出一般的更新规则：</p>
+<p>NewEstimate &lt;- OldEstimate + StepSize[Target - OldEstimate]</p>
+<p>其中，Target并不固定为单纯的奖励信号。</p>
+<h2 id="多臂赌博机算法"><a href="#多臂赌博机算法" class="headerlink" title="多臂赌博机算法"></a>多臂赌博机算法</h2><h3 id="e-greedy-单多臂赌博机算法"><a href="#e-greedy-单多臂赌博机算法" class="headerlink" title="e-greedy 单多臂赌博机算法"></a>e-greedy 单多臂赌博机算法</h3><pre><code>init, for a = 1 to k:
+  Q(a) &lt;- 0
+  N(a) &lt;- 0
+loop forever:
+  A &lt;- 1. argmax_a Q(a) 1 - $\epsilon$
+       2. random a      $\epsilon$
+  R &lt;- bandit(A)
+  N(A) &lt;- N(A) + 1
+  Q(A) &lt;- Q(A) + $\frac{1}{N(A)}[R - Q(A)]$
+</code></pre><h3 id="非平稳过程"><a href="#非平稳过程" class="headerlink" title="非平稳过程"></a>非平稳过程</h3><p>我们之前假设动作价值是不变的，但是在实际中，动作价值可能会随着时间的改变而改变(non-stationary)。在这种情况下，我们不能采样求平均，而是需要用step-size parameter 来控制取一段时间的平均</p>
+<script type="math/tex; mode=display">
+Q_{n+1} = Q_n + \alpha[R_n - Q_n], \alpha \in (0, 1]</script><h3 id="UCB"><a href="#UCB" class="headerlink" title="UCB"></a>UCB</h3><p>上确界动作选取(upper confidence bound, UCB法不对动作价值进行估计，而是估计动作价值的<strong>上确界</strong>来进行动作选取。该方法的好处是，将不确定性也一并纳入估计。<br>上确界的动作选取法如下：</p>
+<p>```<br>A_t = 1. a if N_t(a) = 0,</p>
+<pre><code>  2. argmax[Q_t(a) + c Sqrt(log(t)/ N_t(a))]
+</code></pre><p>``**<br>其中，平凡根项是对不确定性或者说方差的一个度量。c 是一个可控制的常量，用于控制不确定性影响的大小。</p>
+<p>UCB 一般而言有更好的性能，但是对于非平稳过程的处理不像e-greedy那么简单。</p>
+<h3 id="Gradient-bandit"><a href="#Gradient-bandit" class="headerlink" title="Gradient bandit"></a>Gradient bandit</h3><p>梯度法是一种不通过直接估计动作价值$Q$，而是直接优化动作选取的策略(policy)的强化学习方法。</p>
+<p>我们定义$\pi_t(a)$ 为时刻$t$的动作选取策略。$\pi_t(a)$是关于当前状态动作选取概率的分布，我们可以用随机梯度上升法来优化（前提是：策略是一个可微分的函数）。</p>
+<p>定义策略为softmax函数:</p>
+<script type="math/tex; mode=display">
+\pi_t(a) = \frac{e^{H_t(a)}}{\sum_{b=1}^{k} e^{H_t(b)}}</script><p>其中$H_t(a)$ 定义为对动作的偏好度(preference)，从而影响动作的概率。<br>根据softmax函数的导数我们有:</p>
+<script type="math/tex; mode=display">
+H_{t+1}(a) = H_t(a) + \alpha(R_t - avg R)([a = A_t] - \pi_t(a))</script><h1 id="Markov决策过程"><a href="#Markov决策过程" class="headerlink" title="Markov决策过程"></a>Markov决策过程</h1><p>我们把交互的环境看作是一个马尔科夫链：时刻$t+1$的状态与奖励仅与前一个时刻$t$的状态与采取的动作有关。据此定义马尔科夫决策过程(Markov Decision Process, MDP):</p>
+<ol>
+<li>状态空间$\mathcal{S}$</li>
+<li>动作空间$\mathcal{A}$</li>
+<li>奖励空间$\mathcal{R}$</li>
+</ol>
+<script type="math/tex; mode=display">
+Pr\{S_{t+1}, R_{t+1} | S_t, A_t, S_{t-1}, A_{t-1},...S_0, A_0\} = Pr\{S_{t+1}, R_{t+1} | S_t, A_t\}</script><p>MDP是有限的当且仅当$\mathcal{S}$, $\mathcal{A}$, $\mathcal{R}$ 是有限的。</p>
+<h2 id="环境动态"><a href="#环境动态" class="headerlink" title="环境动态"></a>环境动态</h2><p>我们定义函数$p:: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{S} \times \mathcal{R}$为MDP的环境动态(Environment Dynamic)。这个函数实际上定义为状态$s’$, 奖励$r$在给定状态$s$, 采取的动作$a$的条件概率分布，即MDP的状态之间是如何转化的。</p>
+<script type="math/tex; mode=display">
+p(s', r|s, a) = Pr{S_{t+1}=s', R_{t+1}=r | S_t = s, A_t = a}</script><p>根据动态函数p, 奖励$r$的边缘概率即为状态$s’$的概率分布</p>
+<script type="math/tex; mode=display">
+p(s'|s, a) = \sum_{r\in \mathcal{R}} p(s', r|s, a)</script><p>我们定义函数$r:: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{R}$ 为给定状态$s$, 动作$a$下的奖励期望:</p>
+<script type="math/tex; mode=display">
+r(s, a) = \mathcal{E}[R_{t+1} | S_t = s, A_t = a] = \sum_{r\in\mathcal{R}} r\sum_{s'\in S} p(s', r| s, a)</script><p>MDP可以被表示成一个有限状态自动机， 见 Sutton书Example 3.3</p>
+<h2 id="目标与奖励"><a href="#目标与奖励" class="headerlink" title="目标与奖励"></a>目标与奖励</h2><p>如前面所述，强化学习的目标实际上是尽可能多的提升累计奖励(cumulative return)。这个目标建立在<strong>奖励假设</strong> (reward hypothesis)上：</p>
+<blockquote>
+<p>强化学习目标是最大化标量奖励信号的累计期望</p>
+</blockquote>
+<p>根据这个假设，我们认为奖励信号实际上定义了我们的目标。奖励信号不说明如何实现目标，但是如果奖励信号设计的好，我们的学习将会提速。<br>奖励信号与状态空间的设计都被认为是RL中的“工程”部分。</p>
+<h2 id="回报"><a href="#回报" class="headerlink" title="回报"></a>回报</h2><p>我们定义 <strong>回报</strong> (return)为奖励信号序列$R<em>{t}, R</em>{t+1}, R_{t+2}…$的一个函数，通过最大化该函数来实现我们的目标。最简单的回报函数就是线性加和：</p>
+<script type="math/tex; mode=display">
+G_t = R_{t+1} + R_{t+2} + ... + R_{T} = R_{t+1} + G_{t+1}</script><p>其中$T$是中止时间。以上的定义在有限步骤的情况下是成立的，但是在连续(非停止)情况下，我们可以使用一个衰减概率来控制我们求和的范围:</p>
+<script type="math/tex; mode=display">
+G_{t} = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k R_{t+1+k}</script><p>当$\gamma &lt; 1$, 求和有上界:</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{\infty} \gamma^k R_{t+1+k} \leq r_{\max} \sum_{k=0}^{\infty}\gamma^k = r_{\max} \frac{1}{1-\gamma}</script><h2 id="价值函数"><a href="#价值函数" class="headerlink" title="价值函数"></a>价值函数</h2><p>给定策略$\pi$, 我们可以计算在该策略下，每一个状态的价值$v_{\pi}(s)$:</p>
+<script type="math/tex; mode=display">
+v_{\pi}(s) \circeq \mathbb{E}_{\pi}[G_t | S_t = s] = \mathbb{E}_\pi[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1}| S_t = s]</script><p>同理，我们可以计算给定状态的动作价值$q_\pi$:</p>
+<script type="math/tex; mode=display">
+q_{\pi}(s, a) \circeq \mathbb{E}_{\pi}[G_t| S_t = s, A_t = a] = \mathbb{E}_{\pi}[\sum_{k=0}^{\infty}\gamma^k R_{t+k+1} | S_t = s, A_t = a]</script><p>(PPT此处有一个直接求序列空间价值函数的东西，感觉没什么用就不写了，基本就是对每一个可能序列的概率进行求和，一个序列的概率是p函数与$\pi$函数的累乘)</p>
+<h2 id="Bellman方程"><a href="#Bellman方程" class="headerlink" title="Bellman方程"></a>Bellman方程</h2><p>根据Markov性质，下一时刻的状态-奖励对由且仅由这一时刻的状态与采取的动作决定，也就是说我们可以递归地更新我们的价值函数。我们将价值函数写成递归的形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+v_\pi(s) & \circeq \mathbb{E}_\pi[G_t | S_t = s] \\
+         & = \mathbb{E}_\pi[R_{t+1} + \gamma G_{t+1} | S_t = s]\\
+         & = \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a)[r + \gamma \mathbb{E}_\pi[G_{t+1} | S_{t+1}=s']]\\
+         & = \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a)[r + \gamma v_\pi(s') ]
+\end{aligned}</script><p>同理，我们可以写出动作价值函数的递归形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+q_\pi(s, a) & \circeq \mathbb{E}_\pi[G_t | S_t = s, A_t=a] \\
+            & = \sum_{s', r} p(s', r | s, a)[r + \gamma v_\pi(s')]
+\end{aligned}</script><p>以上两个函数被称为贝尔曼方程(bellman equation)</p>
+<h3 id="最优策略贝尔曼方程"><a href="#最优策略贝尔曼方程" class="headerlink" title="最优策略贝尔曼方程"></a>最优策略贝尔曼方程</h3><p>我们用价值函数(期望)比较两个策略的好坏：当且仅当策略$\pi$每一个状态的期望价值都不低于另一个策略$\pi’$时，我们可以认为$\pi$有着更优的表现。如果存在一个策略，其对于所有可能的策略都是更优的，我们称该策略为最优策略(optimal policy)</p>
+<p>一个策略$\pi$是最优的，当：</p>
+<ol>
+<li>$v<em>\pi(s) = v</em>{*}(s) = \max<em>{\pi’}v</em>{\pi’}(s)$</li>
+<li>$q<em>\pi(s, a) = q</em>{*}(s, a) = \max<em>{\pi’} q</em>{\pi’}(s, a)$</li>
+</ol>
+<p>在最优策略下，我们可以用最优的动作来替代策略下的条件分布：</p>
+<script type="math/tex; mode=display">v_{*}(s) = \max_{a} \sum_{s', r} p(s', r|s, a)[r + \gamma v_{*}(s')]</script><script type="math/tex; mode=display">q_{*}(s, a) = \sum_{s', r} p(s', r|s, a)[r + \gamma \max_{a'} q_{*}(s', a)]</script><p>对于有限的MDP与non-terminate episode而言，每个策略$\pi$都会遍历状态空间，空间中的每个状态理想情况下都会被访问无限次。<br>我们定义时间趋于无穷时，状态的分布为平稳状态分布$P<em>\pi(s) = Pr{S_t = s, |A_0, …, A</em>{t-1} \sim \pi }$。<br>此时，我们使用平均奖励(average reward)来评价策略的价值:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+
+r(\pi) &= \lim_{h \rightarrow \infty} \frac{1}{h} \sum_{t=1}^{h} \mathbb{E}[R_t | S_0, A_0, ...]
+
+       &= \sum_{s} P_{\pi}(s)\sum_a \pi(a|s) \sum_{s', r} p(s', r\|s, a) r
+
+\end{aligned}</script><p>最大化在平稳状态分布下的回报等同于最大化平均奖励。</p>
+<h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/28084904" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28084904</a></li>
+<li>Sutton, An Introduction To Reinforcement Learning</li>
+</ol>
+</article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/ml/"><span class="tag">ml</span></a><a href="/tags/rl/"><span class="tag">rl</span></a></div><div class="share"><div class="social-share" data-image="/images/avatar.png" data-sites="weibo,wechat,qq,twitter,facebook"></div><script src="/thirdparty/sharejs/dist/js/share.min.js"></script></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><script>configMath()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true } },
+  SVG: { linebreaks: { automatic: true } }
+});
+</script><script id="MathJax-script" src="//cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="/thirdparty/highlightjs/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>

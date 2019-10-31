@@ -53,7 +53,7 @@ const configMath = () => {
     if (!window.MathJax) {
         window.MathJax = {
             tex2jax: {
-                inlineMath: [['\\(', '\\)']],
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
                 processEscapes: true
             },
         }
