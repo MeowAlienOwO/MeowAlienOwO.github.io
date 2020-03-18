@@ -34,7 +34,7 @@ f(x_1, x_2, ... x_n) = w_1 x_1 + w_2 x_2 + ... + w_n x_n + b</script><p>其中 <
 <h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归使用线性模型的加权值作为预测的标签，即上文的函数<script type="math/tex">f</script>的函数值。线性回归的目标是求得一组恰当的权重(<script type="math/tex">w</script>, <script type="math/tex">b</script>)，<br>从而使得函数 <script type="math/tex">f</script> 能够尽可能准确地输出预测值。换句话说，我们希望函数的预测值 <script type="math/tex">f(x)</script> 与真实的标签 <script type="math/tex">y</script> 之间<br>的“距离”最小。一般而言，在线性回归任务中，我们使用均方误差函数来衡量这个“距离”：</p>
 <script type="math/tex; mode=display">
 J(\theta) = \sum_{i=0}^N (f(x_i) - y_i)^2</script><p>其中 <script type="math/tex">\theta</script> 指模型的参数，在线性回归即指的是权重 w 与截距 b。注意到均方误差同欧氏距离有着紧密的联系，从可解释性的角度来说，均方误差很直观地表现了“距离目标有多远”这个概念。因此，只要使均方误差函数最小，我们就可以得到一个最优化的预测函数。通过最小化均方误差来获得最优的参数的方法被称作<strong>最小二乘法</strong>。</p>
-<h3 id="史莱姆模型：一元线性回归预测面包的价格"><a href="#史莱姆模型：一元线性回归预测面包的价格" class="headerlink" title="史莱姆模型：一元线性回归预测面包的价格"></a>史莱姆模型：一元线性回归预测面包的价格</h3><p>现在，你回忆起了线性回归的相关知识，但是由于你的能力还比较弱小，你决定先用面包的价格来测试一下构建史莱姆模型是否可行。已知面包的价格由面包的重量，种类，店家等因素影响。你想先用一个一元线性回归模型来预测一下面包的重量与价格的关系。于是，你定义机器学习任务如下：</p>
+<h3 id="史莱姆模型：线性回归预测面包的价格"><a href="#史莱姆模型：线性回归预测面包的价格" class="headerlink" title="史莱姆模型：线性回归预测面包的价格"></a>史莱姆模型：线性回归预测面包的价格</h3><p>现在，你回忆起了线性回归的相关知识，但是由于你的能力还比较弱小，你决定先用面包的价格来测试一下构建史莱姆模型是否可行。已知面包的价格由面包的重量，种类，店家等因素影响。你想先用一个一元线性回归模型来预测一下面包的重量与价格的关系。于是，你定义机器学习任务如下：</p>
 <ol>
 <li>输入特征：面包的重量，种类，店家……</li>
 <li>输出标签：面包的价格</li>
@@ -42,7 +42,6 @@ J(\theta) = \sum_{i=0}^N (f(x_i) - y_i)^2</script><p>其中 <script type="math/t
 <li>损失函数：均方误差函数</li>
 <li>优化器：在这个阶段，你决定先用手动调节的方式进行调参。</li>
 </ol>
-<p><img src="/images/slime_weight.png" alt="权重史莱姆"></p>
 <p>按照这个要求，你从收集的价格数据里面摘出参数如下：</p>
 <div class="table-container">
 <table>
@@ -316,7 +315,7 @@ J(\theta=\mathbf{w}) = (\mathbf{y} - \mathbf{X}\mathbf{w})^T(\mathbf{y} - \mathb
 f(\mathbf{x}) = l_{0/1}(\mathbf{w}^T\mathbf{x})</script><p>但是，当你想跟回归模型一样求导取导数为零的时候，你发现了一个很严重的问题：阶跃函数的导数要么是0，要么不可导。这直接影响了求导的链式法则导致无法求导。有没有这样一个函数，它又能模拟阶跃函数的行为，又有良好的可导性呢？</p>
 <p>你想到了 sigmoid 函数：</p>
 <script type="math/tex; mode=display">
-sigmoid(z) = \frac{1}{1+e^{-z}}</script><p>这个函数有几个很好的特性：</p>
+\sigma(z) = \frac{1}{1+e^{-z}}</script><p>这个函数有几个很好的特性：</p>
 <ol>
 <li>原来线性模型的值域范围是整个实数集 R，而 sigmoid 函数将整个实数集映射到 (0, 1)范围内。</li>
 <li>这个函数处处可导，从而避免了阶跃函数无法求导，不能应用链式法则的尴尬。</li>
@@ -325,13 +324,13 @@ sigmoid(z) = \frac{1}{1+e^{-z}}</script><p>这个函数有几个很好的特性�
 <p>对 sigmoid 函数求导：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-sigmoid'(z) &= \frac{\partial sigmoid}{\partial z} \\
+\sigma'(z) &= \frac{\partial \sigma}{\partial z} \\
             &= \frac{1' * (1+e^{-z}) - 1 * (1+e^{-z})'}{(1+e^{-z})^2}\\
             &= \frac{e^{-z}}{(1+e^{-z})^{2}} \\
             &= \frac{1}{1+e^{-z}}\frac{(1+e^{-z})-1}{1+e^{-z}}\\
             &= \frac{1}{1+e^{-z}}(1 - \frac{1}{1+e^{-z}})\\
-            &= sigmoid(z)(1 - sigmoid(z))
-\end{aligned}</script><p>另一方面，将<script type="math/tex">z=\mathbf{w}^T\mathbf{x}</script>代入，然后变形。令<script type="math/tex">y=sigmoid(\mathbf{w}^T\mathbf{x})</script>：</p>
+            &= \sigma(z)(1 - \sigma(z))
+\end{aligned}</script><p>另一方面，将<script type="math/tex">z=\mathbf{w}^T\mathbf{x}</script>代入，然后变形。令<script type="math/tex">y=\sigma(\mathbf{w}^T\mathbf{x})</script>：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 y &= \frac{1}{1+e^{-\mathbf{w}^T\mathbf{x}}}\\
@@ -339,7 +338,7 @@ y + ye^{-\mathbf{w}^T\mathbf{x}} &= 1\\
 e^{-\mathbf{w}^T\mathbf{x}} &= \frac{1-y}{y} \\
 -\mathbf{w}^T\mathbf{x} &= \ln\frac{1-y}{y}\\
 \mathbf{w}^T\mathbf{x} &= \ln\frac{y}{1-y}
-\end{aligned}</script><p>由于 sigmoid 函数的值域在<script type="math/tex">(0,1)</script>，我们可以将其看做给定样本值，决策为正的<strong>条件概率</strong>, 1-sigmoid 为决策为负的概率。我们可以将项<script type="math/tex">y/(1-y)</script>看做样本决策为正与样本决策为负的概率的比值。对上式，我们将其重写为：</p>
+\end{aligned}</script><p>我们可以将项<script type="math/tex">y/(1-y)</script>看做样本决策为正与样本决策为负的概率的比值。由于 sigmoid 函数的值域在<script type="math/tex">(0,1)</script>，我们可以将其看做给定样本值，决策为正的<strong>条件概率</strong>, 1-sigmoid 为决策为负的概率。对上式，我们将其重写为：</p>
 <script type="math/tex; mode=display">
 \ln\frac{Pr\{y=1 | \mathbf{x}\}}{Pr\{y = 0 | \mathbf{x}\}} = \mathbf{w}^T\mathbf{x}</script><p>也就是说，我们希望习得的分类线实际上代表了正类与负类的概率的比。</p>
 <p>由于我们有了一个很好的概率解释，我们可以通过<strong>极大似然法</strong>来对参数向量 w 进行估计：我们认为，最优的分类器必然能够使得数据集上的样本“最可能”被分类为正确的类别。换句话说，如果一个样本在数据集中标记为正，则我们学习的模型将有更大的可能性输出高概率；反之则输出低概率。对于整个训练集而言，我们希望最大化整体的分类概率：</p>
@@ -347,7 +346,7 @@ e^{-\mathbf{w}^T\mathbf{x}} &= \frac{1-y}{y} \\
 P(\mathbf{w}) = \prod_i^N Pr\{y=y_i | \mathbf{x};\mathbf{w}\}</script><p>对数化处理让连乘变为连加：</p>
 <script type="math/tex; mode=display">
 
-\ln P(\mathbf{w}) = \sum_i^N \lnPr\{y=y_i | \mathbf{x};\mathbf{w}\}</script><p>我们的损失函数叫做<strong>对数似然</strong>函数：</p>
+\ln P(\mathbf{w}) = \sum_i^N \ln Pr\{y=y_i | \mathbf{x};\mathbf{w}\}</script><p>我们的损失函数叫做<strong>对数似然</strong>函数：</p>
 <script type="math/tex; mode=display">
 \max_\mathbf{w} J(\theta=\mathbf{w}) = \ln P(\mathbf{w})</script><p>而线性分类模型被称作“对率回归模型”（逻辑回归模型），虽然它是一个分类模型。我们定义我们的机器学习任务如下：</p>
 <ol>
@@ -357,16 +356,43 @@ P(\mathbf{w}) = \prod_i^N Pr\{y=y_i | \mathbf{x};\mathbf{w}\}</script><p>对数�
 <li>损失函数：对数似然函数</li>
 <li>优化器：在这个阶段，你决定先用手动调节的方式进行调参。</li>
 </ol>
-<!-- ### 非线性问题的处理 -->
-<!--  -->
-<!-- 线性模型有一个弱点体现在它的名字里面：对于非线性问题，单纯的线性模型没有很好的解决方案。 -->
-<!-- 举个例子，线性模型对 XOR 没有很好的处理方案： -->
-<!--  -->
-<!-- |   |x1| x2| -->
-<!-- |x1| 0 | 1 | -->
-<!-- |x2| 1 | 0 | -->
-<!--  -->
-<!-- 我们很难找到一个线性函数很好地将这四个特征点分类开。 --></article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/ml/"><span class="tag">ml</span></a><a href="/tags/西瓜书/"><span class="tag">西瓜书</span></a></div><div class="share"><div class="social-share" data-image="/images/avatar.png" data-sites="weibo,wechat,qq,twitter,facebook"></div><script src="/thirdparty/sharejs/dist/js/share.min.js"></script></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><script>configMath()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+<p>由于 <script type="math/tex">Pr \{y=y_i|\mathbf{x}; \mathbf{w}\}</script> 这一项现在是概率形式，我们要将其转化为具体的表达方式。这里有一个 trick: 由于 <script type="math/tex">y</script> 的取值只有 0 与 1， 当 <script type="math/tex">y=0</script> 的时候， <script type="math/tex">1-y</script> 等于1。 </p>
+<ol>
+<li>当 <script type="math/tex">y=1</script>的时候，我们关注样本被分类为正的概率<script type="math/tex">\sigma(\mathbf{w}^T\mathbf{x})</script></li>
+<li>当 <script type="math/tex">y=0</script>的时候，我们关注样本被分类为负的概率<script type="math/tex">1-\sigma(\mathbf{w}^T\mathbf{x})</script></li>
+</ol>
+<p>基于这两个观察，我们用 <script type="math/tex">y</script> 与 <script type="math/tex">1-y</script>作为指示器：</p>
+<script type="math/tex; mode=display">
+Pr\{y_i | \mathbf{x}; \mathbf{w}\} = (1-\sigma(\mathbf{w}^T\mathbf{x}))^{y} \sigma(\mathbf{w}^T\mathbf{x})^{1-y}</script><p>当样本是正类时，正概率起作用；当负类时则反之。</p>
+<p>于是我们的对数似然函数就变成了：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+J(\mathbf{w}) &= \sum_i^N\ln ( \sigma(\mathbf{w}^T\mathbf{x})^{y_i}(1-\sigma(\mathbf{w}^T\mathbf{x}))^{1-y_i})\\
+
+&= \sum_i^Ny_i\ln \sigma(\mathbf{w}^T\mathbf{x})+(1-y_i)\ln (1-\sigma(\mathbf{w}^T\mathbf{x}))
+\end{aligned}</script><p>在一般的机器学习中，我们可以用<strong>梯度下降法</strong>来优化模型。<strong>梯度</strong>指向函数增长最快的方向，对损失函数求梯度我们能得到函数上一点增长最快的<strong>向量</strong>。如同滑雪一样，当我们需要最快到达底部时，我们要让权重朝<strong>梯度的反方向</strong>移动。因此，我们对对数似然函数<strong>对权重</strong>求梯度：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Delta J &= \sum_i^N y_i \mathbf{x}_i \sigma(1-\sigma) \frac{1}{\sigma} + (1-y_i)\mathbf{x}_i\frac{1}{1-\sigma}(-\sigma)(1-\sigma)\\
+&= \sum_i^N y_i \mathbf{x}_i (1-\sigma) - (1-y_i)\mathbf{x}_i\sigma\\
+&= \sum_i^N (y_i -\sigma(\mathbf{w}^T\mathbf{x}))\mathbf{x}_i 
+\end{aligned}</script><p>显然由于只有当<script type="math/tex">\sigma(\mathbf{w}^T\mathbf{x})</script> 无限接近与<script type="math/tex">y_i</script>的时候或者<script type="math/tex">x</script>为零向量的时候可以得到极值。但是在大多数情况下这是不可能的，因此我们采用梯度下降法来对损失函数进行优化。梯度下降法的思想是，对模型迭代若干次，每次调整一小步权重<script type="math/tex">w</script> 使得损失函数向下移动，直到一个我们比较满意的位置为止：</p>
+<pre><code>while stopping criteria:
+    w &lt;- w - eta * Delta
+</code></pre><!-- TODO: 对率回归实现 -->
+<h3 id="非线性问题的处理"><a href="#非线性问题的处理" class="headerlink" title="非线性问题的处理"></a>非线性问题的处理</h3><p>线性模型有一个弱点体现在它的名字里面：对于非线性问题，单纯的线性模型没有很好的解决方案。<br>举个例子，线性模型对 XOR 没有很好的处理方案：<br>|   |x1| x2|<br>|x1| 0 | 1 |<br>|x2| 1 | 0 | </p>
+<p>在二维空间，这四个点为：<code>-(0,0)</code>, <code>+(0,1)</code>, <code>+(1,0)</code>, <code>-(1,1)</code>。<br>我们很难找到一个线性函数很好地将这四个特征点分开。但是如果我们能将其映射到三维空间，这四个点变为：<br><code>-(0,0,0)</code>, <code>+(0,1,0)</code>, <code>+(1,0,0)</code>, <code>(-1,1,1)</code>。<br>可以看出，在三维空间，我们可以找到一个平面将这四点正确地分开。这启发了我们：诸如二次函数这种在低维空间是非线性的数据，在高维空间有可能能够用线性模型进行处理。我们令这个到高维的映射为<script type="math/tex">\mathbf{\phi}</script>，线性模型变为如下形式：</p>
+<script type="math/tex; mode=display">
+f(\mathbf{x}) = \mathbf{\phi}(\mathbf{w})^T\mathbf{x}</script><p>其中，<script type="math/tex">\phi</script> 的映射用向量形式表示为：</p>
+<script type="math/tex; mode=display">
+\mathbf{\phi}(\mathbf{x}) = [\phi_1(\mathbf{x}), \phi_2(\mathbf{x}) ... \phi_K(\mathbf{x})]^T</script><p>这样的函数我们称为<strong>基函数</strong>。一般而言，常用的基函数有：</p>
+<ol>
+<li>多项式：<script type="math/tex">(x_1, x_2...x_n)</script> =&gt; <script type="math/tex">(x_1^2, x_1x_2, ... x_2x_1, x_2^2, x_2 x_3,...</script></li>
+<li>径向基函数(RBF)，这是一种类似于高斯函数的函数:<script type="math/tex">\exp(-(\mathbf{x} - \mathbf{c})^T(\mathbf{x}-\mathbf{c})/h^2</script> </li>
+<li>logisitic-sigmoid 函数： <script type="math/tex">1/(1+\exp(-\mathbf{v}^T\mathbf{x}-b))</script></li>
+</ol>
+<!-- TODO: 基函数回归/分类 -->
+</article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/ml/"><span class="tag">ml</span></a><a href="/tags/西瓜书/"><span class="tag">西瓜书</span></a></div><div class="share"><div class="social-share" data-image="/images/avatar.png" data-sites="weibo,wechat,qq,twitter,facebook"></div><script src="/thirdparty/sharejs/dist/js/share.min.js"></script></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><script>configMath()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
   "HTML-CSS": { linebreaks: { automatic: true } },
   SVG: { linebreaks: { automatic: true } }
 });
