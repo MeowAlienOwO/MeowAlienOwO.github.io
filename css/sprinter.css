@@ -794,7 +794,7 @@ a {
 aside {
   height: 100vh;
   flex: 0 0;
-  min-width: 300px;
+  min-width: 400px;
   background: white;
 }
 .content {
