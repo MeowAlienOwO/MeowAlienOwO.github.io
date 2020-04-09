@@ -1,12 +1,12 @@
 // material design init
 // $(document).ready(function() { $('body').bootstrapMaterialDesign(); });
-$(document).ready(function(){
+$(document).ready(function () {
 
     // header 下拉菜单
 
-    $('.avatar-img').click(function(){
-        if(isMobile()) {
-            if(typeof mobile_dropdown == 'undefined' || !mobile_dropdown) {
+    $('.avatar-img').click(function () {
+        if (isMobile()) {
+            if (typeof mobile_dropdown == 'undefined' || !mobile_dropdown) {
 
                 $('.mobile-dropdown').show();
                 mobile_dropdown = true;
@@ -19,13 +19,26 @@ $(document).ready(function(){
 
     })
 
+    // hamburger menu btn
+    $('.menu-btn-container').click(function () {
+        if ($('.menu-btn-container').hasClass('activate')) {
+            $('.menu-btn-container').removeClass('activate')
+            $('aside').removeClass('activate')
+            // $('aside').addClass('close')
+        } else {
+            $('.menu-btn-container').addClass('activate')
+            // $('aside').removeClass('close')
+            $('aside').addClass('activate')
+        }
+    })
+
 })
 
 // copy from csdn
 function isMobile() {
     var userAgentInfo = navigator.userAgent;
 
-    var mobileAgents = [ "Android", "iPhone", "SymbianOS", "Windows Phone", "iPad","iPod"];
+    var mobileAgents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
 
     var mobile_flag = false;
 
@@ -37,15 +50,15 @@ function isMobile() {
         }
     }
 
-     var screen_width = window.screen.width;
-     var screen_height = window.screen.height;    
+    var screen_width = window.screen.width;
+    var screen_height = window.screen.height;
 
-     //根据屏幕分辨率判断是否是手机
-     if(screen_width < 500 && screen_height < 800){
-         mobile_flag = true;
-     }
+    //根据屏幕分辨率判断是否是手机
+    if (screen_width < 500 && screen_height < 800) {
+        mobile_flag = true;
+    }
 
-     return mobile_flag;
+    return mobile_flag;
 }
 
 

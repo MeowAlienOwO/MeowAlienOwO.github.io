@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><title>穿越到异世界的魔物使生活：线性模型 [ the Garden of Sinners ]</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"><meta name="robot" content="index,follow"><meta name="format-detection" content="telephone=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/sprinter.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1464257_drr710yuepc.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css"><link rel="stylesheet" href="/thirdparty/highlightjs/styles/atelier-dune-light.css"><link rel="stylesheet" href="/thirdparty/sharejs/dist/css/share.min.css"></head><body><div class="wrap"><header><div class="avatar"><div class="avatar-black"></div><img class="avatar-img" src="/images/avatar.png"></div><div class="mobile-dropdown"><div class="author"><h1 class="author-name">MeowAlien喵星人</h1><div class="author-keywords"><span>Machine Learning</span><span>ACG</span><span>Kyokushin</span></div></div><div class="motto"> <h3>——式。我一生都不会放开你</h3></div><nav><ul class="menu"><li><a class="index-menu-link" href="/about">About</a></li><li><a class="index-menu-link" href="https://github.com/MeowAlienOwO/CV">Resume</a></li><li><a class="index-menu-link" href="/archives">Archives</a></li></ul></nav><div class="social"><a class="social-icon social-icon-color-github" href="https://github.com/MeowAlienOwO"><i class="iconfont icon-github"></i></a><a class="social-icon social-icon-color-weibo" href="https://www.weibo.com/u/3027659753/home?wvr=5"><i class="iconfont icon-weibo"></i></a><a class="social-icon social-icon-color-mail" href="mailto:meowalienowo@outlook.com"><i class="iconfont icon-mail"></i></a><a class="social-icon social-icon-color-bilibili" href="https://space.bilibili.com/1374912"><i class="iconfont icon-bilibili"></i></a></div></div></header><div class="content"><div class="card" id="post"><div class="post-cover"><img><div class="cover-author"><a>画师: null</a></div></div><div class="post-title"><h1 id="title">穿越到异世界的魔物使生活：线性模型</h1><time id="date" datetime="2019-12-18T02:40:03.000Z">2019年12月18日</time></div><article class="md-article container"><p>姑且是准备入 PhD 坑了，基础的东西更需要好好复习。本文的内容会覆盖西瓜书第三章的内容。在线性模型的部分， MLPR 里头学的一些东西也会尽量地放进来。上次看到某学弟的深度学习入门文章写得很不错，要么尝试一下转变文风吧(</p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><title>穿越到异世界的魔物使生活：线性模型 [ Garden of Sinners ]</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"><meta name="robot" content="index,follow"><meta name="format-detection" content="telephone=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/sprinter.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1464257_drr710yuepc.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css"><link rel="stylesheet" href="/thirdparty/highlightjs/styles/atelier-dune-light.css"><link rel="stylesheet" href="/thirdparty/sharejs/dist/css/share.min.css"></head><body><div class="wrap"><header class="mobile-header"><div class="menu-btn-container"><div class="menu-btn"><div class="menu-bar" id="menu-bar-up"></div><div class="menu-bar" id="menu-bar-middle"></div><div class="menu-bar" id="menu-bar-bottom"></div></div></div><a class="mobile-title" href="/">Garden of Sinners</a></header><aside><div class="avatar"><div class="avatar-black"></div><img class="avatar-img" src="/images/avatar.png"></div><div class="author"><h1 class="author-name">MeowAlien喵星人</h1><div class="author-keywords"><span>Machine Learning</span><span>ACG</span><span>Kyokushin</span></div></div><div class="motto"> <h3>——式。我一生都不会放开你</h3></div><nav><ul class="menu"><li><a class="index-menu-link" href="/about">About</a></li><li><a class="index-menu-link" href="https://github.com/MeowAlienOwO/CV">Resume</a></li><li><a class="index-menu-link" href="/archives">Archives</a></li></ul></nav><div class="social"><a class="social-icon social-icon-color-github" href="https://github.com/MeowAlienOwO"><i class="iconfont icon-github"></i></a><a class="social-icon social-icon-color-weibo" href="https://www.weibo.com/u/3027659753/home?wvr=5"><i class="iconfont icon-weibo"></i></a><a class="social-icon social-icon-color-mail" href="mailto:meowalienowo@outlook.com"><i class="iconfont icon-mail"></i></a><a class="social-icon social-icon-color-bilibili" href="https://space.bilibili.com/1374912"><i class="iconfont icon-bilibili"></i></a></div></aside><div class="content"><div class="card" id="post"><div class="post-cover"><img src="https://i.loli.net/2020/04/09/NvzO4kd2RoyfD8X.jpg"><div class="cover-author"><a href="https://www.pixiv.net/artworks/62485671">author: Enji</a></div></div><div class="post-title"><h1 id="title">穿越到异世界的魔物使生活：线性模型</h1><time id="date" datetime="2019-12-18T02:40:03.000Z">2019年12月18日</time></div><article class="md-article container"><p>姑且是准备入 PhD 坑了，基础的东西更需要好好复习。本文的内容会覆盖西瓜书第三章的内容。在线性模型的部分， MLPR 里头学的一些东西也会尽量地放进来。上次看到某学弟的深度学习入门文章写得很不错，要么尝试一下转变文风吧(</p>
 <a id="more"></a>
 <h1 id="背景故事：穿越到异世界的召唤师"><a href="#背景故事：穿越到异世界的召唤师" class="headerlink" title="背景故事：穿越到异世界的召唤师"></a>背景故事：穿越到异世界的召唤师</h1><p>你穿越到了一个异世界。</p>
 <p>在落地的一阵晕眩后，你努力地试图理解发生了什么：你研究生毕业，单身，在某大手IT会社工作半年。长年累月的月月火水木金金的学习工作让你变强了，也变秃了。虽然你还单身，天天被隔壁的美工与销售嘲讽，但是只要再忍一忍就有望转职成能手搓火球的大魔法师，有着光明的未来。这天，你被老板派遣去某个客户那里进行一些现场工作，但是你刚出门就被一道白光所笼罩……</p>
@@ -150,7 +150,7 @@ x_2 &= 1
   f(x_N)
 \end{matrix}\right]</script><p>目标函数也因为矩阵表述变成了这样子：</p>
 <script type="math/tex; mode=display">
-J(\theta=\mathbf{w}) = (\mathbf{y} - \mathbf{X}\mathbf{w})^T(\mathbf{y} - \mathbf{X}\mathbf{w})</script><p>通过对权重进行求导（注：求导方法在之后讨论），我们可以得到如下方程：</p>
+J(\theta=\mathbf{w}) = (\mathbf{y} - \mathbf{X}\mathbf{w})^T(\mathbf{y} - \mathbf{X}\mathbf{w})</script><p>通过对权重进行求导（注：求导方法以后会讨论），我们可以得到如下方程：</p>
 <script type="math/tex; mode=display">
 \frac{\partial J}{\partial \mathbf{w}} = 2\mathbf{X}^T(\mathbf{X}\mathbf{w} - \mathbf{y})</script><p>由于这里涉及到矩阵的逆运算，有这么几种情况：</p>
 <p>a) 当矩阵<script type="math/tex">\mathbf{X}^T\mathbf{X}</script>是满秩矩阵或者正定矩阵，则逆矩阵存在，解方程可得解析解</p>
@@ -303,8 +303,9 @@ J(\theta=\mathbf{w}) = (\mathbf{y} - \mathbf{X}\mathbf{w})^T(\mathbf{y} - \mathb
 <p>观察中间三项代表每个商家的权重，我们可以发现，第二家店([0, 1, 0])的权重最大，<br>意味着其具有最高的性价比。</p>
 <!-- #### 最小二乘法的线性代数解释 -->
 <!-- TODO -->
-<h3 id="史莱姆模型：线性分类"><a href="#史莱姆模型：线性分类" class="headerlink" title="史莱姆模型：线性分类"></a>史莱姆模型：线性分类</h3><p>在上面，我们用线性模型处理了用于预测价格的回归问题。而对于你来说，你还有一个更加关心的事情—如何用线性回归决策史莱姆在战斗中的行为？</p>
+<h2 id="线性分类"><a href="#线性分类" class="headerlink" title="线性分类"></a>线性分类</h2><p>在上面，我们用线性模型处理了用于预测价格的回归问题。而对于你来说，你还有一个更加关心的事情—如何用线性回归决策史莱姆在战斗中的行为？</p>
 <p>你能够命令史莱姆在战斗中做的行为有两种：攻击与防御。你希望让史莱姆在对手弱小，自己状态好的时候尽可能地多攻击，以加快打素材的效率；你又希望史莱姆在面对强敌，或者自己状态差时候尽可能多防御，从而不会拖累你的药品补给。从机器学习的角度来看，你希望得到这么一个模型函数 f(对方攻击，对方防御，自身血量，自身攻击，自身防御) = (攻击，防御)。</p>
+<p>基于你对史莱姆行为的观察，</p>
 <p>让我们回到线性模型上来。线性模型的目标是习得一条直线（在高维空间中，是一个平面或者超平面），而我们可以很直观地得出，这条直线能够将整个平面一分为二。套用到我们的学习目标上，我们可以这么叙述：我们希望学到一条直线能将由属性(对方攻击，对方防御，自身血量，自身攻击，自身防御)所组成的样本空间分成两个互补的部分（攻击，防御）。当面对新的情况时，预测值如果在攻击的一侧，则选择攻击；反之则选择防御。也就是说，当函数f的值大于（或等于）某个“阈值”的时候，选择攻击；而小于的时候选择防御。令 1 表示攻击，令 0 表示防御<del>受</del>：</p>
 <ol>
 <li><script type="math/tex; mode=display">f(\mathbf{x}) = \mathbf{w}^T\mathbf{x} > \theta \rightarrow 1</script></li>
@@ -370,17 +371,23 @@ Pr\{y_i | \mathbf{x}; \mathbf{w}\} = (1-\sigma(\mathbf{w}^T\mathbf{x}))^{y} \sig
 J(\mathbf{w}) &= \sum_i^N\ln ( \sigma(\mathbf{w}^T\mathbf{x})^{y_i}(1-\sigma(\mathbf{w}^T\mathbf{x}))^{1-y_i})\\
 
 &= \sum_i^Ny_i\ln \sigma(\mathbf{w}^T\mathbf{x})+(1-y_i)\ln (1-\sigma(\mathbf{w}^T\mathbf{x}))
-\end{aligned}</script><p>在一般的机器学习中，我们可以用<strong>梯度下降法</strong>来优化模型。<strong>梯度</strong>指向函数增长最快的方向，对损失函数求梯度我们能得到函数上一点增长最快的<strong>向量</strong>。如同滑雪一样，当我们需要最快到达底部时，我们要让权重朝<strong>梯度的反方向</strong>移动。因此，我们对对数似然函数<strong>对权重</strong>求梯度：</p>
+\end{aligned}</script><h3 id="优化器：梯度下降法"><a href="#优化器：梯度下降法" class="headerlink" title="优化器：梯度下降法"></a>优化器：梯度下降法</h3><p>当然，我们希望同优化线性回归模型一样来优化对率回归模型。我们先对损失函数求导看看能不能找到解析解：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-\Delta J &= \sum_i^N y_i \mathbf{x}_i \sigma(1-\sigma) \frac{1}{\sigma} + (1-y_i)\mathbf{x}_i\frac{1}{1-\sigma}(-\sigma)(1-\sigma)\\
+\frac{\partial J}{\partial\mathbf{w}} &= \sum_i^N y_i \mathbf{x}_i \sigma(1-\sigma) \frac{1}{\sigma} + (1-y_i)\mathbf{x}_i\frac{1}{1-\sigma}(-\sigma)(1-\sigma)\\
 &= \sum_i^N y_i \mathbf{x}_i (1-\sigma) - (1-y_i)\mathbf{x}_i\sigma\\
 &= \sum_i^N (y_i -\sigma(\mathbf{w}^T\mathbf{x}))\mathbf{x}_i 
-\end{aligned}</script><p>显然由于只有当<script type="math/tex">\sigma(\mathbf{w}^T\mathbf{x})</script> 无限接近与<script type="math/tex">y_i</script>的时候或者<script type="math/tex">x</script>为零向量的时候可以得到极值。但是在大多数情况下这是不可能的，因此我们采用梯度下降法来对损失函数进行优化。梯度下降法的思想是，对模型迭代若干次，每次调整一小步权重<script type="math/tex">w</script> 使得损失函数向下移动，直到一个我们比较满意的位置为止：</p>
+\end{aligned}</script><p>显然由于只有当 <script type="math/tex">\sigma(\mathbf{w}^T\mathbf{x})</script> 等于 <script type="math/tex">y_i</script>的时候或者 x 为零向量的时候可以得到极值，但是这是不可能的：首先，由于 sigmoid 函数的特性，其输出值要等于 1 或者 0 的时候我们需要 <script type="math/tex">\mathbf{w}^T\mathbf{x}</script>为正负无穷；其次，当 x 为零向量，sigmoid 的函数值为 0.5，对此我们无法进行有效分类。而对于实际应用而言，我们不需要一个完美的模型，我们只需要模型的误差在容忍范围内即可（考虑到过拟合问题，我们实际上不应该寻求一个完美的模型）。</p>
+<p>我们可以用<strong>梯度下降法</strong>(gradient descent)来优化模型。想象一下爬山，当一只肥宅气喘吁吁爬到半山腰一脚踩空滚下去的时候(没有针对肥宅的意思，肥肥贴贴)什么时候能<strong>最快</strong>到坡底呢？肥宅滚下去的方向一定是<strong>最陡峭</strong>的方向。用数学语言说，就是瞬时变化率最大的方向。我们把表示这个方向的向量称作梯度。梯度是各维度偏导数在该点的值所组成的向量:</p>
+<script type="math/tex; mode=display">
+\nabla f(\mathbf{x})= \frac{\partial f}{\partial x_1}\vec i_1 + \frac{\partial f}{\partial x_2} \vec i_2 ...</script><p><img src="/images/gradient_descent.webp" alt></p>
+<p><strong>梯度</strong>指向函数增长最快的方向，当我们需要最快到达底部时，我们要让权重朝<strong>梯度的反方向</strong>移动。由于函数的梯度方向在各点不一定一致，所以我们每次只能前进一小步，然后修正方向直到最底端。这个步长被称作<strong>学习率</strong>，用 <script type="math/tex">\eta</script> 来表示。梯度下降法的算法如下：</p>
 <pre><code>while stopping criteria:
-    w &lt;- w - eta * Delta
-</code></pre><!-- TODO: 对率回归实现 -->
-<h3 id="非线性问题的处理"><a href="#非线性问题的处理" class="headerlink" title="非线性问题的处理"></a>非线性问题的处理</h3><p>线性模型有一个弱点体现在它的名字里面：对于非线性问题，单纯的线性模型没有很好的解决方案。<br>举个例子，线性模型对 XOR 没有很好的处理方案：<br>|   |x1| x2|<br>|x1| 0 | 1 |<br>|x2| 1 | 0 | </p>
+    $$w &lt;- w - \eta \Nabla J$$
+</code></pre><p>算法停止的条件，一般可以使用在测试集上的表现进行判断：当在测试集上计算的损失函数值不再改变或者改变量很小的时候，就可以停止算法进行输出；也可以指定循环个数，然后输出表现最好的权重。</p>
+<p>由于对于梯度的计算使用了整个数据集，每次更新梯度都需要对整个数据集进行计算，这导致了我们的算法会变得很慢。解决的方法，有<strong>随机梯度下降</strong>(stochastic gradient descent) 与<strong>批量梯度下降</strong>(batch stochastic gradient descent)<del>不要随便透</del>两种。随机梯度下降指的是，每次从数据集中抽取一条数据计算损失函数的梯度，进行更新。批梯度下降介于随机梯度下降与全数据集梯度下降之间，每次抽取“一批”数量的数据进行梯度下降。这三者的期望相同，意味着只要运行足够长的时间，这三个算法都会收敛到同一个极小点。其中，随机梯度下降由于每次只选用一个数据进行计算，噪音比较大，下降的过程会比较“波折”。而批量梯度下降是效率与稳定性的折中，更加实用。</p>
+<!-- TODO: 对率回归实现 -->
+<h2 id="非线性问题的处理"><a href="#非线性问题的处理" class="headerlink" title="非线性问题的处理"></a>非线性问题的处理</h2><p>线性模型有一个弱点体现在它的名字里面：对于非线性问题，单纯的线性模型没有很好的解决方案。<br>举个例子，线性模型对 XOR 没有很好的处理方案：<br>|   |x1| x2|<br>|—|—|—|<br>|x1| 0 | 1 |<br>|x2| 1 | 0 | </p>
 <p>在二维空间，这四个点为：<code>-(0,0)</code>, <code>+(0,1)</code>, <code>+(1,0)</code>, <code>-(1,1)</code>。<br>我们很难找到一个线性函数很好地将这四个特征点分开。但是如果我们能将其映射到三维空间，这四个点变为：<br><code>-(0,0,0)</code>, <code>+(0,1,0)</code>, <code>+(1,0,0)</code>, <code>(-1,1,1)</code>。<br>可以看出，在三维空间，我们可以找到一个平面将这四点正确地分开。这启发了我们：诸如二次函数这种在低维空间是非线性的数据，在高维空间有可能能够用线性模型进行处理。我们令这个到高维的映射为<script type="math/tex">\mathbf{\phi}</script>，线性模型变为如下形式：</p>
 <script type="math/tex; mode=display">
 f(\mathbf{x}) = \mathbf{\phi}(\mathbf{w})^T\mathbf{x}</script><p>其中，<script type="math/tex">\phi</script> 的映射用向量形式表示为：</p>
@@ -391,9 +398,13 @@ f(\mathbf{x}) = \mathbf{\phi}(\mathbf{w})^T\mathbf{x}</script><p>其中，<scrip
 <li>径向基函数(RBF)，这是一种类似于高斯函数的函数:<script type="math/tex">\exp(-(\mathbf{x} - \mathbf{c})^T(\mathbf{x}-\mathbf{c})/h^2</script> </li>
 <li>logisitic-sigmoid 函数： <script type="math/tex">1/(1+\exp(-\mathbf{v}^T\mathbf{x}-b))</script></li>
 </ol>
-<!-- TODO: 基函数回归/分类 -->
-</article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/ml/"><span class="tag">ml</span></a><a href="/tags/西瓜书/"><span class="tag">西瓜书</span></a></div><div class="share"><div class="social-share" data-image="/images/avatar.png" data-sites="weibo,wechat,qq,twitter,facebook"></div><script src="/thirdparty/sharejs/dist/js/share.min.js"></script></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><script>configMath()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+<!-- TODO: 基函数回归/分类 --></article><div class="post-footer"><div class="tags"><span><i class="fas fa-tag"></i></span><a href="/tags/ml/"><span class="tag">ml</span></a><a href="/tags/西瓜书/"><span class="tag">西瓜书</span></a></div><div class="share"><div class="social-share" data-image="https://i.loli.net/2020/04/09/NvzO4kd2RoyfD8X.jpg" data-sites="weibo,wechat,qq,twitter,facebook"></div><script src="/thirdparty/sharejs/dist/js/share.min.js"></script></div></div></div><footer><div><span>Site construction by</span><span> MeowAlien喵星人 </span><span>using </span><span></span><a href="http://hexo.io">hexo</a><span>.</span><br></div></footer></div></div><script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/sprinter.js"></script><script>configMath()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
   "HTML-CSS": { linebreaks: { automatic: true } },
   SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Queue({
+  function(){
+    // $('.MathJax_Display').wrap("<div class='formula'></div>")
+  }
 });
 </script><script id="MathJax-script" src="//cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="/thirdparty/highlightjs/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>

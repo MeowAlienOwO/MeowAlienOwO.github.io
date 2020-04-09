@@ -121,6 +121,11 @@
   text-align: justify;
   text-justify: ideographic;
 }
+.md-article .mjx-chtml {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  max-width: 100%;
+}
 .md-article code {
   display: inline-block;
   background: #eee;
@@ -173,8 +178,13 @@
   text-decoration: underline;
 }
 .md-article pre {
-  padding: 0.8rem;
   border-radius: 5px;
+  width: 90%;
+  margin: auto;
+}
+.md-article pre code {
+  padding: 0.8rem;
+  width: 100%;
 }
 .md-article blockquote {
   width: 90%;

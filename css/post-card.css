@@ -64,11 +64,18 @@
   box-shadow: 2px 2px 5px 2px #aaa;
 }
 .post-card .post-title {
-  padding: 0 5% ;
+  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-content: flex-start;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+@media screen and (max-width: 600px) {
+  .post-card .post-title {
+    flex-direction: column;
+    text-align: center;
+    margin: 3px 0;
+  }
 }
 .post-card .post-title .post-title-text {
   display: block;
@@ -92,7 +99,8 @@
 @media screen and (max-width: 600px) {
   .post-card .post-title .post-date {
     font-size: 10px;
-    padding: 0 5px;
+    padding: 0 3px;
+    margin: 3px 0;
   }
 }
 .post-card .post-excerpt {

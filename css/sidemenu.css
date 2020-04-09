@@ -130,7 +130,7 @@
 }
 @media screen and (max-width: 600px) {
   .avatar {
-    height: 50px;
+    height: 150px;
   }
 }
 .avatar .avatar-black {
@@ -141,7 +141,7 @@
 }
 @media screen and (max-width: 600px) {
   .avatar .avatar-black {
-    height: 50px;
+    height: 150px;
   }
 }
 .avatar img {
@@ -157,17 +157,10 @@
 }
 @media screen and (max-width: 600px) {
   .avatar img {
-    width: 40px;
-    height: 40px;
-    top: -45px;
+    width: 100px;
+    height: 100px;
+    top: -75px;
     border: 1px solid white;
-  }
-}
-@media screen and (max-width: 600px) {
-  .mobile-dropdown {
-    display: none;
-    padding: 10px 0;
-    background: white;
   }
 }
 .author {
@@ -178,7 +171,7 @@
 }
 @media screen and (max-width: 600px) {
   .author {
-    margin: 5px 0;
+    margin: 30px 0;
   }
 }
 .author h1 {
@@ -208,11 +201,6 @@
   color: #666;
   margin: 5px 0;
 }
-@media screen and (max-width: 600px) {
-  .motto h3 {
-    font-size: 12px;
-  }
-}
 .motto h3:before {
   content: ' “ ';
   font-size: 28px;
@@ -221,7 +209,7 @@
 }
 @media screen and (max-width: 600px) {
   .motto h3:before {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 .motto h3:after {
@@ -232,7 +220,7 @@
 }
 @media screen and (max-width: 600px) {
   .motto h3:after {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 nav {
@@ -258,18 +246,12 @@ nav {
 }
 @media screen and (max-width: 600px) {
   .menu {
-    flex-direction: row;
     margin: 5px 0;
   }
 }
 .menu li {
   display: block;
   margin: 10px 0;
-}
-@media screen and (max-width: 600px) {
-  .menu li {
-    margin: 0;
-  }
 }
 .menu li a {
   font-family: 'OneDay', sans-serif;
@@ -280,11 +262,6 @@ nav {
 }
 .menu li a:hover {
   text-decoration: underline;
-}
-@media screen and (max-width: 600px) {
-  .menu li a {
-    font-size: 14px;
-  }
 }
 .social {
   width: 60%;
@@ -311,8 +288,8 @@ nav {
 }
 @media screen and (max-width: 600px) {
   .social a.social-icon {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
   }
 }
 .social a.social-icon:hover {
@@ -324,6 +301,26 @@ nav {
 }
 @media screen and (max-width: 600px) {
   .social a.social-icon i {
-    font-size: calc(20px - 2px);
+    font-size: calc(30px - 2px);
+  }
+}
+@media screen and (max-width: 600px) {
+  aside.activate {
+    opacity: 1;
+    top: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  aside {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    top: -100vh;
+    width: 100%;
+    opacity: 0;
+    height: calc(100vh - 50px);
+    transition: all 0.5s ease;
   }
 }
